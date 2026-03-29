@@ -3,366 +3,632 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Salon Urody Róza - Profesjonalny Salon Beauty Warszawa</title>
-  <meta name="description" content="Salon Urody Róza w Warszawie. Manicure hybrydowy, stylizacja rzęs i brwi, makijaż okolicznościowy i zabiegi na twarz. Umów wizytę już dziś.">
-  <meta name="keywords" content="salon urody, salon beauty, manicure hybrydowy, pedicure, stylizacja rzęs, brwi, makijaż, zabiegi na twarz, Warszawa">
-  <meta name="author" content="Salon Urody Róza">
-  <meta property="og:title" content="Salon Urody Róza - Profesjonalny Salon Beauty Warszawa">
-  <meta property="og:description" content="Manicure hybrydowy, stylizacja rzęs i brwi, makijaż i zabiegi pielęgnacyjne w samym sercu Warszawy.">
+  <title>AMICO Pracownia Kamieniarska – Marmur, Granit, Kamień Naturalny | Łódź</title>
+  <meta name="description" content="AMICO Pracownia Kamieniarska – blaty kuchenne, schody, parapety, nagrobki z marmuru, granitu i kamienia naturalnego. Bedoń k. Łodzi. Tel: 693 040 609">
+  <meta name="keywords" content="pracownia kamieniarska, blaty kuchenne marmur, schody granit, parapety kamień, nagrobki, marmur łódź, kamień naturalny, amico">
+  <meta name="author" content="AMICO Pracownia Kamieniarska">
+  <meta property="og:title" content="AMICO Pracownia Kamieniarska – Marmur, Granit, Kamień Naturalny">
+  <meta property="og:description" content="Tworzymy z kamienia rzeczy wyjątkowe. Blaty, schody, parapety, posadzki, nagrobki z marmuru i granitu. Bedoń k. Łodzi.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1200&q=80">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230d1b3e'/><text y='72' x='10' font-size='68' font-family='serif' font-weight='900' fill='white'>A</text><rect x='46' y='14' width='24' height='54' rx='3' fill='%23c9a227'/><text y='72' x='46' font-size='68' font-family='serif' font-weight='900' fill='white'>M</text></svg>">
 </head>
 <body>
 
+<!-- ============================================================ PRELOADER -->
 <div id="preloader">
-  <div class="loader-petal"></div>
-  <span>Salon Urody Róza&hellip;</span>
+  <div class="preloader-logo">
+    <div class="pl-mark">
+      <span class="pl-a">A</span><span class="pl-m-box"><span class="pl-m">M</span></span><span class="pl-ico">ICO</span>
+    </div>
+    <div class="pl-tag">Pracownia Kamieniarska</div>
+  </div>
+  <div class="pl-bar"><div class="pl-fill"></div></div>
 </div>
 
+<!-- ============================================================ NAVBAR -->
 <header class="navbar" id="navbar">
-  <div class="logo"><span>Salon Urody</span><strong>Róza</strong></div>
+  <a href="#hero" class="logo">
+    <div class="logo-mark">
+      <span class="logo-a">A</span><span class="logo-m-box"><span class="logo-m">M</span></span><span class="logo-ico">ICO</span>
+    </div>
+    <div class="logo-tagline">Pracownia Kamieniarska</div>
+  </a>
 
   <nav class="nav-links">
     <a href="#about">O nas</a>
-    <a href="#services">Usługi</a>
-    <a href="#gallery">Galeria</a>
+    <a href="#services">Oferta</a>
+    <a href="#gallery">Realizacje</a>
+    <a href="#process">Proces</a>
     <a href="#testimonials">Opinie</a>
     <a href="#contact">Kontakt</a>
   </nav>
 
-  <a href="#contact" class="btn btn-primary btn-sm nav-cta">Umów wizytę</a>
+  <a href="#contact" class="btn btn-gold btn-sm nav-cta">Bezpłatna wycena</a>
 
   <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
 
+<!-- ============================================================ MOBILE NAV -->
 <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <a href="#about"        onclick="closeMobile()">O nas</a>
-  <a href="#services"     onclick="closeMobile()">Usługi</a>
-  <a href="#gallery"      onclick="closeMobile()">Galeria</a>
-  <a href="#testimonials" onclick="closeMobile()">Opinie</a>
-  <a href="#faq"          onclick="closeMobile()">FAQ</a>
-  <a href="#contact"      onclick="closeMobile()">Kontakt</a>
-  <a href="#contact" class="btn btn-primary" onclick="closeMobile()">Umów wizytę</a>
+  <a href="#about"         onclick="closeMobile()">O nas</a>
+  <a href="#services"      onclick="closeMobile()">Oferta</a>
+  <a href="#gallery"       onclick="closeMobile()">Realizacje</a>
+  <a href="#process"       onclick="closeMobile()">Proces</a>
+  <a href="#testimonials"  onclick="closeMobile()">Opinie</a>
+  <a href="#faq"           onclick="closeMobile()">FAQ</a>
+  <a href="#contact"       onclick="closeMobile()">Kontakt</a>
+  <a href="#contact" class="btn btn-gold" onclick="closeMobile()">Bezpłatna wycena</a>
 </nav>
 
+<!-- ============================================================ HERO -->
 <section id="hero" class="hero">
-  <div class="hero-bg" id="heroBg">
+  <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+
+  <div class="hero-img-wrap">
     <img
-      src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1600&q=80"
-      alt="Wnętrze Salonu Urody Róza - eleganckie i przytulne miejsce"
+      src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1920&q=90"
+      alt="Luksusowe blaty z marmuru – AMICO Pracownia Kamieniarska"
       class="hero-img"
       loading="eager"
+      fetchpriority="high"
     >
     <div class="hero-overlay"></div>
   </div>
 
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Salon urody w Warszawie
+    <div class="hero-eyebrow reveal-hero">
+      <span class="hero-dot"></span>
+      Pracownia Kamieniarska AMICO – Bedoń k. Łodzi
     </div>
 
-    <h1>Odkryj swoją<br>naturalną<br><em>piękność</em></h1>
+    <h1 class="hero-title reveal-hero delay-1">
+      Tworzymy<br>z <em>kamienia</em><br>wyjątkowość
+    </h1>
 
-    <p class="hero-sub">
-      Zadbamy o Ciebie z dbałością o każdy detal. Manicure, rzęsy, brwi, makijaż i zabiegi pielęgnacyjne - wszystko w jednym, pięknym miejscu.
+    <p class="hero-sub reveal-hero delay-2">
+      Marmur, granit, kwarcyt — każdy projekt to dzieło sztuki wykonane z pasją.<br>
+      Blaty, schody, parapety, posadzki i nagrobki najwyższej klasy.
     </p>
 
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-white">Umów wizytę</a>
-      <a href="#services" class="btn btn-outline">Nasze usługi</a>
+    <div class="hero-actions reveal-hero delay-3">
+      <a href="#contact" class="btn btn-gold btn-lg">
+        <span>Bezpłatna wycena</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#gallery" class="btn btn-outline-white btn-lg">Nasze realizacje</a>
     </div>
   </div>
 
-  <div class="hero-stats">
+  <div class="hero-stats reveal-hero delay-4">
     <div class="stat-item">
-      <span class="stat-num" data-target="1200">0</span>
-      <span class="stat-label">Zadowolonych klientek</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num" data-target="8">0</span>
+      <span class="stat-num" data-target="20">0</span><span class="stat-suffix">+</span>
       <span class="stat-label">Lat doświadczenia</span>
     </div>
+    <div class="stat-sep"></div>
     <div class="stat-item">
-      <span class="stat-num" data-target="18">0</span>
-      <span class="stat-label">Usług premium</span>
+      <span class="stat-num" data-target="3000">0</span><span class="stat-suffix">+</span>
+      <span class="stat-label">Zrealizowanych projektów</span>
     </div>
+    <div class="stat-sep"></div>
     <div class="stat-item">
-      <span class="stat-num" data-target="4.9">0</span>
-      <span class="stat-label">Średnia ocena</span>
+      <span class="stat-num" data-target="100">0</span><span class="stat-suffix">%</span>
+      <span class="stat-label">Satysfakcji klientów</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="50">0</span><span class="stat-suffix">+</span>
+      <span class="stat-label">Gatunków kamienia</span>
     </div>
   </div>
 
-  <div class="scroll-arrow" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 5v14M5 12l7 7 7-7"/>
-    </svg>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Przewiń</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
 
+<!-- ============================================================ TRUSTED STRIP -->
+<section class="trust-strip">
+  <div class="trust-inner" aria-hidden="true">
+    <span class="trust-item">✦ Własny zakład produkcyjny</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Kamień z całego świata</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Bezpłatna wycena</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Kompleksowy montaż</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Projekty indywidualne</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Gwarancja jakości</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Własny zakład produkcyjny</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Kamień z całego świata</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Bezpłatna wycena</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Kompleksowy montaż</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Projekty indywidualne</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item">✦ Gwarancja jakości</span>
+    <span class="trust-sep">|</span>
+  </div>
+</section>
+
+<!-- ============================================================ ABOUT -->
 <section id="about" class="section about">
   <div class="about-grid container">
-    <div class="about-text reveal">
-      <span class="section-label">O nas</span>
-      <h2 class="section-title">Pielęgnujemy z <span>pasją</span></h2>
-      <p class="section-sub" style="margin-bottom:32px">
-        Salon Urody Róza to miejsce stworzone dla kobiet, które cenią siebie. Od 2016 roku pomagamy naszym klientkom poczuć się pięknie, zrelaksowane i pewnie. Każdy zabieg traktujemy indywidualnie - z uwagą i dbałością o każdy detal.
+
+    <div class="about-visual reveal">
+      <div class="about-img-frame">
+        <img
+          src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=85"
+          alt="Elegancki blat z naturalnego kamienia – AMICO"
+          loading="lazy"
+        >
+      </div>
+      <div class="about-badge-card">
+        <div class="badge-icon">✦</div>
+        <div>
+          <strong>Ponad 20 lat</strong>
+          <span>tradycji i doskonałości</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-text reveal reveal-delay-2">
+      <span class="section-label">O pracowni</span>
+      <h2 class="section-title">Pasja do kamienia,<br><span>precyzja w każdym detalu</span></h2>
+      <p class="section-sub">
+        AMICO to pracownia kamieniarska z wieloletnią tradycją, zlokalizowana w Bedoniu koło Łodzi. Specjalizujemy się w obróbce i montażu kamienia naturalnego — marmuru, granitu, kwarcytu, trawertynu i wielu innych.
+      </p>
+      <p class="about-desc">
+        Każdy projekt traktujemy indywidualnie. Od pierwszego spotkania, przez projekt, aż po finalne wykończenie i montaż — towarzyszymy klientowi na każdym etapie realizacji. Nasz własny zakład produkcyjny gwarantuje najwyższą jakość i krótkie terminy realizacji.
       </p>
 
       <div class="about-features">
-        <div class="about-feature-item">
-          <span class="ico">🌹</span>
-          <div><strong>Doświadczone specjalistki</strong><span>Certyfikowane, z pasją do piękna</span></div>
+        <div class="about-feat">
+          <div class="feat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <strong>Własny zakład produkcyjny</strong>
+            <span>Pełna kontrola nad jakością i terminami</span>
+          </div>
         </div>
-        <div class="about-feature-item">
-          <span class="ico">✨</span>
-          <div><strong>Produkty premium</strong><span>Tylko najwyżej oceniane marki</span></div>
+        <div class="about-feat">
+          <div class="feat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <strong>Szybka realizacja</strong>
+            <span>Dotrzymujemy ustalonych terminów</span>
+          </div>
         </div>
-        <div class="about-feature-item">
-          <span class="ico">🕊️</span>
-          <div><strong>Spokój i relaks</strong><span>Atmosfera jak w prywatnym spa</span></div>
+        <div class="about-feat">
+          <div class="feat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div>
+            <strong>Indywidualne podejście</strong>
+            <span>Każdy projekt realizujemy z pasją</span>
+          </div>
         </div>
-        <div class="about-feature-item">
-          <span class="ico">💛</span>
-          <div><strong>Indywidualne podejście</strong><span>Słuchamy i doradzamy z sercem</span></div>
+        <div class="about-feat">
+          <div class="feat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div>
+            <strong>Gwarancja jakości</strong>
+            <span>Używamy wyłącznie certyfikowanych materiałów</span>
+          </div>
         </div>
       </div>
+
+      <a href="#contact" class="btn btn-gold">Poznaj naszą ofertę</a>
     </div>
 
-    <div class="about-visual reveal reveal-delay-2">
-      <img
-        src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80"
-        alt="Wnętrze Salonu Urody Róza - eleganckie i nowoczesne"
-        class="about-photo"
-        loading="lazy"
-      >
-      <div class="about-badge">
-        <span class="big">4.9</span>
-        <div>
-          <strong>Ocena Google</strong>
-          <small>1 200+ opinii klientek</small>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
+<!-- ============================================================ SERVICES -->
 <section id="services" class="section services">
   <div class="container text-center">
-    <span class="section-label reveal">Nasze Usługi</span>
-    <h2 class="section-title reveal">Co robimy <span>najlepiej?</span></h2>
-    <p class="section-sub reveal">Każdy zabieg wykonujemy z najwyższą starannością i przy użyciu sprawdzonych produktów.</p>
+    <span class="section-label reveal">Nasza oferta</span>
+    <h2 class="section-title reveal">Co tworzymy<br><span>z kamienia?</span></h2>
+    <p class="section-sub reveal">Kompleksowa obróbka i montaż kamienia naturalnego — od projektu do gotowej realizacji.</p>
   </div>
 
-  <div class="services-grid">
-    <article class="service-card reveal">
+  <div class="services-grid container">
+
+    <article class="service-card reveal" data-tilt>
       <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&q=80" alt="Manicure hybrydowy - Salon Urody Róza" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=80" alt="Blaty kuchenne z marmuru – AMICO" loading="lazy">
+        <div class="service-img-overlay"></div>
       </div>
       <div class="service-body">
-        <h3>Manicure hybrydowy</h3>
-        <p>Trwały, estetyczny i szybki. Manicure hybrydowy, żelowy i tytanowy - idealny na każdą okazję i w każdym kolorze.</p>
-        <div class="service-footer">
-          <span class="service-price">od 120 zł</span>
-          <a href="#contact" class="btn-text">Zobacz szczegóły</a>
-        </div>
+        <div class="service-num">01</div>
+        <h3>Blaty kuchenne</h3>
+        <p>Marmurowe, granitowe i kwarcowe blaty kuchenne — odporne, eleganckie i niepowtarzalne. Wykonujemy niestandardowe kształty i rozmiary.</p>
+        <a href="#contact" class="service-link">
+          Zapytaj o wycenę
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </article>
 
-    <article class="service-card reveal reveal-delay-1">
+    <article class="service-card reveal reveal-delay-1" data-tilt>
       <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=500&q=80" alt="Pedicure - Salon Urody Róza" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80" alt="Schody kamienne z granitu – AMICO" loading="lazy">
+        <div class="service-img-overlay"></div>
       </div>
       <div class="service-body">
-        <h3>Pedicure</h3>
-        <p>Zadbane i piękne stopy przez cały rok. Pedicure klasyczny, hybrydowy i zdrowotny - dla prawdziwego komfortu.</p>
-        <div class="service-footer">
-          <span class="service-price">od 90 zł</span>
-          <a href="#contact" class="btn-text">Zobacz szczegóły</a>
-        </div>
+        <div class="service-num">02</div>
+        <h3>Schody kamienne</h3>
+        <p>Stopnie, podstopnie, podesty i balustrady z kamienia naturalnego. Trwałe, reprezentacyjne i odporne na codzienne użytkowanie.</p>
+        <a href="#contact" class="service-link">
+          Zapytaj o wycenę
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </article>
 
-    <article class="service-card reveal reveal-delay-2">
+    <article class="service-card reveal reveal-delay-2" data-tilt>
       <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=500&q=80" alt="Stylizacja brwi - Salon Urody Róza" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?w=600&q=80" alt="Parapety z kamienia – AMICO" loading="lazy">
+        <div class="service-img-overlay"></div>
       </div>
       <div class="service-body">
-        <h3>Stylizacja brwi</h3>
-        <p>Regulacja, henna pudrowa, laminacja brwi. Idealne brwi definiują twarz i wzmacniają naturalne spojrzenie.</p>
-        <div class="service-footer">
-          <span class="service-price">od 80 zł</span>
-          <a href="#contact" class="btn-text">Zobacz szczegóły</a>
-        </div>
+        <div class="service-num">03</div>
+        <h3>Parapety</h3>
+        <p>Wewnętrzne i zewnętrzne parapety z granitu i marmuru. Eleganckie wykończenie każdego okna — odporne na warunki atmosferyczne.</p>
+        <a href="#contact" class="service-link">
+          Zapytaj o wycenę
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </article>
 
-    <article class="service-card featured reveal reveal-delay-1">
+    <article class="service-card reveal" data-tilt>
       <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80" alt="Stylizacja rzęs - Salon Urody Róza" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80" alt="Posadzki i podłogi z kamienia – AMICO" loading="lazy">
+        <div class="service-img-overlay"></div>
       </div>
       <div class="service-body">
-        <h3>Stylizacja rzęs</h3>
-        <p>Przedłużanie 1:1, 2-3D i mega volume. Lifting i laminacja. Efekt, który zostaje na 4-6 tygodni.</p>
-        <div class="service-footer">
-          <span class="service-price">od 180 zł</span>
-          <a href="#contact" class="btn-text">Zobacz szczegóły</a>
-        </div>
+        <div class="service-num">04</div>
+        <h3>Posadzki i podłogi</h3>
+        <p>Podłogi z marmuru, granitu i kamienia naturalnego. Niepowtarzalne wzory, mozaiki i układy dopasowane do każdego wnętrza.</p>
+        <a href="#contact" class="service-link">
+          Zapytaj o wycenę
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </article>
 
-    <article class="service-card reveal reveal-delay-2">
+    <article class="service-card reveal reveal-delay-1" data-tilt>
       <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=500&q=80" alt="Makijaż okolicznościowy - Salon Urody Róza" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Łazienki z marmuru – AMICO" loading="lazy">
+        <div class="service-img-overlay"></div>
       </div>
       <div class="service-body">
-        <h3>Makijaż okolicznościowy</h3>
-        <p>Dzienny, wieczorowy, ślubny. Smoky eye, glow, naturalne - każdy styl dopasowany do Twojej osobowości.</p>
-        <div class="service-footer">
-          <span class="service-price">od 200 zł</span>
-          <a href="#contact" class="btn-text">Zobacz szczegóły</a>
-        </div>
+        <div class="service-num">05</div>
+        <h3>Łazienki</h3>
+        <p>Okładziny ścienne, podłogi, umywalki, wanny i kabiny prysznicowe z kamienia naturalnego. Luksusowe łazienki marzeń.</p>
+        <a href="#contact" class="service-link">
+          Zapytaj o wycenę
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </article>
 
-    <article class="service-card reveal reveal-delay-3">
+    <article class="service-card reveal reveal-delay-2" data-tilt>
       <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&q=80" alt="Zabiegi na twarz - Salon Urody Róza" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1510172951991-856a654063f9?w=600&q=80" alt="Nagrobki i pomniki – AMICO" loading="lazy">
+        <div class="service-img-overlay"></div>
       </div>
       <div class="service-body">
-        <h3>Zabiegi na twarz</h3>
-        <p>Oczyszczanie, mikrodermabrazja, lifting, masaże twarzy. Skóra promienna, odświeżona i pełna blasku.</p>
-        <div class="service-footer">
-          <span class="service-price">od 150 zł</span>
-          <a href="#contact" class="btn-text">Zobacz szczegóły</a>
-        </div>
+        <div class="service-num">06</div>
+        <h3>Nagrobki i pomniki</h3>
+        <p>Trwałe i dostojne nagrobki z granitu i marmuru. Wykonujemy inskrypcje, zdjęcia ceramiczne i wszelką obsługę kamieniarską cmentarzy.</p>
+        <a href="#contact" class="service-link">
+          Zapytaj o wycenę
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </article>
+
+    <article class="service-card reveal" data-tilt>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="Kominki z kamienia – AMICO" loading="lazy">
+        <div class="service-img-overlay"></div>
+      </div>
+      <div class="service-body">
+        <div class="service-num">07</div>
+        <h3>Kominki i obudowy</h3>
+        <p>Obudowy kominków, półki i elementy dekoracyjne z kamienia naturalnego. Elegancja i bezpieczeństwo w jednym.</p>
+        <a href="#contact" class="service-link">
+          Zapytaj o wycenę
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <article class="service-card reveal reveal-delay-1" data-tilt>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=600&q=80" alt="Elementy małej architektury – AMICO" loading="lazy">
+        <div class="service-img-overlay"></div>
+      </div>
+      <div class="service-body">
+        <div class="service-num">08</div>
+        <h3>Mała architektura</h3>
+        <p>Fontanny, rzeźby ogrodowe, murki, elementy elewacyjne i wszelkie kamienne akcenty architektoniczne na zamówienie.</p>
+        <a href="#contact" class="service-link">
+          Zapytaj o wycenę
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+
   </div>
 </section>
 
-<section class="section how-it-works">
-  <div class="container text-center">
-    <span class="section-label reveal">Jak to działa?</span>
-    <h2 class="section-title reveal">Twoja wizyta w <span>3 krokach</span></h2>
-    <p class="section-sub reveal">Umów się telefonicznie, przez formularz lub odwiedź nas osobiście.</p>
-  </div>
-
-  <div class="steps-grid">
-    <div class="step-item reveal">
-      <div class="step-num">1</div>
-      <h3>Skontaktuj się z nami</h3>
-      <p>Zadzwoń, napisz lub wypełnij formularz kontaktowy - odpowiemy tak szybko, jak to możliwe.</p>
-    </div>
-    <div class="step-item reveal reveal-delay-1">
-      <div class="step-num">2</div>
-      <h3>Wybierz usługę i termin</h3>
-      <p>Razem dobierzemy zabieg dopasowany do Twoich potrzeb i znajdziemy pasujący termin.</p>
-    </div>
-    <div class="step-item reveal reveal-delay-2">
-      <div class="step-num">3</div>
-      <h3>Ciesz się efektem</h3>
-      <p>Zapraszamy do naszego salonu w Warszawie. Zadbamy o Twój komfort i wyjdziesz z poczuciem, że wyglądasz doskonale.</p>
-    </div>
-  </div>
-</section>
-
+<!-- ============================================================ GALLERY -->
 <section id="gallery" class="section gallery">
   <div class="container text-center">
-    <span class="section-label reveal">Galeria</span>
-    <h2 class="section-title reveal">Nasze <span>realizacje</span></h2>
-    <p class="section-sub reveal">Zdjęcia mówią więcej niż słowa. Zobacz, co tworzymy każdego dnia.</p>
+    <span class="section-label reveal">Nasze realizacje</span>
+    <h2 class="section-title reveal">Galeria <span>kamiennych dzieł</span></h2>
+    <p class="section-sub reveal">Każdy projekt to unikalne połączenie naturalnego piękna kamienia i rzemieślniczej precyzji.</p>
   </div>
 
-  <div class="gallery-grid">
-    <div class="gallery-item reveal">
-      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80" alt="Manicure hybrydowy - Salon Urody Róza" loading="lazy">
-      <span class="gallery-label">Manicure hybrydowy</span>
+  <div class="gallery-grid container">
+    <div class="g-item g-tall reveal" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=700&q=85" alt="Biały blat kuchenny z marmuru Calacatta" loading="lazy">
+      <div class="g-overlay"><span>Blat kuchenny – Marmur Calacatta</span></div>
     </div>
-    <div class="gallery-item tall reveal reveal-delay-1">
-      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Stylizacja rzęs - Salon Urody Róza" loading="lazy">
-      <span class="gallery-label">Stylizacja rzęs</span>
+    <div class="g-item reveal reveal-delay-1" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=700&q=85" alt="Elegancki blat z kamienia naturalnego" loading="lazy">
+      <div class="g-overlay"><span>Blat – Kamień naturalny</span></div>
     </div>
-    <div class="gallery-item reveal reveal-delay-2">
-      <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="Stylizacja brwi - Salon Urody Róza" loading="lazy">
-      <span class="gallery-label">Stylizacja brwi</span>
+    <div class="g-item reveal reveal-delay-2" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=700&q=85" alt="Schody z jasnego granitu" loading="lazy">
+      <div class="g-overlay"><span>Schody – Granit jasny</span></div>
     </div>
-    <div class="gallery-item wide reveal reveal-delay-2">
-      <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=80" alt="Makijaż ślubny - Salon Urody Róza" loading="lazy">
-      <span class="gallery-label">Makijaż ślubny</span>
+    <div class="g-item g-wide reveal" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=900&q=85" alt="Łazienka z marmurem – ściany i podłoga" loading="lazy">
+      <div class="g-overlay"><span>Łazienka – Marmur biały</span></div>
     </div>
-    <div class="gallery-item reveal reveal-delay-3">
-      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt="Zabiegi na twarz - Salon Urody Róza" loading="lazy">
-      <span class="gallery-label">Zabiegi na twarz</span>
+    <div class="g-item reveal reveal-delay-1" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=700&q=85" alt="Posadzka z jasnego marmuru" loading="lazy">
+      <div class="g-overlay"><span>Posadzka – Marmur jasny</span></div>
     </div>
-    <div class="gallery-item reveal reveal-delay-4">
-      <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80" alt="Pedicure - Salon Urody Róza" loading="lazy">
-      <span class="gallery-label">Pedicure</span>
+    <div class="g-item reveal reveal-delay-2" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=85" alt="Eleganckie wnętrze z kamieniem naturalnym" loading="lazy">
+      <div class="g-overlay"><span>Wnętrze – Kamień dekoracyjny</span></div>
+    </div>
+    <div class="g-item reveal" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?w=700&q=85" alt="Parapety granitowe wewnętrzne" loading="lazy">
+      <div class="g-overlay"><span>Parapety – Granit czarny</span></div>
+    </div>
+    <div class="g-item g-tall reveal reveal-delay-1" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=700&q=85" alt="Ciemny marmur – blat wyspowy" loading="lazy">
+      <div class="g-overlay"><span>Blat wyspowy – Marmur ciemny</span></div>
+    </div>
+    <div class="g-item reveal reveal-delay-2" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=700&q=85" alt="Posadzka marmurowa – wzór geometryczny" loading="lazy">
+      <div class="g-overlay"><span>Posadzka – Wzór geometryczny</span></div>
+    </div>
+  </div>
+
+  <div class="text-center" style="margin-top:3rem">
+    <a href="#contact" class="btn btn-gold reveal">Zapytaj o realizację dla Ciebie</a>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()" aria-modal="true" role="dialog" aria-label="Podgląd zdjęcia">
+  <button class="lb-close" onclick="closeLightbox()" aria-label="Zamknij">&times;</button>
+  <img id="lbImg" src="" alt="">
+  <p id="lbCaption" class="lb-caption"></p>
+</div>
+
+<!-- ============================================================ PROCESS -->
+<section id="process" class="section process">
+  <div class="container text-center">
+    <span class="section-label reveal">Jak pracujemy</span>
+    <h2 class="section-title reveal">Od pomysłu do <span>gotowej realizacji</span></h2>
+    <p class="section-sub reveal">Przeprowadzamy Cię przez każdy etap — sprawnie, profesjonalnie i bez zbędnego stresu.</p>
+  </div>
+
+  <div class="process-grid container">
+    <div class="process-item reveal">
+      <div class="process-num">01</div>
+      <div class="process-line"></div>
+      <div class="process-body">
+        <h3>Bezpłatna konsultacja</h3>
+        <p>Spotkanie w pracowni lub u klienta. Omawiamy projekt, potrzeby i budżet. Prezentujemy dostępne gatunki kamienia i możliwości.</p>
+      </div>
+    </div>
+    <div class="process-item reveal reveal-delay-1">
+      <div class="process-num">02</div>
+      <div class="process-line"></div>
+      <div class="process-body">
+        <h3>Pomiar i projekt</h3>
+        <p>Dokładny pomiar na miejscu. Przygotowujemy projekt techniczny i wizualizację. Ustalamy szczegóły wykończenia i montażu.</p>
+      </div>
+    </div>
+    <div class="process-item reveal reveal-delay-2">
+      <div class="process-num">03</div>
+      <div class="process-line"></div>
+      <div class="process-body">
+        <h3>Produkcja w zakładzie</h3>
+        <p>Cięcie, szlifowanie i polerowanie kamienia we własnym zakładzie. Pełna kontrola nad każdym etapem obróbki.</p>
+      </div>
+    </div>
+    <div class="process-item reveal reveal-delay-3">
+      <div class="process-num">04</div>
+      <div class="process-body">
+        <h3>Montaż i odbiór</h3>
+        <p>Profesjonalny montaż przez doświadczony zespół. Dbamy o każdy detal. Przekazujemy projekt z gwarancją i serwisem posprzedażowym.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================================ WHY US -->
+<section class="section why-us">
+  <div class="why-grid container">
+    <div class="why-text reveal">
+      <span class="section-label">Dlaczego AMICO?</span>
+      <h2 class="section-title">Wybierz <span>sprawdzoną pracownię</span></h2>
+      <p class="section-sub">To nie tylko kamień — to Twój dom, Twoja kuchnia, Twoja łazienka. Zasługujesz na najlepsze.</p>
+
+      <ul class="why-list">
+        <li class="why-item reveal">
+          <div class="why-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <strong>Własny zakład produkcyjny w Bedoniu</strong>
+            <p>Nie zlecamy na zewnątrz — wszystko robimy sami, co gwarantuje jakość i terminowość.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-1">
+          <div class="why-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div>
+            <strong>Ponad 20 lat doświadczenia</strong>
+            <p>Tysiące zrealizowanych projektów na terenie całej Polski. Znamy kamień jak nikt inny.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-2">
+          <div class="why-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <strong>Szeroki wybór kamieni z całego świata</strong>
+            <p>Ponad 50 gatunków marmuru, granitu, kwarcytu, trawertynu i kamieni ekskluzywnych.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-3">
+          <div class="why-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <div>
+            <strong>Gwarancja i serwis posprzedażowy</strong>
+            <p>Stoimy za każdym projektem. Zapewniamy gwarancję i pełne wsparcie po montażu.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="why-visual reveal reveal-delay-2">
+      <div class="why-img-frame">
+        <img
+          src="https://images.unsplash.com/photo-1600607686527-6fb886090705?w=700&q=85"
+          alt="Blaty z kamienia naturalnego – szczegół obróbki"
+          loading="lazy"
+        >
+      </div>
+      <div class="why-numbers">
+        <div class="wn-item">
+          <span class="wn-num" data-target="20">0</span><span class="wn-suf">+</span>
+          <span class="wn-label">Lat doświadczenia</span>
+        </div>
+        <div class="wn-item">
+          <span class="wn-num" data-target="3000">0</span><span class="wn-suf">+</span>
+          <span class="wn-label">Projektów</span>
+        </div>
+        <div class="wn-item">
+          <span class="wn-num" data-target="50">0</span><span class="wn-suf">+</span>
+          <span class="wn-label">Gatunków kamienia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ TESTIMONIALS -->
 <section id="testimonials" class="section testimonials">
   <div class="container text-center">
-    <span class="section-label reveal">Opinie</span>
-    <h2 class="section-title reveal">Co mówią nasze <span>klientki?</span></h2>
-    <p class="section-sub reveal">Ponad 1 200 opinii na Google. Dla nas liczy się każdą klientka i każdy efekt.</p>
+    <span class="section-label reveal">Opinie klientów</span>
+    <h2 class="section-title reveal">Co mówią <span>nasi klienci?</span></h2>
+    <p class="section-sub reveal">Zaufali nam — przekonaj się, co o nas sądzą.</p>
   </div>
 
-  <div class="testimonials-inner reveal">
-    <div class="testimonials-track">
-      <div class="testimonials-slider" id="slider">
+  <div class="testimonials-wrap">
+    <button class="tslider-btn prev" id="tPrev" aria-label="Poprzednia">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
 
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">„Niesamowity salon! Rzesy trzymają się już 6 tygodni i wyglądają jak pierwszego dnia. Obsługa na najwyższym poziomie, wracam regularnie!"</p>
-          <div class="testimonial-author">
-            <img src="https://i.pravatar.cc/52?img=1" alt="Kasia W." class="author-avatar" loading="lazy">
-            <div class="author-info">
-              <strong>Kasia W.</strong>
-              <span>Klientka od 3 lat</span>
+    <div class="tslider-viewport">
+      <div class="tslider" id="tSlider">
+
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">„Zamówiliśmy blat kuchenny z marmuru Calacatta. Efekt przerósł nasze oczekiwania! Precyzja cięcia, jakość polerowania i montaż na najwyższym poziomie. Gorąco polecam AMICO każdemu."</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">AK</div>
+            <div>
+              <strong>Anna Kowalska</strong>
+              <span>Łódź</span>
             </div>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">„Paznokcie przepiękne, obsługa cudowna, miła atmosfera. Wracam na pewno i zabieram ze sobą koleżanki!"</p>
-          <div class="testimonial-author">
-            <img src="https://i.pravatar.cc/52?img=5" alt="Natalia K." class="author-avatar" loading="lazy">
-            <div class="author-info">
-              <strong>Natalia K.</strong>
-              <span>Klientka od 2 lat</span>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">„Schody z granitu Angola Black wyglądają absolutnie przepięknie. Firma dotrzymała terminów, ekipa montażowa była profesjonalna i schludna. Polecam z całego serca!"</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">MT</div>
+            <div>
+              <strong>Marek Tomaszewski</strong>
+              <span>Pabianice</span>
             </div>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">„Efekty mówią same za siebie. Zdjecia paznokci zebrały mnóstwo komplementów! Jakość wykonania jest po prostu niesamowita."</p>
-          <div class="testimonial-author">
-            <img src="https://i.pravatar.cc/52?img=9" alt="Ola M." class="author-avatar" loading="lazy">
-            <div class="author-info">
-              <strong>Ola M.</strong>
-              <span>Stala klientka</span>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">„Całkowita łazienka w marmurze Statuario. Pani Milena i jej zespół pomogli w wyborze kamienia, dopilnowali każdego szczegółu. Efekt jest jak z luksusowego hotelu. Dziękuję AMICO!"</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">KW</div>
+            <div>
+              <strong>Katarzyna Wiśniewska</strong>
+              <span>Zgierz</span>
             </div>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">„Zabieg na twarz to mistrzostwo! Skóra świetlista i odswiezona jak nigdy. Zero bolu, maksimum efektu. Profesjonalizm na piątkę."</p>
-          <div class="testimonial-author">
-            <img src="https://i.pravatar.cc/52?img=20" alt="Agnieszka B." class="author-avatar" loading="lazy">
-            <div class="author-info">
-              <strong>Agnieszka B.</strong>
-              <span>Klientka od roku</span>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">„Nagrobek dla mamy wykonany z granitu Imperial Red. Piękny, trwały i dokładnie taki, jak sobie wyobrażałem. Profesjonalne podejście i szacunek podczas całej realizacji. Polecam."</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">JN</div>
+            <div>
+              <strong>Janusz Nowak</strong>
+              <span>Łódź</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">„Parapety z granitu Absolute Black w całym domu. Wykonane idealnie, bez żadnych usterek. Obsługa klienta na medal. Będę wracać do AMICO przy każdej okazji!"</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">PM</div>
+            <div>
+              <strong>Piotr Malinowski</strong>
+              <span>Koluszki</span>
             </div>
           </div>
         </div>
@@ -370,328 +636,292 @@
       </div>
     </div>
 
-    <div class="slider-dots" id="sliderDots">
-      <button class="slider-dot active" data-index="0" aria-label="Opinia 1"></button>
-      <button class="slider-dot" data-index="1" aria-label="Opinia 2"></button>
-      <button class="slider-dot" data-index="2" aria-label="Opinia 3"></button>
-      <button class="slider-dot" data-index="3" aria-label="Opinia 4"></button>
-    </div>
-
-    <div class="slider-nav">
-      <button class="slider-btn" id="sliderPrev" aria-label="Poprzednia">&#8592;</button>
-      <button class="slider-btn" id="sliderNext" aria-label="Nastepna">&#8594;</button>
-    </div>
+    <button class="tslider-btn next" id="tNext" aria-label="Następna">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
+
+  <div class="tslider-dots" id="tDots"></div>
 </section>
 
-<section id="pricing" class="section pricing">
-  <div class="container text-center">
-    <span class="section-label reveal">Cennik</span>
-    <h2 class="section-title reveal">Przejrzysty <span>cennik</span></h2>
-    <p class="section-sub reveal">Żadnych ukrytych kosztów. Ceny orientacyjne - dokładną wycenę ustalamy indywidualnie.</p>
-  </div>
-
-  <div class="pricing-grid">
-    <div class="pricing-card reveal">
-      <h3>Dłonie</h3>
-      <div class="pricing-rows">
-        <div class="pricing-row"><span>Manicure hybrydowy</span><span>od 120 zł</span></div>
-        <div class="pricing-row"><span>Manicure żelowy</span><span>od 150 zł</span></div>
-        <div class="pricing-row"><span>Manicure tytanowy</span><span>od 180 zł</span></div>
-        <div class="pricing-row"><span>Zdobienia nail art</span><span>od 20 zł</span></div>
-        <div class="pricing-row"><span>Uzupełnienie hybrydy</span><span>od 100 zł</span></div>
-      </div>
-    </div>
-
-    <div class="pricing-card reveal reveal-delay-1">
-      <h3>Stopy</h3>
-      <div class="pricing-rows">
-        <div class="pricing-row"><span>Pedicure klasyczny</span><span>od 90 zł</span></div>
-        <div class="pricing-row"><span>Pedicure hybrydowy</span><span>od 120 zł</span></div>
-        <div class="pricing-row"><span>Pedicure zdrowotny</span><span>od 130 zł</span></div>
-      </div>
-    </div>
-
-    <div class="pricing-card reveal reveal-delay-2">
-      <h3>Rzęsy i brwi</h3>
-      <div class="pricing-rows">
-        <div class="pricing-row"><span>Rzęsy 1:1 classic</span><span>od 180 zł</span></div>
-        <div class="pricing-row"><span>Rzęsy 2-3D volume</span><span>od 220 zł</span></div>
-        <div class="pricing-row"><span>Lifting rzęs</span><span>od 130 zł</span></div>
-        <div class="pricing-row"><span>Laminacja brwi</span><span>od 100 zł</span></div>
-        <div class="pricing-row"><span>Henna pudrowa</span><span>od 80 zł</span></div>
-      </div>
-    </div>
-
-    <div class="pricing-card reveal reveal-delay-3">
-      <h3>Makijaż i twarz</h3>
-      <div class="pricing-rows">
-        <div class="pricing-row"><span>Makijaż okolicznościowy</span><span>od 200 zł</span></div>
-        <div class="pricing-row"><span>Makijaż ślubny</span><span>od 350 zł</span></div>
-        <div class="pricing-row"><span>Oczyszczanie twarzy</span><span>od 150 zł</span></div>
-        <div class="pricing-row"><span>Mikrodermabrazja</span><span>od 180 zł</span></div>
-        <div class="pricing-row"><span>Lifting twarzy</span><span>od 220 zł</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ============================================================ FAQ -->
 <section id="faq" class="section faq">
-  <div class="container text-center">
-    <span class="section-label reveal">FAQ</span>
-    <h2 class="section-title reveal">Masz <span>pytania?</span></h2>
-    <p class="section-sub reveal">Zebraliśmy najczęściej zadawane pytania. W razie wątpliwości zapraszamy do kontaktu.</p>
-  </div>
-
-  <div class="faq-list">
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">
-        Jak umówić wizytę?
-        <span class="faq-arrow">▼</span>
-      </button>
-      <div class="faq-answer">
-        <p>Wizytę możesz umówić telefonicznie, przez e-mail lub wypełniając formularz kontaktowy na stronie. Odezwiemy się tak szybko, jak to możliwe, aby potwierdzić termin.</p>
-      </div>
+  <div class="container">
+    <div class="faq-header text-center">
+      <span class="section-label reveal">FAQ</span>
+      <h2 class="section-title reveal">Najczęstsze <span>pytania</span></h2>
+      <p class="section-sub reveal">Masz wątpliwości? Znajdź odpowiedź lub skontaktuj się z nami bezpośrednio.</p>
     </div>
 
-    <div class="faq-item reveal reveal-delay-1">
-      <button class="faq-question" aria-expanded="false">
-        Jak długo trzymają się rzęsy?
-        <span class="faq-arrow">▼</span>
-      </button>
-      <div class="faq-answer">
-        <p>Przy dobrym pielęgnowaniu rzęsy trzymają się 4-6 tygodni. Zalecamy uzupełnienie po 3-4 tygodniach, aby efekt był zawsze perfekcyjny.</p>
-      </div>
-    </div>
+    <div class="faq-list">
 
-    <div class="faq-item reveal reveal-delay-2">
-      <button class="faq-question" aria-expanded="false">
-        Ile kosztuje manicure hybrydowy?
-        <span class="faq-arrow">▼</span>
-      </button>
-      <div class="faq-answer">
-        <p>Manicure hybrydowy zaczyna się od 120 zł. Zdobienia, wzorki i efekty specjalne są wyceniane indywidualnie. W razie pytań zapraszamy do kontaktu.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal reveal-delay-3">
-      <button class="faq-question" aria-expanded="false">
-        Czy mogę odwołać lub przełożyć wizytę?
-        <span class="faq-arrow">▼</span>
-      </button>
-      <div class="faq-answer">
-        <p>Oczywiście! Wizytę możesz odwołać lub przełożyć do 24 godzin przed terminem. Napisz do nas lub zadzwoń - zawsze znajdziemy rozwiązanie.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal reveal-delay-4">
-      <button class="faq-question" aria-expanded="false">
-        Jakie produkty stosujecie?
-        <span class="faq-arrow">▼</span>
-      </button>
-      <div class="faq-answer">
-        <p>Pracujemy wyłącznie z produktami premium: Kodi Professional, NeoNail, Lash Lift &amp; Tint, Dermalogica i innych certyfikowanych marek. Bezpieczeństwo i jakość to nasz priorytet.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal reveal-delay-4">
-      <button class="faq-question" aria-expanded="false">
-        Czy oferujecie zabiegi dla grup?
-        <span class="faq-arrow">▼</span>
-      </button>
-      <div class="faq-answer">
-        <p>Tak! Oferujemy pakiety dla par, wieczory panieńskie i grupowe eventy beauty. Skontaktuj się z nami przez formularz lub telefonicznie - przygotujemy ofertę dopasowaną do Twoich potrzeb.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <h2>Zadbaj o siebie <em>już dziś</em></h2>
-  <p>Zarezerwuj termin i oddaj się w ręce naszych specjalistek. Czekamy na Ciebie w Salonie Urody Róza.</p>
-  <div class="cta-actions">
-    <a href="#contact" class="btn btn-white">Umów wizytę online</a>
-    <a href="tel:+48000000000" class="btn btn-outline">Zadzwoń do nas</a>
-  </div>
-</section>
-
-<section id="contact" class="section contact">
-  <div class="contact-grid container">
-    <div class="contact-info reveal">
-      <span class="section-label">Kontakt</span>
-      <h2>Odwiedź nas<br>lub napisz!</h2>
-
-      <div style="margin-top:28px">
-        <div class="contact-detail">
-          <div class="ico-wrap">📍</div>
-          <div>
-            <strong>Adres</strong>
-            <p>ul. Różana 12, 00-001 Warszawa<br>(Śródmieście, obok metra Centrum)</p>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="ico-wrap">📞</div>
-          <div>
-            <strong>Telefon</strong>
-            <p><a href="tel:+48000000000" style="color:var(--gold);font-weight:600">+48 000 000 000</a></p>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="ico-wrap">📧</div>
-          <div>
-            <strong>E-mail</strong>
-            <p><a href="mailto:hello@salonurodyroza.pl" style="color:var(--gold);font-weight:600">hello@salonurodyroza.pl</a></p>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="ico-wrap">📱</div>
-          <div>
-            <strong>Instagram</strong>
-            <p><a href="#" style="color:var(--gold);font-weight:600">@salonurodyroza</a></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="opening-hours">
-        <h4>Godziny otwarcia</h4>
-        <div class="hours-row"><strong>Pon-Pt</strong><span class="open">09:00-20:00</span></div>
-        <div class="hours-row"><strong>Sobota</strong><span class="open">10:00-18:00</span></div>
-        <div class="hours-row"><strong>Niedziela</strong><span class="closed">Zamknięte</span></div>
-      </div>
-
-      <div class="map-wrap">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d78199.37946815754!2d21.012228!3d52.229676!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eccb9f52b9a57%3A0xf7c09c21d5eaa0ca!2sWarsaw%2C%20Poland!5e0!3m2!1sen!2spl!4v1711638000000!5m2!1sen!2spl"
-          width="100%"
-          height="220"
-          style="border:0;border-radius:16px;margin-top:24px"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Lokalizacja Salonu Urody Róza - Warszawa Śródmieście"
-        ></iframe>
-      </div>
-    </div>
-
-    <div class="contact-form reveal reveal-delay-2">
-      <span class="section-label">Formularz</span>
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--brown);margin-bottom:28px">Umów wizytę</h3>
-
-      <form id="contactForm" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">Imię</label>
-            <input type="text" id="fname" name="fname" placeholder="Twoje imię" required autocomplete="given-name">
-          </div>
-          <div class="form-group">
-            <label for="phone">Telefon</label>
-            <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000" autocomplete="tel">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="twoj@email.pl" required autocomplete="email">
-        </div>
-
-        <div class="form-group">
-          <label for="service">Usługa</label>
-          <select id="service" name="service">
-            <option value="">- Wybierz usługę -</option>
-            <option>Manicure hybrydowy</option>
-            <option>Manicure żelowy / tytanowy</option>
-            <option>Pedicure</option>
-            <option>Stylizacja rzęs 1:1</option>
-            <option>Stylizacja rzęs 2-3D Volume</option>
-            <option>Lifting rzęs</option>
-            <option>Stylizacja brwi</option>
-            <option>Laminacja brwi</option>
-            <option>Makijaż okolicznościowy</option>
-            <option>Makijaż ślubny</option>
-            <option>Zabiegi na twarz</option>
-            <option>Inna / zapytanie</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Preferowany termin i uwagi</label>
-          <textarea id="message" name="message" placeholder="Preferowany termin, pytania, uwagi..."></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
-          Wyślij zapytanie
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          Jakie rodzaje kamienia naturalnego oferujecie?
+          <span class="faq-icon"></span>
         </button>
-      </form>
+        <div class="faq-a">
+          <p>Pracujemy z szeroką gamą kamieni naturalnych: marmurami włoskimi i tureckimi (Calacatta, Statuario, Carrara), granitami z całego świata (Angola Black, Absolute Black, Verde Ubatuba, Imperial Red), kwarcytami, trawertynami i kamieniami egzotycznymi. Oferujemy ponad 50 gatunków — zapraszamy do pracowni, aby zobaczyć próbki.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-q" aria-expanded="false">
+          Jak długo trwa realizacja zamówienia?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Czas realizacji zależy od rodzaju projektu i wybranego materiału. Standardowe blaty kuchenne czy parapety realizujemy zazwyczaj w ciągu 2–3 tygodni od podpisania umowy. Większe projekty (schody, posadzki, łazienki) mogą wymagać 4–6 tygodni. Zawsze ustalamy termin indywidualnie i dotrzymujemy go.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-q" aria-expanded="false">
+          Czy oferujecie bezpłatną wycenę i dojazd do klienta?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Tak! Wycena jest całkowicie bezpłatna. Przyjeżdżamy do klienta w celu dokładnego pomiaru i omówienia szczegółów projektu. Działamy na terenie Łodzi i okolic, ale realizujemy projekty w całej Polsce.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          Czy kamień naturalny jest trudny w pielęgnacji?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Kamień naturalny, właściwie pielęgnowany, jest bardzo trwały i piękny przez dziesiątki lat. Po montażu impregnujemy kamień specjalnymi preparatami ochronnymi. Dostarczamy instrukcję pielęgnacji i służymy doradztwem. Granit jest bardzo odporny i łatwy w czyszczeniu — marmur wymaga nieco więcej uwagi, ale jest bezcenny estetycznie.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-q" aria-expanded="false">
+          Czy wykonujecie niestandardowe projekty i kształty?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Oczywiście! Specjalizujemy się w projektach indywidualnych. Posiadamy nowoczesne maszyny CNC umożliwiające cięcie i profilowanie kamienia w dowolnym kształcie. Realizujemy blaty z wycięciami na zlew, zaokrąglonymi narożnikami, nieregularnymi krawędziami — wszystko według projektu klienta.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-q" aria-expanded="false">
+          Jakie są opcje wykończenia krawędzi blatów?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Oferujemy wiele profili krawędzi: krawędź prostą (szlifowaną i polerowaną), half bullnose, full bullnose, skos 45°, frez dekoracyjny, ogee i inne. Krawędź jest jednym z kluczowych elementów estetycznych blatu — chętnie doradzimy, który profil najlepiej pasuje do stylu Twojego wnętrza.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="logo"><span>Salon Urody</span><strong>Róza</strong></div>
-      <p>Profesjonalny salon beauty w Warszawie. Manicure, rzęsy, brwi, makijaż i zabiegi pielęgnacyjne.</p>
+<!-- ============================================================ CONTACT -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="contact-header text-center">
+      <span class="section-label reveal">Kontakt</span>
+      <h2 class="section-title reveal">Porozmawiajmy<br><span>o Twoim projekcie</span></h2>
+      <p class="section-sub reveal">Napisz do nas, zadzwoń lub odwiedź nasz zakład. Bezpłatna wycena i konsultacja.</p>
     </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-info reveal">
+        <div class="ci-card">
+          <div class="ci-block">
+            <div class="ci-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <span class="ci-label">Telefon</span>
+              <a href="tel:+48693040609" class="ci-value">693 040 609</a>
+            </div>
+          </div>
+          <div class="ci-block">
+            <div class="ci-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <span class="ci-label">E-mail</span>
+              <a href="mailto:milena@amicco.pl" class="ci-value">milena@amicco.pl</a>
+            </div>
+          </div>
+          <div class="ci-block">
+            <div class="ci-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="ci-label">Adres</span>
+              <span class="ci-value">ul. Brzezińska 84<br>95-020 Bedoń k. Łodzi</span>
+            </div>
+          </div>
+          <div class="ci-block">
+            <div class="ci-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <span class="ci-label">Godziny otwarcia</span>
+              <span class="ci-value">Pon–Pt: 8:00–17:00<br>Sob: 9:00–14:00</span>
+            </div>
+          </div>
+
+          <div class="ci-contact-name">
+            <div class="ci-avatar">MF</div>
+            <div>
+              <strong>Milena Fiks</strong>
+              <span>Właściciel i Doradca</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal reveal-delay-2">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Imię i nazwisko <span>*</span></label>
+              <input type="text" id="fname" name="name" placeholder="Jan Kowalski" required>
+            </div>
+            <div class="form-group">
+              <label for="fphone">Telefon <span>*</span></label>
+              <input type="tel" id="fphone" name="phone" placeholder="600 000 000" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="femail">E-mail</label>
+            <input type="email" id="femail" name="email" placeholder="twoj@email.pl">
+          </div>
+          <div class="form-group">
+            <label for="fservice">Rodzaj usługi</label>
+            <select id="fservice" name="service">
+              <option value="">-- Wybierz usługę --</option>
+              <option>Blaty kuchenne</option>
+              <option>Schody kamienne</option>
+              <option>Parapety</option>
+              <option>Posadzki i podłogi</option>
+              <option>Łazienka</option>
+              <option>Nagrobki i pomniki</option>
+              <option>Kominek i obudowy</option>
+              <option>Mała architektura</option>
+              <option>Inne</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fmsg">Wiadomość <span>*</span></label>
+            <textarea id="fmsg" name="message" rows="5" placeholder="Opisz swój projekt — chętnie przygotujemy bezpłatną wycenę..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-full" id="submitBtn">
+            <span>Wyślij zapytanie</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <p class="form-note">Odpowiadamy w ciągu 24 godzin. Wycena jest bezpłatna i niezobowiązująca.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<footer class="footer">
+  <div class="footer-top container">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-mark">
+          <span class="logo-a">A</span><span class="logo-m-box"><span class="logo-m">M</span></span><span class="logo-ico">ICO</span>
+        </div>
+        <div class="logo-tagline">Pracownia Kamieniarska</div>
+      </div>
+      <p class="footer-desc">Tworzymy z kamienia wyjątkowość. Marmur, granit i kamień naturalny w najwyższym wykonaniu — od projektu po montaż.</p>
+      <div class="footer-contact-row">
+        <a href="tel:+48693040609">693 040 609</a>
+        <span>·</span>
+        <a href="mailto:milena@amicco.pl">milena@amicco.pl</a>
+      </div>
+    </div>
+
     <div class="footer-col">
       <h5>Usługi</h5>
-      <a href="#services">Manicure hybrydowy</a>
-      <a href="#services">Pedicure</a>
-      <a href="#services">Stylizacja rzęs</a>
-      <a href="#services">Stylizacja brwi</a>
-      <a href="#services">Makijaż</a>
-      <a href="#services">Zabiegi na twarz</a>
+      <a href="#services">Blaty kuchenne</a>
+      <a href="#services">Schody kamienne</a>
+      <a href="#services">Parapety</a>
+      <a href="#services">Posadzki i podłogi</a>
+      <a href="#services">Łazienki</a>
+      <a href="#services">Nagrobki i pomniki</a>
     </div>
+
     <div class="footer-col">
       <h5>Informacje</h5>
-      <a href="#about">O nas</a>
-      <a href="#pricing">Cennik</a>
+      <a href="#about">O pracowni</a>
+      <a href="#gallery">Realizacje</a>
+      <a href="#process">Jak pracujemy</a>
       <a href="#testimonials">Opinie</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Kontakt</a>
-      <a href="https://kontaktio.pl">Powered by Kontaktio</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Adres</h5>
+      <address>
+        ul. Brzezińska 84<br>
+        95-020 Bedoń k. Łodzi
+      </address>
+      <p class="footer-hours">Pon–Pt: 8:00–17:00<br>Sob: 9:00–14:00</p>
+      <a href="https://www.marmurowydom.pl" class="footer-www" target="_blank" rel="noopener">www.marmurowydom.pl</a>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 Salon Urody Róza - Strona demonstracyjna</p>
-    <a href="https://kontaktio.pl">Powered by <strong>Kontaktio</strong></a>
+
+  <div class="footer-bottom container">
+    <p>&copy; 2026 AMICO Pracownia Kamieniarska – Milena Fiks. Wszelkie prawa zastrzeżone.</p>
+    <a href="https://kontaktio.pl" class="footer-kontaktio">Powered by <strong>Kontaktio</strong></a>
   </div>
 </footer>
 
+<!-- ============================================================ STICKY BAR -->
 <div class="stickyBar" id="stickyBar" aria-hidden="true">
   <div class="stickyBar__content">
-    <b>Zainteresowany? Zobacz inne branże</b>
-    <span>Każda ma gotowego asystenta AI dopasowanego do klientów.</span>
+    <b>Zainteresowany obsługą AI dla Twojej firmy?</b>
+    <span>Sprawdź inne branże z gotowym asystentem AI.</span>
     <a class="stickyBtn" href="https://kontaktio.pl">Powrót do Kontaktio</a>
   </div>
-  <button class="stickyClose" id="stickyClose" type="button" aria-label="Zamknij">x</button>
+  <button class="stickyClose" id="stickyClose" type="button" aria-label="Zamknij">×</button>
 </div>
 
-<a href="#contact" class="mobile-cta-fixed" aria-label="Umów wizytę">Umów wizytę</a>
-
+<!-- ============================================================ KONTAKTIO WIDGET -->
 <script
   src="https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@8a6ebea/kontaktio.js"
   data-kontaktio
-  data-client="PinkHeaven"
+  data-client="amico"
   data-backend="https://chatbot-backend-x2cy.onrender.com"
 ></script>
 
+<!-- ============================================================ SCRIPTS -->
 <script>
-window.addEventListener("load", () => { document.body.classList.add("loaded"); });
+/* ---- Preloader ---- */
+window.addEventListener("load", () => {
+  setTimeout(() => document.body.classList.add("loaded"), 600);
+});
 
+/* ---- Navbar scroll ---- */
 const navbar = document.getElementById("navbar");
 window.addEventListener("scroll", () => {
-  navbar.classList.toggle("scrolled", window.scrollY > 40);
+  navbar.classList.toggle("scrolled", window.scrollY > 60);
 }, { passive: true });
 
+/* ---- Hamburger / Mobile nav ---- */
 const hamburger = document.getElementById("hamburger");
-const mobileNav = document.getElementById("mobileNav");
+const mobileNav  = document.getElementById("mobileNav");
 
 hamburger.addEventListener("click", () => {
-  const isOpen = mobileNav.classList.toggle("open");
-  hamburger.classList.toggle("active", isOpen);
-  hamburger.setAttribute("aria-expanded", isOpen);
-  mobileNav.setAttribute("aria-hidden", !isOpen);
-  document.body.style.overflow = isOpen ? "hidden" : "";
+  const open = mobileNav.classList.toggle("open");
+  hamburger.classList.toggle("active", open);
+  hamburger.setAttribute("aria-expanded", open);
+  mobileNav.setAttribute("aria-hidden", !open);
+  document.body.style.overflow = open ? "hidden" : "";
 });
 
 function closeMobile() {
@@ -702,79 +932,201 @@ function closeMobile() {
   document.body.style.overflow = "";
 }
 
-const reveals = document.querySelectorAll(".reveal");
-const revealObserver = new IntersectionObserver((entries) => {
+/* ---- Scroll reveal ---- */
+const revealEls = document.querySelectorAll(".reveal");
+const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add("visible");
-      revealObserver.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add("visible"); revealObs.unobserve(e.target); }
   });
-}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-reveals.forEach(el => revealObserver.observe(el));
+}, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+revealEls.forEach(el => revealObs.observe(el));
 
-function animateCounter(el, target, decimals) {
-  const dur = 1800;
-  const start = performance.now();
-  (function step(now) {
+/* ---- Hero reveal ---- */
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    document.querySelectorAll(".reveal-hero").forEach(el => el.classList.add("visible"));
+  }, 700);
+});
+
+/* ---- Counter animation ---- */
+function animateNum(el, target) {
+  const dur = 2000, start = performance.now();
+  const isFloat = String(target).includes(".");
+  (function tick(now) {
     const p = Math.min((now - start) / dur, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    const val = target * eased;
-    el.textContent = decimals ? val.toFixed(1) : Math.floor(val).toLocaleString("pl-PL");
-    if (p < 1) requestAnimationFrame(step);
-    else el.textContent = decimals ? target.toFixed(1) : Number(target).toLocaleString("pl-PL");
+    const eased = 1 - Math.pow(1 - p, 4);
+    el.textContent = isFloat ? (target * eased).toFixed(1) : Math.floor(target * eased).toLocaleString("pl-PL");
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = isFloat ? target.toFixed(1) : Number(target).toLocaleString("pl-PL");
   })(start);
 }
 
-const statNums = document.querySelectorAll(".stat-num[data-target]");
-let statsAnimated = false;
-if (statNums.length) {
-  const statsObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting && !statsAnimated) {
-      statsAnimated = true;
-      statNums.forEach(el => {
-        const t = parseFloat(el.dataset.target);
-        animateCounter(el, t, el.dataset.target.includes(".") ? 1 : 0);
-      });
-      statsObserver.disconnect();
+const statNums = document.querySelectorAll(".stat-num[data-target], .wn-num[data-target]");
+const statObs  = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateNum(e.target, parseFloat(e.target.dataset.target));
+      statObs.unobserve(e.target);
     }
-  }, { threshold: 0.5 });
-  statsObserver.observe(statNums[0].closest(".hero-stats"));
-}
+  });
+}, { threshold: 0.5 });
+statNums.forEach(el => statObs.observe(el));
 
-const slider  = document.getElementById("slider");
-const dots    = document.querySelectorAll(".slider-dot");
-const btnPrev = document.getElementById("sliderPrev");
-const btnNext = document.getElementById("sliderNext");
-let cur = 0, autoSlide;
+/* ---- Parallax hero ---- */
+window.addEventListener("scroll", () => {
+  const heroImg = document.querySelector(".hero-img-wrap");
+  if (heroImg) heroImg.style.transform = "translateY(" + (window.scrollY * 0.25) + "px)";
+}, { passive: true });
 
-function goTo(i) {
-  const cards = slider.querySelectorAll(".testimonial-card");
-  cur = (i + cards.length) % cards.length;
-  slider.style.transform = "translateX(-" + (cur * 100) + "%)";
-  dots.forEach((d, j) => d.classList.toggle("active", j === cur));
-}
+/* ---- Hero canvas particles ---- */
+(function initCanvas() {
+  const canvas = document.getElementById("heroCanvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
 
-function startAuto() { autoSlide = setInterval(() => goTo(cur + 1), 5000); }
-function stopAuto()  { clearInterval(autoSlide); }
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener("resize", resize, { passive: true });
 
-btnNext.addEventListener("click", () => { stopAuto(); goTo(cur + 1); startAuto(); });
-btnPrev.addEventListener("click", () => { stopAuto(); goTo(cur - 1); startAuto(); });
-dots.forEach(d => d.addEventListener("click", () => { stopAuto(); goTo(+d.dataset.index); startAuto(); }));
-startAuto();
+  const count = Math.min(70, Math.floor(window.innerWidth / 20));
+  const pts = Array.from({ length: count }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.45,
+    vy: (Math.random() - 0.5) * 0.45,
+    r: Math.random() * 1.6 + 0.3,
+    alpha: Math.random() * 0.55 + 0.15,
+    gold: Math.random() > 0.55,
+  }));
 
-document.querySelectorAll(".faq-question").forEach(btn => {
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < pts.length; i++) {
+      for (let j = i + 1; j < pts.length; j++) {
+        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 110) {
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x, pts[i].y);
+          ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.strokeStyle = `rgba(201,162,39,${0.1 * (1 - d / 110)})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    pts.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.gold
+        ? `rgba(201,162,39,${p.alpha})`
+        : `rgba(255,255,255,${p.alpha * 0.4})`;
+      ctx.fill();
+
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width)  p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ---- Testimonials slider ---- */
+(function initSlider() {
+  const slider = document.getElementById("tSlider");
+  const dotsWrap = document.getElementById("tDots");
+  if (!slider) return;
+
+  const cards = slider.querySelectorAll(".tcard");
+  let cur = 0, autoT;
+
+  // Build dots
+  cards.forEach((_, i) => {
+    const d = document.createElement("button");
+    d.className = "tdot" + (i === 0 ? " active" : "");
+    d.setAttribute("aria-label", "Opinia " + (i + 1));
+    d.addEventListener("click", () => { stop(); go(i); start(); });
+    dotsWrap.appendChild(d);
+  });
+
+  function go(i) {
+    cur = (i + cards.length) % cards.length;
+    slider.style.transform = "translateX(-" + cur * 100 + "%)";
+    dotsWrap.querySelectorAll(".tdot").forEach((d, j) => d.classList.toggle("active", j === cur));
+  }
+  function start() { autoT = setInterval(() => go(cur + 1), 5000); }
+  function stop()  { clearInterval(autoT); }
+
+  document.getElementById("tPrev").addEventListener("click", () => { stop(); go(cur - 1); start(); });
+  document.getElementById("tNext").addEventListener("click", () => { stop(); go(cur + 1); start(); });
+  start();
+})();
+
+/* ---- Card tilt ---- */
+document.querySelectorAll("[data-tilt]").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - 0.5;
+    const y = (e.clientY - r.top)  / r.height - 0.5;
+    card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateZ(6px)`;
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "";
+  });
+});
+
+/* ---- FAQ accordion ---- */
+document.querySelectorAll(".faq-q").forEach(btn => {
   btn.addEventListener("click", () => {
     const item = btn.closest(".faq-item");
     const isOpen = item.classList.contains("open");
-    document.querySelectorAll(".faq-item.open").forEach(open => {
-      open.classList.remove("open");
-      open.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+    document.querySelectorAll(".faq-item.open").forEach(o => {
+      o.classList.remove("open");
+      o.querySelector(".faq-q").setAttribute("aria-expanded", "false");
     });
     if (!isOpen) { item.classList.add("open"); btn.setAttribute("aria-expanded", "true"); }
   });
 });
 
+/* ---- Gallery lightbox ---- */
+function openLightbox(el) {
+  const img = el.querySelector("img");
+  const cap = el.querySelector(".g-overlay span");
+  document.getElementById("lbImg").src    = img.src;
+  document.getElementById("lbImg").alt    = img.alt;
+  document.getElementById("lbCaption").textContent = cap ? cap.textContent : "";
+  document.getElementById("lightbox").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+/* ---- Contact form ---- */
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const btn = document.getElementById("submitBtn");
+  btn.querySelector("span").textContent = "Wysłano! Odezwiemy się wkrótce ✓";
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.querySelector("span").textContent = "Wyślij zapytanie";
+    btn.disabled = false;
+    e.target.reset();
+  }, 4500);
+});
+
+/* ---- Sticky bar ---- */
 (function() {
   const bar = document.getElementById("stickyBar");
   const cls = document.getElementById("stickyClose");
@@ -790,21 +1142,6 @@ document.querySelectorAll(".faq-question").forEach(btn => {
   cls.addEventListener("click", () => { bar.classList.remove("on"); try { localStorage.setItem("kontaktio_sticky_closed","1"); } catch {} });
   upd();
 })();
-
-document.getElementById("contactForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const btn = e.target.querySelector("button[type=submit]");
-  btn.textContent = "Wysłano! Odezwiemy się wkrótce";
-  btn.disabled = true;
-  setTimeout(() => { btn.textContent = "Wyślij zapytanie"; btn.disabled = false; e.target.reset(); }, 4000);
-});
-
-window.addEventListener("scroll", () => {
-  const heroBg = document.getElementById("heroBg");
-  if (heroBg) {
-    heroBg.style.transform = "translateY(" + (window.scrollY * 0.3) + "px)";
-  }
-}, { passive: true });
 </script>
 
 </body>
