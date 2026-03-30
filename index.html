@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AMICO Pracownia Kamieniarska</title>
+  <title>AMICO Pracownia Kamieniarska – Marmur, Granit, Kamień Naturalny</title>
   <meta name="description" content="AMICO Pracownia Kamieniarska – blaty kuchenne, schody, parapety i posadzki z marmuru, granitu i kamienia naturalnego. Ponad 20 lat doświadczenia. Bedoń k. Łodzi. Bezpłatna wycena!">
   <meta name="author" content="AMICO Pracownia Kamieniarska">
   <meta property="og:title" content="AMICO Pracownia Kamieniarska – Marmur, Granit, Kamień Naturalny">
@@ -29,18 +29,8 @@
       "addressCountry": "PL"
     },
     "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "08:00",
-        "closes": "17:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "09:00",
-        "closes": "14:00"
-      }
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "17:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
     ],
     "priceRange": "$$",
     "sameAs": ["https://www.marmurowydom.pl"]
@@ -54,6 +44,7 @@
 </head>
 <body>
 
+<!-- ═══════════════ PRELOADER ═══════════════ -->
 <div id="preloader">
   <div class="preloader-logo">
     <div class="pl-mark">
@@ -64,63 +55,90 @@
   <div class="pl-bar"><div class="pl-fill"></div></div>
 </div>
 
+<!-- ═══════════════ TOP BAR ═══════════════ -->
+<div class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a href="#about" class="tb-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      pracownia kamieniarska
+    </a>
+    <span class="tb-sep">|</span>
+    <a href="#contact" class="tb-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      bezpłatna wycena
+    </a>
+    <span class="tb-sep">|</span>
+    <a href="#inspiracje" class="tb-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg>
+      inspiracje
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ HEADER / NAV ═══════════════ -->
 <header class="navbar" id="navbar">
   <a href="#hero" class="logo">
+    <div class="logo-tagline-top">Pracownia Kamieniarska</div>
     <div class="logo-mark">
       <span class="logo-a">A</span><span class="logo-m-box"><span class="logo-m">M</span></span><span class="logo-ico">ICO</span>
     </div>
-    <div class="logo-tagline">Pracownia Kamieniarska</div>
   </a>
 
   <nav class="nav-links">
-    <a href="#about">O nas</a>
+    <a href="#hero" class="nav-active">Strona Główna</a>
     <a href="#services">Oferta</a>
+    <a href="#kamien-naturalny">Kamień Naturalny</a>
+    <a href="#kamien-sztuczny">Kamień Sztuczny</a>
     <a href="#gallery">Realizacje</a>
-    <a href="#process">Proces</a>
-    <a href="#testimonials">Opinie</a>
-    <a href="#ai-agent">Asystent AI</a>
     <a href="#contact">Kontakt</a>
   </nav>
 
-  <a href="#contact" class="btn btn-gold btn-sm nav-cta">Bezpłatna wycena</a>
+  <a href="#contact" class="btn btn-cyan btn-sm nav-cta">Bezpłatna wycena</a>
 
   <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
 
+<!-- ═══════════════ MOBILE NAV ═══════════════ -->
 <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <a href="#about"         onclick="closeMobile()">O nas</a>
-  <a href="#services"      onclick="closeMobile()">Oferta</a>
-  <a href="#gallery"       onclick="closeMobile()">Realizacje</a>
-  <a href="#process"       onclick="closeMobile()">Proces</a>
-  <a href="#testimonials"  onclick="closeMobile()">Opinie</a>
-  <a href="#faq"           onclick="closeMobile()">FAQ</a>
-  <a href="#ai-agent"      onclick="closeMobile()">Asystent AI</a>
-  <a href="#contact"       onclick="closeMobile()">Kontakt</a>
-  <a href="#contact" class="btn btn-gold" onclick="closeMobile()">Bezpłatna wycena</a>
+  <a href="#hero"              onclick="closeMobile()">Strona Główna</a>
+  <a href="#services"          onclick="closeMobile()">Oferta</a>
+  <a href="#kamien-naturalny"  onclick="closeMobile()">Kamień Naturalny</a>
+  <a href="#kamien-sztuczny"   onclick="closeMobile()">Kamień Sztuczny</a>
+  <a href="#gallery"           onclick="closeMobile()">Realizacje</a>
+  <a href="#inspiracje"        onclick="closeMobile()">Inspiracje</a>
+  <a href="#contact"           onclick="closeMobile()">Kontakt</a>
+  <a href="#contact" class="btn btn-cyan" onclick="closeMobile()">Bezpłatna wycena</a>
 </nav>
 
+<!-- ═══════════════ HERO ═══════════════ -->
 <section id="hero" class="hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&auto=format&fit=crop&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1920&auto=format&fit=crop&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&auto=format&fit=crop&q=80')"></div>
+  </div>
+
+  <div class="hero-overlay"></div>
   <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
 
   <div class="hero-content">
     <div class="hero-eyebrow reveal-hero">
       <span class="hero-dot"></span>
-      Pracownia Kamieniarska AMICO - Bedoń k. Łodzi
+      Pracownia Kamieniarska AMICO — Bedoń k. Łodzi
     </div>
 
     <h1 class="hero-title reveal-hero delay-1">
-      Tworzymy<br>z <em>kamienia</em><br>wyjątkowość
+      Niepowtarzalny design<br><em>naturalny i ponadczasowy</em>
     </h1>
 
     <p class="hero-sub reveal-hero delay-2">
-      Marmur, granit, kwarcyt - każdy projekt to dzieło sztuki wykonane z pasją.<br>
-      Blaty, schody, parapety, posadzki i ekskluzywne detale z kamienia.
+      Z kamienia zrobimy wszystko – od pomysłu, przez projekt,<br>po realizację i montaż z najwyższą precyzją.
     </p>
 
     <div class="hero-actions reveal-hero delay-3">
-      <a href="#contact" class="btn btn-gold btn-lg">
+      <a href="#contact" class="btn btn-cyan btn-lg">
         <span>Bezpłatna wycena</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -150,13 +168,20 @@
     </div>
   </div>
 
+  <div class="hero-dots" id="heroDots" aria-label="Slajdy">
+    <button class="hdot active" aria-label="Slajd 1"></button>
+    <button class="hdot" aria-label="Slajd 2"></button>
+    <button class="hdot" aria-label="Slajd 3"></button>
+  </div>
+
   <div class="scroll-indicator" aria-hidden="true">
     <span>Przewiń</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
-<section class="trust-strip">
+<!-- ═══════════════ TRUST STRIP ═══════════════ -->
+<div class="trust-strip">
   <div class="trust-inner" aria-hidden="true">
     <span class="trust-item">✦ Własny zakład produkcyjny</span>
     <span class="trust-sep">|</span>
@@ -183,13 +208,62 @@
     <span class="trust-item">✦ Gwarancja jakości</span>
     <span class="trust-sep">|</span>
   </div>
+</div>
+
+<!-- ═══════════════ FEATURE CARDS ═══════════════ -->
+<section class="features">
+  <div class="features-grid container">
+
+    <div class="feat-card reveal" data-tilt>
+      <div class="feat-body">
+        <h3>Co potrafimy?</h3>
+        <p>Z kamienia potrafimy zrobić wszystko! Realizujemy wizje naszych klientów, gwarantując profesjonalne wykonanie.</p>
+        <a href="#services" class="feat-more">Więcej</a>
+      </div>
+      <div class="feat-icon-wrap">
+        <div class="feat-icon-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-card reveal reveal-delay-1" data-tilt>
+      <div class="feat-body">
+        <h3>Nasze materiały</h3>
+        <p>Luksus i elegancja w Twoim domu i wokół niego. Rozwiązania z kamienia naturalnego inspirowane naturą.</p>
+        <a href="#kamien-naturalny" class="feat-more">Więcej</a>
+      </div>
+      <div class="feat-icon-wrap">
+        <div class="feat-icon-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-card reveal reveal-delay-2" data-tilt>
+      <div class="feat-body">
+        <h3>Bezpłatna wycena</h3>
+        <p>Doradzamy konkretne rozwiązania, zbieżne z wizją klienta. Bezpłatnie wyceniamy materiały i realizację.</p>
+        <a href="#contact" class="feat-more">Więcej</a>
+      </div>
+      <div class="feat-icon-wrap">
+        <div class="feat-icon-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
+<!-- ═══════════════ ABOUT ═══════════════ -->
 <section id="about" class="section about">
   <div class="about-grid container">
 
     <div class="about-visual reveal">
-      <div class="about-img-frame"><div class="img-placeholder"></div></div>
+      <div class="about-img-frame">
+        <img src="https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=900&auto=format&fit=crop&q=80" alt="AMICO - pracownia kamieniarska, marmur i granit" loading="lazy">
+      </div>
       <div class="about-badge-card">
         <div class="badge-icon">✦</div>
         <div>
@@ -203,194 +277,399 @@
       <span class="section-label">O pracowni</span>
       <h2 class="section-title">Pasja do kamienia,<br><span>precyzja w każdym detalu</span></h2>
       <p class="about-desc">
-        Każdy projekt traktujemy indywidualnie. Od pierwszego spotkania, przez projekt, aż po finalne wykończenie i montaż - towarzyszymy klientowi na każdym etapie realizacji. Nasz własny zakład produkcyjny gwarantuje najwyższą jakość i krótkie terminy realizacji.
+        Każdy projekt traktujemy indywidualnie. Od pierwszego spotkania, przez projekt, aż po finalne wykończenie i montaż — towarzyszymy klientowi na każdym etapie realizacji. Nasz własny zakład produkcyjny w Bedoniu k. Łodzi gwarantuje najwyższą jakość i krótkie terminy realizacji.
       </p>
 
       <div class="about-features">
         <div class="about-feat">
-          <div class="feat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <div class="feat-icon-sm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           </div>
-          <div>
-            <strong>Własny zakład produkcyjny</strong>
-            <span>Pełna kontrola nad jakością i terminami</span>
-          </div>
+          <div><strong>Własny zakład produkcyjny</strong><span>Pełna kontrola nad jakością i terminami</span></div>
         </div>
         <div class="about-feat">
-          <div class="feat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div class="feat-icon-sm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
-          <div>
-            <strong>Szybka realizacja</strong>
-            <span>Dotrzymujemy ustalonych terminów</span>
-          </div>
+          <div><strong>Szybka realizacja</strong><span>Dotrzymujemy ustalonych terminów</span></div>
         </div>
         <div class="about-feat">
-          <div class="feat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <div class="feat-icon-sm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
-          <div>
-            <strong>Indywidualne podejście</strong>
-            <span>Każdy projekt realizujemy z pasją</span>
-          </div>
+          <div><strong>Indywidualne podejście</strong><span>Każdy projekt realizujemy z pasją</span></div>
         </div>
         <div class="about-feat">
-          <div class="feat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div class="feat-icon-sm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           </div>
-          <div>
-            <strong>Gwarancja jakości</strong>
-            <span>Używamy wyłącznie certyfikowanych materiałów</span>
-          </div>
+          <div><strong>Gwarancja jakości</strong><span>Używamy wyłącznie certyfikowanych materiałów</span></div>
         </div>
       </div>
 
-      <a href="#contact" class="btn btn-gold">Poznaj naszą ofertę</a>
+      <a href="#contact" class="btn btn-cyan">Poznaj naszą ofertę</a>
     </div>
-
   </div>
 </section>
 
+<!-- ═══════════════ SERVICES / OFERTA ═══════════════ -->
 <section id="services" class="section services">
   <div class="container text-center">
     <span class="section-label reveal">Nasza oferta</span>
     <h2 class="section-title reveal">Co tworzymy<br><span>z kamienia?</span></h2>
+    <p class="section-lead reveal">Realizujemy kompleksowe projekty kamieniarskie – od małych detali po wielkie aranżacje przestrzeni</p>
   </div>
 
   <div class="services-grid container">
 
     <article class="service-card reveal" data-tilt>
-      <div class="service-img-wrap"><div class="img-placeholder"></div><div class="service-img-overlay"></div></div>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&auto=format&fit=crop&q=80" alt="Blaty kuchenne z kamienia naturalnego" loading="lazy">
+        <div class="service-img-overlay"></div>
+      </div>
       <div class="service-body">
         <div class="service-num">01</div>
         <h3>Blaty kuchenne</h3>
-        <p>Marmurowe, granitowe i kwarcowe blaty kuchenne - odporne, eleganckie i niepowtarzalne. Wykonujemy niestandardowe kształty i rozmiary.</p>
-        <a href="#contact" class="service-link">
-          Zapytaj o wycenę
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <p>Marmurowe, granitowe i kwarcowe blaty kuchenne — odporne, eleganckie i niepowtarzalne. Wykonujemy niestandardowe kształty i rozmiary.</p>
+        <a href="#contact" class="service-link">Zapytaj o wycenę <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </article>
 
     <article class="service-card reveal reveal-delay-1" data-tilt>
-      <div class="service-img-wrap"><div class="img-placeholder"></div><div class="service-img-overlay"></div></div>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&auto=format&fit=crop&q=80" alt="Schody kamienne z marmuru i granitu" loading="lazy">
+        <div class="service-img-overlay"></div>
+      </div>
       <div class="service-body">
         <div class="service-num">02</div>
         <h3>Schody kamienne</h3>
         <p>Stopnie, podstopnie, podesty i balustrady z kamienia naturalnego. Trwałe, reprezentacyjne i odporne na codzienne użytkowanie.</p>
-        <a href="#contact" class="service-link">
-          Zapytaj o wycenę
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <a href="#contact" class="service-link">Zapytaj o wycenę <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </article>
 
     <article class="service-card reveal reveal-delay-2" data-tilt>
-      <div class="service-img-wrap"><div class="img-placeholder"></div><div class="service-img-overlay"></div></div>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=700&auto=format&fit=crop&q=80" alt="Parapety z granitu i marmuru" loading="lazy">
+        <div class="service-img-overlay"></div>
+      </div>
       <div class="service-body">
         <div class="service-num">03</div>
         <h3>Parapety</h3>
-        <p>Wewnętrzne i zewnętrzne parapety z granitu i marmuru. Eleganckie wykończenie każdego okna - odporne na warunki atmosferyczne.</p>
-        <a href="#contact" class="service-link">
-          Zapytaj o wycenę
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <p>Wewnętrzne i zewnętrzne parapety z granitu i marmuru. Eleganckie wykończenie każdego okna — odporne na warunki atmosferyczne.</p>
+        <a href="#contact" class="service-link">Zapytaj o wycenę <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </article>
 
     <article class="service-card reveal" data-tilt>
-      <div class="service-img-wrap"><div class="img-placeholder"></div><div class="service-img-overlay"></div></div>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=700&auto=format&fit=crop&q=80" alt="Posadzki z kamienia naturalnego" loading="lazy">
+        <div class="service-img-overlay"></div>
+      </div>
       <div class="service-body">
         <div class="service-num">04</div>
         <h3>Posadzki i podłogi</h3>
         <p>Podłogi z marmuru, granitu i kamienia naturalnego. Niepowtarzalne wzory, mozaiki i układy dopasowane do każdego wnętrza.</p>
-        <a href="#contact" class="service-link">
-          Zapytaj o wycenę
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <a href="#contact" class="service-link">Zapytaj o wycenę <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </article>
 
     <article class="service-card reveal reveal-delay-1" data-tilt>
-      <div class="service-img-wrap"><div class="img-placeholder"></div><div class="service-img-overlay"></div></div>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=700&auto=format&fit=crop&q=80" alt="Łazienki z marmuru" loading="lazy">
+        <div class="service-img-overlay"></div>
+      </div>
       <div class="service-body">
         <div class="service-num">05</div>
         <h3>Łazienki</h3>
         <p>Okładziny ścienne, podłogi, umywalki, wanny i kabiny prysznicowe z kamienia naturalnego. Luksusowe łazienki marzeń.</p>
-        <a href="#contact" class="service-link">
-          Zapytaj o wycenę
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <a href="#contact" class="service-link">Zapytaj o wycenę <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </article>
 
-    <article class="service-card reveal" data-tilt>
-      <div class="service-img-wrap"><div class="img-placeholder"></div><div class="service-img-overlay"></div>
+    <article class="service-card reveal reveal-delay-2" data-tilt>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1576494501-1d67e20bbba4?w=700&auto=format&fit=crop&q=80" alt="Kominki z kamienia" loading="lazy">
+        <div class="service-img-overlay"></div>
       </div>
       <div class="service-body">
         <div class="service-num">06</div>
         <h3>Kominki i obudowy</h3>
         <p>Obudowy kominków, półki i elementy dekoracyjne z kamienia naturalnego. Elegancja i bezpieczeństwo w jednym.</p>
-        <a href="#contact" class="service-link">
-          Zapytaj o wycenę
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </article>
-
-    <article class="service-card reveal reveal-delay-1" data-tilt>
-      <div class="service-img-wrap"><div class="img-placeholder"></div><div class="service-img-overlay"></div>
-      </div>
-      <div class="service-body">
-        <div class="service-num">07</div>
-        <h3>Mała architektura</h3>
-        <p>Fontanny, rzeźby ogrodowe, murki, elementy elewacyjne i wszelkie kamienne akcenty architektoniczne na zamówienie.</p>
-        <a href="#contact" class="service-link">
-          Zapytaj o wycenę
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <a href="#contact" class="service-link">Zapytaj o wycenę <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </article>
 
   </div>
 </section>
 
+<!-- ═══════════════ KAMIEŃ NATURALNY ═══════════════ -->
+<section id="kamien-naturalny" class="section stone-section stone-natural">
+  <div class="stone-grid container">
+    <div class="stone-img reveal">
+      <img src="https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=900&auto=format&fit=crop&q=80" alt="Kamień naturalny - marmur i granit" loading="lazy">
+      <div class="stone-img-badge">
+        <span>Marmur · Granit · Trawertyn</span>
+      </div>
+    </div>
+    <div class="stone-text reveal reveal-delay-2">
+      <span class="section-label">Kamień Naturalny</span>
+      <h2 class="section-title">Piękno prosto<br><span>z łona natury</span></h2>
+      <p class="stone-desc">Kamień naturalny to materiał ponadczasowy — każda płyta jest unikalna, niepowtarzalna i stworzona przez miliony lat. Oferujemy szeroki wybór marmurów, granitów, kwarcytów, trawertynów i kamieni egzotycznych z całego świata.</p>
+
+      <div class="stone-types">
+        <div class="stype">
+          <div class="stype-dot cyan"></div>
+          <div>
+            <strong>Marmury włoskie</strong>
+            <span>Calacatta, Statuario, Carrara, Bianco Sivec</span>
+          </div>
+        </div>
+        <div class="stype">
+          <div class="stype-dot navy"></div>
+          <div>
+            <strong>Granity</strong>
+            <span>Angola Black, Absolute Black, Verde Ubatuba, Imperial Red</span>
+          </div>
+        </div>
+        <div class="stype">
+          <div class="stype-dot light"></div>
+          <div>
+            <strong>Kwarcyty i Trawertyny</strong>
+            <span>Taj Mahal, Azul Macaubas, Classic Silver</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn btn-cyan">Zapytaj o dostępne gatunki</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ KAMIEŃ SZTUCZNY ═══════════════ -->
+<section id="kamien-sztuczny" class="section stone-section stone-artificial">
+  <div class="stone-grid container stone-grid-reverse">
+    <div class="stone-text reveal">
+      <span class="section-label">Kamień Sztuczny</span>
+      <h2 class="section-title">Inżynierska<br><span>precyzja i piękno</span></h2>
+      <p class="stone-desc">Kamień kwarcowy (Silestone, Compac, Technistone) i konglomerat to materiały nowej generacji. Łączą naturalny wygląd z niezrównaną odpornością — idealne do intensywnie użytkowanych kuchni i łazienek.</p>
+
+      <div class="stone-types">
+        <div class="stype">
+          <div class="stype-dot cyan"></div>
+          <div>
+            <strong>Kamień kwarcowy</strong>
+            <span>Silestone, Compac, Technistone — ponad 50 kolorów</span>
+          </div>
+        </div>
+        <div class="stype">
+          <div class="stype-dot navy"></div>
+          <div>
+            <strong>Odporność</strong>
+            <span>Nieporowaty, antybakteryjny, odporny na zarysowania</span>
+          </div>
+        </div>
+        <div class="stype">
+          <div class="stype-dot light"></div>
+          <div>
+            <strong>Łatwa pielęgnacja</strong>
+            <span>Nie wymaga impregnacji, łatwy do czyszczenia</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn btn-cyan">Poznaj naszą kolekcję</a>
+    </div>
+    <div class="stone-img reveal reveal-delay-2">
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&auto=format&fit=crop&q=80" alt="Kamień sztuczny - blaty kwarcowe" loading="lazy">
+      <div class="stone-img-badge">
+        <span>Silestone · Compac · Technistone</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ GALLERY / REALIZACJE ═══════════════ -->
 <section id="gallery" class="section gallery">
   <div class="container text-center">
     <span class="section-label reveal">Nasze realizacje</span>
-    <h2 class="section-title reveal">Galeria <span>kamiennych dzieł</span></h2>
+    <h2 class="section-title reveal">NASZE REALIZACJE</h2>
+    <p class="section-lead reveal">Z kamienia zrobimy wszystko — od pomysłu, przez projekt, po realizację i montaż kamienia</p>
   </div>
 
   <div class="gallery-grid container">
-    <div class="g-item g-tall reveal"><div class="img-placeholder img-placeholder--gallery"></div><div class="g-overlay"><span>Blat kuchenny - Marmur Calacatta</span></div>
+    <div class="g-item g-tall reveal">
+      <img src="https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=800&auto=format&fit=crop&q=80" alt="Blat marmurowy Calacatta" loading="lazy">
+      <div class="g-overlay"><span>Blat kuchenny – Marmur Calacatta</span></div>
     </div>
-    <div class="g-item reveal reveal-delay-1"><div class="img-placeholder img-placeholder--gallery"></div><div class="g-overlay"><span>Blat - Kamień naturalny</span></div>
+    <div class="g-item reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&auto=format&fit=crop&q=80" alt="Blat z kamienia naturalnego" loading="lazy">
+      <div class="g-overlay"><span>Blat – Kamień naturalny</span></div>
     </div>
-    <div class="g-item reveal reveal-delay-2"><div class="img-placeholder img-placeholder--gallery"></div><div class="g-overlay"><span>Schody - Granit jasny</span></div>
+    <div class="g-item reveal reveal-delay-2">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80" alt="Schody granitowe" loading="lazy">
+      <div class="g-overlay"><span>Schody – Granit jasny</span></div>
     </div>
-    <div class="g-item g-wide reveal"><div class="img-placeholder img-placeholder--gallery"></div><div class="g-overlay"><span>Łazienka - Marmur biały</span></div>
+    <div class="g-item g-wide reveal">
+      <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&auto=format&fit=crop&q=80" alt="Łazienka z marmuru białego" loading="lazy">
+      <div class="g-overlay"><span>Łazienka – Marmur biały</span></div>
     </div>
-    <div class="g-item reveal reveal-delay-1"><div class="img-placeholder img-placeholder--gallery"></div><div class="g-overlay"><span>Posadzka - Marmur jasny</span></div>
+    <div class="g-item reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80" alt="Posadzka marmurowa" loading="lazy">
+      <div class="g-overlay"><span>Posadzka – Marmur jasny</span></div>
     </div>
-    <div class="g-item reveal reveal-delay-2"><div class="img-placeholder img-placeholder--gallery"></div><div class="g-overlay"><span>Wnętrze - Kamień dekoracyjny</span></div>
+    <div class="g-item reveal reveal-delay-2">
+      <img src="https://images.unsplash.com/photo-1576494501-1d67e20bbba4?w=800&auto=format&fit=crop&q=80" alt="Kominek kamienny" loading="lazy">
+      <div class="g-overlay"><span>Kominek – Kamień dekoracyjny</span></div>
     </div>
-    <div class="g-item reveal"><div class="img-placeholder img-placeholder--gallery"></div><div class="g-overlay"><span>Parapety - Granit czarny</span></div>
+    <div class="g-item reveal">
+      <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=800&auto=format&fit=crop&q=80" alt="Parapety granitowe" loading="lazy">
+      <div class="g-overlay"><span>Parapety – Granit czarny</span></div>
     </div>
-    <div class="g-item g-tall reveal reveal-delay-1"><div class="img-placeholder img-placeholder--gallery"></div><div class="g-overlay"><span>Blat wyspowy - Marmur ciemny</span></div>
+    <div class="g-item g-tall reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&auto=format&fit=crop&q=80" alt="Wnętrze z marmuru" loading="lazy">
+      <div class="g-overlay"><span>Blat wyspowy – Marmur ciemny</span></div>
     </div>
-    <div class="g-item reveal reveal-delay-2"><div class="img-placeholder img-placeholder--gallery"></div><div class="g-overlay"><span>Posadzka - Wzór geometryczny</span></div>
+    <div class="g-item reveal reveal-delay-2">
+      <img src="https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=800&auto=format&fit=crop&q=80" alt="Mała architektura kamienna" loading="lazy">
+      <div class="g-overlay"><span>Mała architektura</span></div>
     </div>
   </div>
 
   <div class="text-center" style="margin-top:3rem">
-    <a href="#contact" class="btn btn-gold reveal">Zapytaj o realizację dla Ciebie</a>
+    <a href="#contact" class="btn btn-cyan reveal">Zapytaj o realizację dla Ciebie</a>
   </div>
 </section>
 
+<!-- ═══════════════ DLACZEGO WARTO ═══════════════ -->
+<section class="section why-us">
+  <div class="container text-center why-header">
+    <span class="section-label reveal">Dlaczego AMICO?</span>
+    <h2 class="section-title reveal">DLACZEGO WARTO<br><span>PRACOWAĆ Z NAMI</span></h2>
+    <p class="section-lead reveal">Rozumiemy potrzeby naszych klientów i dostarczamy usługi najwyższej jakości</p>
+  </div>
+
+  <div class="why-grid container">
+    <div class="why-img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&auto=format&fit=crop&q=80" alt="Projekt architektoniczny AMICO" loading="lazy">
+    </div>
+
+    <div class="why-features reveal reveal-delay-2">
+
+      <div class="why-item">
+        <div class="wi-check">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div class="wi-content">
+          <h4>Elastyczność</h4>
+          <div class="wi-bar"><span class="wi-divider"></span><p>Nasze biuro jest tam, gdzie nasz klient – 100% mobilności</p></div>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="wi-check">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div class="wi-content">
+          <h4>Gwarancja należytego wykonania</h4>
+          <div class="wi-bar"><span class="wi-divider"></span><p>Nasz zespół to wyłącznie profesjonaliści – 100% jakości</p></div>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="wi-check">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div class="wi-content">
+          <h4>Maksymalnie szeroka oferta</h4>
+          <div class="wi-bar"><span class="wi-divider"></span><p>Na bieżąco poszerzamy ofertę – 100% nowości</p></div>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="wi-check">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div class="wi-content">
+          <h4>Własny zakład produkcyjny</h4>
+          <div class="wi-bar"><span class="wi-divider"></span><p>Nie zlecamy na zewnątrz – pełna kontrola nad jakością i terminami</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ KAMIENNE INSPIRACJE ═══════════════ -->
+<section id="inspiracje" class="section inspiracje">
+  <div class="container text-center">
+    <span class="section-label reveal">Kamienne Inspiracje</span>
+    <h2 class="section-title reveal">KAMIENNE INSPIRACJE</h2>
+    <p class="section-lead reveal">Ciekawe pomysły na nowoczesne wnętrza i architekturę</p>
+  </div>
+
+  <div class="inspiracje-grid container">
+
+    <div class="insp-item reveal" data-tilt>
+      <div class="insp-img-wrap">
+        <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&auto=format&fit=crop&q=80" alt="Kolorowe zlewy kwarcowe" loading="lazy">
+        <div class="insp-hover-overlay">
+          <a href="#contact" class="btn btn-cyan btn-sm">Zapytaj o wycenę</a>
+        </div>
+      </div>
+      <div class="insp-body">
+        <h4>Kolorowe zlewy</h4>
+        <p>Designerskie zlewy w kolorze blatu kwarcowego, w dowolnym odcieniu.</p>
+      </div>
+    </div>
+
+    <div class="insp-item reveal reveal-delay-1" data-tilt>
+      <div class="insp-img-wrap">
+        <img src="https://images.unsplash.com/photo-1576494501-1d67e20bbba4?w=600&auto=format&fit=crop&q=80" alt="Obudowy kominków z kamienia" loading="lazy">
+        <div class="insp-hover-overlay">
+          <a href="#contact" class="btn btn-cyan btn-sm">Zapytaj o wycenę</a>
+        </div>
+      </div>
+      <div class="insp-body">
+        <h4>Obudowy kominków</h4>
+        <p>Obudowy kominków z kilku rodzajów kamienia – niepowtarzalny efekt.</p>
+      </div>
+    </div>
+
+    <div class="insp-item reveal reveal-delay-2" data-tilt>
+      <div class="insp-img-wrap">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&auto=format&fit=crop&q=80" alt="Blaty kuchenne z kamienia" loading="lazy">
+        <div class="insp-hover-overlay">
+          <a href="#contact" class="btn btn-cyan btn-sm">Zapytaj o wycenę</a>
+        </div>
+      </div>
+      <div class="insp-body">
+        <h4>Blaty kuchenne</h4>
+        <p>Kamienne blaty to elegancja, nowoczesność i funkcjonalność.</p>
+      </div>
+    </div>
+
+    <div class="insp-item reveal reveal-delay-3" data-tilt>
+      <div class="insp-img-wrap">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80" alt="Schody kamienne" loading="lazy">
+        <div class="insp-hover-overlay">
+          <a href="#contact" class="btn btn-cyan btn-sm">Zapytaj o wycenę</a>
+        </div>
+      </div>
+      <div class="insp-body">
+        <h4>Schody</h4>
+        <p>Schody wewnętrzne i zewnętrzne, efektowne i wytrzymałe.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ PROCESS ═══════════════ -->
 <section id="process" class="section process">
   <div class="container text-center">
     <span class="section-label reveal">Jak pracujemy</span>
-    <h2 class="section-title reveal">Od pomysłu do <span>gotowej realizacji</span></h2>
+    <h2 class="section-title reveal">Od pomysłu do<br><span>gotowej realizacji</span></h2>
   </div>
 
   <div class="process-grid container">
@@ -428,76 +707,11 @@
   </div>
 </section>
 
-<section class="section why-us">
-  <div class="why-grid container">
-    <div class="why-text reveal">
-      <span class="section-label">Dlaczego AMICO?</span>
-      <h2 class="section-title">Wybierz <span>sprawdzoną pracownię</span></h2>
-
-      <ul class="why-list">
-        <li class="why-item reveal">
-          <div class="why-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
-          <div>
-            <strong>Własny zakład produkcyjny w Bedoniu</strong>
-            <p>Nie zlecamy na zewnątrz - wszystko robimy sami, co gwarantuje jakość i terminowość.</p>
-          </div>
-        </li>
-        <li class="why-item reveal reveal-delay-1">
-          <div class="why-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-          </div>
-          <div>
-            <strong>Ponad 20 lat doświadczenia</strong>
-            <p>Tysiące zrealizowanych projektów na terenie całej Polski. Znamy kamień jak nikt inny.</p>
-          </div>
-        </li>
-        <li class="why-item reveal reveal-delay-2">
-          <div class="why-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div>
-            <strong>Szeroki wybór kamieni z całego świata</strong>
-            <p>Ponad 50 gatunków marmuru, granitu, kwarcytu, trawertynu i kamieni ekskluzywnych.</p>
-          </div>
-        </li>
-        <li class="why-item reveal reveal-delay-3">
-          <div class="why-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-          </div>
-          <div>
-            <strong>Gwarancja i serwis posprzedażowy</strong>
-            <p>Stoimy za każdym projektem. Zapewniamy gwarancję i pełne wsparcie po montażu.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="why-visual reveal reveal-delay-2">
-      <div class="why-img-frame"><div class="img-placeholder"></div></div>
-      <div class="why-numbers">
-        <div class="wn-item">
-          <span class="wn-num" data-target="20">0</span><span class="wn-suf">+</span>
-          <span class="wn-label">Lat doświadczenia</span>
-        </div>
-        <div class="wn-item">
-          <span class="wn-num" data-target="3000">0</span><span class="wn-suf">+</span>
-          <span class="wn-label">Projektów</span>
-        </div>
-        <div class="wn-item">
-          <span class="wn-num" data-target="50">0</span><span class="wn-suf">+</span>
-          <span class="wn-label">Gatunków kamienia</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ═══════════════ TESTIMONIALS ═══════════════ -->
 <section id="testimonials" class="section testimonials">
   <div class="container text-center">
     <span class="section-label reveal">Opinie klientów</span>
-    <h2 class="section-title reveal">Co mówią <span>nasi klienci?</span></h2>
+    <h2 class="section-title reveal">Co mówią<br><span>nasi klienci?</span></h2>
   </div>
 
   <div class="testimonials-wrap">
@@ -513,10 +727,7 @@
           <p class="tcard-text">„Zamówiliśmy blat kuchenny z marmuru Calacatta. Efekt przerósł nasze oczekiwania! Precyzja cięcia, jakość polerowania i montaż na najwyższym poziomie. Gorąco polecam AMICO każdemu."</p>
           <div class="tcard-author">
             <div class="tcard-avatar">AK</div>
-            <div>
-              <strong>Anna Kowalska</strong>
-              <span>Łódź</span>
-            </div>
+            <div><strong>Anna Kowalska</strong><span>Łódź</span></div>
           </div>
         </div>
 
@@ -525,10 +736,7 @@
           <p class="tcard-text">„Schody z granitu Angola Black wyglądają absolutnie przepięknie. Firma dotrzymała terminów, ekipa montażowa była profesjonalna i schludna. Polecam z całego serca!"</p>
           <div class="tcard-author">
             <div class="tcard-avatar">MT</div>
-            <div>
-              <strong>Marek Tomaszewski</strong>
-              <span>Pabianice</span>
-            </div>
+            <div><strong>Marek Tomaszewski</strong><span>Pabianice</span></div>
           </div>
         </div>
 
@@ -537,10 +745,7 @@
           <p class="tcard-text">„Całkowita łazienka w marmurze Statuario. Pani Milena i jej zespół pomogli w wyborze kamienia, dopilnowali każdego szczegółu. Efekt jest jak z luksusowego hotelu. Dziękuję AMICO!"</p>
           <div class="tcard-author">
             <div class="tcard-avatar">KW</div>
-            <div>
-              <strong>Katarzyna Wiśniewska</strong>
-              <span>Zgierz</span>
-            </div>
+            <div><strong>Katarzyna Wiśniewska</strong><span>Zgierz</span></div>
           </div>
         </div>
 
@@ -549,10 +754,7 @@
           <p class="tcard-text">„Parapety z granitu Absolute Black w całym domu. Wykonane idealnie, bez żadnych usterek. Obsługa klienta na medal. Będę wracać do AMICO przy każdej okazji!"</p>
           <div class="tcard-author">
             <div class="tcard-avatar">PM</div>
-            <div>
-              <strong>Piotr Malinowski</strong>
-              <span>Koluszki</span>
-            </div>
+            <div><strong>Piotr Malinowski</strong><span>Koluszki</span></div>
           </div>
         </div>
 
@@ -563,88 +765,49 @@
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
     </button>
   </div>
-
   <div class="tslider-dots" id="tDots"></div>
 </section>
 
+<!-- ═══════════════ FAQ ═══════════════ -->
 <section id="faq" class="section faq">
   <div class="container">
     <div class="faq-header text-center">
       <span class="section-label reveal">FAQ</span>
-      <h2 class="section-title reveal">Najczęstsze <span>pytania</span></h2>
+      <h2 class="section-title reveal">Najczęstsze<br><span>pytania</span></h2>
     </div>
 
     <div class="faq-list">
-
       <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          Jakie rodzaje kamienia naturalnego oferujecie?
-          <span class="faq-icon"></span>
-        </button>
-        <div class="faq-a">
-          <p>Pracujemy z szeroką gamą kamieni naturalnych: marmurami włoskimi i tureckimi (Calacatta, Statuario, Carrara), granitami z całego świata (Angola Black, Absolute Black, Verde Ubatuba, Imperial Red), kwarcytami, trawertynami i kamieniami egzotycznymi. Oferujemy ponad 50 gatunków - zapraszamy do pracowni, aby zobaczyć próbki.</p>
-        </div>
+        <button class="faq-q" aria-expanded="false">Jakie rodzaje kamienia naturalnego oferujecie?<span class="faq-icon"></span></button>
+        <div class="faq-a"><p>Pracujemy z szeroką gamą kamieni naturalnych: marmurami włoskimi i tureckimi (Calacatta, Statuario, Carrara), granitami z całego świata (Angola Black, Absolute Black, Verde Ubatuba, Imperial Red), kwarcytami, trawertynami i kamieniami egzotycznymi. Oferujemy ponad 50 gatunków.</p></div>
       </div>
-
       <div class="faq-item reveal reveal-delay-1">
-        <button class="faq-q" aria-expanded="false">
-          Jak długo trwa realizacja zamówienia?
-          <span class="faq-icon"></span>
-        </button>
-        <div class="faq-a">
-          <p>Czas realizacji zależy od rodzaju projektu i wybranego materiału. Standardowe blaty kuchenne czy parapety realizujemy zazwyczaj w ciągu 2-3 tygodni od podpisania umowy. Większe projekty (schody, posadzki, łazienki) mogą wymagać 4-6 tygodni. Zawsze ustalamy termin indywidualnie i dotrzymujemy go.</p>
-        </div>
+        <button class="faq-q" aria-expanded="false">Jak długo trwa realizacja zamówienia?<span class="faq-icon"></span></button>
+        <div class="faq-a"><p>Czas realizacji zależy od rodzaju projektu i wybranego materiału. Standardowe blaty kuchenne czy parapety realizujemy zazwyczaj w ciągu 2–3 tygodni od podpisania umowy. Większe projekty (schody, posadzki, łazienki) mogą wymagać 4–6 tygodni. Zawsze ustalamy termin indywidualnie i dotrzymujemy go.</p></div>
       </div>
-
       <div class="faq-item reveal reveal-delay-2">
-        <button class="faq-q" aria-expanded="false">
-          Czy oferujecie bezpłatną wycenę i dojazd do klienta?
-          <span class="faq-icon"></span>
-        </button>
-        <div class="faq-a">
-          <p>Tak! Wycena jest całkowicie bezpłatna. Przyjeżdżamy do klienta w celu dokładnego pomiaru i omówienia szczegółów projektu. Działamy na terenie Łodzi i okolic, ale realizujemy projekty w całej Polsce.</p>
-        </div>
+        <button class="faq-q" aria-expanded="false">Czy oferujecie bezpłatną wycenę i dojazd do klienta?<span class="faq-icon"></span></button>
+        <div class="faq-a"><p>Tak! Wycena jest całkowicie bezpłatna. Przyjeżdżamy do klienta w celu dokładnego pomiaru i omówienia szczegółów projektu. Działamy na terenie Łodzi i okolic, ale realizujemy projekty w całej Polsce.</p></div>
       </div>
-
       <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          Czy kamień naturalny jest trudny w pielęgnacji?
-          <span class="faq-icon"></span>
-        </button>
-        <div class="faq-a">
-          <p>Kamień naturalny, właściwie pielęgnowany, jest bardzo trwały i piękny przez dziesiątki lat. Po montażu impregnujemy kamień specjalnymi preparatami ochronnymi. Dostarczamy instrukcję pielęgnacji i służymy doradztwem. Granit jest bardzo odporny i łatwy w czyszczeniu - marmur wymaga nieco więcej uwagi, ale jest bezcenny estetycznie.</p>
-        </div>
+        <button class="faq-q" aria-expanded="false">Czy kamień naturalny jest trudny w pielęgnacji?<span class="faq-icon"></span></button>
+        <div class="faq-a"><p>Kamień naturalny, właściwie pielęgnowany, jest bardzo trwały i piękny przez dziesiątki lat. Po montażu impregnujemy kamień specjalnymi preparatami ochronnymi. Dostarczamy instrukcję pielęgnacji i służymy doradztwem. Granit jest bardzo odporny i łatwy w czyszczeniu, marmur wymaga nieco więcej uwagi, ale jest bezcenny estetycznie.</p></div>
       </div>
-
       <div class="faq-item reveal reveal-delay-1">
-        <button class="faq-q" aria-expanded="false">
-          Czy wykonujecie niestandardowe projekty i kształty?
-          <span class="faq-icon"></span>
-        </button>
-        <div class="faq-a">
-          <p>Oczywiście! Specjalizujemy się w projektach indywidualnych. Posiadamy nowoczesne maszyny CNC umożliwiające cięcie i profilowanie kamienia w dowolnym kształcie. Realizujemy blaty z wycięciami na zlew, zaokrąglonymi narożnikami, nieregularnymi krawędziami - wszystko według projektu klienta.</p>
-        </div>
+        <button class="faq-q" aria-expanded="false">Czy wykonujecie niestandardowe projekty i kształty?<span class="faq-icon"></span></button>
+        <div class="faq-a"><p>Oczywiście! Specjalizujemy się w projektach indywidualnych. Posiadamy nowoczesne maszyny CNC umożliwiające cięcie i profilowanie kamienia w dowolnym kształcie. Realizujemy blaty z wycięciami na zlew, zaokrąglonymi narożnikami, nieregularnymi krawędziami — wszystko według projektu klienta.</p></div>
       </div>
-
-      <div class="faq-item reveal reveal-delay-2">
-        <button class="faq-q" aria-expanded="false">
-          Jakie są opcje wykończenia krawędzi blatów?
-          <span class="faq-icon"></span>
-        </button>
-        <div class="faq-a">
-          <p>Oferujemy wiele profili krawędzi: krawędź prostą (szlifowaną i polerowaną), half bullnose, full bullnose, skos 45°, frez dekoracyjny, ogee i inne. Krawędź jest jednym z kluczowych elementów estetycznych blatu - chętnie doradzimy, który profil najlepiej pasuje do stylu Twojego wnętrza.</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
+<!-- ═══════════════ CONTACT ═══════════════ -->
 <section id="contact" class="section contact">
   <div class="container">
     <div class="contact-header text-center">
       <span class="section-label reveal">Kontakt</span>
       <h2 class="section-title reveal">Porozmawiajmy<br><span>o Twoim projekcie</span></h2>
+      <p class="section-lead reveal">Bezpłatna wycena — odpowiadamy w ciągu 24 godzin</p>
     </div>
 
     <div class="contact-grid">
@@ -652,48 +815,24 @@
       <div class="contact-info reveal">
         <div class="ci-card">
           <div class="ci-block">
-            <div class="ci-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <span class="ci-label">Telefon</span>
-              <a href="tel:+48693040609" class="ci-value">693 040 609</a>
-            </div>
+            <div class="ci-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><span class="ci-label">Telefon</span><a href="tel:+48693040609" class="ci-value">693 040 609</a></div>
           </div>
           <div class="ci-block">
-            <div class="ci-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <span class="ci-label">E-mail</span>
-              <a href="mailto:milena@amicco.pl" class="ci-value">milena@amicco.pl</a>
-            </div>
+            <div class="ci-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><span class="ci-label">E-mail</span><a href="mailto:milena@amicco.pl" class="ci-value">milena@amicco.pl</a></div>
           </div>
           <div class="ci-block">
-            <div class="ci-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <span class="ci-label">Adres</span>
-              <span class="ci-value">ul. Brzezińska 84<br>95-020 Bedoń k. Łodzi</span>
-            </div>
+            <div class="ci-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><span class="ci-label">Adres</span><span class="ci-value">ul. Brzezińska 84<br>95-020 Bedoń k. Łodzi</span></div>
           </div>
           <div class="ci-block">
-            <div class="ci-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </div>
-            <div>
-              <span class="ci-label">Godziny otwarcia</span>
-              <span class="ci-value">Pon-Pt: 8:00-17:00<br>Sob: 9:00-14:00</span>
-            </div>
+            <div class="ci-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div><span class="ci-label">Godziny otwarcia</span><span class="ci-value">Pon–Pt: 8:00–17:00<br>Sob: 9:00–14:00</span></div>
           </div>
-
           <div class="ci-contact-name">
             <div class="ci-avatar">MF</div>
-            <div>
-              <strong>Milena Fiks</strong>
-              <span>Właściciel i Doradca</span>
-            </div>
+            <div><strong>Milena Fiks</strong><span>Właściciel i Doradca</span></div>
           </div>
         </div>
       </div>
@@ -724,15 +863,16 @@
               <option>Posadzki i podłogi</option>
               <option>Łazienka</option>
               <option>Kominek i obudowy</option>
-              <option>Mała architektura</option>
+              <option>Kamień Naturalny</option>
+              <option>Kamień Sztuczny</option>
               <option>Inne</option>
             </select>
           </div>
           <div class="form-group">
             <label for="fmsg">Wiadomość <span>*</span></label>
-            <textarea id="fmsg" name="message" rows="5" placeholder="Opisz swój projekt - chętnie przygotujemy bezpłatną wycenę..." required></textarea>
+            <textarea id="fmsg" name="message" rows="5" placeholder="Opisz swój projekt – chętnie przygotujemy bezpłatną wycenę..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-gold btn-full" id="submitBtn">
+          <button type="submit" class="btn btn-cyan btn-full" id="submitBtn">
             <span>Wyślij zapytanie</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
@@ -746,88 +886,72 @@
   <div class="contact-map reveal">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2471.5!2d19.6150!3d51.7482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a3208f4e3b0b5%3A0x1!2zQnJ6ZXppxYRza2EgODQsIDk1LTAyMCBCZWRvxYQ!5e0!3m2!1spl!2spl!4v1712000000000!5m2!1spl!2spl"
-      width="100%"
-      height="340"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
+      width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
       title="Lokalizacja AMICO Pracownia Kamieniarska – ul. Brzezińska 84, Bedoń k. Łodzi"
     ></iframe>
   </div>
 </section>
 
+<!-- ═══════════════ AI AGENT ═══════════════ -->
 <section id="ai-agent" class="section ai-section">
   <div class="container text-center">
     <span class="section-label reveal">Asystent AI</span>
-    <h2 class="section-title reveal">Poznaj naszego <span>Asystenta AI</span></h2>
-    <p class="ai-section-lead reveal">Nasz wirtualny doradca jest dostępny 24/7. Odpowie na Twoje pytania, pomoże w wyborze kamienia i przeprowadzi przez cały proces zamówienia.</p>
+    <h2 class="section-title reveal">Poznaj naszego<br><span>Asystenta AI</span></h2>
+    <p class="section-lead reveal">Nasz wirtualny doradca jest dostępny 24/7. Odpowie na Twoje pytania, pomoże w wyborze kamienia i przeprowadzi przez cały proces zamówienia.</p>
   </div>
 
   <div class="ai-features container">
     <div class="ai-feat-card reveal">
-      <div class="ai-feat-icon" aria-hidden="true">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <div class="ai-feat-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       </div>
       <h3>Doradztwo w wyborze kamienia</h3>
-      <p>Zapytaj o różnice między marmurem a granitem, najlepszy kamień do kuchni, łazienki lub schodów – asystent dobierze materiał do Twoich potrzeb.</p>
+      <p>Zapytaj o różnice między marmurem a granitem, najlepszy kamień do kuchni, łazienki lub schodów.</p>
     </div>
     <div class="ai-feat-card reveal reveal-delay-1">
-      <div class="ai-feat-icon" aria-hidden="true">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <div class="ai-feat-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
       </div>
       <h3>Szacowanie kosztów</h3>
-      <p>Podaj wymiary i rodzaj projektu, a asystent przedstawi orientacyjne koszty realizacji i pomoże zaplanować budżet na Twój projekt.</p>
+      <p>Podaj wymiary i rodzaj projektu, a asystent przedstawi orientacyjne koszty realizacji.</p>
     </div>
     <div class="ai-feat-card reveal reveal-delay-2">
-      <div class="ai-feat-icon" aria-hidden="true">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <div class="ai-feat-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
       </div>
-      <h3>Dostępny 24 godziny na dobę</h3>
-      <p>Bez względu na porę dnia czy nocy – asystent jest gotowy do rozmowy. Nie musisz czekać na odpowiedź do następnego dnia roboczego.</p>
+      <h3>Dostępny 24/7</h3>
+      <p>Bez względu na porę dnia czy nocy – asystent jest gotowy do rozmowy i odpowie na każde pytanie.</p>
     </div>
     <div class="ai-feat-card reveal">
-      <div class="ai-feat-icon" aria-hidden="true">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-      </div>
-      <h3>Informacje o realizacjach</h3>
-      <p>Dowiedz się więcej o naszych projektach, dostępnych gatunkach kamienia, terminach i procesie produkcji. Asystent zna wszystkie szczegóły naszej oferty.</p>
-    </div>
-    <div class="ai-feat-card reveal reveal-delay-1">
-      <div class="ai-feat-icon" aria-hidden="true">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <div class="ai-feat-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
       <h3>Rezerwacja konsultacji</h3>
-      <p>Umów bezpłatną wizytę w naszej pracowni lub zaproś naszego specjalistę do siebie. Asystent pomoże wybrać odpowiedni termin i przekaże dane do kontaktu.</p>
-    </div>
-    <div class="ai-feat-card reveal reveal-delay-2">
-      <div class="ai-feat-icon" aria-hidden="true">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <h3>Pielęgnacja i impregnacja</h3>
-      <p>Uzyskaj praktyczne porady dotyczące czyszczenia i konserwacji Twojego kamienia, aby służył pięknie przez długie lata.</p>
+      <p>Umów bezpłatną wizytę w pracowni lub zaproś naszego specjalistę do siebie.</p>
     </div>
   </div>
 
   <div class="ai-cta container text-center reveal">
     <p class="ai-cta-text">Masz pytanie? Nasz asystent jest gotowy do rozmowy – kliknij ikonę czatu w prawym dolnym rogu.</p>
-    <button class="btn btn-gold btn-lg ai-open-chat" type="button" onclick="openKontaktioChat()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <button class="btn btn-cyan btn-lg ai-open-chat" type="button" onclick="openKontaktioChat()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span>Porozmawiaj z asystentem</span>
     </button>
   </div>
 </section>
 
+<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer class="footer">
   <div class="footer-top container">
     <div class="footer-brand">
-      <div class="logo">
+      <div class="footer-logo">
+        <div class="logo-tagline-top" style="color:rgba(255,255,255,0.5)">Pracownia Kamieniarska</div>
         <div class="logo-mark">
           <span class="logo-a">A</span><span class="logo-m-box"><span class="logo-m">M</span></span><span class="logo-ico">ICO</span>
         </div>
-        <div class="logo-tagline">Pracownia Kamieniarska</div>
       </div>
-      <p class="footer-desc">Tworzymy z kamienia wyjątkowość. Marmur, granit i kamień naturalny w najwyższym wykonaniu - od projektu po montaż.</p>
+      <p class="footer-desc">Tworzymy z kamienia wyjątkowość. Marmur, granit i kamień naturalny w najwyższym wykonaniu — od projektu po montaż.</p>
       <div class="footer-contact-row">
         <a href="tel:+48693040609">693 040 609</a>
         <span>·</span>
@@ -842,36 +966,34 @@
       <a href="#services">Parapety</a>
       <a href="#services">Posadzki i podłogi</a>
       <a href="#services">Łazienki</a>
+      <a href="#services">Kominki i obudowy</a>
     </div>
 
     <div class="footer-col">
-      <h5>Informacje</h5>
-      <a href="#about">O pracowni</a>
+      <h5>Kamień</h5>
+      <a href="#kamien-naturalny">Kamień Naturalny</a>
+      <a href="#kamien-sztuczny">Kamień Sztuczny</a>
+      <a href="#inspiracje">Inspiracje</a>
       <a href="#gallery">Realizacje</a>
       <a href="#process">Jak pracujemy</a>
       <a href="#testimonials">Opinie</a>
-      <a href="#ai-agent">Asystent AI</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Kontakt</a>
     </div>
 
     <div class="footer-col">
       <h5>Adres</h5>
-      <address>
-        ul. Brzezińska 84<br>
-        95-020 Bedoń k. Łodzi
-      </address>
-      <p class="footer-hours">Pon-Pt: 8:00-17:00<br>Sob: 9:00-14:00</p>
+      <address>ul. Brzezińska 84<br>95-020 Bedoń k. Łodzi</address>
+      <p class="footer-hours">Pon–Pt: 8:00–17:00<br>Sob: 9:00–14:00</p>
       <a href="https://www.marmurowydom.pl" class="footer-www" target="_blank" rel="noopener">www.marmurowydom.pl</a>
     </div>
   </div>
 
   <div class="footer-bottom container">
-    <p>&copy; 2026 AMICO Pracownia Kamieniarska - Milena Fiks. Wszelkie prawa zastrzeżone.</p>
+    <p>&copy; 2026 AMICO Pracownia Kamieniarska – Milena Fiks. Wszelkie prawa zastrzeżone.</p>
     <a href="https://kontaktio.pl" class="footer-kontaktio">Powered by <strong>Kontaktio</strong></a>
   </div>
 </footer>
 
+<!-- ═══════════════ STICKY BAR ═══════════════ -->
 <div class="stickyBar" id="stickyBar" aria-hidden="true">
   <div class="stickyBar__content">
     <b>Zainteresowany obsługą AI dla Twojej firmy?</b>
@@ -881,6 +1003,7 @@
   <button class="stickyClose" id="stickyClose" type="button" aria-label="Zamknij">×</button>
 </div>
 
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
 <script
   src="https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@8a6ebea/kontaktio.js"
   data-kontaktio
@@ -889,30 +1012,29 @@
 ></script>
 
 <script>
-/* ---- Open Kontaktio chat widget ---- */
+/* ── Open Kontaktio chat ── */
 function openKontaktioChat() {
-  var selectors = ['.kontaktio-trigger', '[data-kontaktio-open]', '[class*="kontaktio-btn"]', '[class*="chat-btn"]', '[id*="chat-btn"]'];
-  for (var i = 0; i < selectors.length; i++) {
-    var el = document.querySelector(selectors[i]);
-    if (el) { el.click(); return; }
-  }
+  var s = ['.kontaktio-trigger','[data-kontaktio-open]','[class*="kontaktio-btn"]','[class*="chat-btn"]','[id*="chat-btn"]'];
+  for (var i=0;i<s.length;i++){var el=document.querySelector(s[i]);if(el){el.click();return;}}
 }
 
-/* ---- Preloader ---- */
+/* ── Preloader ── */
 window.addEventListener("load", () => {
   setTimeout(() => document.body.classList.add("loaded"), 600);
 });
 
-/* ---- Navbar scroll ---- */
-const navbar = document.getElementById("navbar");
+/* ── Topbar hide on scroll ── */
+const topbar = document.getElementById("topbar");
+const navbar  = document.getElementById("navbar");
 window.addEventListener("scroll", () => {
-  navbar.classList.toggle("scrolled", window.scrollY > 60);
+  const s = window.scrollY;
+  if (topbar) topbar.classList.toggle("hidden", s > 80);
+  navbar.classList.toggle("scrolled", s > 80);
 }, { passive: true });
 
-/* ---- Hamburger / Mobile nav ---- */
+/* ── Hamburger ── */
 const hamburger = document.getElementById("hamburger");
 const mobileNav  = document.getElementById("mobileNav");
-
 hamburger.addEventListener("click", () => {
   const open = mobileNav.classList.toggle("open");
   hamburger.classList.toggle("active", open);
@@ -920,16 +1042,33 @@ hamburger.addEventListener("click", () => {
   mobileNav.setAttribute("aria-hidden", !open);
   document.body.style.overflow = open ? "hidden" : "";
 });
-
 function closeMobile() {
   mobileNav.classList.remove("open");
   hamburger.classList.remove("active");
-  hamburger.setAttribute("aria-expanded", "false");
-  mobileNav.setAttribute("aria-hidden", "true");
+  hamburger.setAttribute("aria-expanded","false");
+  mobileNav.setAttribute("aria-hidden","true");
   document.body.style.overflow = "";
 }
 
-/* ---- Scroll reveal ---- */
+/* ── Hero slider ── */
+(function initHeroSlider() {
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots   = document.querySelectorAll(".hdot");
+  let cur = 0, timer;
+  function go(i) {
+    slides[cur].classList.remove("active");
+    dots[cur].classList.remove("active");
+    cur = (i + slides.length) % slides.length;
+    slides[cur].classList.add("active");
+    dots[cur].classList.add("active");
+  }
+  function start() { timer = setInterval(() => go(cur + 1), 5500); }
+  function stop()  { clearInterval(timer); }
+  dots.forEach((d,i) => d.addEventListener("click", () => { stop(); go(i); start(); }));
+  start();
+})();
+
+/* ── Scroll reveal ── */
 const revealEls = document.querySelectorAll(".reveal");
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -938,163 +1077,137 @@ const revealObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
 revealEls.forEach(el => revealObs.observe(el));
 
-/* ---- Hero reveal ---- */
+/* ── Hero reveal ── */
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     document.querySelectorAll(".reveal-hero").forEach(el => el.classList.add("visible"));
   }, 700);
 });
 
-/* ---- Counter animation ---- */
+/* ── Counter animation ── */
 function animateNum(el, target) {
   const dur = 2000, start = performance.now();
-  const isFloat = String(target).includes(".");
   (function tick(now) {
     const p = Math.min((now - start) / dur, 1);
     const eased = 1 - Math.pow(1 - p, 4);
-    el.textContent = isFloat ? (target * eased).toFixed(1) : Math.floor(target * eased).toLocaleString("pl-PL");
+    el.textContent = Math.floor(target * eased).toLocaleString("pl-PL");
     if (p < 1) requestAnimationFrame(tick);
-    else el.textContent = isFloat ? target.toFixed(1) : Number(target).toLocaleString("pl-PL");
+    else el.textContent = Number(target).toLocaleString("pl-PL");
   })(start);
 }
-
-const statNums = document.querySelectorAll(".stat-num[data-target], .wn-num[data-target]");
+const statNums = document.querySelectorAll(".stat-num[data-target]");
 const statObs  = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      animateNum(e.target, parseFloat(e.target.dataset.target));
-      statObs.unobserve(e.target);
-    }
+    if (e.isIntersecting) { animateNum(e.target, parseFloat(e.target.dataset.target)); statObs.unobserve(e.target); }
   });
 }, { threshold: 0.5 });
 statNums.forEach(el => statObs.observe(el));
 
-/* ---- Parallax hero ---- */
+/* ── Parallax hero slides ── */
 window.addEventListener("scroll", () => {
-  const heroImg = document.querySelector(".hero-img-wrap");
-  if (heroImg) heroImg.style.transform = "translateY(" + (window.scrollY * 0.25) + "px)";
+  const slides = document.querySelectorAll(".hero-slide.active");
+  slides.forEach(s => { s.style.transform = "scale(1.08) translateY(" + (window.scrollY * 0.15) + "px)"; });
 }, { passive: true });
 
-/* ---- Hero canvas particles ---- */
+/* ── Hero canvas particles (cyan theme) ── */
 (function initCanvas() {
   const canvas = document.getElementById("heroCanvas");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-
-  function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   resize();
   window.addEventListener("resize", resize, { passive: true });
-
-  const count = Math.min(70, Math.floor(window.innerWidth / 20));
+  const count = Math.min(60, Math.floor(window.innerWidth / 22));
   const pts = Array.from({ length: count }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    vx: (Math.random() - 0.5) * 0.45,
-    vy: (Math.random() - 0.5) * 0.45,
-    r: Math.random() * 1.6 + 0.3,
-    alpha: Math.random() * 0.55 + 0.15,
-    gold: Math.random() > 0.55,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    r: Math.random() * 1.5 + 0.3,
+    alpha: Math.random() * 0.5 + 0.1,
+    cyan: Math.random() > 0.4,
   }));
-
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     for (let i = 0; i < pts.length; i++) {
       for (let j = i + 1; j < pts.length; j++) {
         const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-        const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < 110) {
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 120) {
           ctx.beginPath();
           ctx.moveTo(pts[i].x, pts[i].y);
           ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.strokeStyle = `rgba(201,162,39,${0.1 * (1 - d / 110)})`;
-          ctx.lineWidth = 0.6;
+          ctx.strokeStyle = `rgba(0,180,216,${0.12*(1-d/120)})`;
+          ctx.lineWidth = 0.7;
           ctx.stroke();
         }
       }
     }
-
     pts.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.gold
-        ? `rgba(201,162,39,${p.alpha})`
-        : `rgba(255,255,255,${p.alpha * 0.4})`;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = p.cyan ? `rgba(0,180,216,${p.alpha})` : `rgba(255,255,255,${p.alpha*0.35})`;
       ctx.fill();
-
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0) p.x = canvas.width;
-      if (p.x > canvas.width)  p.x = 0;
+      if (p.x > canvas.width) p.x = 0;
       if (p.y < 0) p.y = canvas.height;
       if (p.y > canvas.height) p.y = 0;
     });
-
     requestAnimationFrame(draw);
   }
   draw();
 })();
 
-/* ---- Testimonials slider ---- */
+/* ── Testimonials slider ── */
 (function initSlider() {
   const slider = document.getElementById("tSlider");
   const dotsWrap = document.getElementById("tDots");
   if (!slider) return;
-
   const cards = slider.querySelectorAll(".tcard");
   let cur = 0, autoT;
-
-  // Build dots
-  cards.forEach((_, i) => {
+  cards.forEach((_,i) => {
     const d = document.createElement("button");
-    d.className = "tdot" + (i === 0 ? " active" : "");
-    d.setAttribute("aria-label", "Opinia " + (i + 1));
+    d.className = "tdot" + (i===0?" active":"");
+    d.setAttribute("aria-label","Opinia "+(i+1));
     d.addEventListener("click", () => { stop(); go(i); start(); });
     dotsWrap.appendChild(d);
   });
-
   function go(i) {
     cur = (i + cards.length) % cards.length;
-    slider.style.transform = "translateX(-" + cur * 100 + "%)";
-    dotsWrap.querySelectorAll(".tdot").forEach((d, j) => d.classList.toggle("active", j === cur));
+    slider.style.transform = "translateX(-" + cur*100 + "%)";
+    dotsWrap.querySelectorAll(".tdot").forEach((d,j) => d.classList.toggle("active", j===cur));
   }
-  function start() { autoT = setInterval(() => go(cur + 1), 5000); }
+  function start() { autoT = setInterval(() => go(cur+1), 5000); }
   function stop()  { clearInterval(autoT); }
-
-  document.getElementById("tPrev").addEventListener("click", () => { stop(); go(cur - 1); start(); });
-  document.getElementById("tNext").addEventListener("click", () => { stop(); go(cur + 1); start(); });
+  document.getElementById("tPrev").addEventListener("click", () => { stop(); go(cur-1); start(); });
+  document.getElementById("tNext").addEventListener("click", () => { stop(); go(cur+1); start(); });
   start();
 })();
 
-/* ---- Card tilt ---- */
+/* ── Card tilt ── */
 document.querySelectorAll("[data-tilt]").forEach(card => {
   card.addEventListener("mousemove", e => {
     const r = card.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width  - 0.5;
     const y = (e.clientY - r.top)  / r.height - 0.5;
-    card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateZ(6px)`;
+    card.style.transform = `perspective(800px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateZ(8px)`;
   });
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "";
-  });
+  card.addEventListener("mouseleave", () => { card.style.transform = ""; });
 });
 
-/* ---- FAQ accordion ---- */
+/* ── FAQ accordion ── */
 document.querySelectorAll(".faq-q").forEach(btn => {
   btn.addEventListener("click", () => {
     const item = btn.closest(".faq-item");
     const isOpen = item.classList.contains("open");
     document.querySelectorAll(".faq-item.open").forEach(o => {
-      o.classList.remove("open");
-      o.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+      o.classList.remove("open"); o.querySelector(".faq-q").setAttribute("aria-expanded","false");
     });
-    if (!isOpen) { item.classList.add("open"); btn.setAttribute("aria-expanded", "true"); }
+    if (!isOpen) { item.classList.add("open"); btn.setAttribute("aria-expanded","true"); }
   });
 });
 
-/* ---- Contact form ---- */
+/* ── Contact form ── */
 document.getElementById("contactForm").addEventListener("submit", e => {
   e.preventDefault();
   const btn = document.getElementById("submitBtn");
@@ -1107,21 +1220,37 @@ document.getElementById("contactForm").addEventListener("submit", e => {
   }, 4500);
 });
 
-/* ---- Sticky bar ---- */
+/* ── Sticky bar ── */
 (function() {
   const bar = document.getElementById("stickyBar");
   const cls = document.getElementById("stickyClose");
   if (!bar || !cls) return;
-  try { if (localStorage.getItem("kontaktio_sticky_closed") === "1") return; } catch {}
+  try { if (localStorage.getItem("kontaktio_sticky_closed")==="1") return; } catch {}
   let last = false, tick = false;
   function upd() {
     const show = window.scrollY > 900;
     if (show !== last) { bar.classList.toggle("on", show); bar.setAttribute("aria-hidden", !show); last = show; }
     tick = false;
   }
-  window.addEventListener("scroll", () => { if (!tick) { requestAnimationFrame(upd); tick = true; } }, { passive: true });
+  window.addEventListener("scroll", () => { if (!tick) { requestAnimationFrame(upd); tick=true; } }, { passive: true });
   cls.addEventListener("click", () => { bar.classList.remove("on"); try { localStorage.setItem("kontaktio_sticky_closed","1"); } catch {} });
   upd();
+})();
+
+/* ── Active nav link on scroll ── */
+(function() {
+  const sections = document.querySelectorAll("section[id]");
+  const links = document.querySelectorAll(".nav-links a");
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove("nav-active"));
+        const active = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
+        if (active) active.classList.add("nav-active");
+      }
+    });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  sections.forEach(s => obs.observe(s));
 })();
 </script>
 
