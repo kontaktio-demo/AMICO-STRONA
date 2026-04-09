@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Polityka Prywatności - MWW Mieszkanie</title>
+  <meta name="description" content="Polityka prywatności biura nieruchomości MWW Mieszkanie. Informacje o przetwarzaniu danych osobowych zgodnie z RODO.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2'><path d='M3 22V8L12 2l9 6v14'/><line x1='9' y1='22' x2='9' y2='14'/><line x1='15' y1='22' x2='15' y2='14'/><rect x='9' y='14' width='6' height='8'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    a { text-decoration:none; color:inherit; }
+    :root {
+      --primary:#1a1a1a; --primary-d:#000;
+      --bg:#fff; --bg-alt:#f4f4f4; --bg-soft:#fafafa;
+      --border:#e0e0e0; --border-soft:#eee;
+      --text:#2a2a2a; --text-muted:#888;
+      --radius:6px; --radius-lg:12px;
+      --font-sans:'Inter',system-ui,sans-serif;
+      --font-heading:'Inter',system-ui,sans-serif;
+    }
+    body { font-family:var(--font-sans); color:var(--text); background:var(--bg); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+    .nav {
+      position:sticky; top:0; z-index:800;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 40px; height:68px;
+      background:rgba(255,255,255,.97); border-bottom:1px solid var(--border-soft);
+      backdrop-filter:blur(12px);
+    }
+    .logo { font-family:var(--font-heading); font-size:1.18rem; font-weight:400; color:var(--primary); }
+    .logo strong { font-weight:800; }
+    .nav-links { display:flex; gap:28px; }
+    .nav-link { font-size:.82rem; font-weight:500; letter-spacing:.04em; text-transform:uppercase; color:var(--text-muted); transition:color .2s; }
+    .nav-link:hover { color:var(--primary); }
+    .btn { display:inline-flex; align-items:center; gap:6px; padding:10px 22px; font-size:.82rem; font-weight:600; border-radius:50px; transition:all .25s; cursor:pointer; border:none; font-family:var(--font-sans); }
+    .btn-primary { background:var(--primary); color:#fff; }
+    .btn-primary:hover { background:var(--primary-d); }
+    .page-header { background:var(--bg-soft); border-bottom:1px solid var(--border-soft); padding:48px 40px 32px; position:relative; overflow:hidden; }
+    .page-header::before { content:''; position:absolute; inset:0; background:url('images/hero-bg.webp') center/cover no-repeat; opacity:.04; filter:grayscale(100%); pointer-events:none; }
+    .page-header-inner { max-width:800px; margin:0 auto; position:relative; z-index:1; }
+    .eyebrow { font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px; }
+    .page-header h1 { font-family:var(--font-heading); font-size:2.2rem; font-weight:800; color:var(--primary); margin-bottom:10px; }
+    .page-header p { color:var(--text-muted); font-size:.9rem; }
+
+    .prose-wrap { max-width:800px; margin:0 auto; padding:48px 40px 80px; position:relative; }
+    .prose-wrap::before { content:''; position:absolute; bottom:0; left:0; right:0; height:300px; background:url('images/section-bg-1.webp') bottom center/cover no-repeat; opacity:.025; filter:grayscale(100%); pointer-events:none; }
+    .prose h2 { font-family:var(--font-heading); font-size:1.35rem; font-weight:700; color:var(--primary); margin:40px 0 12px; padding-bottom:8px; border-bottom:1px solid var(--border-soft); }
+    .prose h2:first-child { margin-top:0; }
+    .prose h3 { font-size:1rem; font-weight:600; color:var(--primary); margin:20px 0 8px; }
+    .prose p { margin-bottom:14px; font-size:.92rem; }
+    .prose ul, .prose ol { padding-left:24px; margin-bottom:14px; }
+    .prose li { font-size:.92rem; margin-bottom:6px; }
+    .prose strong { font-weight:600; }
+    .prose a { color:var(--primary); text-decoration:underline; text-underline-offset:3px; }
+    .prose a:hover { opacity:.7; }
+    .prose .info-box { background:var(--bg-soft); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:20px 24px; margin:20px 0; font-size:.88rem; }
+    .prose .info-box strong { display:block; margin-bottom:6px; }
+    .updated { font-size:.78rem; color:var(--text-muted); margin-top:40px; padding-top:20px; border-top:1px solid var(--border-soft); }
+    .cookie-table { width:100%; border-collapse:collapse; font-size:.85rem; margin:12px 0 20px; }
+    .cookie-table th { text-align:left; padding:9px 12px; background:var(--bg-soft); border:1px solid var(--border); font-weight:600; font-size:.78rem; }
+    .cookie-table td { padding:9px 12px; border:1px solid var(--border); vertical-align:top; }
+    .footer { background:var(--primary); color:rgba(255,255,255,.65); font-size:.82rem; position:relative; overflow:hidden; }
+    .footer::before { content:''; position:absolute; inset:0; background:url('images/hero-bg.webp') top center/cover no-repeat; opacity:.06; filter:grayscale(100%); pointer-events:none; }
+    .footer-bottom { padding:18px 40px; position:relative; z-index:1; background:rgba(0,0,0,.15); }
+    .footer-bottom-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+    .footer-bottom a:hover { color:#fff; }
+
+    @media (max-width:768px) {
+      .nav { padding:0 20px; }
+      .nav-links { display:none; }
+      .page-header { padding:32px 20px 20px; }
+      .page-header h1 { font-size:1.6rem; }
+      .prose-wrap { padding:32px 20px 60px; }
+      .prose h2 { font-size:1.15rem; margin:28px 0 10px; }
+      .footer-bottom { padding:16px 20px; }
+      .footer-bottom-inner { flex-direction:column; text-align:center; gap:4px; }
+      .cookie-table { font-size:.78rem; }
+      .cookie-table th, .cookie-table td { padding:6px 8px; }
+    }
+    @media (max-width:480px) {
+      .page-header { padding:24px 16px 16px; }
+      .page-header h1 { font-size:1.35rem; }
+      .prose-wrap { padding:24px 16px 48px; }
+      .prose p, .prose li { font-size:.85rem; }
+      .prose .info-box { padding:16px; }
+      .btn { padding:8px 16px; font-size:.78rem; }
+      .cookie-table { display:block; overflow-x:auto; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="logo">MWW <strong>Mieszkanie</strong></a>
+  <nav class="nav-links" aria-label="Nawigacja">
+    <a href="index.html" class="nav-link">Strona główna</a>
+    <a href="oferty.html" class="nav-link">Oferty</a>
+    <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+  </nav>
+  <a href="tel:+48515488951" class="btn btn-primary">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.09-1.08a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Zadzwoń
+  </a>
+</header>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="eyebrow">Informacje prawne</p>
+    <h1>Polityka prywatności</h1>
+    <p>Ostatnia aktualizacja: 1 stycznia 2026 r.</p>
+  </div>
+</div>
+
+<div class="prose-wrap">
+  <div class="prose">
+
+    <div class="info-box">
+      <strong>Administrator danych osobowych</strong>
+      MWW Mieszkanie - Magdalena Wałowska-Wojtczak<br>
+      ul. Henryka Sienkiewicza 85/87 lok. 8, 90-057 Łódź<br>
+      NIP: 7262546896 | REGON: 388690768<br>
+      E-mail: <a href="mailto:mwwmieszkanie@interia.pl">mwwmieszkanie@interia.pl</a> | Tel.: <a href="tel:+48515488951">+48 515 488 951</a>
+    </div>
+
+    <h2>1. Postanowienia ogólne</h2>
+    <p>Niniejsza Polityka Prywatności opisuje zasady przetwarzania danych osobowych przez MWW Mieszkanie (dalej: „Administrator") w związku z korzystaniem z serwisu internetowego dostępnego pod adresem <a href="https://www.MWWmieszkanie.pl">www.MWWmieszkanie.pl</a> oraz świadczeniem usług pośrednictwa nieruchomościowego.</p>
+    <p>Administrator przetwarza dane osobowe zgodnie z obowiązującymi przepisami prawa, w szczególności z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO) oraz ustawą z dnia 10 maja 2018 r. o ochronie danych osobowych.</p>
+
+    <h2>2. Jakie dane zbieramy</h2>
+    <p>W zależności od charakteru interakcji z naszym serwisem możemy zbierać następujące kategorie danych osobowych:</p>
+    <ul>
+      <li><strong>Dane identyfikacyjne:</strong> imię i nazwisko</li>
+      <li><strong>Dane kontaktowe:</strong> adres e-mail, numer telefonu</li>
+      <li><strong>Dane dotyczące nieruchomości:</strong> adres nieruchomości, jej opis, parametry</li>
+      <li><strong>Dane techniczne:</strong> adres IP, typ przeglądarki, system operacyjny, czas wizyty (za pośrednictwem plików cookies)</li>
+      <li><strong>Treść komunikacji:</strong> wiadomości przesłane przez formularz kontaktowy lub e-mail</li>
+    </ul>
+
+    <h2>3. Cel i podstawa prawna przetwarzania danych</h2>
+    <p>Przetwarzamy Twoje dane osobowe w następujących celach:</p>
+    <ul>
+      <li><strong>Odpowiedź na zapytania:</strong> art. 6 ust. 1 lit. b RODO - niezbędność do wykonania umowy lub podjęcia działań przed zawarciem umowy</li>
+      <li><strong>Świadczenie usług pośrednictwa:</strong> art. 6 ust. 1 lit. b RODO - wykonanie umowy</li>
+      <li><strong>Obowiązki prawne:</strong> art. 6 ust. 1 lit. c RODO - np. wystawienie faktury, archiwizacja dokumentów</li>
+      <li><strong>Marketing bezpośredni:</strong> art. 6 ust. 1 lit. f RODO - prawnie uzasadniony interes Administratora (tylko za zgodą)</li>
+      <li><strong>Analityka i poprawa serwisu:</strong> art. 6 ust. 1 lit. f RODO - prawnie uzasadniony interes (wyłącznie po wyrażeniu zgody na cookies analityczne)</li>
+    </ul>
+
+    <h2>4. Okres przechowywania danych</h2>
+    <ul>
+      <li><strong>Dane z formularzy kontaktowych:</strong> do 12 miesięcy od ostatniego kontaktu lub do czasu wycofania zgody</li>
+      <li><strong>Dane z umów pośrednictwa:</strong> przez okres 5 lat od zakończenia umowy (wymogi podatkowe)</li>
+      <li><strong>Dane marketingowe:</strong> do czasu wycofania zgody</li>
+      <li><strong>Dane techniczne (logi):</strong> do 90 dni</li>
+    </ul>
+
+    <h2>5. Prawa użytkownika</h2>
+    <p>Na podstawie RODO przysługują Ci następujące prawa:</p>
+    <ul>
+      <li><strong>Prawo dostępu</strong> - możesz żądać informacji o przetwarzanych danych (art. 15 RODO)</li>
+      <li><strong>Prawo do sprostowania</strong> - możesz żądać poprawienia nieprawidłowych danych (art. 16 RODO)</li>
+      <li><strong>Prawo do usunięcia</strong> - „prawo do bycia zapomnianym" (art. 17 RODO)</li>
+      <li><strong>Prawo do ograniczenia przetwarzania</strong> (art. 18 RODO)</li>
+      <li><strong>Prawo do przenoszenia danych</strong> (art. 20 RODO)</li>
+      <li><strong>Prawo do sprzeciwu</strong> wobec przetwarzania w celach marketingowych (art. 21 RODO)</li>
+      <li><strong>Prawo do wycofania zgody</strong> w każdej chwili, bez wpływu na zgodność z prawem przetwarzania dokonanego przed jej wycofaniem</li>
+    </ul>
+    <p>Aby skorzystać z powyższych praw, skontaktuj się z nami pod adresem: <a href="mailto:mwwmieszkanie@interia.pl">mwwmieszkanie@interia.pl</a>. Masz również prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (PUODO), ul. Stawki 2, 00-193 Warszawa.</p>
+
+    <h2>6. Pliki cookies</h2>
+    <p>Nasz serwis wykorzystuje pliki cookies (ciasteczka) - małe pliki tekstowe zapisywane na Twoim urządzeniu. Możesz zarządzać swoją zgodą za pomocą banera cookies wyświetlanego przy pierwszej wizycie.</p>
+
+    <table class="cookie-table">
+      <thead>
+        <tr>
+          <th>Kategoria</th>
+          <th>Opis</th>
+          <th>Przykłady</th>
+          <th>Czas ważności</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Niezbędne</strong></td>
+          <td>Wymagane do prawidłowego działania strony. Nie mogą być wyłączone.</td>
+          <td>Sesja, preferencje cookies</td>
+          <td>Sesja / 1 rok</td>
+        </tr>
+        <tr>
+          <td><strong>Analityczne</strong></td>
+          <td>Pomagają nam zrozumieć, jak użytkownicy korzystają z serwisu, aby go ulepszać.</td>
+          <td>Google Analytics (_ga, _gid)</td>
+          <td>Do 2 lat</td>
+        </tr>
+        <tr>
+          <td><strong>Marketingowe</strong></td>
+          <td>Umożliwiają wyświetlanie spersonalizowanych reklam i treści.</td>
+          <td>Google Ads, Meta Pixel</td>
+          <td>Do 1 roku</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>7. Przekazywanie danych innym podmiotom</h2>
+    <p>Dane osobowe mogą być przekazywane:</p>
+    <ul>
+      <li>Kancelariom notarialnym i prawnym współpracującym z MWW Mieszkanie w zakresie obsługi transakcji</li>
+      <li>Podmiotom świadczącym usługi informatyczne (hosting, poczta e-mail) - wyłącznie na podstawie umów powierzenia przetwarzania danych</li>
+      <li>Organom publicznym, gdy jest to wymagane przez prawo</li>
+    </ul>
+    <p>Nie sprzedajemy danych osobowych osobom trzecim.</p>
+
+    <h2>8. Bezpieczeństwo danych</h2>
+    <p>Stosujemy odpowiednie środki techniczne i organizacyjne w celu ochrony danych osobowych przed nieupoważnionym dostępem, utratą lub ujawnieniem. Serwis korzysta z szyfrowanego połączenia HTTPS.</p>
+
+    <h2>9. Zmiany polityki prywatności</h2>
+    <p>Zastrzegamy sobie prawo do zmiany niniejszej Polityki Prywatności. O istotnych zmianach będziemy informować poprzez serwis lub drogą mailową. Korzystanie z serwisu po wprowadzeniu zmian oznacza ich akceptację.</p>
+
+    <h2>10. Kontakt w sprawach danych osobowych</h2>
+    <p>W sprawach dotyczących ochrony danych osobowych prosimy o kontakt:</p>
+    <ul>
+      <li>E-mail: <a href="mailto:mwwmieszkanie@interia.pl">mwwmieszkanie@interia.pl</a></li>
+      <li>Telefon: <a href="tel:+48515488951">+48 515 488 951</a></li>
+      <li>Adres korespondencyjny: ul. Henryka Sienkiewicza 85/87 lok. 8, 90-057 Łódź</li>
+    </ul>
+
+    <p class="updated">Niniejsza Polityka Prywatności obowiązuje od dnia 1 stycznia 2026 r.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>© 2026 MWW Mieszkanie - Magdalena Wałowska-Wojtczak &nbsp;|&nbsp; NIP: 7262546896</p>
+      <p>
+        <a href="polityka-prywatnosci.html" style="margin-right:12px">Polityka prywatności</a>
+        <a href="regulamin.html">Regulamin serwisu</a>
+      </p>
+      <p>Stworzone przez <a href="https://kontaktio.pl" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">kontaktio.pl</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

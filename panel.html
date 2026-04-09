@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Panel Pracownika - MWW Mieszkanie</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2'><path d='M3 22V8L12 2l9 6v14'/><line x1='9' y1='22' x2='9' y2='14'/><line x1='15' y1='22' x2='15' y2='14'/><rect x='9' y='14' width='6' height='8'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    a { text-decoration:none; color:inherit; }
+    button { cursor:pointer; }
+    :root {
+      --primary:#1a1a1a; --primary-d:#000;
+      --bg:#fff; --bg-alt:#f4f4f4; --bg-soft:#fafafa;
+      --border:#e0e0e0; --border-soft:#eee;
+      --text:#2a2a2a; --text-muted:#888;
+      --accent:#6b6b6b;
+      --radius:6px; --radius-lg:12px;
+      --shadow:0 2px 12px rgba(0,0,0,.07);
+      --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+      --ease:cubic-bezier(.25,.46,.45,.94);
+    }
+    body { font-family:'Inter',system-ui,sans-serif; color:var(--text); background:var(--bg-alt); font-size:14px; -webkit-font-smoothing:antialiased; }
+
+    .login-wrap {
+      min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background:var(--primary); padding:20px;
+    }
+    .login-box {
+      background:#fff; border-radius:var(--radius-lg);
+      padding:40px 36px; max-width:380px; width:100%;
+      box-shadow:var(--shadow-lg);
+    }
+    .login-logo { font-size:1.2rem; font-weight:700; margin-bottom:6px; }
+    .login-sub { font-size:.82rem; color:var(--text-muted); margin-bottom:28px; }
+    .form-group { margin-bottom:16px; }
+    .form-group label { display:block; font-size:.75rem; font-weight:600; margin-bottom:5px; color:var(--text); letter-spacing:.04em; text-transform:uppercase; }
+    .form-group input { width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:var(--radius); font-size:.88rem; font-family:'Inter',sans-serif; transition:border-color .2s; }
+    .form-group input:focus { outline:none; border-color:var(--primary); }
+    .login-btn { width:100%; padding:12px; background:var(--primary); color:#fff; border:none; border-radius:var(--radius); font-size:.88rem; font-weight:600; font-family:'Inter',sans-serif; transition:background .2s; margin-top:4px; }
+    .login-btn:hover { background:var(--primary-d); }
+    .login-error { color:#ef4444; font-size:.78rem; margin-top:10px; display:none; }
+    .login-error.show { display:block; }
+
+    #dashboard { display:none; }
+    .topbar {
+      background:var(--primary); color:#fff;
+      padding:0 32px; height:56px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .topbar-brand { font-size:.95rem; font-weight:600; }
+    .topbar-right { display:flex; align-items:center; gap:16px; }
+    .topbar-link { color:rgba(255,255,255,.75); font-size:.8rem; transition:color .2s; }
+    .topbar-link:hover { color:#fff; }
+    .logout-btn {
+      padding:7px 16px; background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:50px; color:#fff;
+      font-size:.78rem; font-weight:600; font-family:'Inter',sans-serif;
+      transition:all .2s;
+    }
+    .logout-btn:hover { background:rgba(255,255,255,.22); }
+
+    .panel-body { max-width:1100px; margin:0 auto; padding:28px 24px; }
+
+    .panel-title { font-size:1.3rem; font-weight:700; margin-bottom:24px; }
+
+    .card { background:#fff; border-radius:var(--radius-lg); padding:24px; margin-bottom:24px; border:1px solid var(--border-soft); }
+    .card-title { font-size:.88rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); margin-bottom:20px; }
+    .form-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; }
+    .form-grid .full { grid-column:1 / -1; }
+    .form-grid .half { grid-column:span 2; }
+    .field-label { display:block; font-size:.72rem; font-weight:600; margin-bottom:4px; color:var(--text); letter-spacing:.04em; text-transform:uppercase; }
+    .field-input, .field-select, .field-textarea {
+      width:100%; padding:9px 11px;
+      border:1px solid var(--border); border-radius:var(--radius);
+      font-size:.85rem; font-family:'Inter',sans-serif; color:var(--text);
+      background:#fff; transition:border-color .2s;
+    }
+    .field-input:focus, .field-select:focus, .field-textarea:focus { outline:none; border-color:var(--primary); }
+    .field-textarea { resize:vertical; min-height:80px; }
+    .field-select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; padding-right:28px; }
+    .add-btn {
+      padding:10px 28px; background:var(--primary); color:#fff;
+      border:none; border-radius:var(--radius); font-size:.85rem; font-weight:600;
+      font-family:'Inter',sans-serif; transition:background .2s; margin-top:8px;
+    }
+    .add-btn:hover { background:var(--primary-d); }
+    .form-success { color:#22c55e; font-size:.8rem; margin-top:8px; display:none; }
+    .form-success.show { display:block; }
+
+    .listings-table-wrap { overflow-x:auto; }
+    .listings-table { width:100%; border-collapse:collapse; font-size:.82rem; }
+    .listings-table th {
+      text-align:left; padding:10px 12px;
+      font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+      color:var(--text-muted); border-bottom:2px solid var(--border);
+      white-space:nowrap;
+    }
+    .listings-table td {
+      padding:10px 12px; border-bottom:1px solid var(--border-soft);
+      vertical-align:middle;
+    }
+    .listings-table tr:hover td { background:var(--bg-soft); }
+    .badge { display:inline-block; padding:2px 8px; border-radius:50px; font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+    .badge-sale { background:#1a1a1a; color:#fff; }
+    .badge-rent { background:#555; color:#fff; }
+    .badge-active { background:#dcfce7; color:#15803d; }
+    .badge-inactive { background:#fee2e2; color:#dc2626; }
+    .tbl-thumb { width:48px; height:36px; object-fit:cover; border-radius:4px; }
+    .tbl-btn {
+      padding:5px 10px; border-radius:var(--radius);
+      font-size:.72rem; font-weight:600; font-family:'Inter',sans-serif;
+      border:1px solid var(--border); color:var(--text-muted);
+      transition:all .2s; margin-right:4px;
+    }
+    .tbl-btn:hover { border-color:var(--primary); color:var(--primary); }
+    .tbl-btn-del { border-color:#fecaca; color:#dc2626; }
+    .tbl-btn-del:hover { background:#fee2e2; border-color:#dc2626; }
+    .empty-state { text-align:center; padding:40px; color:var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<div id="loginWrap" class="login-wrap">
+  <div class="login-box">
+    <div class="login-logo">MWW Mieszkanie</div>
+    <p class="login-sub">Panel pracownika - zaloguj się, aby zarządzać ofertami.</p>
+    <p style="font-size:.72rem;color:#ef4444;background:#fff3f3;border:1px solid #fca5a5;border-radius:4px;padding:8px 10px;margin-bottom:16px;line-height:1.5;">
+      <strong>Uwaga:</strong> Ten panel służy wyłącznie do celów demonstracyjnych. Przed wdrożeniem produkcyjnym należy wdrożyć uwierzytelnianie po stronie serwera.
+    </p>
+    <div class="form-group">
+      <label for="lUser">Nazwa użytkownika</label>
+      <input type="text" id="lUser" placeholder="mww" autocomplete="username">
+    </div>
+    <div class="form-group">
+      <label for="lPass">Hasło</label>
+      <input type="password" id="lPass" placeholder="••••••••" autocomplete="current-password">
+    </div>
+    <button class="login-btn" id="loginBtn" type="button">Zaloguj się</button>
+    <p class="login-error" id="loginError">Nieprawidłowa nazwa użytkownika lub hasło.</p>
+  </div>
+</div>
+
+<div id="dashboard">
+  <div class="topbar">
+    <div class="topbar-brand">MWW Mieszkanie - Panel pracownika</div>
+    <div class="topbar-right">
+      <a href="index.html" class="topbar-link">Strona główna</a>
+      <a href="oferty.html" class="topbar-link">Podgląd ofert</a>
+      <button class="logout-btn" id="logoutBtn" type="button">Wyloguj</button>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <h1 class="panel-title">Zarządzanie ofertami</h1>
+
+        <div class="card">
+      <div class="card-title">Dodaj nową ofertę</div>
+      <div class="form-grid">
+        <div>
+          <label class="field-label">Transakcja *</label>
+          <select class="field-select" id="fType">
+            <option value="sprzedaz">Sprzedaż</option>
+            <option value="wynajem">Wynajem</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">Kategoria *</label>
+          <select class="field-select" id="fCat">
+            <option value="mieszkanie">Mieszkanie</option>
+            <option value="dom">Dom</option>
+            <option value="dzialka">Działka</option>
+            <option value="lokal">Lokal</option>
+            <option value="biuro">Biuro</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">Status</label>
+          <select class="field-select" id="fStatus">
+            <option value="true">Aktywna</option>
+            <option value="false">Nieaktywna</option>
+          </select>
+        </div>
+        <div class="half">
+          <label class="field-label">Tytuł oferty *</label>
+          <input type="text" class="field-input" id="fTitle" placeholder="np. Apartament na Śródmieściu">
+        </div>
+        <div>
+          <label class="field-label">Cena *</label>
+          <input type="number" class="field-input" id="fPrice" placeholder="np. 350000" min="0">
+        </div>
+        <div>
+          <label class="field-label">Waluta / okres</label>
+          <input type="text" class="field-input" id="fCurrency" placeholder="PLN lub PLN/mies" value="PLN">
+        </div>
+        <div>
+          <label class="field-label">Pow. (m²) *</label>
+          <input type="number" class="field-input" id="fArea" placeholder="np. 62" min="0">
+        </div>
+        <div>
+          <label class="field-label">Pokoje</label>
+          <input type="number" class="field-input" id="fRooms" placeholder="0 = brak" min="0" value="0">
+        </div>
+        <div>
+          <label class="field-label">Piętro / Łącznie pięter</label>
+          <input type="text" class="field-input" id="fFloor" placeholder="np. 3/7">
+        </div>
+        <div class="full">
+          <label class="field-label">Adres / lokalizacja *</label>
+          <input type="text" class="field-input" id="fAddr" placeholder="np. ul. Piotrkowska, Śródmieście, Łódź">
+        </div>
+        <div class="full">
+          <label class="field-label">URL zdjęcia</label>
+          <input type="url" class="field-input" id="fImg" placeholder="https://...">
+        </div>
+        <div class="full">
+          <label class="field-label">Opis</label>
+          <textarea class="field-textarea" id="fDesc" placeholder="Krótki opis oferty..."></textarea>
+        </div>
+      </div>
+      <button class="add-btn" id="addBtn" type="button">Dodaj ofertę</button>
+      <p class="form-success" id="addSuccess">Oferta została dodana pomyślnie.</p>
+    </div>
+
+        <div class="card">
+      <div class="card-title">Oferty (<span id="totalCount">0</span>)</div>
+      <div class="listings-table-wrap">
+        <table class="listings-table">
+          <thead>
+            <tr>
+              <th>Zdjęcie</th>
+              <th>Tytuł</th>
+              <th>Typ</th>
+              <th>Cena</th>
+              <th>Pow.</th>
+              <th>Lokalizacja</th>
+              <th>Status</th>
+              <th>Akcje</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState" style="display:none">Brak ofert. Dodaj pierwszą ofertę powyżej.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+const STORAGE_KEY   = 'mww_listings';
+const ADMIN_KEY     = 'mww_admin_logged_in';
+const CORRECT_USER  = 'mww';
+const CORRECT_PASS  = 'admin2024';
+
+const DEFAULT_LISTINGS = [
+  {id:1, type:'sprzedaz', category:'mieszkanie', title:'Apartament na Śródmieściu', price:450000, currency:'PLN', area:62, rooms:3, floor:4, totalFloors:8, address:'ul. Piotrkowska, Śródmieście, Łódź', img:'images/hero-bg.webp', desc:'Przestronny apartament z widokiem na Piotrkowską, po remoncie, balkon.', active:true},
+  {id:2, type:'wynajem', category:'mieszkanie', title:'Mieszkanie 2-pokojowe Bałuty', price:2200, currency:'PLN/mies', area:45, rooms:2, floor:2, totalFloors:5, address:'ul. Zgierska, Bałuty, Łódź', img:'images/about-secondary.webp', desc:'Przytulne mieszkanie, pełne wyposażenie, dostęp do internetu.', active:true},
+  {id:3, type:'sprzedaz', category:'dom', title:'Dom jednorodzinny Retkinia', price:720000, currency:'PLN', area:160, rooms:5, floor:0, totalFloors:2, address:'ul. Wycieczkowa, Retkinia, Łódź', img:'images/about-photo.webp', desc:'Murowany dom z ogrodem, garaż, stan deweloperski.', active:true},
+  {id:4, type:'sprzedaz', category:'mieszkanie', title:'Kawalerka Górna', price:185000, currency:'PLN', area:28, rooms:1, floor:3, totalFloors:6, address:'ul. Rzgowska, Górna, Łódź', img:'images/section-bg-1.webp', desc:'Idealna inwestycja, blisko komunikacji, stan do odświeżenia.', active:true},
+  {id:5, type:'wynajem', category:'lokal', title:'Lokal usługowy Śródmieście', price:4500, currency:'PLN/mies', area:80, rooms:0, floor:0, totalFloors:0, address:'ul. Narutowicza, Śródmieście, Łódź', img:'images/hero-bg.webp', desc:'Lokal w centrum, witryna, zaplecze, idealne na sklep lub biuro.', active:true},
+  {id:6, type:'sprzedaz', category:'dzialka', title:'Działka budowlana Widzew', price:280000, currency:'PLN', area:800, rooms:0, floor:0, totalFloors:0, address:'Widzew, Łódź', img:'images/section-bg-1.webp', desc:'Działka z pozwoleniem na budowę, media na granicy.', active:true},
+  {id:7, type:'wynajem', category:'biuro', title:'Biuro coworkingowe Polesie', price:1800, currency:'PLN/mies', area:35, rooms:0, floor:1, totalFloors:4, address:'ul. Żeromskiego, Polesie, Łódź', img:'images/about-secondary.webp', desc:'Nowoczesne biuro z szybkim internetem, dostęp 24/7, klimatyzacja.', active:true},
+  {id:8, type:'sprzedaz', category:'mieszkanie', title:'Apartament premium Śródmieście', price:890000, currency:'PLN', area:95, rooms:4, floor:7, totalFloors:10, address:'ul. Sienkiewicza, Śródmieście, Łódź', img:'images/about-photo.webp', desc:'Luksusowy apartament, panoramiczny widok, wysokie standardy.', active:true},
+  {id:9, type:'wynajem', category:'mieszkanie', title:'Mieszkanie 3-pokojowe Śródmieście', price:3400, currency:'PLN/mies', area:72, rooms:3, floor:3, totalFloors:7, address:'ul. Kilińskiego, Śródmieście, Łódź', img:'images/hero-bg.webp', desc:'Przestronne mieszkanie, po remoncie, dostępne od zaraz.', active:true},
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    if (localStorage.getItem(ADMIN_KEY) === '1') {
+      showDashboard();
+    }
+  } catch {}
+
+  document.getElementById('loginBtn').addEventListener('click', doLogin);
+  document.getElementById('lPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+  document.getElementById('logoutBtn').addEventListener('click', doLogout);
+  document.getElementById('addBtn').addEventListener('click', addListing);
+});
+
+function doLogin() {
+  const user = document.getElementById('lUser').value.trim();
+  const pass = document.getElementById('lPass').value;
+  const err  = document.getElementById('loginError');
+  if (user === CORRECT_USER && pass === CORRECT_PASS) {
+    try { localStorage.setItem(ADMIN_KEY, '1'); } catch {}
+    err.classList.remove('show');
+    showDashboard();
+  } else {
+    err.classList.add('show');
+    document.getElementById('lPass').value = '';
+  }
+}
+
+function doLogout() {
+  try { localStorage.removeItem(ADMIN_KEY); } catch {}
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('loginWrap').style.display = 'flex';
+  document.getElementById('lUser').value = '';
+  document.getElementById('lPass').value = '';
+}
+
+function showDashboard() {
+  document.getElementById('loginWrap').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+  renderTable();
+}
+
+function getListings() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length) return parsed;
+    }
+  } catch {}
+  return [...DEFAULT_LISTINGS];
+}
+
+function saveListings(data) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch {}
+}
+
+function addListing() {
+  const title = document.getElementById('fTitle').value.trim();
+  const price = parseInt(document.getElementById('fPrice').value) || 0;
+  const area  = parseInt(document.getElementById('fArea').value) || 0;
+  const addr  = document.getElementById('fAddr').value.trim();
+
+  if (!title || !price || !area || !addr) {
+    alert('Proszę wypełnić wymagane pola: Tytuł, Cena, Powierzchnia, Adres.');
+    return;
+  }
+
+  const floorStr = document.getElementById('fFloor').value.trim();
+  const floorParts = floorStr.split('/').map(Number);
+  const floor = floorParts[0] || 0;
+  const totalFloors = floorParts[1] || 0;
+
+  const listing = {
+    id:         Date.now(),
+    type:       document.getElementById('fType').value,
+    category:   document.getElementById('fCat').value,
+    title,
+    price,
+    currency:   document.getElementById('fCurrency').value.trim() || 'PLN',
+    area,
+    rooms:      parseInt(document.getElementById('fRooms').value) || 0,
+    floor,
+    totalFloors,
+    address:    addr,
+    img:        document.getElementById('fImg').value.trim() || 'images/about-photo.webp',
+    desc:       document.getElementById('fDesc').value.trim(),
+    active:     document.getElementById('fStatus').value === 'true',
+  };
+
+  const listings = getListings();
+  listings.push(listing);
+  saveListings(listings);
+
+  ['fTitle','fPrice','fArea','fRooms','fFloor','fAddr','fImg','fDesc'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('fCurrency').value = 'PLN';
+  document.getElementById('fRooms').value = '0';
+
+  const msg = document.getElementById('addSuccess');
+  msg.classList.add('show');
+  setTimeout(() => msg.classList.remove('show'), 3000);
+
+  renderTable();
+}
+
+function deleteListing(id) {
+  if (!confirm('Czy na pewno chcesz usunąć tę ofertę?')) return;
+  const listings = getListings().filter(l => l.id !== id);
+  saveListings(listings);
+  renderTable();
+}
+
+function toggleActive(id) {
+  const listings = getListings().map(l => l.id === id ? {...l, active: !l.active} : l);
+  saveListings(listings);
+  renderTable();
+}
+
+function renderTable() {
+  const listings = getListings();
+  const tbody = document.getElementById('tableBody');
+  const empty = document.getElementById('emptyState');
+
+  document.getElementById('totalCount').textContent = listings.length;
+
+  if (listings.length === 0) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  tbody.innerHTML = listings.map(l => {
+    const fmtPrice = new Intl.NumberFormat('pl-PL').format(l.price);
+    const typeClass = l.type === 'sprzedaz' ? 'badge-sale' : 'badge-rent';
+    const typeLabel = l.type === 'sprzedaz' ? 'Sprzedaż' : 'Wynajem';
+    const statusClass = l.active !== false ? 'badge-active' : 'badge-inactive';
+    const statusLabel = l.active !== false ? 'Aktywna' : 'Nieaktywna';
+    const toggleLabel = l.active !== false ? 'Dezaktywuj' : 'Aktywuj';
+
+    return `
+      <tr>
+        <td><img class="tbl-thumb" src="${l.img}" alt="" loading="lazy" onerror="this.style.display='none'"></td>
+        <td><strong>${l.title}</strong><br><span style="color:var(--text-muted);font-size:.72rem">${l.category}</span></td>
+        <td><span class="badge ${typeClass}">${typeLabel}</span></td>
+        <td>${fmtPrice} ${l.currency}</td>
+        <td>${l.area} m²</td>
+        <td style="max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${l.address}</td>
+        <td><span class="badge ${statusClass}">${statusLabel}</span></td>
+        <td>
+          <button class="tbl-btn" onclick="toggleActive(${l.id})">${toggleLabel}</button>
+          <button class="tbl-btn tbl-btn-del" onclick="deleteListing(${l.id})">Usuń</button>
+        </td>
+      </tr>`;
+  }).join('');
+}
+</script>
+</body>
+</html>

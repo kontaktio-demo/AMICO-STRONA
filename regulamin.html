@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Regulamin Serwisu - MWW Mieszkanie</title>
+  <meta name="description" content="Regulamin serwisu internetowego biura nieruchomości MWW Mieszkanie. Warunki korzystania z usług pośrednictwa nieruchomościowego.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2'><path d='M3 22V8L12 2l9 6v14'/><line x1='9' y1='22' x2='9' y2='14'/><line x1='15' y1='22' x2='15' y2='14'/><rect x='9' y='14' width='6' height='8'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    a { text-decoration:none; color:inherit; }
+    :root {
+      --primary:#1a1a1a; --primary-d:#000;
+      --bg:#fff; --bg-alt:#f4f4f4; --bg-soft:#fafafa;
+      --border:#e0e0e0; --border-soft:#eee;
+      --text:#2a2a2a; --text-muted:#888;
+      --radius:6px; --radius-lg:12px;
+      --font-sans:'Inter',system-ui,sans-serif;
+      --font-heading:'Inter',system-ui,sans-serif;
+    }
+    body { font-family:var(--font-sans); color:var(--text); background:var(--bg); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+    .nav {
+      position:sticky; top:0; z-index:800;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 40px; height:68px;
+      background:rgba(255,255,255,.97); border-bottom:1px solid var(--border-soft);
+      backdrop-filter:blur(12px);
+    }
+    .logo { font-family:var(--font-heading); font-size:1.18rem; font-weight:400; color:var(--primary); }
+    .logo strong { font-weight:800; }
+    .nav-links { display:flex; gap:28px; }
+    .nav-link { font-size:.82rem; font-weight:500; letter-spacing:.04em; text-transform:uppercase; color:var(--text-muted); transition:color .2s; }
+    .nav-link:hover { color:var(--primary); }
+    .btn { display:inline-flex; align-items:center; gap:6px; padding:10px 22px; font-size:.82rem; font-weight:600; border-radius:50px; transition:all .25s; cursor:pointer; border:none; font-family:var(--font-sans); }
+    .btn-primary { background:var(--primary); color:#fff; }
+    .btn-primary:hover { background:var(--primary-d); }
+    .page-header { background:var(--bg-soft); border-bottom:1px solid var(--border-soft); padding:48px 40px 32px; position:relative; overflow:hidden; }
+    .page-header::before { content:''; position:absolute; inset:0; background:url('images/hero-bg.webp') center/cover no-repeat; opacity:.04; filter:grayscale(100%); pointer-events:none; }
+    .page-header-inner { max-width:800px; margin:0 auto; position:relative; z-index:1; }
+    .eyebrow { font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px; }
+    .page-header h1 { font-family:var(--font-heading); font-size:2.2rem; font-weight:800; color:var(--primary); margin-bottom:10px; }
+    .page-header p { color:var(--text-muted); font-size:.9rem; }
+
+    .prose-wrap { max-width:800px; margin:0 auto; padding:48px 40px 80px; position:relative; }
+    .prose-wrap::before { content:''; position:absolute; bottom:0; left:0; right:0; height:300px; background:url('images/section-bg-1.webp') bottom center/cover no-repeat; opacity:.025; filter:grayscale(100%); pointer-events:none; }
+    .prose h2 { font-family:var(--font-heading); font-size:1.35rem; font-weight:700; color:var(--primary); margin:40px 0 12px; padding-bottom:8px; border-bottom:1px solid var(--border-soft); }
+    .prose h2:first-child { margin-top:0; }
+    .prose h3 { font-size:1rem; font-weight:600; color:var(--primary); margin:20px 0 8px; }
+    .prose p { margin-bottom:14px; font-size:.92rem; }
+    .prose ul, .prose ol { padding-left:24px; margin-bottom:14px; }
+    .prose li { font-size:.92rem; margin-bottom:6px; }
+    .prose strong { font-weight:600; }
+    .prose a { color:var(--primary); text-decoration:underline; text-underline-offset:3px; }
+    .prose a:hover { opacity:.7; }
+    .prose .info-box { background:var(--bg-soft); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:20px 24px; margin:20px 0; font-size:.88rem; }
+    .prose .info-box strong { display:block; margin-bottom:6px; }
+    .updated { font-size:.78rem; color:var(--text-muted); margin-top:40px; padding-top:20px; border-top:1px solid var(--border-soft); }
+    .footer { background:var(--primary); color:rgba(255,255,255,.65); font-size:.82rem; position:relative; overflow:hidden; }
+    .footer::before { content:''; position:absolute; inset:0; background:url('images/hero-bg.webp') top center/cover no-repeat; opacity:.06; filter:grayscale(100%); pointer-events:none; }
+    .footer-bottom { padding:18px 40px; position:relative; z-index:1; background:rgba(0,0,0,.15); }
+    .footer-bottom-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+    .footer-bottom a:hover { color:#fff; }
+
+    @media (max-width:768px) {
+      .nav { padding:0 20px; }
+      .nav-links { display:none; }
+      .page-header { padding:32px 20px 20px; }
+      .page-header h1 { font-size:1.6rem; }
+      .prose-wrap { padding:32px 20px 60px; }
+      .prose h2 { font-size:1.15rem; margin:28px 0 10px; }
+      .footer-bottom { padding:16px 20px; }
+      .footer-bottom-inner { flex-direction:column; text-align:center; gap:4px; }
+    }
+    @media (max-width:480px) {
+      .page-header { padding:24px 16px 16px; }
+      .page-header h1 { font-size:1.35rem; }
+      .prose-wrap { padding:24px 16px 48px; }
+      .prose p, .prose li { font-size:.85rem; }
+      .prose .info-box { padding:16px; }
+      .btn { padding:8px 16px; font-size:.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="logo">MWW <strong>Mieszkanie</strong></a>
+  <nav class="nav-links" aria-label="Nawigacja">
+    <a href="index.html" class="nav-link">Strona główna</a>
+    <a href="oferty.html" class="nav-link">Oferty</a>
+    <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+  </nav>
+  <a href="tel:+48515488951" class="btn btn-primary">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.09-1.08a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Zadzwoń
+  </a>
+</header>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="eyebrow">Informacje prawne</p>
+    <h1>Regulamin serwisu</h1>
+    <p>Ostatnia aktualizacja: 1 stycznia 2026 r.</p>
+  </div>
+</div>
+
+<div class="prose-wrap">
+  <div class="prose">
+
+    <div class="info-box">
+      <strong>Właściciel serwisu</strong>
+      MWW Mieszkanie - Magdalena Wałowska-Wojtczak<br>
+      ul. Henryka Sienkiewicza 85/87 lok. 8, 90-057 Łódź<br>
+      NIP: 7262546896 | REGON: 388690768<br>
+      E-mail: <a href="mailto:mwwmieszkanie@interia.pl">mwwmieszkanie@interia.pl</a>
+    </div>
+
+    <h2>§1. Postanowienia ogólne</h2>
+    <ol>
+      <li>Niniejszy Regulamin określa zasady korzystania z serwisu internetowego MWW Mieszkanie dostępnego pod adresem <a href="https://www.MWWmieszkanie.pl">www.MWWmieszkanie.pl</a> (dalej: „Serwis") oraz świadczenia usług pośrednictwa w obrocie nieruchomościami.</li>
+      <li>Właścicielem i administratorem Serwisu jest MWW Mieszkanie - Magdalena Wałowska-Wojtczak z siedzibą w Łodzi (dalej: „Usługodawca").</li>
+      <li>Korzystanie z Serwisu jest dobrowolne i bezpłatne, chyba że odrębne przepisy lub umowa stanowią inaczej.</li>
+      <li>Korzystając z Serwisu, Użytkownik akceptuje postanowienia niniejszego Regulaminu.</li>
+    </ol>
+
+    <h2>§2. Definicje</h2>
+    <ul>
+      <li><strong>Serwis</strong> - strona internetowa dostępna pod adresem www.MWWmieszkanie.pl</li>
+      <li><strong>Usługodawca</strong> - MWW Mieszkanie - Magdalena Wałowska-Wojtczak</li>
+      <li><strong>Użytkownik</strong> - każda osoba fizyczna lub prawna korzystająca z Serwisu</li>
+      <li><strong>Oferta</strong> - prezentacja nieruchomości dostępna w Serwisie lub przekazana bezpośrednio przez Usługodawcę</li>
+      <li><strong>Umowa pośrednictwa</strong> - umowa zawarta między Usługodawcą a Klientem w formie pisemnej lub elektronicznej</li>
+    </ul>
+
+    <h2>§3. Zakres usług</h2>
+    <ol>
+      <li>Usługodawca świadczy usługi pośrednictwa w obrocie nieruchomościami na podstawie licencji zawodowej pośrednika nieruchomości.</li>
+      <li>Zakres świadczonych usług obejmuje:
+        <ul>
+          <li>Pośrednictwo w sprzedaży i kupnie nieruchomości</li>
+          <li>Pośrednictwo w wynajmie i dzierżawie nieruchomości</li>
+          <li>Wycenę rynkową nieruchomości</li>
+          <li>Doradztwo inwestycyjne w zakresie nieruchomości</li>
+          <li>Obsługę transakcji od negocjacji po akt notarialny</li>
+          <li>Skup nieruchomości za gotówkę</li>
+        </ul>
+      </li>
+      <li>Szczegółowy zakres usług określa indywidualnie zawarta umowa pośrednictwa.</li>
+      <li>Serwis służy wyłącznie celom informacyjnym. Prezentowane oferty nie stanowią oferty handlowej w rozumieniu przepisów Kodeksu cywilnego.</li>
+    </ol>
+
+    <h2>§4. Warunki korzystania z Serwisu</h2>
+    <ol>
+      <li>Korzystanie z Serwisu wymaga urządzenia z dostępem do Internetu i przeglądarką internetową obsługującą HTML5 i CSS3.</li>
+      <li>Użytkownik zobowiązuje się do korzystania z Serwisu zgodnie z obowiązującymi przepisami prawa, postanowieniami niniejszego Regulaminu oraz zasadami współżycia społecznego.</li>
+      <li>Zakazane jest:
+        <ul>
+          <li>Kopiowanie, powielanie lub dystrybucja treści Serwisu bez zgody Usługodawcy</li>
+          <li>Podejmowanie działań zakłócających funkcjonowanie Serwisu</li>
+          <li>Podawanie nieprawdziwych danych w formularzach kontaktowych</li>
+          <li>Działanie w sposób naruszający dobra osobiste Usługodawcy lub osób trzecich</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>§5. Odpowiedzialność Usługodawcy</h2>
+    <ol>
+      <li>Usługodawca dokłada wszelkich starań, aby informacje zawarte w Serwisie były aktualne i zgodne z prawdą, jednak nie ponosi odpowiedzialności za ich kompletność i dokładność.</li>
+      <li>Usługodawca nie odpowiada za przerwy w dostępie do Serwisu spowodowane przyczynami technicznymi lub działaniem siły wyższej.</li>
+      <li>Usługodawca nie odpowiada za decyzje Użytkownika podjęte na podstawie informacji zawartych w Serwisie.</li>
+      <li>Odpowiedzialność Usługodawcy z tytułu świadczonych usług pośrednictwa reguluje odrębna umowa pośrednictwa oraz obowiązujące przepisy prawa.</li>
+      <li>Usługodawca posiada obowiązkowe ubezpieczenie odpowiedzialności cywilnej pośrednika nieruchomości zgodnie z przepisami ustawy o gospodarce nieruchomościami.</li>
+    </ol>
+
+    <h2>§6. Ochrona danych osobowych</h2>
+    <p>Zasady przetwarzania danych osobowych Użytkowników opisuje <a href="polityka-prywatnosci.html">Polityka Prywatności</a>, która stanowi integralną część niniejszego Regulaminu.</p>
+
+    <h2>§7. Własność intelektualna</h2>
+    <ol>
+      <li>Wszelkie treści zawarte w Serwisie, w tym teksty, grafiki, zdjęcia, logotypy i oprogramowanie, stanowią własność Usługodawcy lub podmiotów, które udzieliły mu licencji, i są chronione przepisami prawa autorskiego.</li>
+      <li>Bez wyraźnej pisemnej zgody Usługodawcy zabronione jest jakiekolwiek kopiowanie, modyfikowanie lub dystrybucja materiałów zawartych w Serwisie.</li>
+      <li>Dozwolone jest cytowanie fragmentów treści Serwisu na własny użytek niekomercyjny z podaniem źródła.</li>
+    </ol>
+
+    <h2>§8. Zasady korzystania z formularza kontaktowego</h2>
+    <ol>
+      <li>Wypełniając formularz kontaktowy, Użytkownik wyraża zgodę na przetwarzanie podanych danych osobowych w celu udzielenia odpowiedzi na zapytanie.</li>
+      <li>Usługodawca zobowiązuje się odpowiedzieć na zapytanie w ciągu 24 godzin roboczych.</li>
+      <li>Usługodawca zastrzega sobie prawo do nieodpowiadania na zapytania naruszające niniejszy Regulamin lub przepisy prawa.</li>
+    </ol>
+
+    <h2>§9. Reklamacje</h2>
+    <ol>
+      <li>Użytkownik ma prawo złożyć reklamację dotyczącą działania Serwisu lub świadczonych usług.</li>
+      <li>Reklamację należy przesłać na adres e-mail: <a href="mailto:mwwmieszkanie@interia.pl">mwwmieszkanie@interia.pl</a> lub listownie na adres siedziby.</li>
+      <li>Reklamacja powinna zawierać: dane kontaktowe, opis problemu oraz oczekiwany sposób rozwiązania.</li>
+      <li>Usługodawca rozpatrzy reklamację w ciągu 14 dni roboczych od jej otrzymania.</li>
+    </ol>
+
+    <h2>§10. Postanowienia końcowe</h2>
+    <ol>
+      <li>Niniejszy Regulamin wchodzi w życie z dniem 1 stycznia 2026 r.</li>
+      <li>Usługodawca zastrzega sobie prawo do zmiany Regulaminu. O zmianach Użytkownicy będą informowani poprzez Serwis z co najmniej 14-dniowym wyprzedzeniem.</li>
+      <li>W sprawach nieuregulowanych niniejszym Regulaminem zastosowanie mają przepisy prawa polskiego, w szczególności Kodeksu cywilnego, ustawy o świadczeniu usług drogą elektroniczną oraz ustawy o ochronie danych osobowych.</li>
+      <li>Wszelkie spory wynikające z korzystania z Serwisu będą rozstrzygane przez sąd właściwy dla siedziby Usługodawcy.</li>
+      <li>Jeżeli którekolwiek postanowienie Regulaminu okaże się nieważne lub bezskuteczne, nie wpływa to na ważność pozostałych postanowień.</li>
+    </ol>
+
+    <p class="updated">Niniejszy Regulamin obowiązuje od dnia 1 stycznia 2026 r.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>© 2026 MWW Mieszkanie - Magdalena Wałowska-Wojtczak &nbsp;|&nbsp; NIP: 7262546896</p>
+      <p>
+        <a href="polityka-prywatnosci.html" style="margin-right:12px">Polityka prywatności</a>
+        <a href="regulamin.html">Regulamin serwisu</a>
+      </p>
+      <p>Stworzone przez <a href="https://kontaktio.pl" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">kontaktio.pl</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
