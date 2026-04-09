@@ -78,18 +78,18 @@
 .hero-content.visible .hero-title-accent {
   background: linear-gradient(
     90deg,
-    var(--primary) 0%,
-    var(--primary-l) 42%,
-    #fff 50%,
-    var(--primary-l) 58%,
-    var(--primary) 100%
+    #fff 0%,
+    rgba(255,255,255,.8) 42%,
+    rgba(180,200,220,1) 50%,
+    rgba(255,255,255,.8) 58%,
+    #fff 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: heroTitleReveal 1.2s var(--ease) .65s both,
-             shimmer 5s ease-in-out 3s infinite;
+             shimmer 6s ease-in-out 3s infinite;
 }
 
 /* Floating dust in hero */
@@ -136,7 +136,7 @@
   left: 50%;
   width: 0;
   height: 0;
-  background: radial-gradient(circle, rgba(201,169,110,.2), transparent 70%);
+  background: radial-gradient(circle, rgba(30,58,95,.25), transparent 70%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width .5s var(--ease), height .5s var(--ease), opacity .4s;
@@ -171,7 +171,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--primary-l));
+  background: linear-gradient(90deg, #fff, rgba(255,255,255,.5));
   z-index: 1100;
   transform-origin: left;
   transform: scaleX(0);
@@ -191,7 +191,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--primary);
+  background: #fff;
   transition: width .35s var(--ease);
 }
 .footer-col ul li a:hover::after {
@@ -248,7 +248,7 @@
     position: fixed;
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(201,169,110,.04) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(30,58,95,.06) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
@@ -290,7 +290,7 @@
     background: none;
     -webkit-background-clip: unset;
     background-clip: unset;
-    -webkit-text-fill-color: var(--primary);
+    -webkit-text-fill-color: #fff;
     animation: heroTitleReveal 1.2s var(--ease) .65s both;
   }
 }
