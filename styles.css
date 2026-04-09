@@ -1938,8 +1938,8 @@ html {
   background-attachment: fixed;
 }
 
-/* Fallback for mobile where fixed attachment is not well-supported */
-@supports (-webkit-overflow-scrolling: touch) {
+/* Fallback for touch devices where fixed attachment is poorly supported */
+@media (hover: none) and (pointer: coarse) {
   .parallax-section {
     background-attachment: scroll;
   }
