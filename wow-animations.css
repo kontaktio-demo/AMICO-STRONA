@@ -267,19 +267,18 @@
   z-index: 2;
 }
 
-/* Section content parallax depth */
-.offer-card,
-.material-card,
-.why-card,
-.inspiration-card,
-.testimonial-card {
+/* Section content parallax depth (only on revealed cards) */
+.offer-card.reveal.visible,
+.material-card.reveal.visible,
+.why-card.reveal.visible,
+.inspiration-card.reveal.visible,
+.testimonial-card.reveal.visible {
   transform: translateY(var(--parallax-y, 0));
-  transition: transform .5s var(--ease), box-shadow .4s var(--ease), border-color .4s;
 }
-.offer-card:hover,
-.material-card:hover,
-.why-card:hover,
-.inspiration-card:hover {
+.offer-card.reveal.visible:hover,
+.material-card.reveal.visible:hover,
+.why-card.reveal.visible:hover,
+.inspiration-card.reveal.visible:hover {
   transform: translateY(calc(var(--parallax-y, 0) - 8px));
 }
 
@@ -288,17 +287,6 @@
 .inspiration-card:hover {
   border-color: rgba(30,58,95,.4);
   box-shadow: var(--navy-glow), inset 0 1px 0 rgba(255,255,255,.05);
-}
-
-/* Staggered reveal from alternating directions */
-.offer-card.reveal:nth-child(odd) {
-  transform: translateY(40px) translateX(-20px);
-}
-.offer-card.reveal:nth-child(even) {
-  transform: translateY(40px) translateX(20px);
-}
-.offer-card.reveal.visible {
-  transform: translateY(var(--parallax-y, 0)) translateX(0);
 }
 
 /* Inspiration card icon hover glow */
@@ -425,6 +413,19 @@
   }
   body::before {
     display: none;
+  }
+  .experience-track {
+    animation: none;
+  }
+  .floating-shape {
+    animation: none !important;
+    display: none;
+  }
+  .gallery-item.reveal {
+    clip-path: none;
+  }
+  .material-slide {
+    transition: opacity .01ms !important;
   }
 }
 

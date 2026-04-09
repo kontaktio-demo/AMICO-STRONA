@@ -1013,40 +1013,34 @@ p  { margin-bottom:0; }
     radial-gradient(ellipse 600px 600px at 95% 15%, rgba(30,58,95,.07) 0%, transparent 70%),
     radial-gradient(circle 400px at 5% 85%, rgba(30,58,95,.05) 0%, transparent 70%),
     var(--bg);
-  overflow: hidden;
 }
 #materialy {
   background:
     radial-gradient(ellipse 500px 500px at 10% 20%, rgba(30,58,95,.06) 0%, transparent 70%),
     radial-gradient(circle 450px at 90% 80%, rgba(30,58,95,.05) 0%, transparent 70%),
     var(--bg-alt);
-  overflow: hidden;
 }
 #realizacje {
   background:
     radial-gradient(ellipse 550px 550px at 85% 30%, rgba(30,58,95,.06) 0%, transparent 70%),
     var(--bg);
-  overflow: hidden;
 }
 #dlaczego-my {
   background:
     radial-gradient(circle 500px at 50% 10%, rgba(30,58,95,.07) 0%, transparent 70%),
     radial-gradient(circle 400px at 10% 90%, rgba(30,58,95,.04) 0%, transparent 70%),
     var(--bg-alt);
-  overflow: hidden;
 }
 #inspiracje {
   background:
     radial-gradient(ellipse 600px 400px at 90% 50%, rgba(30,58,95,.06) 0%, transparent 70%),
     radial-gradient(circle 350px at 5% 20%, rgba(30,58,95,.04) 0%, transparent 70%),
     var(--bg);
-  overflow: hidden;
 }
 #kontakt {
   background:
     radial-gradient(ellipse 500px 500px at 50% 0%, rgba(30,58,95,.08) 0%, transparent 70%),
     var(--bg);
-  overflow: hidden;
 }
 
 /* Floating geometric shapes */
