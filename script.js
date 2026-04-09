@@ -1,79 +1,80 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
   initPreloader();
   initNav();
   initHamburger();
   initScrollReveal();
   initCounters();
   initForm();
-  initStickyBar();
   initCookieConsent();
 });
 
 function initPreloader() {
-  const preloader = document.getElementById('preloader');
+  var preloader = document.getElementById('preloader');
   if (!preloader) return;
 
-  const hide = () => {
+  var hide = function () {
     preloader.classList.add('hidden');
     document.body.classList.remove('preloading');
   };
 
   if (document.readyState === 'complete') {
-    setTimeout(hide, 800);
+    setTimeout(hide, 1200);
   } else {
-    window.addEventListener('load', () => setTimeout(hide, 800));
+    window.addEventListener('load', function () { setTimeout(hide, 1200); });
   }
 }
 
 function initNav() {
-  const nav = document.getElementById('nav');
+  var nav = document.getElementById('nav');
   if (!nav) return;
 
-  const update = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+  var update = function () { nav.classList.toggle('scrolled', window.scrollY > 60); };
   window.addEventListener('scroll', update, { passive: true });
   update();
 }
 
 function initHamburger() {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('navLinks');
+  var hamburger = document.getElementById('hamburger');
+  var navLinks  = document.getElementById('navLinks');
   if (!hamburger || !navLinks) return;
 
-  const open = () => {
+  var open = function () {
     hamburger.classList.add('open');
     navLinks.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   };
 
-  const close = () => {
+  var close = function () {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   };
 
-  hamburger.addEventListener('click', () => {
+  hamburger.addEventListener('click', function () {
     hamburger.classList.contains('open') ? close() : open();
   });
 
-  navLinks.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', close));
+  navLinks.querySelectorAll('.nav-link').forEach(function (link) {
+    link.addEventListener('click', close);
+  });
 
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-  document.addEventListener('click', e => {
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.addEventListener('click', function (e) {
     if (navLinks.classList.contains('open') && !hamburger.contains(e.target) && !navLinks.contains(e.target)) close();
   });
 }
 
 function initScrollReveal() {
-  const elements = document.querySelectorAll('.reveal');
+  var elements = document.querySelectorAll('.reveal');
   if (!elements.length) return;
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
@@ -83,10 +84,10 @@ function initScrollReveal() {
     { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
   );
 
-  elements.forEach(el => observer.observe(el));
+  elements.forEach(function (el) { observer.observe(el); });
 
-  window.__scrollRevealReset = () => {
-    elements.forEach(el => {
+  window.__scrollRevealReset = function () {
+    elements.forEach(function (el) {
       el.classList.remove('visible');
       observer.observe(el);
     });
@@ -94,25 +95,25 @@ function initScrollReveal() {
 }
 
 function initCounters() {
-  const stats = document.querySelectorAll('.stat[data-count]');
+  var stats = document.querySelectorAll('.stat[data-count]');
   if (!stats.length) return;
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         observer.unobserve(entry.target);
 
-        const el      = entry.target;
-        const number  = el.querySelector('.stat-number');
-        const target  = parseInt(el.dataset.count, 10);
-        const suffix  = el.dataset.suffix || '';
-        const dur     = 1600;
-        const step    = 16;
-        const steps   = dur / step;
-        let   current = 0;
+        var el      = entry.target;
+        var number  = el.querySelector('.stat-number');
+        var target  = parseInt(el.dataset.count, 10);
+        var suffix  = el.dataset.suffix || '';
+        var dur     = 1800;
+        var step    = 16;
+        var steps   = dur / step;
+        var current = 0;
 
-        const tick = () => {
+        var tick = function () {
           current = Math.min(current + target / steps, target);
           number.textContent = Math.floor(current) + suffix;
           if (current < target) requestAnimationFrame(tick);
@@ -125,12 +126,12 @@ function initCounters() {
     { threshold: 0.5 }
   );
 
-  stats.forEach(stat => observer.observe(stat));
+  stats.forEach(function (stat) { observer.observe(stat); });
 
-  window.__counterReset = () => {
-    stats.forEach(stat => {
+  window.__counterReset = function () {
+    stats.forEach(function (stat) {
       stat.classList.remove('counted');
-      const number = stat.querySelector('.stat-number');
+      var number = stat.querySelector('.stat-number');
       if (number) number.textContent = '0' + (stat.dataset.suffix || '');
       observer.observe(stat);
     });
@@ -138,45 +139,45 @@ function initCounters() {
 }
 
 function initForm() {
-  const form = document.getElementById('contactForm');
+  var form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const btn      = form.querySelector('button[type="submit"]');
-    const nameEl   = form.querySelector('#fname');
-    const emailEl  = form.querySelector('#femail');
-    const orig     = btn.textContent;
-    const hasName  = nameEl.value.trim();
-    const hasEmail = emailEl.value.trim();
+    var btn      = form.querySelector('button[type="submit"]');
+    var nameEl   = form.querySelector('#fname');
+    var emailEl  = form.querySelector('#femail');
+    var orig     = btn.textContent;
+    var hasName  = nameEl.value.trim();
+    var hasEmail = emailEl.value.trim();
 
     clearError(nameEl);
     clearError(emailEl);
 
-    let hasError = false;
+    var hasError = false;
     if (!hasName)  { showError(nameEl,  'Wpisz swoje imię.');  hasError = true; }
     if (!hasEmail) { showError(emailEl, 'Wpisz swój e-mail.'); hasError = true; }
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(hasEmail)) {
       showError(emailEl, 'Wpisz poprawny adres e-mail.'); hasError = true;
     }
 
-    if (hasError) {
-      return;
-    }
+    if (hasError) return;
 
     btn.textContent = 'Wysyłanie...';
     btn.disabled = true;
 
-    setTimeout(() => {
-      btn.textContent = 'Wysłano';
-      btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+    setTimeout(function () {
+      btn.textContent = 'Wysłano ✓';
+      btn.style.background = '#22c55e';
+      btn.style.borderColor = '#22c55e';
       btn.style.color = '#fff';
 
-      setTimeout(() => {
+      setTimeout(function () {
         btn.textContent = orig;
         btn.disabled = false;
         btn.style.background = '';
+        btn.style.borderColor = '';
         btn.style.color = '';
         form.reset();
       }, 4000);
@@ -187,82 +188,49 @@ function initForm() {
 function showError(input, message) {
   input.style.borderColor = '#ef4444';
   input.style.boxShadow   = '0 0 0 3px rgba(239,68,68,.20)';
-  const msg = document.createElement('span');
+  var msg = document.createElement('span');
   msg.className = 'field-error';
   msg.setAttribute('role', 'alert');
   msg.textContent = message;
   msg.style.cssText = 'display:block;font-size:.75rem;color:#ef4444;margin-top:4px;';
   input.parentNode.appendChild(msg);
 
-  input.addEventListener('input', () => clearError(input), { once: true });
+  input.addEventListener('input', function () { clearError(input); }, { once: true });
 }
 
 function clearError(input) {
   input.style.borderColor = '';
   input.style.boxShadow   = '';
-  const msg = input.parentNode.querySelector('.field-error');
+  var msg = input.parentNode.querySelector('.field-error');
   if (msg) msg.remove();
 }
 
-function shakeBtn() {
-}
-
-function initStickyBar() {
-  const bar   = document.getElementById('stickyBar');
-  const close = document.getElementById('stickyClose');
-  if (!bar || !close) return;
-
-  const KEY = 'kontaktio_sticky_closed';
-  try { if (localStorage.getItem(KEY) === '1') return; } catch {}
-
-  let shown = false;
-
-  const update = () => {
-    const should = window.scrollY > 900;
-    if (should !== shown) {
-      shown = should;
-      bar.classList.toggle('on', should);
-      bar.setAttribute('aria-hidden', String(!should));
-    }
-  };
-
-  window.addEventListener('scroll', update, { passive: true });
-  update();
-
-  close.addEventListener('click', () => {
-    bar.classList.remove('on');
-    bar.setAttribute('aria-hidden', 'true');
-    try { localStorage.setItem(KEY, '1'); } catch {}
-    window.removeEventListener('scroll', update);
-  });
-}
-
 function initCookieConsent() {
-  const consent = document.getElementById('cookieConsent');
+  var consent = document.getElementById('cookieConsent');
   if (!consent) return;
-  if (localStorage.getItem('mww_cookie_consent')) return;
+  try { if (localStorage.getItem('amico_cookie_consent')) return; } catch (e) { /* empty */ }
 
-  setTimeout(() => consent.classList.add('show'), 1200);
+  setTimeout(function () { consent.classList.add('show'); }, 1500);
 
-  document.getElementById('cookieAccept').addEventListener('click', () => {
-    localStorage.setItem('mww_cookie_consent', JSON.stringify({necessary:true, analytics:true, marketing:true}));
+  document.getElementById('cookieAccept').addEventListener('click', function () {
+    localStorage.setItem('amico_cookie_consent', JSON.stringify({necessary:true, analytics:true, marketing:true}));
     consent.classList.remove('show');
   });
 
-  document.getElementById('cookieReject').addEventListener('click', () => {
-    localStorage.setItem('mww_cookie_consent', JSON.stringify({necessary:true, analytics:false, marketing:false}));
+  document.getElementById('cookieReject').addEventListener('click', function () {
+    localStorage.setItem('amico_cookie_consent', JSON.stringify({necessary:true, analytics:false, marketing:false}));
     consent.classList.remove('show');
   });
 
-  document.getElementById('cookieCustomize').addEventListener('click', () => {
-    const panel = document.getElementById('cookieCustomPanel');
+  document.getElementById('cookieCustomize').addEventListener('click', function () {
+    var panel = document.getElementById('cookieCustomPanel');
     panel.hidden = !panel.hidden;
   });
 
-  document.getElementById('cookieSave').addEventListener('click', () => {
-    const analytics = document.getElementById('cookieAnalytics').checked;
-    const marketing = document.getElementById('cookieMarketing').checked;
-    localStorage.setItem('mww_cookie_consent', JSON.stringify({necessary:true, analytics, marketing}));
+  document.getElementById('cookieSave').addEventListener('click', function () {
+    var analytics = document.getElementById('cookieAnalytics').checked;
+    var marketing = document.getElementById('cookieMarketing').checked;
+    localStorage.setItem('amico_cookie_consent', JSON.stringify({necessary:true, analytics: analytics, marketing: marketing}));
     consent.classList.remove('show');
   });
 }
