@@ -425,7 +425,7 @@
     clip-path: none;
   }
   .material-slide {
-    transition: opacity .01ms !important;
+    transition: opacity 0s !important;
   }
 }
 

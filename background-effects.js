@@ -110,14 +110,17 @@
     var slideshows = document.querySelectorAll('.material-slideshow');
     if (!slideshows.length) return;
 
+    var BASE_INTERVAL_MS = 3000;
+    var STAGGER_OFFSET_MS = 700;
+
     slideshows.forEach(function (slideshow, index) {
       var slides = slideshow.querySelectorAll('.material-slide');
       if (slides.length < 2) return;
 
       var current = 0;
-      var interval = 3000 + (index * 700);
+      var interval = BASE_INTERVAL_MS + (index * STAGGER_OFFSET_MS);
 
-      setInterval(function () {
+      slideshow._slideshowTimer = setInterval(function () {
         slides[current].classList.remove('active');
         current = (current + 1) % slides.length;
         slides[current].classList.add('active');
@@ -161,6 +164,8 @@
     });
   }
 
+  var PARALLAX_INTENSITY = 15;
+
   function initSectionParallax() {
     var elements = document.querySelectorAll('.offer-card, .material-card, .why-card, .inspiration-card, .testimonial-card, .gallery-item');
     if (!elements.length) return;
@@ -171,7 +176,7 @@
         var rect = el.getBoundingClientRect();
         if (rect.top > winH || rect.bottom < 0) return;
         var progress = (winH - rect.top) / (winH + rect.height);
-        var shift = (progress - 0.5) * 15;
+        var shift = (progress - 0.5) * PARALLAX_INTENSITY;
         el.style.setProperty('--parallax-y', shift + 'px');
       });
     }
