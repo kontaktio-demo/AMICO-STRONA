@@ -99,17 +99,44 @@
 
       if (scrollY > heroH * 1.5) return;
 
+      /* parallax bg shift */
+      hero.style.backgroundPositionY = (50 + scrollY * 0.05) + '%';
+
       if (heroContent) {
         heroContent.style.transform =
-          'translateY(' + (scrollY * -0.15) + 'px)';
+          'translateY(' + (scrollY * -0.2) + 'px)';
         heroContent.style.opacity =
-          clamp(1 - scrollY / (heroH * 0.7), 0, 1);
+          clamp(1 - scrollY / (heroH * 0.6), 0, 1);
       }
 
       if (heroScroll) {
         heroScroll.style.opacity =
           clamp(1 - scrollY / 200, 0, 1);
       }
+    }
+
+    window.addEventListener('scroll', function () {
+      requestAnimationFrame(update);
+    }, { passive: true });
+    update();
+  }
+
+  function initParallaxDividers() {
+    var dividers = document.querySelectorAll('.parallax-divider');
+    if (!dividers.length) return;
+
+    function update() {
+      dividers.forEach(function (div) {
+        var rect = div.getBoundingClientRect();
+        var winH = window.innerHeight;
+        if (rect.top > winH || rect.bottom < 0) return;
+        var progress = (winH - rect.top) / (winH + rect.height);
+        var shift = (progress - 0.5) * 40;
+        var content = div.querySelector('.parallax-divider-content');
+        if (content) {
+          content.style.transform = 'translateY(' + shift + 'px)';
+        }
+      });
     }
 
     window.addEventListener('scroll', function () {
@@ -168,6 +195,7 @@
     initTiltCards();
     initMagneticButtons();
     initHeroParallax();
+    initParallaxDividers();
     initScrollProgress();
     initSmoothScroll();
     initCursorGlow();
