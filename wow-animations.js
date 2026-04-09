@@ -151,7 +151,7 @@
           var el = m.target;
           if (el.classList.contains('counted')) {
             el.style.transition = 'background .6s ease';
-            el.style.background = 'rgba(26,26,26,.02)';
+            el.style.background = 'rgba(201,169,110,.06)';
             setTimeout(function () {
               el.style.background = '';
             }, 1200);

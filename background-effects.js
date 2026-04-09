@@ -11,7 +11,7 @@
 
     var ctx = canvas.getContext('2d');
     var w, h, particles, animId;
-    var PARTICLE_COUNT = Math.min(Math.floor(window.innerWidth / 18), 70);
+    var PARTICLE_COUNT = Math.min(Math.floor(window.innerWidth / 24), 50);
     var CONNECT_DIST = 140;
     var SPEED = 0.25;
 
@@ -49,7 +49,7 @@
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(26,26,26,' + p.opacity + ')';
+        ctx.fillStyle = 'rgba(201,169,110,' + p.opacity + ')';
         ctx.fill();
 
         for (var j = i + 1; j < particles.length; j++) {
@@ -61,7 +61,7 @@
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = 'rgba(26,26,26,' + (0.04 * (1 - dist / CONNECT_DIST)) + ')';
+            ctx.strokeStyle = 'rgba(201,169,110,' + (0.06 * (1 - dist / CONNECT_DIST)) + ')';
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -160,11 +160,11 @@
       var isNextAlt = next.classList.contains('bg-alt');
       var isNextFooter = next.classList.contains('footer');
       if (isNextFooter) {
-        divider.style.color = '#1a1a1a';
+        divider.style.color = '#0a0a0a';
       } else if (isNextAlt) {
-        divider.style.color = '#f4f4f4';
+        divider.style.color = '#1a1a1a';
       } else {
-        divider.style.color = '#ffffff';
+        divider.style.color = '#111111';
       }
 
       source.style.position = 'relative';
