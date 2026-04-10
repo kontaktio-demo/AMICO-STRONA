@@ -868,6 +868,43 @@ p  { margin-bottom:0; }
   background: linear-gradient(180deg, rgba(0,0,0,.7) 0%, rgba(10,19,34,.6) 50%, rgba(0,0,0,.7) 100%);
   pointer-events: none;
 }
+
+/* ═══ ASYMMETRIC SECTION TRANSITIONS ═══ */
+.parallax-shape-top,
+.parallax-shape-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  line-height: 0;
+  pointer-events: none;
+}
+.parallax-shape-top {
+  top: 0;
+}
+.parallax-shape-bottom {
+  bottom: 0;
+}
+.parallax-shape-top svg,
+.parallax-shape-bottom svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Standalone section transition divider (e.g. before footer) */
+.section-transition {
+  position: relative;
+  z-index: 2;
+  line-height: 0;
+  overflow: hidden;
+  margin-top: -1px;
+}
+.section-transition svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .parallax-divider-content {
   position: relative;
   z-index: 2;
