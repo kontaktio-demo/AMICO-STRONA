@@ -151,23 +151,7 @@
   will-change: contents;
 }
 
-/* Cursor glow effect for desktop */
-@media (hover: hover) and (pointer: fine) {
-  body::before {
-    content: '';
-    position: fixed;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(30,58,95,.06) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: left .3s ease, top .3s ease;
-    left: var(--cursor-x, -200px);
-    top: var(--cursor-y, -200px);
-  }
-}
+/* Cursor glow removed */
 
 /* Gallery item animations */
 .gallery-item {
@@ -207,11 +191,7 @@
 
 /* CTA block entrance animation */
 .cta-block.reveal.visible {
-  animation: ctaPulseGlow 3s ease-in-out 1s infinite alternate;
-}
-@keyframes ctaPulseGlow {
-  0% { box-shadow: 0 0 30px rgba(30,58,95,.1); }
-  100% { box-shadow: 0 0 60px rgba(30,58,95,.25), 0 0 120px rgba(30,58,95,.08); }
+  box-shadow: 0 0 40px rgba(0,0,0,.3);
 }
 
 /* Parallax divider text glow */
@@ -266,9 +246,7 @@
     animation: none;
     transform: translateY(0);
   }
-  body::before {
-    display: none;
-  }
+  /* Cursor glow removed - no body::before to hide */
   .experience-track {
     animation: none;
   }
@@ -277,7 +255,7 @@
     display: none;
   }
   .cta-block.reveal.visible {
-    animation: none;
+    box-shadow: none;
   }
   .page-hero-content .hero-eyebrow,
   .page-hero-content h1,

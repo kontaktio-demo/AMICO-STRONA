@@ -163,13 +163,7 @@
     });
   }
 
-  function initCursorGlow() {
-    if (!isDesktop) return;
-    document.addEventListener('mousemove', function (e) {
-      document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
-      document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px');
-    }, { passive: true });
-  }
+  /* Cursor glow removed */
 
   function boot() {
     initEnhancedReveal();
@@ -179,7 +173,6 @@
     initParallaxDividers();
     initScrollProgress();
     initSmoothScroll();
-    initCursorGlow();
   }
 
   if (document.readyState === 'loading') {
