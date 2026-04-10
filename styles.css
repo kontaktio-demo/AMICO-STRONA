@@ -665,8 +665,10 @@ p  { margin-bottom:0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--bg);
   z-index: 0;
+}
+.why-section:not(.has-bg)::before {
+  background: var(--bg);
 }
 .why-section > .container {
   position: relative;
