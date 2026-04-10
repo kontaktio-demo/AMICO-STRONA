@@ -110,7 +110,7 @@ p  { margin-bottom:0; }
   inset: 0;
   background:
     radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,.6) 100%),
-    linear-gradient(to bottom, rgba(0,0,0,.65) 0%, transparent 18%, transparent 82%, rgba(0,0,0,.65) 100%);
+    linear-gradient(to bottom, rgba(0,0,0,.9) 0%, rgba(0,0,0,.35) 10%, transparent 20%, transparent 75%, rgba(0,0,0,.35) 85%, rgba(0,0,0,.9) 100%);
   z-index: 0;
   pointer-events: none;
 }
@@ -409,7 +409,7 @@ p  { margin-bottom:0; }
 .hero-slide-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.4) 40%, rgba(0,0,0,.7) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,.65) 80%, #000 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -1134,7 +1134,7 @@ p  { margin-bottom:0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.65) 0%, transparent 22%, transparent 78%, rgba(0,0,0,.65) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 25%, transparent 40%, transparent 50%, rgba(0,0,0,.2) 60%, rgba(0,0,0,.6) 75%, rgba(0,0,0,.95) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -1146,39 +1146,21 @@ p  { margin-bottom:0; }
   left: 0;
   right: 0;
   z-index: 3;
-  line-height: 0;
   pointer-events: none;
 }
 .parallax-shape-top {
   top: -1px;
+  height: clamp(80px, 12vw, 160px);
+  background: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.7) 40%, rgba(0,0,0,.2) 75%, transparent 100%);
 }
 .parallax-shape-bottom {
   bottom: -1px;
+  height: clamp(140px, 22vw, 280px);
+  background: linear-gradient(to top, #000 0%, rgba(0,0,0,.95) 25%, rgba(0,0,0,.7) 50%, rgba(0,0,0,.3) 75%, transparent 100%);
 }
 .parallax-shape-top svg,
 .parallax-shape-bottom svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-/* Gradient fade between wave shapes and parallax image */
-.parallax-shape-top::after,
-.parallax-shape-bottom::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 60px;
-  pointer-events: none;
-  z-index: 1;
-}
-.parallax-shape-top::after {
-  top: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,.55), transparent);
-}
-.parallax-shape-bottom::after {
-  bottom: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,.55), transparent);
+  display: none;
 }
 
 /* Standalone section transition divider (e.g. before footer) */
@@ -1200,52 +1182,27 @@ p  { margin-bottom:0; }
 .hero-wave {
   position: relative;
   z-index: 2;
-  line-height: 0;
-  margin-top: -80px;
+  height: 120px;
+  margin-top: -120px;
   margin-bottom: -2px;
-  background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.3) 30%, rgba(0,0,0,.7) 60%, #000 100%);
 }
 .hero-wave svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: relative;
+  display: none;
 }
 
 /* Standalone wave divider between sections */
 .wave-divider {
   position: relative;
   z-index: 2;
-  line-height: 0;
-  overflow: visible;
-  margin-top: -2px;
-  margin-bottom: -2px;
-}
-.wave-divider svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 1;
-}
-/* Smooth gradient transitions above & below wave dividers */
-.wave-divider::before,
-.wave-divider::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
   height: 80px;
-  z-index: 2;
+  margin-top: -40px;
+  margin-bottom: -40px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.85) 35%, #000 50%, rgba(0,0,0,.85) 65%, transparent 100%);
   pointer-events: none;
 }
-.wave-divider::before {
-  bottom: 100%;
-  background: linear-gradient(to bottom, transparent, rgba(0,0,0,.85));
-}
-.wave-divider::after {
-  top: 100%;
-  background: linear-gradient(to top, transparent, rgba(0,0,0,.85));
+.wave-divider svg {
+  display: none;
 }
 .parallax-divider-content {
   position: relative;
@@ -1439,7 +1396,7 @@ p  { margin-bottom:0; }
 .page-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.5) 40%, rgba(0,0,0,.85) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.45) 40%, rgba(0,0,0,.75) 80%, #000 100%);
   pointer-events: none;
   z-index: 2;
 }
