@@ -852,7 +852,7 @@ p  { margin-bottom:0; }
 .parallax-divider {
   position: relative;
   height: clamp(300px, 40vw, 500px);
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -865,7 +865,7 @@ p  { margin-bottom:0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.7) 0%, rgba(10,19,34,.6) 50%, rgba(0,0,0,.7) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(10,19,34,.35) 50%, rgba(0,0,0,.5) 100%);
   pointer-events: none;
 }
 
@@ -927,14 +927,8 @@ p  { margin-bottom:0; }
   margin: 0 auto;
 }
 
-@supports (-webkit-touch-callout: none) {
-  .parallax-divider {
-    background-attachment: scroll;
-  }
-}
 @media (max-width: 768px) {
   .parallax-divider {
-    background-attachment: scroll;
     height: clamp(250px, 50vw, 350px);
   }
 }
