@@ -244,8 +244,9 @@ function initCarousel(trackId) {
 
   function updatePosition() {
     var maxScroll = getMaxScroll();
-    if (offset < 0) offset = 0;
-    if (offset > maxScroll) offset = maxScroll;
+    if (maxScroll <= 0) { offset = 0; }
+    else if (offset > maxScroll) { offset = 0; }
+    else if (offset < 0) { offset = maxScroll; }
     track.style.transform = 'translateX(-' + offset + 'px)';
   }
 
