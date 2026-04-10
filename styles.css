@@ -974,15 +974,15 @@ p  { margin-bottom:0; }
   line-height: 1.6;
   margin-bottom: 1rem;
 }
-.corobimy-cta {
+.corobimy-col .corobimy-cta {
   margin-bottom: 0;
-  background: #4cc9f0 !important;
-  border-color: #4cc9f0 !important;
-  color: #000 !important;
+  background: #4cc9f0;
+  border-color: #4cc9f0;
+  color: #000;
 }
-.corobimy-cta:hover {
-  background: transparent !important;
-  color: #4cc9f0 !important;
+.corobimy-col .corobimy-cta:hover {
+  background: transparent;
+  color: #4cc9f0;
 }
 
 @media(max-width:900px) {
