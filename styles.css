@@ -2,7 +2,7 @@
 :root {
   --bg:          #000000;
   --bg-soft:     #060a12;
-  --bg-alt:      #0a0a10;
+  --bg-alt:      #000000;
   --bg-card:     #0c1828;
   --primary:     #1e3a5f;
   --primary-d:   #152d4a;
@@ -1168,6 +1168,22 @@ p  { margin-bottom:0; }
   height: auto;
 }
 
+/* Hero bottom wave – smooth transition into next section */
+.hero-wave {
+  position: relative;
+  z-index: 2;
+  line-height: 0;
+  margin-top: -80px;
+  margin-bottom: -2px;
+  background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+}
+.hero-wave svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
 /* Standalone wave divider between sections */
 .wave-divider {
   position: relative;
@@ -1277,10 +1293,9 @@ p  { margin-bottom:0; }
 #realizacje {
   background:
     radial-gradient(ellipse 550px 550px at 85% 30%, rgba(30,58,95,.06) 0%, transparent 70%),
-    #0a0a10;
+    #000000;
 }
-
-/* Floating geometric shapes */
+#dlaczego-my {
   background:
     radial-gradient(circle 500px at 50% 10%, rgba(30,58,95,.07) 0%, transparent 70%),
     radial-gradient(circle 400px at 10% 90%, rgba(30,58,95,.04) 0%, transparent 70%),
@@ -1290,7 +1305,7 @@ p  { margin-bottom:0; }
   background:
     radial-gradient(ellipse 600px 400px at 90% 50%, rgba(30,58,95,.06) 0%, transparent 70%),
     radial-gradient(circle 350px at 5% 20%, rgba(30,58,95,.04) 0%, transparent 70%),
-    #0a0a10;
+    #000000;
 }
 
 /* Floating geometric shapes */
