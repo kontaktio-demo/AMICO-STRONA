@@ -187,10 +187,33 @@
     update();
   }
 
+  function initSectionBgParallax() {
+    var sections = document.querySelectorAll('.section.has-bg');
+    if (!sections.length) return;
+
+    function update() {
+      var winH = window.innerHeight;
+      sections.forEach(function (section) {
+        var rect = section.getBoundingClientRect();
+        if (rect.top > winH || rect.bottom < 0) return;
+        var progress = (winH - rect.top) / (winH + rect.height);
+        var shift = (progress - 0.5) * 30;
+        var bg = section.querySelector(':scope::before') || section;
+        section.style.setProperty('--bg-shift', shift + 'px');
+      });
+    }
+
+    window.addEventListener('scroll', function () {
+      requestAnimationFrame(update);
+    }, { passive: true });
+    update();
+  }
+
   function boot() {
     initParticleCanvas();
     initFloatingShapes();
     initSectionParallax();
+    initSectionBgParallax();
   }
 
   if (document.readyState === 'loading') {
