@@ -1097,6 +1097,46 @@ p  { margin-bottom:0; }
     radial-gradient(ellipse 550px 550px at 85% 30%, rgba(30,58,95,.06) 0%, transparent 70%),
     #0a0a10;
 }
+
+/* Realizacje decorative circles & branches */
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.07);
+  background: radial-gradient(circle at 35% 35%, rgba(255,255,255,.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.deco-circle--lg {
+  width: clamp(300px, 35vw, 550px);
+  height: clamp(300px, 35vw, 550px);
+  top: -5%;
+  right: 8%;
+  animation: decoFloat 25s ease-in-out infinite;
+}
+.deco-circle--sm {
+  width: clamp(120px, 15vw, 250px);
+  height: clamp(120px, 15vw, 250px);
+  top: 55%;
+  right: 3%;
+  border-color: rgba(255,255,255,.05);
+  background: radial-gradient(circle at 40% 40%, rgba(255,255,255,.02) 0%, transparent 60%);
+  animation: decoFloat 20s ease-in-out 5s infinite;
+}
+.deco-branches {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: clamp(100px, 12vw, 200px);
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .7;
+}
+@keyframes decoFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-18px) scale(1.02); }
+}
 #dlaczego-my {
   background:
     radial-gradient(circle 500px at 50% 10%, rgba(30,58,95,.07) 0%, transparent 70%),
@@ -1143,6 +1183,7 @@ p  { margin-bottom:0; }
   .section-header { margin-bottom:clamp(32px,5vw,48px); }
   h1 { font-size:clamp(2.2rem,8vw,3.4rem); }
   .hero-slide-content h2 { font-size:clamp(1.8rem,6vw,3rem); }
+  .deco-circle, .deco-branches { display:none; }
 }
 
 @media(max-width:480px){
