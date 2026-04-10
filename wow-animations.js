@@ -41,7 +41,7 @@
     if (!isDesktop) return;
 
     var cards = document.querySelectorAll(
-      '.offer-card, .material-card, .why-card, .testimonial-card, .inspiration-card'
+      '.feature-card, .why-card, .carousel-card, .inspiration-slide'
     );
 
     cards.forEach(function (card) {
@@ -87,32 +87,13 @@
   }
 
   function initHeroParallax() {
-    var hero = document.querySelector('.hero');
+    var hero = document.querySelector('.hero-slider');
     if (!hero) return;
-
-    var heroContent = hero.querySelector('.hero-content');
-    var heroScroll = hero.querySelector('.hero-scroll');
 
     function update() {
       var scrollY = window.scrollY;
       var heroH = hero.offsetHeight;
-
       if (scrollY > heroH * 1.5) return;
-
-      /* parallax bg shift */
-      hero.style.backgroundPositionY = (50 + scrollY * 0.05) + '%';
-
-      if (heroContent) {
-        heroContent.style.transform =
-          'translateY(' + (scrollY * -0.2) + 'px)';
-        heroContent.style.opacity =
-          clamp(1 - scrollY / (heroH * 0.6), 0, 1);
-      }
-
-      if (heroScroll) {
-        heroScroll.style.opacity =
-          clamp(1 - scrollY / 200, 0, 1);
-      }
     }
 
     window.addEventListener('scroll', function () {

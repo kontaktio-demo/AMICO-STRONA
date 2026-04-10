@@ -5,9 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
   initNav();
   initHamburger();
   initScrollReveal();
-  initCounters();
   initForm();
   initCookieConsent();
+  initHeroSlider();
+  initCarousel('realizacjeTrack');
+  initCarousel('inspiracjeTrack');
 });
 
 function initPreloader() {
@@ -85,57 +87,6 @@ function initScrollReveal() {
   );
 
   elements.forEach(function (el) { observer.observe(el); });
-
-  window.__scrollRevealReset = function () {
-    elements.forEach(function (el) {
-      el.classList.remove('visible');
-      observer.observe(el);
-    });
-  };
-}
-
-function initCounters() {
-  var stats = document.querySelectorAll('.stat[data-count]');
-  if (!stats.length) return;
-
-  var observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        observer.unobserve(entry.target);
-
-        var el      = entry.target;
-        var number  = el.querySelector('.stat-number');
-        var target  = parseInt(el.dataset.count, 10);
-        var suffix  = el.dataset.suffix || '';
-        var dur     = 1800;
-        var step    = 16;
-        var steps   = dur / step;
-        var current = 0;
-
-        var tick = function () {
-          current = Math.min(current + target / steps, target);
-          number.textContent = Math.floor(current) + suffix;
-          if (current < target) requestAnimationFrame(tick);
-          else el.classList.add('counted');
-        };
-
-        requestAnimationFrame(tick);
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  stats.forEach(function (stat) { observer.observe(stat); });
-
-  window.__counterReset = function () {
-    stats.forEach(function (stat) {
-      stat.classList.remove('counted');
-      var number = stat.querySelector('.stat-number');
-      if (number) number.textContent = '0' + (stat.dataset.suffix || '');
-      observer.observe(stat);
-    });
-  };
 }
 
 function initForm() {
@@ -233,4 +184,82 @@ function initCookieConsent() {
     localStorage.setItem('amico_cookie_consent', JSON.stringify({necessary:true, analytics: analytics, marketing: marketing}));
     consent.classList.remove('show');
   });
+}
+
+function initHeroSlider() {
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots   = document.querySelectorAll('.hero-dot');
+  if (slides.length < 2) return;
+
+  var current = 0;
+  var interval = 5000;
+  var timer;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next() {
+    goTo((current + 1) % slides.length);
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(next, interval);
+  }
+
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      var idx = parseInt(this.getAttribute('data-slide'), 10);
+      goTo(idx);
+      startAuto();
+    });
+  });
+
+  startAuto();
+}
+
+function initCarousel(trackId) {
+  var track = document.getElementById(trackId);
+  if (!track) return;
+
+  var wrapper = track.closest('.realizacje-carousel, .inspiracje-carousel');
+  if (!wrapper) return;
+
+  var prevBtn = wrapper.querySelector('.carousel-prev');
+  var nextBtn = wrapper.querySelector('.carousel-next');
+  var viewport = wrapper.querySelector('.carousel-viewport');
+
+  var scrollAmount = 300;
+
+  function getMaxScroll() {
+    return track.scrollWidth - viewport.offsetWidth;
+  }
+
+  var offset = 0;
+
+  function updatePosition() {
+    var maxScroll = getMaxScroll();
+    if (offset < 0) offset = 0;
+    if (offset > maxScroll) offset = maxScroll;
+    track.style.transform = 'translateX(-' + offset + 'px)';
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function () {
+      offset -= scrollAmount;
+      updatePosition();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function () {
+      offset += scrollAmount;
+      updatePosition();
+    });
+  }
 }

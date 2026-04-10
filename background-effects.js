@@ -129,7 +129,7 @@
   }
 
   function initFloatingShapes() {
-    var sections = document.querySelectorAll('#oferta, #materialy, #dlaczego-my, #inspiracje, #realizacje');
+    var sections = document.querySelectorAll('#oferta, #dlaczego-my, #inspiracje, #realizacje');
 
     sections.forEach(function (section) {
       var count = 4;
@@ -167,7 +167,7 @@
   var PARALLAX_INTENSITY = 15;
 
   function initSectionParallax() {
-    var elements = document.querySelectorAll('.offer-card, .material-card, .why-card, .inspiration-card, .testimonial-card, .gallery-item');
+    var elements = document.querySelectorAll('.feature-card, .why-card, .carousel-card, .inspiration-slide');
     if (!elements.length) return;
 
     function update() {
@@ -189,8 +189,6 @@
 
   function boot() {
     initParticleCanvas();
-    initFloatingDust();
-    initMaterialSlideshow();
     initFloatingShapes();
     initSectionParallax();
   }
