@@ -22,9 +22,9 @@ function initPreloader() {
   };
 
   if (document.readyState === 'complete') {
-    setTimeout(hide, 1200);
+    setTimeout(hide, 800);
   } else {
-    window.addEventListener('load', function () { setTimeout(hide, 1200); });
+    window.addEventListener('load', function () { setTimeout(hide, 800); });
   }
 }
 
@@ -161,7 +161,7 @@ function initCookieConsent() {
   if (!consent) return;
   try { if (localStorage.getItem('amico_cookie_consent')) return; } catch (e) { /* empty */ }
 
-  setTimeout(function () { consent.classList.add('show'); }, 1500);
+  setTimeout(function () { consent.classList.add('show'); }, 1000);
 
   document.getElementById('cookieAccept').addEventListener('click', function () {
     localStorage.setItem('amico_cookie_consent', JSON.stringify({necessary:true, analytics:true, marketing:true}));
@@ -192,7 +192,7 @@ function initHeroSlider() {
   if (slides.length < 2) return;
 
   var current = 0;
-  var interval = 5000;
+  var interval = 4000;
   var timer;
 
   function goTo(index) {

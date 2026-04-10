@@ -2,17 +2,17 @@
 
 /* Enhanced reveal directions */
 .reveal.reveal-left {
-  transform: translateX(-60px) translateY(0);
+  transform: translateX(-40px) translateY(0);
 }
 .reveal.reveal-right {
-  transform: translateX(60px) translateY(0);
+  transform: translateX(40px) translateY(0);
 }
 .reveal.reveal-scale {
-  transform: scale(.8) translateY(0);
+  transform: scale(.85) translateY(0);
 }
 .reveal.reveal-blur {
-  filter: blur(12px);
-  transform: translateY(20px);
+  filter: blur(8px);
+  transform: translateY(15px);
 }
 .reveal.reveal-blur.visible {
   filter: blur(0);
@@ -22,8 +22,8 @@
 @keyframes heroFadeSlideUp {
   from {
     opacity: 0;
-    transform: translateY(50px);
-    filter: blur(6px);
+    transform: translateY(30px);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
@@ -35,7 +35,7 @@
 /* 3D tilt cards */
 .tilt-3d {
   transform-style: preserve-3d;
-  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
   will-change: transform;
 }
 .tilt-3d:hover {
@@ -59,7 +59,7 @@
   background: radial-gradient(circle, rgba(30,58,95,.25), transparent 70%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  transition: width .5s var(--ease), height .5s var(--ease), opacity .4s;
+  transition: width .4s var(--ease), height .4s var(--ease), opacity .3s;
   pointer-events: none;
   opacity: 0;
 }
@@ -74,7 +74,7 @@
 .section-header::after {
   transform-origin: left center;
   transform: scaleX(0);
-  transition: transform 1s var(--ease) .3s;
+  transition: transform .7s var(--ease) .2s;
 }
 .section-header.visible::after,
 .reveal.visible .section-header::after {
@@ -120,7 +120,7 @@
 
 /* Scroll progress bar */
 .cookie-consent.show {
-  animation: slideUp .5s var(--ease) forwards;
+  animation: slideUp .35s var(--ease) forwards;
 }
 @keyframes slideUp {
   from { transform: translateY(150%); }
@@ -129,7 +129,7 @@
 
 /* Nav link transition */
 .nav-link {
-  transition: color .25s var(--ease), transform .25s var(--ease);
+  transition: color .2s var(--ease), transform .2s var(--ease);
 }
 .nav-link:hover {
   transform: translateY(-1px);
@@ -160,7 +160,7 @@
 
 /* Gallery item animations */
 .gallery-item {
-  transition: transform .5s var(--ease);
+  transition: transform .35s var(--ease);
 }
 .gallery-item:hover {
   z-index: 2;
@@ -197,11 +197,11 @@
   }
 
   .reveal {
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   .reveal.reveal-left,
   .reveal.reveal-right {
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
 
   .tilt-3d {

@@ -157,7 +157,7 @@ p  { margin-bottom:0; }
 .preloader-fill {
   width:0; height:100%;
   background: linear-gradient(90deg, var(--primary), #fff);
-  animation: preloaderFill 1.8s ease-out forwards;
+  animation: preloaderFill 1.2s ease-out forwards;
 }
 @keyframes preloaderFill { to { width:100%; } }
 
@@ -174,7 +174,7 @@ p  { margin-bottom:0; }
   position: fixed; top:0; left:0; right:0; z-index:1000;
   display: flex; align-items:center; justify-content:space-between;
   padding: 20px clamp(20px,5vw,60px);
-  transition: all .4s var(--ease);
+  transition: all .3s var(--ease);
   background: transparent;
 }
 .nav.scrolled {
@@ -272,7 +272,7 @@ p  { margin-bottom:0; }
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity 1.2s ease-in-out;
+  transition: opacity .8s ease-in-out;
   z-index: 0;
 }
 .hero-slide.active {
@@ -350,7 +350,7 @@ p  { margin-bottom:0; }
   border: 1px solid var(--border-soft);
   padding: clamp(32px, 3vw, 52px);
   text-align: center;
-  transition: all .5s var(--ease);
+  transition: all .35s var(--ease);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -408,7 +408,7 @@ p  { margin-bottom:0; }
 .carousel-track {
   display: flex;
   gap: clamp(12px, 2vw, 24px);
-  transition: transform .5s var(--ease);
+  transition: transform .35s var(--ease);
 }
 .carousel-btn {
   flex-shrink: 0;
@@ -439,7 +439,7 @@ p  { margin-bottom:0; }
   background: var(--bg-card);
   border: 1px solid var(--border-soft);
   overflow: hidden;
-  transition: all .4s var(--ease);
+  transition: all .3s var(--ease);
 }
 .carousel-card:hover {
   border-color: var(--border);
@@ -447,18 +447,19 @@ p  { margin-bottom:0; }
   box-shadow: var(--navy-glow);
 }
 .carousel-card-img {
-  height: 200px;
+  height: 220px;
   overflow: hidden;
 }
 .carousel-card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .6s var(--ease);
+  object-position: center 40%;
+  transition: transform .4s var(--ease), filter .4s var(--ease);
   filter: brightness(.85);
 }
 .carousel-card:hover .carousel-card-img img {
-  transform: scale(1.08);
+  transform: scale(1.04);
   filter: brightness(1);
 }
 .carousel-card-label {
@@ -478,7 +479,7 @@ p  { margin-bottom:0; }
   background: var(--bg-card);
   border: 1px solid var(--border-soft);
   overflow: hidden;
-  transition: all .4s var(--ease);
+  transition: all .3s var(--ease);
 }
 .inspiration-slide:hover {
   border-color: var(--border);
@@ -486,18 +487,19 @@ p  { margin-bottom:0; }
   box-shadow: var(--navy-glow);
 }
 .inspiration-slide-img {
-  height: 220px;
+  height: 240px;
   overflow: hidden;
 }
 .inspiration-slide-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .6s var(--ease);
+  object-position: center 40%;
+  transition: transform .4s var(--ease), filter .4s var(--ease);
   filter: brightness(.85);
 }
 .inspiration-slide:hover .inspiration-slide-img img {
-  transform: scale(1.08);
+  transform: scale(1.04);
   filter: brightness(1);
 }
 .inspiration-slide h3 {
@@ -534,7 +536,7 @@ p  { margin-bottom:0; }
   border: 1px solid var(--border-soft);
   padding: clamp(32px,3vw,52px);
   text-align:center;
-  transition: all .5s var(--ease);
+  transition: all .35s var(--ease);
   position:relative;
 }
 .why-card:hover {
@@ -903,8 +905,8 @@ p  { margin-bottom:0; }
 /* ═══ REVEAL ANIMATIONS ═══ */
 .reveal {
   opacity:0;
-  transform: translateY(40px);
-  transition: opacity .8s var(--ease), transform .8s var(--ease), filter .8s var(--ease);
+  transform: translateY(30px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease), filter .5s var(--ease);
 }
 .reveal.visible {
   opacity:1;
@@ -913,9 +915,9 @@ p  { margin-bottom:0; }
 
 /* stagger children */
 .feature-card.reveal:nth-child(2),
-.why-card.reveal:nth-child(2) { transition-delay:.1s; }
+.why-card.reveal:nth-child(2) { transition-delay:.08s; }
 .feature-card.reveal:nth-child(3),
-.why-card.reveal:nth-child(3) { transition-delay:.2s; }
+.why-card.reveal:nth-child(3) { transition-delay:.16s; }
 
 /* ═══ SECTION DECORATIONS ═══ */
 #oferta {
@@ -1057,12 +1059,13 @@ p  { margin-bottom:0; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 40%;
   display: block;
-  transition: transform .6s var(--ease);
+  transition: transform .4s var(--ease), filter .4s var(--ease);
   filter: brightness(.9);
 }
 .material-detail:hover .material-detail-img img {
-  transform: scale(1.05);
+  transform: scale(1.03);
   filter: brightness(1);
 }
 .material-detail-text h2 {
@@ -1110,4 +1113,108 @@ p  { margin-bottom:0; }
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ═══ KONTAKTIO ASSISTANT DARK THEME ═══ */
+.kontaktio-launcher {
+  background: var(--bg-card, #0c1828) !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5), 0 0 40px rgba(30,58,95,.15) !important;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease) !important;
+}
+.kontaktio-launcher:hover {
+  transform: translateZ(0) scale(1.08) !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,.6), 0 0 50px rgba(30,58,95,.25) !important;
+}
+
+.kontaktio-widget {
+  background: var(--bg-card, #0c1828) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 16px 60px rgba(0,0,0,.7), 0 0 40px rgba(30,58,95,.1) !important;
+  border-radius: 12px !important;
+}
+
+.kontaktio-header {
+  background: var(--bg-soft, #060a12) !important;
+  color: var(--text, #e8eaef) !important;
+  border-bottom: 1px solid rgba(255,255,255,.06) !important;
+}
+
+.kontaktio-close {
+  color: var(--text-muted, #7a8494) !important;
+}
+.kontaktio-close:hover {
+  color: #fff !important;
+}
+
+.kontaktio-messages {
+  background: var(--bg-card, #0c1828) !important;
+}
+
+.kontaktio-bubble {
+  font-family: var(--font-body, 'Inter', system-ui, sans-serif) !important;
+}
+
+.kontaktio-row.bot .kontaktio-bubble {
+  background: rgba(30,58,95,.25) !important;
+  color: var(--text, #e8eaef) !important;
+  border: 1px solid rgba(255,255,255,.06) !important;
+}
+
+.kontaktio-row.user .kontaktio-bubble {
+  background: rgba(255,255,255,.1) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+
+.kontaktio-inputwrap {
+  background: var(--bg-soft, #060a12) !important;
+  border-top: 1px solid rgba(255,255,255,.06) !important;
+}
+
+.kontaktio-input {
+  background: rgba(255,255,255,.06) !important;
+  color: var(--text, #e8eaef) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  font-family: var(--font-body, 'Inter', system-ui, sans-serif) !important;
+}
+.kontaktio-input::placeholder {
+  color: var(--text-muted, #7a8494) !important;
+}
+.kontaktio-input:focus {
+  border-color: #4cc9f0 !important;
+  outline: none !important;
+}
+
+.kontaktio-send {
+  background: rgba(255,255,255,.1) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  font-family: var(--font-body, 'Inter', system-ui, sans-serif) !important;
+  transition: all .25s ease !important;
+}
+.kontaktio-send:hover {
+  background: rgba(255,255,255,.18) !important;
+  border-color: rgba(255,255,255,.25) !important;
+}
+
+.kontaktio-quick button {
+  background: rgba(255,255,255,.06) !important;
+  color: var(--text-muted, #7a8494) !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  font-family: var(--font-body, 'Inter', system-ui, sans-serif) !important;
+  transition: all .25s ease !important;
+}
+.kontaktio-quick button:hover {
+  background: rgba(255,255,255,.12) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,.2) !important;
+}
+
+.kontaktio-muted {
+  color: var(--text-muted, #7a8494) !important;
+}
+
+.kontaktio-header-sub {
+  color: var(--text-muted, #7a8494) !important;
 }

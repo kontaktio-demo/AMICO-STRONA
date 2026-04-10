@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#000000">
+  <title>Realizacje – AMICO Pracownia Kamieniarska</title>
+  <meta name="description" content="AMICO – portfolio naszych realizacji z kamienia naturalnego i sztucznego. Posadzki, blaty, schody, kominki, parapety i okładziny ścienne wykonane z najwyższą precyzją.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 8L88 38L72 90H28L12 38Z' fill='%231e3a5f'/><path d='M50 18L76 40L64 82H36L24 40Z' fill='%232a5a8a'/><path d='M50 28L64 42L56 74H44L36 42Z' fill='%23fff' opacity='.15'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="wow-animations.css">
+  <style>
+    /* ═══ GALLERY ═══ */
+    .gallery-section {
+      padding: clamp(60px, 8vw, 120px) 0;
+      background: var(--bg);
+    }
+    .gallery-heading {
+      text-align: center;
+      margin-bottom: clamp(32px, 5vw, 64px);
+      padding: 0 clamp(20px, 5vw, 60px);
+    }
+    .gallery-heading h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: .6rem;
+    }
+    .gallery-heading p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 60px);
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06);
+      background: #0c1828;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: brightness(.85);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      filter: brightness(1);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.85) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+    .gallery-item-overlay .gallery-cat {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #4cc9f0;
+      margin-bottom: 6px;
+    }
+    .gallery-item-overlay h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.4vw, 1.3rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+    .gallery-item-overlay p {
+      font-size: .82rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.5;
+    }
+
+    /* Sizing variations for masonry effect */
+    .gallery-item--tall { grid-row: span 2; }
+    .gallery-item--wide { grid-column: span 2; }
+
+    .gallery-item--std   { min-height: 320px; }
+    .gallery-item--tall  { min-height: 656px; } /* 320+320+16 gap */
+    .gallery-item--wide  { min-height: 400px; }
+
+    /* ═══ STATS ═══ */
+    .stats-section {
+      padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px);
+      background: var(--bg-alt);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .stat-item {
+      padding: 24px 16px;
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: .88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-item--tall {
+        grid-row: span 1;
+        min-height: 320px;
+      }
+      .gallery-item--wide {
+        grid-column: span 1;
+      }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .gallery-item--std,
+      .gallery-item--tall,
+      .gallery-item--wide {
+        min-height: 280px;
+      }
+      .gallery-item-overlay {
+        opacity: 1;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav scrolled" id="nav">
+  <a href="index.html" class="logo" aria-label="AMICO - strona główna">AMICO</a>
+  <nav class="nav-links" id="navLinks" role="navigation" aria-label="Nawigacja główna">
+    <a href="index.html"              class="nav-link">Strona główna</a>
+    <a href="index.html#oferta"       class="nav-link">Oferta</a>
+    <a href="kamien-naturalny.html"   class="nav-link">Kamień naturalny</a>
+    <a href="kamien-sztuczny.html"    class="nav-link">Kamień sztuczny</a>
+    <a href="realizacje.html"         class="nav-link active">Realizacje</a>
+    <a href="index.html#kontakt"      class="nav-link">Kontakt</a>
+  </nav>
+  <div class="nav-right">
+    <a href="index.html#kontakt" class="btn btn-primary nav-cta">Skontaktuj się</a>
+    <button class="hamburger" id="hamburger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════════ PAGE HERO ═══════════════ -->
+<section class="page-hero" style="background-image:url('zdjecia/DSC_2594.webp')">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="hero-eyebrow">Portfolio</p>
+    <h1>Nasze realizacje</h1>
+    <p class="page-hero-desc">Z kamienia zrobimy wszystko – od pomysłu, przez projekt, po realizację i montaż</p>
+  </div>
+</section>
+
+<!-- ═══════════════ GALLERY ═══════════════ -->
+<section class="gallery-section" aria-labelledby="gallery-heading">
+  <div class="gallery-heading reveal">
+    <h2 id="gallery-heading">Wybrane projekty</h2>
+    <p>Każda realizacja to indywidualny projekt dopasowany do potrzeb klienta. Oto kilka naszych najnowszych prac.</p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <!-- Row 1: std / tall / std -->
+    <div class="gallery-item gallery-item--std reveal">
+      <img src="zdjecia/DSC_2594.webp" alt="Posadzki kamienne – realizacja AMICO" loading="lazy" width="800" height="600">
+      <div class="gallery-item-overlay">
+        <span class="gallery-cat">Posadzki</span>
+        <h3>Posadzki kamienne</h3>
+        <p>Eleganckie posadzki z naturalnego marmuru i granitu, szlifowane do perfekcji.</p>
+      </div>
+    </div>
+
+    <div class="gallery-item gallery-item--tall reveal">
+      <img src="zdjecia/DSC_2594-2.webp" alt="Detale wykończeń – realizacja AMICO" loading="lazy" width="800" height="1200">
+      <div class="gallery-item-overlay">
+        <span class="gallery-cat">Detale</span>
+        <h3>Detale wykończeń</h3>
+        <p>Precyzyjne detale, które nadają wnętrzom charakter i niepowtarzalność.</p>
+      </div>
+    </div>
+
+    <div class="gallery-item gallery-item--std reveal">
+      <img src="zdjecia/DSC_2596.webp" alt="Blaty kuchenne – realizacja AMICO" loading="lazy" width="800" height="600">
+      <div class="gallery-item-overlay">
+        <span class="gallery-cat">Kuchnia</span>
+        <h3>Blaty kuchenne</h3>
+        <p>Blaty z kamienia naturalnego – trwałe, odporne i zachwycające estetyką.</p>
+      </div>
+    </div>
+
+    <!-- Row 2: wide / std -->
+    <div class="gallery-item gallery-item--wide reveal">
+      <img src="zdjecia/DSC_2601.webp" alt="Schody kamienne – realizacja AMICO" loading="lazy" width="1200" height="600">
+      <div class="gallery-item-overlay">
+        <span class="gallery-cat">Schody</span>
+        <h3>Schody kamienne</h3>
+        <p>Monumentalne schody z granitu i marmuru – połączenie trwałości z elegancją.</p>
+      </div>
+    </div>
+
+    <div class="gallery-item gallery-item--std reveal">
+      <img src="zdjecia/DSC_2720.webp" alt="Blaty łazienkowe – realizacja AMICO" loading="lazy" width="800" height="600">
+      <div class="gallery-item-overlay">
+        <span class="gallery-cat">Łazienka</span>
+        <h3>Blaty łazienkowe</h3>
+        <p>Luksusowe blaty łazienkowe z kamienia – odporność na wilgoć i styl.</p>
+      </div>
+    </div>
+
+    <!-- Row 3: std / std / std -->
+    <div class="gallery-item gallery-item--std reveal">
+      <img src="zdjecia/DSC_2850.webp" alt="Okładziny ścienne – realizacja AMICO" loading="lazy" width="800" height="600">
+      <div class="gallery-item-overlay">
+        <span class="gallery-cat">Ściany</span>
+        <h3>Okładziny ścienne</h3>
+        <p>Kamień na ścianach tworzy wyjątkowy klimat i ponadczasowy charakter wnętrza.</p>
+      </div>
+    </div>
+
+    <div class="gallery-item gallery-item--std reveal">
+      <img src="zdjecia/DSC_3128-Edit.webp" alt="Parapety – realizacja AMICO" loading="lazy" width="800" height="600">
+      <div class="gallery-item-overlay">
+        <span class="gallery-cat">Parapety</span>
+        <h3>Parapety</h3>
+        <p>Parapety z kamienia naturalnego – trwałe, eleganckie i łatwe w utrzymaniu.</p>
+      </div>
+    </div>
+
+    <div class="gallery-item gallery-item--std reveal">
+      <img src="zdjecia/DSC_3406.webp" alt="Obudowy kominków – realizacja AMICO" loading="lazy" width="800" height="600">
+      <div class="gallery-item-overlay">
+        <span class="gallery-cat">Kominki</span>
+        <h3>Obudowy kominków</h3>
+        <p>Kamienne obudowy kominków, które stają się centralnym punktem salonu.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ STATS ═══════════════ -->
+<section class="stats-section" aria-label="Statystyki">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Zrealizowanych projektów</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">15+</div>
+      <div class="stat-label">Lat doświadczenia</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Zadowolonych klientów</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<section class="section bg-alt">
+  <div class="container">
+    <div class="cta-block reveal">
+      <h2>Masz pomysł na projekt?</h2>
+      <p>Skontaktuj się z nami – wspólnie stworzymy coś wyjątkowego z kamienia.</p>
+      <a href="index.html#kontakt" class="btn btn-primary btn-lg">Skontaktuj się</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>&copy; 2026 AMICO. Wszelkie prawa zastrzeżone.</span>
+      <div class="footer-links">
+        <a href="polityka-prywatnosci.html">Polityka prywatności</a>
+        <a href="regulamin.html">Regulamin</a>
+      </div>
+      <span>Stworzone przez <a href="https://kontaktio.pl" target="_blank" rel="noopener noreferrer" style="color:#4cc9f0">kontaktio.pl</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="background-effects.js"></script>
+<script src="wow-animations.js"></script>
+<script
+  src="kontaktio.js"
+  data-kontaktio
+  data-client="amico"
+  data-backend="https://api.kontakt.io"
+></script>
+</body>
+</html>
