@@ -258,11 +258,6 @@ p  { margin-bottom:0; }
 .nav-link:hover::after { width:100%; }
 
 .nav-right { display:flex; align-items:center; gap:16px; }
-.nav-cta {
-  font-size:.75rem !important;
-  padding:10px 24px !important;
-  letter-spacing:.1em !important;
-}
 
 .hamburger {
   display:none; flex-direction:column; gap:5px;
@@ -291,7 +286,6 @@ p  { margin-bottom:0; }
   }
   .nav-links.open { transform:translateX(0); }
   .nav-link { font-size:1rem; letter-spacing:.2em; }
-  .nav-cta { display:none; }
 }
 
 /* ═══ HERO SLIDER ═══ */
@@ -595,11 +589,7 @@ p  { margin-bottom:0; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('zdjecia/DSC_3406-hero.webp');
-  background-size: cover;
-  background-position: center;
-  filter: grayscale(1) brightness(.2);
-  opacity: .35;
+  background: var(--bg);
   z-index: 0;
 }
 .why-section > .container {
