@@ -551,6 +551,25 @@ p  { margin-bottom:0; }
 }
 
 /* ═══ WHY US ═══ */
+.why-section {
+  position: relative;
+  overflow: hidden;
+}
+.why-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('zdjecia/DSC_3406.webp');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1) brightness(.2);
+  opacity: .35;
+  z-index: 0;
+}
+.why-section > .container {
+  position: relative;
+  z-index: 1;
+}
 .why-grid {
   display:grid;
   grid-template-columns: repeat(3,1fr);
