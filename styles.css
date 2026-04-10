@@ -559,7 +559,7 @@ p  { margin-bottom:0; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('zdjecia/DSC_3406.webp');
+  background-image: url('zdjecia/DSC_3406-hero.webp');
   background-size: cover;
   background-position: center;
   filter: grayscale(1) brightness(.2);
