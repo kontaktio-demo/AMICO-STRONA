@@ -1204,31 +1204,6 @@ p  { margin-bottom:0; }
 .wave-divider svg {
   display: none;
 }
-
-/* Flat (straight) transitions next to photo sections */
-.parallax-shape-top.shape-flat {
-  height: 4px;
-  background: #000;
-}
-.parallax-shape-bottom.shape-flat {
-  height: 4px;
-  background: #000;
-}
-/* Wave divider: flat on top (photo section above) */
-.wave-divider.wave-flat-top {
-  background: linear-gradient(to bottom, #000 0%, #000 50%, rgba(0,0,0,.85) 65%, transparent 100%);
-}
-/* Wave divider: flat on bottom (photo section below) */
-.wave-divider.wave-flat-bottom {
-  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.85) 35%, #000 50%, #000 100%);
-}
-/* Wave divider: flat on both sides (photo sections on both sides) */
-.wave-divider.wave-flat {
-  height: 4px;
-  margin-top: -2px;
-  margin-bottom: -2px;
-  background: #000;
-}
 .parallax-divider-content {
   position: relative;
   z-index: 2;
