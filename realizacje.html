@@ -115,34 +115,22 @@
     .gallery-item--tall  { min-height: 656px; } /* 320+320+16 gap */
     .gallery-item--wide  { min-height: 400px; }
 
-    /* ═══ STATS ═══ */
-    .stats-section {
-      padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px);
-      background: var(--bg-alt);
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      max-width: 900px;
-      margin: 0 auto;
+    /* ═══ EXPERIENCE BANNER ═══ */
+    .experience-banner {
       text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
     }
-    .stat-item {
-      padding: 24px 16px;
-    }
-    .stat-number {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      font-weight: 800;
+    .experience-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
       color: var(--text);
-      line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 1.2rem;
     }
-    .stat-label {
-      font-size: .88rem;
+    .experience-text {
+      font-size: 1.05rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.8;
     }
 
     /* ═══ RESPONSIVE ═══ */
@@ -170,10 +158,6 @@
       }
       .gallery-item-overlay {
         opacity: 1;
-      }
-      .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
       }
     }
   </style>
@@ -295,20 +279,12 @@
   </div>
 </section>
 
-<!-- ═══════════════ STATS ═══════════════ -->
-<section class="stats-section" aria-label="Statystyki">
-  <div class="stats-grid">
-    <div class="stat-item reveal">
-      <div class="stat-number">500+</div>
-      <div class="stat-label">Zrealizowanych projektów</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-number">15+</div>
-      <div class="stat-label">Lat doświadczenia</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-number">100%</div>
-      <div class="stat-label">Zadowolonych klientów</div>
+<!-- ═══════════════ EXPERIENCE BANNER ═══════════════ -->
+<section class="section bg-alt" aria-label="Doświadczenie">
+  <div class="container">
+    <div class="experience-banner reveal">
+      <h2 class="experience-title">Tysiące zrealizowanych projektów</h2>
+      <p class="experience-text">Lata doświadczenia w branży kamieniarskiej pozwalają nam realizować nawet najbardziej wymagające projekty. Każda realizacja to indywidualne podejście, precyzja wykonania i pełne zaangażowanie naszego zespołu.</p>
     </div>
   </div>
 </section>
