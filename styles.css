@@ -292,13 +292,13 @@ p  { margin-bottom:0; }
   filter: blur(var(--blur-radius)) brightness(var(--blur-brightness));
   z-index: 0;
 }
-/* Sharp contained photo – centered, full image visible */
+/* Sharp photo – covers entire slide area */
 .hero-slide::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image: var(--slide-bg);
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
@@ -1065,13 +1065,13 @@ p  { margin-bottom:0; }
   filter: blur(var(--blur-radius)) brightness(var(--blur-brightness));
   z-index: 0;
 }
-/* Sharp contained photo */
+/* Sharp photo – covers entire hero area */
 .page-hero::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image: var(--hero-bg);
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
