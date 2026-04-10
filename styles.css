@@ -34,6 +34,10 @@
   --radius-lg:   24px;
   --radius-xl:   36px;
 
+  --blur-inset:      -40px;
+  --blur-radius:     35px;
+  --blur-brightness:  .35;
+
   --font-display: "Inter", system-ui, -apple-system, sans-serif;
   --font-body:    "Inter", system-ui, -apple-system, sans-serif;
 }
@@ -280,12 +284,12 @@ p  { margin-bottom:0; }
 .hero-slide::before {
   content: '';
   position: absolute;
-  inset: -40px;
+  inset: var(--blur-inset);
   background-image: var(--slide-bg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(35px) brightness(.35);
+  filter: blur(var(--blur-radius)) brightness(var(--blur-brightness));
   z-index: 0;
 }
 /* Sharp contained photo – centered, full image visible */
@@ -1053,12 +1057,12 @@ p  { margin-bottom:0; }
 .page-hero::before {
   content: '';
   position: absolute;
-  inset: -40px;
+  inset: var(--blur-inset);
   background-image: var(--hero-bg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(35px) brightness(.35);
+  filter: blur(var(--blur-radius)) brightness(var(--blur-brightness));
   z-index: 0;
 }
 /* Sharp contained photo */
