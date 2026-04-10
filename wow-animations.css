@@ -267,6 +267,91 @@
   z-index: 2;
 }
 
+/* Section content parallax depth (only on revealed cards) */
+.offer-card.reveal.visible,
+.material-card.reveal.visible,
+.why-card.reveal.visible,
+.inspiration-card.reveal.visible,
+.testimonial-card.reveal.visible {
+  transform: translateY(var(--parallax-y, 0));
+}
+.offer-card.reveal.visible:hover,
+.material-card.reveal.visible:hover,
+.why-card.reveal.visible:hover,
+.inspiration-card.reveal.visible:hover {
+  transform: translateY(calc(var(--parallax-y, 0) - 8px));
+}
+
+/* Enhanced card border glow on hover */
+.offer-card:hover,
+.inspiration-card:hover {
+  border-color: rgba(30,58,95,.4);
+  box-shadow: var(--navy-glow), inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+/* Inspiration card icon hover glow */
+.inspiration-card:hover .inspiration-icon {
+  opacity: 1;
+  color: #fff;
+  filter: drop-shadow(0 0 12px rgba(30,58,95,.4));
+  transition: all .4s var(--ease);
+}
+
+/* Experience band hover pause */
+.experience-band:hover .experience-track {
+  animation-play-state: paused;
+}
+
+/* Parallax divider enhanced overlay */
+.parallax-divider-content h3 {
+  text-shadow: 0 2px 20px rgba(0,0,0,.5);
+}
+.parallax-divider-content p {
+  text-shadow: 0 1px 10px rgba(0,0,0,.4);
+}
+
+/* Why card number glow */
+.why-number {
+  text-shadow: 0 0 40px rgba(30,58,95,.3);
+}
+
+/* Gallery item clip-path reveal */
+.gallery-item.reveal {
+  clip-path: inset(8% 8% 8% 8%);
+  transition: clip-path .8s var(--ease), opacity .8s var(--ease), transform .5s var(--ease);
+}
+.gallery-item.reveal.visible {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Contact form focus glow */
+.form-group input:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 0 2px rgba(255,255,255,.15), 0 0 20px rgba(30,58,95,.15);
+}
+
+/* Section header animated underline */
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Testimonial card quote mark */
+.testimonial-card blockquote {
+  position: relative;
+}
+.testimonial-card blockquote::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: -4px;
+  font-size: 3.5rem;
+  font-family: var(--font-display);
+  color: rgba(30,58,95,.25);
+  line-height: 1;
+  pointer-events: none;
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .nav-links.open {
@@ -328,6 +413,19 @@
   }
   body::before {
     display: none;
+  }
+  .experience-track {
+    animation: none;
+  }
+  .floating-shape {
+    animation: none !important;
+    display: none;
+  }
+  .gallery-item.reveal {
+    clip-path: none;
+  }
+  .material-slide {
+    transition: opacity 0s !important;
   }
 }
 

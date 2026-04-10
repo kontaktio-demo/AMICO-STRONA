@@ -106,9 +106,93 @@
     }
   }
 
+  function initMaterialSlideshow() {
+    var slideshows = document.querySelectorAll('.material-slideshow');
+    if (!slideshows.length) return;
+
+    var BASE_INTERVAL_MS = 3000;
+    var STAGGER_OFFSET_MS = 700;
+
+    slideshows.forEach(function (slideshow, index) {
+      var slides = slideshow.querySelectorAll('.material-slide');
+      if (slides.length < 2) return;
+
+      var current = 0;
+      var interval = BASE_INTERVAL_MS + (index * STAGGER_OFFSET_MS);
+
+      slideshow._slideshowTimer = setInterval(function () {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, interval);
+    });
+  }
+
+  function initFloatingShapes() {
+    var sections = document.querySelectorAll('#oferta, #materialy, #dlaczego-my, #inspiracje, #realizacje');
+
+    sections.forEach(function (section) {
+      var count = 4;
+      for (var i = 0; i < count; i++) {
+        var shape = document.createElement('div');
+        shape.className = 'floating-shape';
+        shape.setAttribute('aria-hidden', 'true');
+
+        var size = Math.random() * 80 + 30;
+        var isCircle = Math.random() > 0.4;
+        var isDiamond = !isCircle && Math.random() > 0.5;
+        var borderRadius = isCircle ? '50%' : (isDiamond ? '4px' : '0');
+        var rotation = isDiamond ? 'rotate(45deg)' : 'rotate(' + (Math.random() * 360) + 'deg)';
+        var animName = Math.random() > 0.5 ? 'floatShape' : 'floatShapeSlow';
+
+        shape.style.cssText =
+          'position:absolute;' +
+          'width:' + size + 'px;' +
+          'height:' + size + 'px;' +
+          'border:1px solid rgba(30,58,95,' + (Math.random() * 0.1 + 0.04) + ');' +
+          'border-radius:' + borderRadius + ';' +
+          'left:' + (Math.random() * 90 + 5) + '%;' +
+          'top:' + (Math.random() * 80 + 10) + '%;' +
+          'pointer-events:none;' +
+          'z-index:0;' +
+          'opacity:0.4;' +
+          'animation:' + animName + ' ' + (Math.random() * 20 + 15) + 's ease-in-out ' + (Math.random() * 5) + 's infinite;' +
+          'transform:' + rotation + ';';
+
+        section.appendChild(shape);
+      }
+    });
+  }
+
+  var PARALLAX_INTENSITY = 15;
+
+  function initSectionParallax() {
+    var elements = document.querySelectorAll('.offer-card, .material-card, .why-card, .inspiration-card, .testimonial-card, .gallery-item');
+    if (!elements.length) return;
+
+    function update() {
+      var winH = window.innerHeight;
+      elements.forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top > winH || rect.bottom < 0) return;
+        var progress = (winH - rect.top) / (winH + rect.height);
+        var shift = (progress - 0.5) * PARALLAX_INTENSITY;
+        el.style.setProperty('--parallax-y', shift + 'px');
+      });
+    }
+
+    window.addEventListener('scroll', function () {
+      requestAnimationFrame(update);
+    }, { passive: true });
+    update();
+  }
+
   function boot() {
     initParticleCanvas();
     initFloatingDust();
+    initMaterialSlideshow();
+    initFloatingShapes();
+    initSectionParallax();
   }
 
   if (document.readyState === 'loading') {
