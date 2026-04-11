@@ -102,6 +102,8 @@ function initDropdowns() {
 }
 
 function initScrollReveal() {
+  var elements = document.querySelectorAll('.reveal');
+  if (!elements.length) return;
 
   var observer = new IntersectionObserver(
     function (entries) {
