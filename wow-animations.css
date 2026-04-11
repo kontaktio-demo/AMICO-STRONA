@@ -415,8 +415,8 @@
     animation: none;
   }
   .contact-detail {
-    padding: .4rem;
-    margin: -.4rem;
+    padding: .6rem .75rem;
+    margin: -.6rem -.75rem;
   }
 }
 

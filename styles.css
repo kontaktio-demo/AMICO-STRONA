@@ -2289,11 +2289,7 @@ a.inspiration-slide {
   margin-bottom: .75rem;
 }
 
-/* Better buttons – ripple pulse on hover */
-.btn-primary {
-  position: relative;
-  z-index: 1;
-}
+/* Better buttons – subtle ripple border on hover */
 .btn-primary::before {
   content: '';
   position: absolute;
