@@ -131,33 +131,15 @@
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: linear-gradient(135deg,
-        rgba(10, 15, 30, .93) 0%,
-        rgba(20, 30, 60, .90) 25%,
-        rgba(15, 20, 45, .92) 50%,
-        rgba(25, 35, 55, .90) 75%,
-        rgba(10, 18, 35, .93) 100%
-      );
+      background: rgba(0, 0, 0, .92);
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
       visibility: hidden;
       transition: opacity .35s ease, visibility .35s ease;
-      backdrop-filter: blur(20px) saturate(1.2);
-      -webkit-backdrop-filter: blur(20px) saturate(1.2);
-      overflow: hidden;
-    }
-    .lightbox-overlay::before {
-      content: '';
-      position: absolute;
-      inset: -50%;
-      background:
-        radial-gradient(ellipse 600px 400px at 20% 30%, rgba(76, 201, 240, .08), transparent 70%),
-        radial-gradient(ellipse 500px 500px at 80% 70%, rgba(30, 58, 95, .15), transparent 70%),
-        radial-gradient(ellipse 400px 300px at 50% 50%, rgba(100, 140, 200, .06), transparent 60%);
-      pointer-events: none;
-      z-index: 0;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .lightbox-overlay.active {
       opacity: 1;
@@ -168,7 +150,7 @@
       max-height: 90vh;
       object-fit: contain;
       border-radius: 6px;
-      box-shadow: 0 8px 60px rgba(0, 0, 0, .5), 0 0 120px rgba(30, 58, 95, .15);
+      box-shadow: 0 8px 60px rgba(0, 0, 0, .6);
       transform: scale(.94);
       opacity: 0;
       transition: transform .3s cubic-bezier(.22, 1, .36, 1), opacity .2s ease;
@@ -606,32 +588,32 @@
 <script>
 (function() {
   var fullSrcMap = [
-    'tok%20x%20amico/DSC_2594.jpg',
-    'tok%20x%20amico/DSC_2662-Edit.jpg',
-    'tok%20x%20amico/DSC_2596.jpg',
-    'tok%20x%20amico/DSC_3073.jpg',
-    'tok%20x%20amico/DSC_2601.jpg',
-    'tok%20x%20amico/DSC_2856.jpg',
-    'tok%20x%20amico/DSC_2610.jpg',
-    'tok%20x%20amico/DSC_3103.jpg',
-    'tok%20x%20amico/DSC_2668.jpg',
-    'tok%20x%20amico/DSC_3128-Edit.jpg',
-    'tok%20x%20amico/DSC_2674.jpg',
-    'tok%20x%20amico/DSC_3177-Edit.jpg',
-    'tok%20x%20amico/DSC_2680.jpg',
-    'tok%20x%20amico/DSC_3389.jpg',
-    'tok%20x%20amico/DSC_2720.jpg',
-    'tok%20x%20amico/DSC_3399-Edit-Edit.jpg',
-    'tok%20x%20amico/DSC_2840.jpg',
-    'tok%20x%20amico/DSC_2857.jpg',
-    'tok%20x%20amico/DSC_2850.jpg',
-    'tok%20x%20amico/DSC_2864.jpg',
-    'tok%20x%20amico/DSC_3079.jpg',
-    'tok%20x%20amico/DSC_3085.jpg',
-    'tok%20x%20amico/DSC_3172.jpg',
-    'tok%20x%20amico/DSC_3406.jpg',
-    'tok%20x%20amico/DSC_3454.jpg',
-    'tok%20x%20amico/DSC_3463.jpg'
+    'zdjecia/DSC_2594-gallery.webp',
+    'zdjecia/DSC_2662-Edit-gallery.webp',
+    'zdjecia/DSC_2596-gallery.webp',
+    'zdjecia/DSC_3073-gallery.webp',
+    'zdjecia/DSC_2601-gallery.webp',
+    'zdjecia/DSC_2856-gallery.webp',
+    'zdjecia/DSC_2610-gallery.webp',
+    'zdjecia/DSC_3103-gallery.webp',
+    'zdjecia/DSC_2668-gallery.webp',
+    'zdjecia/DSC_3128-Edit-gallery.webp',
+    'zdjecia/DSC_2674-gallery.webp',
+    'zdjecia/DSC_3177-Edit-gallery.webp',
+    'zdjecia/DSC_2680-gallery.webp',
+    'zdjecia/DSC_3389-gallery.webp',
+    'zdjecia/DSC_2720-gallery.webp',
+    'zdjecia/DSC_3399-Edit-Edit-gallery.webp',
+    'zdjecia/DSC_2840-gallery.webp',
+    'zdjecia/DSC_2857-gallery.webp',
+    'zdjecia/DSC_2850-gallery.webp',
+    'zdjecia/DSC_2864-gallery.webp',
+    'zdjecia/DSC_3079-gallery.webp',
+    'zdjecia/DSC_3085-gallery.webp',
+    'zdjecia/DSC_3172-gallery.webp',
+    'zdjecia/DSC_3406-gallery.webp',
+    'zdjecia/DSC_3454-gallery.webp',
+    'zdjecia/DSC_3463-gallery.webp'
   ];
   var total = fullSrcMap.length;
   var current = 0;
