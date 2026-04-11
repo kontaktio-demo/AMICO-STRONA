@@ -1523,35 +1523,7 @@ p  { margin-bottom:0; }
   text-align: center;
   padding: clamp(80px, 10vw, 140px) clamp(32px, 4vw, 60px);
   position: relative;
-  overflow: hidden;
-  border: none;
   background: transparent;
-}
-.cta-elegant::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: var(--cta-bg);
-  background-size: cover;
-  background-position: center;
-  filter: brightness(.25) grayscale(.3);
-  opacity: .55;
-  z-index: 0;
-  transition: opacity .6s ease;
-}
-.cta-elegant:hover::before {
-  opacity: .7;
-}
-.cta-elegant::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,.5) 50%, rgba(0,0,0,.8) 100%);
-  z-index: 1;
-}
-.cta-elegant-inner {
-  position: relative;
-  z-index: 2;
 }
 .cta-elegant-eyebrow {
   font-family: var(--font-body);
