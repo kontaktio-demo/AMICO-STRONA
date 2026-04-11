@@ -739,63 +739,63 @@ a.inspiration-slide {
   margin-top:auto;
 }
 .footer-top {
-  padding: clamp(40px,5vw,60px) 0 clamp(24px,3vw,32px);
+  padding: clamp(16px,2.5vw,24px) 0 clamp(12px,1.5vw,16px);
 }
 .footer-grid-new {
   display:grid;
   grid-template-columns: 1fr auto;
-  gap:clamp(24px,3vw,48px);
+  gap:clamp(16px,2vw,24px);
   align-items: center;
 }
 .footer-brand {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: .25rem;
 }
 .footer-logo-block {
-  margin-bottom: .4rem;
+  margin-bottom: .2rem;
 }
 .footer-logo-sub {
   display: block;
   font-family: var(--font-body);
-  font-size: .65rem;
+  font-size: .55rem;
   font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: .2rem;
+  margin-bottom: .1rem;
 }
 .footer-logo {
   font-family: var(--font-display);
-  font-size:1.8rem;
+  font-size:1.3rem;
   font-weight:800;
   letter-spacing:.2em;
   color: #fff;
   display:block;
 }
 .footer-brand p {
-  font-size:.85rem;
-  line-height:1.6;
+  font-size:.75rem;
+  line-height:1.5;
   max-width:400px;
   color: var(--text-muted);
   margin-bottom: 0;
 }
 .footer-social {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   align-items: center;
 }
 .footer-social a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.12);
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: .9rem;
   transition: all .3s var(--ease);
 }
 .footer-social a:hover {
@@ -804,8 +804,8 @@ a.inspiration-slide {
   border-color: rgba(255,255,255,.25);
 }
 .footer-social a svg {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   fill: currentColor;
 }
 
@@ -960,17 +960,17 @@ a.inspiration-slide {
 
 .footer-bottom {
   border-top: 1px solid var(--border-soft);
-  padding: 20px 0;
+  padding: 12px 0;
 }
 .footer-bottom-inner {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  font-size:.78rem;
+  font-size:.72rem;
   color: var(--text-muted);
 }
-.footer-links { display:flex; gap:20px; }
-.footer-links a { transition: color .3s; }
+.footer-links { display:flex; gap:16px; }
+.footer-links a { transition: color .3s; font-size:.72rem; }
 .footer-links a:hover { color: #fff; }
 
 @media(max-width:900px){
