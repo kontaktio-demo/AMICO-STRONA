@@ -1129,7 +1129,7 @@ a.inspiration-slide {
 /* ═══ PARALLAX DIVIDERS ═══ */
 .parallax-divider {
   position: relative;
-  height: clamp(300px, 40vw, 500px);
+  height: clamp(380px, 45vw, 600px);
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
@@ -1251,7 +1251,7 @@ a.inspiration-slide {
 
 @media (max-width: 768px) {
   .parallax-divider {
-    height: clamp(250px, 50vw, 350px);
+    height: clamp(280px, 55vw, 400px);
   }
 }
 
