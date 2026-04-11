@@ -110,8 +110,17 @@
     }
     .gallery-item.img-loaded:hover img {
       opacity: .88;
-      transform: scale(1.02);
-      transition: opacity .3s ease, transform .4s ease;
+      transform: scale(1.025);
+      transition: opacity .3s ease, transform .5s cubic-bezier(.22,1,.36,1);
+    }
+
+    /* Gallery item hover border glow */
+    .gallery-item.img-loaded {
+      transition: box-shadow .4s ease, transform .4s cubic-bezier(.22,1,.36,1);
+    }
+    .gallery-item.img-loaded:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,.5);
+      transform: translateY(-3px);
     }
 
     /* Staggered cascade reveal for masonry items */
@@ -237,10 +246,18 @@
       color: var(--text);
       margin-bottom: 1.2rem;
     }
+    .experience-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 1px;
+      background: rgba(255,255,255,.25);
+      margin: 1rem auto 0;
+    }
     .experience-text {
       font-size: 1.05rem;
       color: var(--text-muted);
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     /* ═══ RESPONSIVE ═══ */
