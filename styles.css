@@ -561,6 +561,10 @@ p  { margin-bottom:0; }
 }
 
 /* Realizacje Carousel Cards */
+a.carousel-card,
+a.inspiration-slide {
+  display: block;
+}
 .carousel-card {
   flex: 0 0 calc(25% - 18px);
   min-width: 220px;

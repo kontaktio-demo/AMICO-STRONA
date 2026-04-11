@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initPreloader();
   initNav();
   initHamburger();
+  initDropdowns();
   initScrollReveal();
   initForm();
   initCookieConsent();
@@ -70,9 +71,37 @@ function initHamburger() {
   });
 }
 
+function initDropdowns() {
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (!dropdowns.length) return;
+
+  dropdowns.forEach(function (dropdown) {
+    var toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', function (e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      }
+    });
+
+    dropdown.addEventListener('mouseenter', function () {
+      if (window.innerWidth > 900) dropdown.classList.add('open');
+    });
+    dropdown.addEventListener('mouseleave', function () {
+      if (window.innerWidth > 900) dropdown.classList.remove('open');
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    dropdowns.forEach(function (dropdown) {
+      if (!dropdown.contains(e.target)) dropdown.classList.remove('open');
+    });
+  });
+}
+
 function initScrollReveal() {
-  var elements = document.querySelectorAll('.reveal');
-  if (!elements.length) return;
 
   var observer = new IntersectionObserver(
     function (entries) {
