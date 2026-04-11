@@ -1485,6 +1485,21 @@ a.inspiration-slide {
   z-index: 4;
   pointer-events: none;
 }
+/* Asymmetric wave at bottom of page hero */
+.page-hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  line-height: 0;
+  pointer-events: none;
+}
+.page-hero-wave svg {
+  display: block;
+  width: 100%;
+  height: clamp(50px, 6vw, 100px);
+}
 .page-hero-content .hero-eyebrow {
   font-family: var(--font-body);
   font-size: .8rem;
