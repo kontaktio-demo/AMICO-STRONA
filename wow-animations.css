@@ -155,10 +155,11 @@
 
 /* Gallery item animations */
 .gallery-item {
-  transition: transform .35s var(--ease);
+  transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
 }
 .gallery-item:hover {
   z-index: 2;
+  box-shadow: 0 8px 30px rgba(0,0,0,.4);
 }
 
 /* Section content parallax depth (only on revealed cards) */

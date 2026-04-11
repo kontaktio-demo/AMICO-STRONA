@@ -58,16 +58,72 @@
       border-radius: 6px;
       cursor: pointer;
       position: relative;
+      background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #111 100%);
+      background-size: 400% 400%;
     }
+
+    /* Shimmer skeleton while image loads */
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,.04) 40%,
+        rgba(255,255,255,.08) 50%,
+        rgba(255,255,255,.04) 60%,
+        transparent 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 1.8s ease-in-out infinite;
+      z-index: 1;
+      border-radius: 6px;
+      pointer-events: none;
+      transition: opacity .6s ease;
+    }
+    .gallery-item.img-loaded::before {
+      opacity: 0;
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
     .gallery-item img {
       width: 100%;
       height: auto;
       display: block;
       border-radius: 6px;
-      transition: opacity 0.4s ease;
+      opacity: 0;
+      filter: blur(12px) saturate(.6);
+      transform: scale(1.04);
+      transition: opacity .8s cubic-bezier(.25,.46,.45,.94),
+                  filter 1s cubic-bezier(.25,.46,.45,.94),
+                  transform .8s cubic-bezier(.25,.46,.45,.94);
     }
-    .gallery-item:hover img {
+    .gallery-item.img-loaded img {
+      opacity: 1;
+      filter: blur(0) saturate(1);
+      transform: scale(1);
+    }
+    .gallery-item.img-loaded:hover img {
       opacity: .88;
+      transform: scale(1.02);
+      transition: opacity .3s ease, transform .4s ease;
+    }
+
+    /* Staggered cascade reveal for masonry items */
+    .gallery-item.reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(.97);
+      transition: opacity .9s cubic-bezier(.22,1,.36,1),
+                  transform .9s cubic-bezier(.22,1,.36,1);
+    }
+    .gallery-item.reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
 
     /* ═══ LIGHTBOX ═══ */
@@ -192,6 +248,25 @@
       }
       .gallery-item { margin-bottom: 12px; }
       .lightbox-nav { display: none; }
+    }
+
+    /* Reduced motion: disable all fancy animations */
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-item::before {
+        animation: none;
+        display: none;
+      }
+      .gallery-item img {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
+      }
+      .gallery-item.reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
     }
   </style>
 </head>
@@ -576,6 +651,68 @@
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') navigate(-1);
     if (e.key === 'ArrowRight') navigate(1);
+  });
+})();
+</script>
+<script>
+/* ═══ Premium image loading animations ═══ */
+(function() {
+  var items = document.querySelectorAll('.gallery-item');
+
+  /* Blur-to-sharp reveal on image load */
+  items.forEach(function(item) {
+    var img = item.querySelector('img');
+    if (!img) return;
+
+    function markLoaded() {
+      item.classList.add('img-loaded');
+    }
+
+    if (img.complete && img.naturalWidth > 0) {
+      markLoaded();
+    } else {
+      img.addEventListener('load', markLoaded);
+      /* Fallback: if image fails, still remove shimmer */
+      img.addEventListener('error', markLoaded);
+    }
+  });
+
+  /* Staggered IntersectionObserver for cascade effect */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var revealQueue = [];
+  var isProcessing = false;
+
+  function processQueue() {
+    if (isProcessing || !revealQueue.length) return;
+    isProcessing = true;
+
+    var el = revealQueue.shift();
+    el.classList.add('visible');
+
+    setTimeout(function() {
+      isProcessing = false;
+      processQueue();
+    }, 80);
+  }
+
+  var galleryObserver = new IntersectionObserver(
+    function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          revealQueue.push(entry.target);
+          galleryObserver.unobserve(entry.target);
+          processQueue();
+        }
+      });
+    },
+    { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+  );
+
+  items.forEach(function(item) {
+    /* Remove default reveal observer handling for gallery items */
+    item.classList.remove('visible');
+    galleryObserver.observe(item);
   });
 })();
 </script>
