@@ -176,23 +176,6 @@
       .contact-grid { grid-template-columns: 1fr; }
       .contact-form-row { grid-template-columns: 1fr; }
     }
-
-    /* ── Footer wave transition ── */
-    .footer-wave-transition {
-      position: relative;
-      width: 100%;
-      line-height: 0;
-      overflow: hidden;
-      background: var(--bg);
-    }
-    .footer-wave-transition svg {
-      display: block;
-      width: 100%;
-      height: clamp(70px, 10vw, 140px);
-    }
-    .footer-wave-transition + .footer {
-      margin-top: 0;
-    }
   </style>
 </head>
 <body>
@@ -235,12 +218,14 @@
     <h1>Kontakt</h1>
     <p class="page-hero-desc">Skontaktuj się z nami — doradzimy najlepsze rozwiązanie dla Twojego projektu. Oferujemy bezpłatną wycenę i profesjonalne doradztwo.</p>
   </div>
+  <div class="page-hero-fade" aria-hidden="true"></div>
 </section>
 
 <!-- ═══════════════ WAVE DIVIDER ═══════════════ -->
 <div class="wave-divider" aria-hidden="true">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,0 H1440 V20 C1200,70 900,10 600,50 C300,80 100,18 0,45 Z" fill="#000000"/>
+    <path d="M0,0 H1440 V20 C1200,70 900,10 600,50 C300,80 100,18 0,45 Z" fill="#000000" opacity=".4"/>
+    <path d="M0,0 H1440 V24 C1180,66 880,14 580,46 C280,76 80,22 0,42 Z" fill="#000000"/>
   </svg>
 </div>
 
@@ -339,9 +324,7 @@
 <!-- ═══════════════ WAVE → FOOTER ═══════════════ -->
 <div class="footer-wave-transition" aria-hidden="true">
   <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- subtle lighter layer for depth -->
     <path d="M0,100 C200,60 450,130 700,80 C950,30 1150,110 1440,70 L1440,140 L0,140 Z" fill="#040810" opacity=".35"/>
-    <!-- main wave shape -->
     <path d="M0,110 C160,80 380,140 620,95 C860,50 1100,120 1280,75 C1380,55 1420,90 1440,85 L1440,140 L0,140 Z" fill="#040810"/>
   </svg>
 </div>
