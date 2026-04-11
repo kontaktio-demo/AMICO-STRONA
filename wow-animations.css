@@ -275,3 +275,162 @@
   0%,100% { opacity: .6; }
   50%     { opacity: 0; }
 }
+
+/* ═══ ENHANCED TEXT REVEAL ANIMATIONS ═══ */
+
+/* Staggered paragraph reveal in material sections */
+@keyframes textFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.material-detail.reveal.visible .material-detail-text p {
+  animation: textFadeUp .7s var(--ease) both;
+}
+.material-detail.reveal.visible .material-detail-text p:nth-child(2) {
+  animation-delay: .1s;
+}
+.material-detail.reveal.visible .material-detail-text p:nth-child(3) {
+  animation-delay: .2s;
+}
+.material-detail.reveal.visible .material-detail-text p:nth-child(4) {
+  animation-delay: .3s;
+}
+.material-detail.reveal.visible .material-detail-text p:nth-child(5) {
+  animation-delay: .4s;
+}
+.material-detail.reveal.visible .material-detail-text p:nth-child(6) {
+  animation-delay: .5s;
+}
+
+/* Heading accent line animation */
+.material-detail.reveal.visible .material-detail-text h2::before {
+  animation: lineGrow .8s var(--ease) .2s both;
+}
+@keyframes lineGrow {
+  from { width: 0; opacity: 0; }
+  to   { width: 40px; opacity: 1; }
+}
+
+/* Image zoom-in reveal */
+@keyframes imageReveal {
+  from {
+    transform: scale(1.08);
+    filter: brightness(.75) saturate(.6);
+  }
+  to {
+    transform: scale(1);
+    filter: brightness(.88) saturate(.95);
+  }
+}
+.material-detail.reveal.visible .material-detail-img img {
+  animation: imageReveal 1s var(--ease) .1s both;
+}
+
+/* Enhanced CTA entrance */
+@keyframes ctaSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.cta-elegant.reveal.visible .cta-elegant-inner {
+  animation: ctaSlideUp .8s var(--ease) .15s both;
+}
+.cta-elegant.reveal.visible .cta-elegant-inner .btn {
+  animation: ctaSlideUp .6s var(--ease) .45s both;
+}
+
+/* Offer feature stagger reveal */
+.offer-features.reveal.visible .offer-feature {
+  animation: textFadeUp .5s var(--ease) both;
+}
+.offer-features.reveal.visible .offer-feature:nth-child(1) { animation-delay: 0s; }
+.offer-features.reveal.visible .offer-feature:nth-child(2) { animation-delay: .08s; }
+.offer-features.reveal.visible .offer-feature:nth-child(3) { animation-delay: .16s; }
+.offer-features.reveal.visible .offer-feature:nth-child(4) { animation-delay: .24s; }
+.offer-features.reveal.visible .offer-feature:nth-child(5) { animation-delay: .32s; }
+.offer-features.reveal.visible .offer-feature:nth-child(6) { animation-delay: .40s; }
+.offer-features.reveal.visible .offer-feature:nth-child(7) { animation-delay: .48s; }
+
+/* Section header decoration line enter */
+@keyframes decorLineEnter {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+/* Parallax divider content entrance */
+.parallax-divider-content h3,
+.parallax-divider-content p {
+  transition: transform .6s var(--ease), opacity .6s ease;
+}
+
+/* Contact detail icon pulse */
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+.contact-detail:hover .contact-detail-icon {
+  animation: iconPulse .6s var(--ease);
+}
+
+/* Smooth hero scroll indicator */
+@keyframes scrollHint {
+  0%, 100% { opacity: .4; transform: translateY(0); }
+  50%      { opacity: .8; transform: translateY(6px); }
+}
+
+/* Image hover glow pulse */
+.material-detail-img::after {
+  transition: opacity .6s var(--ease);
+}
+
+/* Mobile adjustments for new animations */
+@media (max-width: 768px) {
+  .material-detail.reveal.visible .material-detail-text p {
+    animation: none;
+    opacity: 1;
+  }
+  .material-detail.reveal.visible .material-detail-img img {
+    animation: none;
+    filter: brightness(.9) saturate(.95);
+  }
+  .offer-features.reveal.visible .offer-feature {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .cta-elegant.reveal.visible .cta-elegant-inner,
+  .cta-elegant.reveal.visible .cta-elegant-inner .btn {
+    animation: none;
+  }
+  .contact-detail {
+    padding: .6rem .75rem;
+    margin: -.6rem -.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .material-detail.reveal.visible .material-detail-text p,
+  .material-detail.reveal.visible .material-detail-img img,
+  .offer-features.reveal.visible .offer-feature,
+  .cta-elegant.reveal.visible .cta-elegant-inner,
+  .cta-elegant.reveal.visible .cta-elegant-inner .btn {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  .contact-detail:hover .contact-detail-icon {
+    animation: none;
+  }
+}

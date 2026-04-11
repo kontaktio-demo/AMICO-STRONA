@@ -134,7 +134,7 @@ p  { margin-bottom:0; }
 
 .section-header { margin-bottom:clamp(48px,7vw,90px); }
 .section-header.section-header-center { text-align:center; }
-.section-desc { max-width:600px; margin-top:1rem; color:var(--text-muted); font-size:1.05rem; line-height:1.8; letter-spacing:.005em; }
+.section-desc { max-width:600px; margin-top:1rem; color:var(--text-muted); font-size:1.05rem; line-height:1.85; letter-spacing:.005em; }
 .section-header-center .section-desc { margin:1rem auto 0; }
 
 .section-header::after {
@@ -530,8 +530,11 @@ p  { margin-bottom:0; }
 .feature-card p {
   font-size: .92rem;
   color: var(--text-muted);
-  line-height: 1.75;
+  line-height: 1.8;
   margin-bottom: 1.5rem;
+}
+.feature-card a.btn {
+  margin-top: auto;
 }
 
 @media(max-width:768px) { .features-grid { grid-template-columns: 1fr; } }
@@ -1256,6 +1259,14 @@ a.inspiration-slide {
   margin-bottom: 1rem;
   letter-spacing: -.01em;
 }
+.parallax-divider-content h3::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: rgba(255,255,255,.3);
+  margin: 1rem auto 0;
+}
 .parallax-divider-content p {
   font-size: clamp(.92rem, 1.2vw, 1.1rem);
   color: rgba(255,255,255,.7);
@@ -1532,11 +1543,12 @@ a.inspiration-slide {
   margin-bottom: 1.2rem;
 }
 .page-hero-desc {
-  font-size: clamp(.92rem, 1.2vw, 1.1rem);
-  color: rgba(255,255,255,.7);
-  line-height: 1.8;
-  max-width: 600px;
+  font-size: clamp(.95rem, 1.2vw, 1.12rem);
+  color: rgba(255,255,255,.75);
+  line-height: 1.85;
+  max-width: 620px;
   margin: 0 auto;
+  letter-spacing: .01em;
 }
 
 /* ═══ MATERIAL DETAIL (subpages) ═══ */
@@ -1555,30 +1567,75 @@ a.inspiration-slide {
 .material-detail-img {
   overflow: hidden;
   border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .5s var(--ease), border-color .5s var(--ease);
+}
+.material-detail:hover .material-detail-img {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border);
 }
 .material-detail-img img {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform .4s var(--ease), filter .4s var(--ease);
-  filter: brightness(.9);
+  border-radius: var(--radius-sm);
+  transition: transform .6s var(--ease), filter .6s var(--ease);
+  filter: brightness(.88) saturate(.95);
 }
 .material-detail:hover .material-detail-img img {
-  transform: scale(1.02);
-  filter: brightness(1);
+  transform: scale(1.03);
+  filter: brightness(1) saturate(1);
 }
 .material-detail-text h2 {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.2vw, 2.6rem);
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
+}
+.material-detail-text h2::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,.45), transparent);
+  margin-bottom: 1rem;
+  transition: width .6s var(--ease);
+}
+.material-detail:hover .material-detail-text h2::before {
+  width: 70px;
+}
+.material-detail-reverse .material-detail-text h2::before {
+  margin-left: auto;
+  background: linear-gradient(270deg, rgba(255,255,255,.45), transparent);
+}
+.material-detail-text h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 2rem;
+  margin-bottom: .8rem;
+  letter-spacing: -.01em;
+}
+.material-detail-text h3:first-of-type {
+  margin-top: .5rem;
 }
 .material-detail-text p {
   font-size: 1.05rem;
   color: var(--text-light);
   line-height: 1.9;
   margin-bottom: 1.2rem;
+}
+.material-detail-text p:first-of-type {
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.85;
+}
+.material-detail-text strong {
+  color: #fff;
+  font-weight: 600;
 }
 
 @media(max-width:768px) {
@@ -1703,7 +1760,7 @@ a.inspiration-slide {
 .cta-elegant-desc {
   font-size: 1.1rem;
   color: rgba(255,255,255,.6);
-  line-height: 1.7;
+  line-height: 1.8;
   margin-bottom: 2.5rem;
   max-width: 600px;
   margin-left: auto;
@@ -1713,6 +1770,11 @@ a.inspiration-slide {
   font-size: .95rem;
   padding: 18px 52px;
   letter-spacing: .15em;
+  transition: all .4s var(--ease);
+}
+.cta-elegant .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
 }
 
 /* Compact CTA variant for pages with minimal content */
@@ -1908,23 +1970,28 @@ a.inspiration-slide {
   grid-template-columns: 1fr 1fr;
   gap: 2rem 3.5rem;
   margin-top: 3rem;
+  counter-reset: feature;
 }
 .offer-feature {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   color: var(--text-light);
   line-height: 1.85;
   padding: 1.5rem;
   background: rgba(255,255,255,.025);
   border: 1px solid rgba(255,255,255,.04);
   border-radius: var(--radius-md);
-  transition: background .3s ease, border-color .3s ease;
+  transition: background .35s ease, border-color .35s ease, transform .35s var(--ease), box-shadow .35s ease;
+  counter-increment: feature;
+  position: relative;
 }
 .offer-feature:hover {
-  background: rgba(255,255,255,.05);
-  border-color: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.055);
+  border-color: rgba(255,255,255,.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,.3);
 }
 .offer-feature-icon {
   flex-shrink: 0;
@@ -1932,6 +1999,11 @@ a.inspiration-slide {
   height: 28px;
   margin-top: 2px;
   color: rgba(255,255,255,.55);
+  transition: color .3s ease, transform .3s ease;
+}
+.offer-feature:hover .offer-feature-icon {
+  color: rgba(255,255,255,.85);
+  transform: scale(1.1);
 }
 
 @media(max-width:768px) {
@@ -2198,4 +2270,154 @@ a.inspiration-slide {
 
 .kontaktio-header-sub {
   color: var(--text-muted, #7a8494) !important;
+}
+
+/* ═══ VISUAL POLISH – DETAILS & MICRO-INTERACTIONS ═══ */
+
+/* Smooth text selection */
+::selection {
+  background: rgba(30,58,95,.5);
+  color: #fff;
+}
+
+/* Enhanced lead text */
+.lead {
+  font-size: 1.12rem;
+  color: var(--text-light);
+  font-weight: 400;
+  line-height: 1.85;
+  margin-bottom: .75rem;
+}
+
+/* Better buttons – subtle ripple border on hover */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 1px solid rgba(255,255,255,.15);
+  opacity: 0;
+  transition: opacity .4s ease, inset .4s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::before {
+  opacity: 1;
+  inset: -6px;
+}
+
+/* Enhanced section accent line animation */
+.section-header::after {
+  transition: transform .8s var(--ease) .15s, width .6s var(--ease) .3s;
+}
+
+/* Material detail grid gap polish */
+.material-detail {
+  gap: clamp(32px, 5vw, 72px);
+}
+
+/* Contact detail subtle hover */
+.contact-detail {
+  transition: transform .3s var(--ease), background .3s ease;
+  padding: .6rem .75rem;
+  margin: -.6rem -.75rem;
+  border-radius: var(--radius-sm);
+}
+.contact-detail:hover {
+  transform: translateX(5px);
+  background: rgba(255,255,255,.03);
+}
+
+/* Contact form field glow focus */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 0 3px rgba(76,201,240,.08);
+  background: rgba(255,255,255,.08) !important;
+}
+.contact-form-wrap {
+  border-radius: var(--radius-md);
+  transition: border-color .4s ease, box-shadow .4s ease;
+}
+.contact-form-wrap:hover {
+  border-color: rgba(255,255,255,.1);
+  box-shadow: 0 8px 40px rgba(0,0,0,.3);
+}
+
+/* Footer social links polish */
+.footer-social a {
+  transition: all .3s var(--ease), transform .3s var(--ease);
+}
+.footer-social a:hover {
+  transform: translateY(-2px);
+}
+
+/* Contact social links polish */
+.contact-social a {
+  transition: all .3s var(--ease), transform .3s var(--ease);
+}
+.contact-social a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.3);
+}
+
+/* Offer features stagger animation */
+.offer-feature:nth-child(1) { transition-delay: 0s; }
+.offer-feature:nth-child(2) { transition-delay: .06s; }
+.offer-feature:nth-child(3) { transition-delay: .12s; }
+.offer-feature:nth-child(4) { transition-delay: .18s; }
+.offer-feature:nth-child(5) { transition-delay: .24s; }
+.offer-feature:nth-child(6) { transition-delay: .30s; }
+.offer-feature:nth-child(7) { transition-delay: .36s; }
+
+/* Eyebrow text polish */
+.eyebrow {
+  position: relative;
+  display: inline-block;
+}
+
+/* Page hero content text shadow for readability */
+.page-hero-content h1 {
+  text-shadow: 0 2px 30px rgba(0,0,0,.4);
+}
+.page-hero-desc {
+  text-shadow: 0 1px 10px rgba(0,0,0,.3);
+}
+
+/* Image caption effect for material sections */
+.material-detail-img {
+  position: relative;
+}
+
+/* Why card icon hover */
+.why-icon svg,
+.feature-icon svg {
+  transition: transform .4s var(--ease);
+}
+.why-card:hover .why-icon svg,
+.feature-card:hover .feature-icon svg {
+  transform: scale(1.1);
+}
+
+/* Carousel card image border radius */
+.carousel-card {
+  border-radius: var(--radius-sm);
+}
+.carousel-card-img img {
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+/* Inspiration slide border radius */
+.inspiration-slide {
+  border-radius: var(--radius-sm);
+}
+.inspiration-slide-img img {
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+/* Smooth page transitions */
+.section {
+  transition: background .6s ease;
+}
+
+/* CTA showcase enhanced overlay */
+.cta-showcase::after {
+  background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.7) 50%, rgba(0,0,0,.55) 100%);
 }
