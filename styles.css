@@ -1743,6 +1743,52 @@ a.inspiration-slide {
   }
 }
 
+/* AGD Brands */
+.agd-brands {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.agd-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  transition: transform .3s ease, border-color .3s ease, background .3s ease;
+  text-align: center;
+  gap: .5rem;
+}
+.agd-brand:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,.15);
+  background: rgba(255,255,255,.06);
+}
+.agd-brand-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: #fff;
+}
+.agd-brand-url {
+  font-size: .75rem;
+  color: #4cc9f0;
+  letter-spacing: .05em;
+}
+@media(max-width:600px) {
+  .agd-brands {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .agd-brand {
+    padding: 1.5rem 1rem;
+  }
+}
+
 /* Nav dropdown */
 .nav-dropdown {
   position: relative;
