@@ -69,7 +69,7 @@ p  { margin-bottom:0; }
 
 .eyebrow {
   font-family: var(--font-body);
-  font-size:.72rem;
+  font-size:.78rem;
   font-weight:600;
   letter-spacing:.28em;
   text-transform:uppercase;
@@ -1144,16 +1144,19 @@ a.inspiration-slide {
   right: 0;
   z-index: 3;
   pointer-events: none;
+  line-height: 0;
 }
 .parallax-shape-top {
-  display: none;
+  top: -1px;
 }
 .parallax-shape-bottom {
-  display: none;
+  bottom: -1px;
 }
 .parallax-shape-top svg,
 .parallax-shape-bottom svg {
-  display: none;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Standalone section transition divider (e.g. before footer) */
@@ -1179,13 +1182,30 @@ a.inspiration-slide {
   display: none;
 }
 
-/* Standalone wave divider between sections – removed for clean straight edges */
+/* Asymmetric wave divider between sections */
 .wave-divider {
-  display: none;
+  position: relative;
+  z-index: 2;
+  line-height: 0;
+  overflow: hidden;
+  margin-top: -2px;
+  margin-bottom: -2px;
+  background: var(--bg);
 }
 .wave-divider svg {
-  display: none;
+  display: block;
+  width: 100%;
+  height: auto;
 }
+.wave-divider--alt {
+  background: var(--bg-alt);
+}
+.wave-divider--navy {
+  background: #0d1f3c;
+}
+.wave-divider--to-navy svg path { fill: #0d1f3c; }
+.wave-divider--from-navy { background: #0d1f3c; }
+.wave-divider--from-navy svg path { fill: var(--bg-alt); }
 .parallax-divider-content {
   position: relative;
   z-index: 2;
@@ -1443,16 +1463,16 @@ a.inspiration-slide {
 }
 .material-detail-text h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 .material-detail-text p {
-  font-size: .95rem;
-  color: var(--text-muted);
-  line-height: 1.8;
-  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
 }
 
 @media(max-width:768px) {
@@ -1531,7 +1551,7 @@ a.inspiration-slide {
 }
 .cta-elegant-eyebrow {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: .78rem;
   font-weight: 600;
   letter-spacing: .28em;
   text-transform: uppercase;
@@ -1540,14 +1560,14 @@ a.inspiration-slide {
 }
 .cta-elegant h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 800;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   letter-spacing: -.01em;
 }
 .cta-elegant-desc {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: rgba(255,255,255,.6);
   line-height: 1.7;
   margin-bottom: 2.5rem;
@@ -1718,73 +1738,106 @@ a.inspiration-slide {
 .offer-features {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.2rem 2.5rem;
-  margin-top: 2.5rem;
+  gap: 2rem 3.5rem;
+  margin-top: 3rem;
 }
 .offer-feature {
   display: flex;
   align-items: flex-start;
-  gap: .75rem;
-  font-size: .92rem;
-  color: var(--text-muted);
-  line-height: 1.7;
+  gap: 1rem;
+  font-size: 1.08rem;
+  color: var(--text-light);
+  line-height: 1.85;
+  padding: 1.5rem;
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(255,255,255,.04);
+  border-radius: var(--radius-md);
+  transition: background .3s ease, border-color .3s ease;
+}
+.offer-feature:hover {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.08);
 }
 .offer-feature-icon {
   flex-shrink: 0;
-  width: 22px;
-  height: 22px;
-  margin-top: 3px;
-  color: rgba(255,255,255,.45);
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+  color: rgba(255,255,255,.55);
 }
 
 @media(max-width:768px) {
   .offer-features {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .offer-feature {
+    font-size: 1rem;
+    padding: 1.2rem;
   }
 }
 
-/* AGD Brands */
+/* AGD Brands – creative symmetrical layout on navy background */
+.agd-brands-section {
+  background: linear-gradient(180deg, #0d1f3c 0%, #0a1a33 100%);
+  position: relative;
+}
+.agd-brands-section .eyebrow {
+  color: rgba(255,255,255,.65);
+}
+.agd-brands-section .section-header::after {
+  background: linear-gradient(90deg, rgba(76,201,240,.5), transparent);
+}
 .agd-brands {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.8rem;
+  margin-top: 3rem;
 }
 .agd-brand {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1.5rem;
-  background: rgba(255,255,255,.03);
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  transition: transform .3s ease, border-color .3s ease, background .3s ease;
+  padding: 2.5rem 2rem;
+  width: 240px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-md);
+  transition: transform .3s ease, border-color .3s ease, background .3s ease, box-shadow .3s ease;
   text-align: center;
-  gap: .5rem;
+  gap: .6rem;
 }
 .agd-brand:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255,255,255,.15);
-  background: rgba(255,255,255,.06);
+  transform: translateY(-6px);
+  border-color: rgba(76,201,240,.3);
+  background: rgba(255,255,255,.07);
+  box-shadow: 0 12px 40px rgba(30,58,95,.3);
 }
 .agd-brand-name {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: .05em;
   color: #fff;
 }
 .agd-brand-url {
-  font-size: .75rem;
+  font-size: .78rem;
   color: #4cc9f0;
   letter-spacing: .05em;
 }
+@media(max-width:900px) {
+  .agd-brand {
+    width: 200px;
+    padding: 2rem 1.5rem;
+  }
+}
 @media(max-width:600px) {
   .agd-brands {
-    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
   .agd-brand {
+    width: calc(50% - .5rem);
     padding: 1.5rem 1rem;
   }
 }
