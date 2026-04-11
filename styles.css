@@ -1557,6 +1557,127 @@ p  { margin-bottom:0; }
   letter-spacing: .15em;
 }
 
+/* ═══ CTA FULLSCREEN (realizacje) ═══ */
+.cta-fullscreen {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  overflow: hidden;
+}
+.cta-fullscreen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .65);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Wave transitions ── */
+.cta-fullscreen-wave-top,
+.cta-fullscreen-wave-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  line-height: 0;
+  pointer-events: none;
+}
+.cta-fullscreen-wave-top {
+  top: -1px;
+}
+.cta-fullscreen-wave-bottom {
+  bottom: -1px;
+}
+.cta-fullscreen-wave-top svg,
+.cta-fullscreen-wave-bottom svg {
+  display: block;
+  width: 100%;
+  height: clamp(50px, 6vw, 100px);
+}
+
+/* ── Content ── */
+.cta-fullscreen-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: clamp(100px, 12vw, 160px) clamp(20px, 6vw, 60px);
+  max-width: 800px;
+  margin: 0 auto;
+}
+.cta-fullscreen-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  letter-spacing: -.01em;
+}
+.cta-fullscreen-text {
+  font-size: clamp(.95rem, 1.2vw, 1.1rem);
+  color: rgba(255, 255, 255, .7);
+  line-height: 1.8;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.cta-fullscreen-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(255, 255, 255, .2);
+  margin: clamp(2rem, 4vw, 3.5rem) auto;
+}
+.cta-fullscreen-eyebrow {
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .65);
+  margin-bottom: 1.2rem;
+}
+.cta-fullscreen-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+  letter-spacing: -.01em;
+}
+.cta-fullscreen-desc {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, .6);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-fullscreen .btn-primary {
+  font-size: .95rem;
+  padding: 18px 52px;
+  letter-spacing: .15em;
+}
+
+@media (max-width: 768px) {
+  .cta-fullscreen {
+    min-height: 70vh;
+  }
+  .cta-fullscreen-content {
+    padding: clamp(80px, 10vw, 120px) clamp(16px, 4vw, 32px);
+  }
+  .cta-fullscreen-wave-top svg,
+  .cta-fullscreen-wave-bottom svg {
+    height: clamp(35px, 5vw, 60px);
+  }
+}
+
 /* ═══ KONTAKTIO ASSISTANT DARK THEME ═══ */
 .kontaktio-launcher {
   background: var(--bg-card, #0c1828) !important;
