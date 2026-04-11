@@ -2308,22 +2308,6 @@ a.inspiration-slide {
   inset: -6px;
 }
 
-/* Gallery item label reveal */
-.gallery-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.5) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity .4s ease;
-  border-radius: 6px;
-  pointer-events: none;
-  z-index: 2;
-}
-.gallery-item:hover::after {
-  opacity: 1;
-}
-
 /* Enhanced section accent line animation */
 .section-header::after {
   transition: transform .8s var(--ease) .15s, width .6s var(--ease) .3s;
