@@ -24,7 +24,7 @@
     }
     .gallery-heading {
       text-align: center;
-      margin-bottom: clamp(32px, 5vw, 64px);
+      margin-bottom: clamp(40px, 6vw, 72px);
       padding: 0 clamp(20px, 5vw, 60px);
     }
     .gallery-heading h2 {
@@ -42,78 +42,121 @@
       line-height: 1.7;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      max-width: 1280px;
+    /* Masonry columns layout */
+    .gallery-masonry {
+      column-count: 3;
+      column-gap: 14px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 0 clamp(20px, 5vw, 60px);
     }
 
     .gallery-item {
-      position: relative;
+      break-inside: avoid;
+      margin-bottom: 14px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.06);
-      background: #0c1828;
+      border-radius: 6px;
+      cursor: pointer;
+      position: relative;
     }
     .gallery-item img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+      height: auto;
       display: block;
-      transition: transform 0.5s ease, filter 0.5s ease;
-      filter: brightness(.85);
-    }
-    .gallery-item:hover img {
-      transform: scale(1.05);
-      filter: brightness(1);
-    }
-
-    .gallery-item-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.85) 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 24px;
-      opacity: 0;
+      border-radius: 6px;
       transition: opacity 0.4s ease;
     }
-    .gallery-item:hover .gallery-item-overlay {
+    .gallery-item:hover img {
+      opacity: .88;
+    }
+
+    /* ═══ LIGHTBOX ═══ */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, .92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .35s ease, visibility .35s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .lightbox-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox-overlay img {
+      max-width: 92vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 8px 60px rgba(0, 0, 0, .6);
+      transform: scale(.94);
+      opacity: 0;
+      transition: transform .4s cubic-bezier(.22, 1, .36, 1), opacity .35s ease;
+    }
+    .lightbox-overlay.active img {
+      transform: scale(1);
       opacity: 1;
     }
-    .gallery-item-overlay .gallery-cat {
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: #4cc9f0;
-      margin-bottom: 6px;
-    }
-    .gallery-item-overlay h3 {
-      font-family: var(--font-display);
-      font-size: clamp(1rem, 1.4vw, 1.3rem);
-      font-weight: 700;
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,.1);
+      border: none;
+      border-radius: 50%;
       color: #fff;
-      line-height: 1.25;
-      margin-bottom: 4px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .25s ease;
+      z-index: 10;
     }
-    .gallery-item-overlay p {
-      font-size: .82rem;
-      color: rgba(255,255,255,.7);
-      line-height: 1.5;
+    .lightbox-close:hover {
+      background: rgba(255,255,255,.22);
     }
-
-    /* Sizing variations for masonry effect */
-    .gallery-item--tall { grid-row: span 2; }
-    .gallery-item--wide { grid-column: span 2; }
-
-    .gallery-item--std   { min-height: 320px; }
-    .gallery-item--tall  { min-height: 656px; } /* 320+320+16 gap */
-    .gallery-item--wide  { min-height: 400px; }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,.08);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .25s ease;
+      z-index: 10;
+    }
+    .lightbox-nav:hover {
+      background: rgba(255,255,255,.2);
+    }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.5);
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+    }
 
     /* ═══ EXPERIENCE BANNER ═══ */
     .experience-banner {
@@ -135,30 +178,20 @@
 
     /* ═══ RESPONSIVE ═══ */
     @media (max-width: 900px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .gallery-masonry {
+        column-count: 2;
+        column-gap: 10px;
       }
-      .gallery-item--tall {
-        grid-row: span 1;
-        min-height: 320px;
-      }
-      .gallery-item--wide {
-        grid-column: span 1;
-      }
+      .gallery-item { margin-bottom: 10px; }
     }
     @media (max-width: 600px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+      .gallery-masonry {
+        column-count: 1;
+        column-gap: 0;
+        padding: 0 16px;
       }
-      .gallery-item--std,
-      .gallery-item--tall,
-      .gallery-item--wide {
-        min-height: 280px;
-      }
-      .gallery-item-overlay {
-        opacity: 1;
-      }
+      .gallery-item { margin-bottom: 12px; }
+      .lightbox-nav { display: none; }
     }
   </style>
 </head>
@@ -194,212 +227,205 @@
 <!-- ═══════════════ GALLERY ═══════════════ -->
 <section class="gallery-section" aria-labelledby="gallery-heading">
   <div class="gallery-heading reveal">
-    <h2 id="gallery-heading">Wybrane projekty</h2>
-    <p>Każda realizacja to indywidualny projekt dopasowany do potrzeb klienta. Oto kilka naszych najnowszych prac.</p>
+    <h2 id="gallery-heading">Nasze realizacje</h2>
+    <p>Każda realizacja to indywidualny projekt dopasowany do potrzeb klienta. Kliknij na zdjęcie, aby zobaczyć je w pełnej rozdzielczości.</p>
   </div>
 
-  <div class="gallery-grid">
+  <div class="gallery-masonry">
 
-    <!-- Row 1: std / tall / std -->
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="0">
       <picture>
-        <source srcset="zdjecia/DSC_2594-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_2594-std.webp" alt="Posadzki kamienne – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_2594-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2594-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Posadzki</span>
-        <h3>Posadzki kamienne</h3>
-        <p>Eleganckie posadzki z naturalnego marmuru i granitu, szlifowane do perfekcji.</p>
-      </div>
     </div>
 
-    <div class="gallery-item gallery-item--tall reveal">
+    <div class="gallery-item reveal" data-index="1">
       <picture>
-        <source srcset="zdjecia/DSC_2610-tall.avif" type="image/avif">
-        <img src="zdjecia/DSC_2610-tall.webp" alt="Detale wykończeń – realizacja AMICO" loading="lazy" width="600" height="900">
+        <source srcset="zdjecia/DSC_2662-Edit-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2662-Edit-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="1200" height="799">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Detale</span>
-        <h3>Detale wykończeń</h3>
-        <p>Precyzyjne detale, które nadają wnętrzom charakter i niepowtarzalność.</p>
-      </div>
     </div>
 
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="2">
       <picture>
-        <source srcset="zdjecia/DSC_2668-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_2668-std.webp" alt="Blaty kuchenne – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_2596-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2596-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Kuchnia</span>
-        <h3>Blaty kuchenne</h3>
-        <p>Blaty z kamienia naturalnego – trwałe, odporne i zachwycające estetyką.</p>
-      </div>
     </div>
 
-    <!-- Row 2: wide / std -->
-    <div class="gallery-item gallery-item--wide reveal">
+    <div class="gallery-item reveal" data-index="3">
       <picture>
-        <source srcset="zdjecia/DSC_3399-Edit-Edit-wide.avif" type="image/avif">
-        <img src="zdjecia/DSC_3399-Edit-Edit-wide.webp" alt="Schody kamienne – realizacja AMICO" loading="lazy" width="1200" height="600">
+        <source srcset="zdjecia/DSC_3073-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3073-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="1200" height="799">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Schody</span>
-        <h3>Schody kamienne</h3>
-        <p>Monumentalne schody z granitu i marmuru – połączenie trwałości z elegancją.</p>
-      </div>
     </div>
 
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="4">
       <picture>
-        <source srcset="zdjecia/DSC_2674-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_2674-std.webp" alt="Blaty łazienkowe – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_2601-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2601-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Łazienka</span>
-        <h3>Blaty łazienkowe</h3>
-        <p>Luksusowe blaty łazienkowe z kamienia – odporność na wilgoć i styl.</p>
-      </div>
     </div>
 
-    <!-- Row 3: std / std / std -->
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="5">
       <picture>
-        <source srcset="zdjecia/DSC_2680-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_2680-std.webp" alt="Okładziny ścienne – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_2856-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2856-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="1200" height="799">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Ściany</span>
-        <h3>Okładziny ścienne</h3>
-        <p>Kamień na ścianach tworzy wyjątkowy klimat i ponadczasowy charakter wnętrza.</p>
-      </div>
     </div>
 
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="6">
       <picture>
-        <source srcset="zdjecia/DSC_2720-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_2720-std.webp" alt="Parapety – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_2610-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2610-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Parapety</span>
-        <h3>Parapety</h3>
-        <p>Parapety z kamienia naturalnego – trwałe, eleganckie i łatwe w utrzymaniu.</p>
-      </div>
     </div>
 
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="7">
       <picture>
-        <source srcset="zdjecia/DSC_2857-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_2857-std.webp" alt="Obudowy kominków – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_3103-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3103-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="1200" height="799">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Kominki</span>
-        <h3>Obudowy kominków</h3>
-        <p>Kamienne obudowy kominków, które stają się centralnym punktem salonu.</p>
-      </div>
     </div>
 
-    <!-- Row 4: std / tall / std -->
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="8">
       <picture>
-        <source srcset="zdjecia/DSC_3085-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_3085-std.webp" alt="Tarasy kamienne – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_2668-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2668-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Tarasy</span>
-        <h3>Tarasy kamienne</h3>
-        <p>Wytrzymałe tarasy z kamienia naturalnego – piękno i trwałość na lata.</p>
-      </div>
     </div>
 
-    <div class="gallery-item gallery-item--tall reveal">
+    <div class="gallery-item reveal" data-index="9">
       <picture>
-        <source srcset="zdjecia/DSC_3079-tall.avif" type="image/avif">
-        <img src="zdjecia/DSC_3079-tall.webp" alt="Elementy dekoracyjne – realizacja AMICO" loading="lazy" width="600" height="900">
+        <source srcset="zdjecia/DSC_3128-Edit-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3128-Edit-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="1200" height="799">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Dekoracje</span>
-        <h3>Elementy dekoracyjne</h3>
-        <p>Unikalne elementy dekoracyjne z kamienia, które podkreślają charakter wnętrza.</p>
-      </div>
     </div>
 
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="10">
       <picture>
-        <source srcset="zdjecia/DSC_3172-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_3172-std.webp" alt="Elewacje kamienne – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_2674-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2674-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Elewacje</span>
-        <h3>Elewacje kamienne</h3>
-        <p>Kamienne elewacje nadają budynkom szlachetny i ponadczasowy wygląd.</p>
-      </div>
     </div>
 
-    <!-- Row 5: wide / std -->
-    <div class="gallery-item gallery-item--wide reveal">
+    <div class="gallery-item reveal" data-index="11">
       <picture>
-        <source srcset="zdjecia/DSC_2662-Edit-wide.avif" type="image/avif">
-        <img src="zdjecia/DSC_2662-Edit-wide.webp" alt="Recepcje hotelowe – realizacja AMICO" loading="lazy" width="1200" height="600">
+        <source srcset="zdjecia/DSC_3177-Edit-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3177-Edit-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="1200" height="799">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Recepcje</span>
-        <h3>Recepcje i lady</h3>
-        <p>Reprezentacyjne lady i recepcje z kamienia naturalnego dla przestrzeni komercyjnych.</p>
-      </div>
     </div>
 
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="12">
       <picture>
-        <source srcset="zdjecia/DSC_3454-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_3454-std.webp" alt="Zlewozmywaki – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_2680-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2680-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Zlewy</span>
-        <h3>Zlewozmywaki kamienne</h3>
-        <p>Designerskie zlewozmywaki z kamienia – funkcjonalność i elegancja w jednym.</p>
-      </div>
     </div>
 
-    <!-- Row 6: std / std / std -->
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="13">
       <picture>
-        <source srcset="zdjecia/DSC_2864-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_2864-std.webp" alt="Blaty z marmuru – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_3389-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3389-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="1200" height="799">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Blaty</span>
-        <h3>Blaty marmurowe</h3>
-        <p>Ekskluzywne blaty z marmuru – naturalny luksus w każdym detalu.</p>
-      </div>
     </div>
 
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="14">
       <picture>
-        <source srcset="zdjecia/DSC_3463-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_3463-std.webp" alt="Schody wewnętrzne – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_2720-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2720-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Schody</span>
-        <h3>Schody wewnętrzne</h3>
-        <p>Eleganckie schody z kamienia naturalnego – trwałość i styl na lata.</p>
-      </div>
     </div>
 
-    <div class="gallery-item gallery-item--std reveal">
+    <div class="gallery-item reveal" data-index="15">
       <picture>
-        <source srcset="zdjecia/DSC_2850-std.avif" type="image/avif">
-        <img src="zdjecia/DSC_2850-std.webp" alt="Okładziny łazienkowe – realizacja AMICO" loading="lazy" width="800" height="600">
+        <source srcset="zdjecia/DSC_3399-Edit-Edit-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3399-Edit-Edit-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="1200" height="799">
       </picture>
-      <div class="gallery-item-overlay">
-        <span class="gallery-cat">Łazienka</span>
-        <h3>Okładziny łazienkowe</h3>
-        <p>Kamienne okładziny łazienkowe tworzą atmosferę luksusu i relaksu.</p>
-      </div>
+    </div>
+
+    <div class="gallery-item reveal" data-index="16">
+      <picture>
+        <source srcset="zdjecia/DSC_2840-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2840-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
+      </picture>
+    </div>
+
+    <div class="gallery-item reveal" data-index="17">
+      <picture>
+        <source srcset="zdjecia/DSC_2857-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2857-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
+      </picture>
+    </div>
+
+    <div class="gallery-item reveal" data-index="18">
+      <picture>
+        <source srcset="zdjecia/DSC_2850-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2850-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
+      </picture>
+    </div>
+
+    <div class="gallery-item reveal" data-index="19">
+      <picture>
+        <source srcset="zdjecia/DSC_2864-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_2864-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
+      </picture>
+    </div>
+
+    <div class="gallery-item reveal" data-index="20">
+      <picture>
+        <source srcset="zdjecia/DSC_3079-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3079-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
+      </picture>
+    </div>
+
+    <div class="gallery-item reveal" data-index="21">
+      <picture>
+        <source srcset="zdjecia/DSC_3085-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3085-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
+      </picture>
+    </div>
+
+    <div class="gallery-item reveal" data-index="22">
+      <picture>
+        <source srcset="zdjecia/DSC_3172-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3172-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
+      </picture>
+    </div>
+
+    <div class="gallery-item reveal" data-index="23">
+      <picture>
+        <source srcset="zdjecia/DSC_3406-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3406-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
+      </picture>
+    </div>
+
+    <div class="gallery-item reveal" data-index="24">
+      <picture>
+        <source srcset="zdjecia/DSC_3454-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3454-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
+      </picture>
+    </div>
+
+    <div class="gallery-item reveal" data-index="25">
+      <picture>
+        <source srcset="zdjecia/DSC_3463-gallery.avif" type="image/avif">
+        <img src="zdjecia/DSC_3463-gallery.webp" alt="Realizacja AMICO – kamień naturalny" loading="lazy" width="799" height="1200">
+      </picture>
     </div>
 
   </div>
 </section>
+
+<!-- ═══════════════ LIGHTBOX ═══════════════ -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+  <button class="lightbox-close" aria-label="Zamknij">&times;</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Poprzednie zdjęcie">&#8249;</button>
+  <button class="lightbox-nav lightbox-next" aria-label="Następne zdjęcie">&#8250;</button>
+  <img src="" alt="Podgląd realizacji AMICO">
+  <span class="lightbox-counter"></span>
+</div>
 
 <div class="wave-divider" aria-hidden="true">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -473,6 +499,86 @@
 <script src="script.js"></script>
 <script src="background-effects.js"></script>
 <script src="wow-animations.js"></script>
+<script>
+(function() {
+  var fullSrcMap = [
+    'tok%20x%20amico/DSC_2594.jpg',
+    'tok%20x%20amico/DSC_2662-Edit.jpg',
+    'tok%20x%20amico/DSC_2596.jpg',
+    'tok%20x%20amico/DSC_3073.jpg',
+    'tok%20x%20amico/DSC_2601.jpg',
+    'tok%20x%20amico/DSC_2856.jpg',
+    'tok%20x%20amico/DSC_2610.jpg',
+    'tok%20x%20amico/DSC_3103.jpg',
+    'tok%20x%20amico/DSC_2668.jpg',
+    'tok%20x%20amico/DSC_3128-Edit.jpg',
+    'tok%20x%20amico/DSC_2674.jpg',
+    'tok%20x%20amico/DSC_3177-Edit.jpg',
+    'tok%20x%20amico/DSC_2680.jpg',
+    'tok%20x%20amico/DSC_3389.jpg',
+    'tok%20x%20amico/DSC_2720.jpg',
+    'tok%20x%20amico/DSC_3399-Edit-Edit.jpg',
+    'tok%20x%20amico/DSC_2840.jpg',
+    'tok%20x%20amico/DSC_2857.jpg',
+    'tok%20x%20amico/DSC_2850.jpg',
+    'tok%20x%20amico/DSC_2864.jpg',
+    'tok%20x%20amico/DSC_3079.jpg',
+    'tok%20x%20amico/DSC_3085.jpg',
+    'tok%20x%20amico/DSC_3172.jpg',
+    'tok%20x%20amico/DSC_3406.jpg',
+    'tok%20x%20amico/DSC_3454.jpg',
+    'tok%20x%20amico/DSC_3463.jpg'
+  ];
+  var total = fullSrcMap.length;
+  var current = 0;
+  var overlay = document.getElementById('lightbox');
+  var lbImg = overlay.querySelector('img');
+  var counter = overlay.querySelector('.lightbox-counter');
+
+  function openLightbox(index) {
+    current = index;
+    lbImg.src = fullSrcMap[current];
+    counter.textContent = (current + 1) + ' / ' + total;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(function() { lbImg.src = ''; }, 350);
+  }
+
+  function navigate(dir) {
+    current = (current + dir + total) % total;
+    lbImg.style.opacity = '0';
+    setTimeout(function() {
+      lbImg.src = fullSrcMap[current];
+      counter.textContent = (current + 1) + ' / ' + total;
+      lbImg.style.opacity = '';
+    }, 150);
+  }
+
+  document.querySelectorAll('.gallery-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var idx = parseInt(this.getAttribute('data-index'), 10);
+      openLightbox(idx);
+    });
+  });
+
+  overlay.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  overlay.querySelector('.lightbox-prev').addEventListener('click', function(e) { e.stopPropagation(); navigate(-1); });
+  overlay.querySelector('.lightbox-next').addEventListener('click', function(e) { e.stopPropagation(); navigate(1); });
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeLightbox(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+  });
+})();
+</script>
 <script src="kontaktio.js" defer
   data-kontaktio
   data-client="amico"
