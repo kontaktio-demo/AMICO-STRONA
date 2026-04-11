@@ -82,6 +82,7 @@ p  { margin-bottom:0; }
 
 .section { padding:var(--section-pad) clamp(20px,5vw,90px); background:var(--bg); position:relative; overflow:hidden; }
 .section.bg-alt { background:var(--bg-alt); }
+.section.bg-navy { background: #0d1f3c; }
 
 /* Subtle section background images */
 .section.has-bg::before {
@@ -109,6 +110,20 @@ p  { margin-bottom:0; }
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,.5);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Brighter showcase variant – lighter overlay for more visible background */
+.section.has-bg--showcase-bright::before {
+  filter: brightness(.35) grayscale(.15) contrast(1.05);
+  opacity: .65;
+}
+.section.has-bg--showcase-bright::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.35);
   z-index: 0;
   pointer-events: none;
 }
