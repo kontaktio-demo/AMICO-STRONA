@@ -82,7 +82,7 @@ p  { margin-bottom:0; }
 
 .section { padding:var(--section-pad) clamp(20px,5vw,90px); background:var(--bg); position:relative; overflow:hidden; }
 .section.bg-alt { background:var(--bg-alt); }
-.section.bg-navy { background: #0d1f3c; }
+.section.bg-navy { background: #040810; }
 
 /* Subtle section background images */
 .section.has-bg::before {
@@ -1237,10 +1237,10 @@ a.inspiration-slide {
   background: var(--bg-alt);
 }
 .wave-divider--navy {
-  background: #0d1f3c;
+  background: #040810;
 }
-.wave-divider--to-navy svg path { fill: #0d1f3c; }
-.wave-divider--from-navy { background: #0d1f3c; }
+.wave-divider--to-navy svg path { fill: #040810; }
+.wave-divider--from-navy { background: #040810; }
 .wave-divider--from-navy svg path { fill: var(--bg-alt); }
 .parallax-divider-content {
   position: relative;
@@ -1913,7 +1913,7 @@ a.inspiration-slide {
 
 /* AGD Brands – creative symmetrical layout on navy background */
 .agd-brands-section {
-  background: linear-gradient(180deg, #0d1f3c 0%, #0a1a33 100%);
+  background: linear-gradient(180deg, #040810 0%, #030710 100%);
   position: relative;
 }
 .agd-brands-section .eyebrow {
