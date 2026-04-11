@@ -719,6 +719,20 @@ a.inspiration-slide {
 @media(max-width:600px){ /* placeholder for responsive */ }
 
 /* ═══ FOOTER ═══ */
+/* Smooth wave transition before footer */
+.footer-wave-transition {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+.footer-wave-transition svg {
+  display: block;
+  width: 100%;
+  height: clamp(70px, 10vw, 140px);
+}
+
 .footer {
   background: #040810;
   color: var(--text-muted);
@@ -1131,9 +1145,16 @@ a.inspiration-slide {
   background: rgba(0,0,0,.45);
   pointer-events: none;
 }
-/* Smooth gradient fade at edges near asymmetric wave shapes */
+/* Smooth gradient fade at top/bottom edges for seamless blending */
 .parallax-divider::after {
-  display: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.6) 0%, transparent 18%),
+    linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 18%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* ═══ ASYMMETRIC SECTION TRANSITIONS ═══ */
@@ -1343,6 +1364,49 @@ a.inspiration-slide {
   background: linear-gradient(90deg, transparent, rgba(30,58,95,.3) 30%, rgba(30,58,95,.3) 70%, transparent);
 }
 
+/* Subtle gradient separator between sections */
+.section-gradient-sep {
+  width: 100%;
+  height: clamp(60px, 8vw, 100px);
+  background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-soft) 50%, var(--bg) 100%);
+  position: relative;
+}
+.section-gradient-sep::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+}
+
+/* Legal pages – enhanced header with gradient */
+.page-header {
+  position: relative;
+  overflow: hidden;
+}
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 400px at 50% 80%, rgba(30,58,95,.08) 0%, transparent 70%),
+    linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+  z-index: 0;
+}
+.page-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.08) 30%, rgba(255,255,255,.08) 70%, transparent);
+  z-index: 1;
+}
+
 /* ═══ RESPONSIVE GLOBAL ═══ */
 @media(max-width:768px){
   .section { padding-top:clamp(48px,6vw,64px); padding-bottom:clamp(48px,6vw,64px); }
@@ -1408,6 +1472,18 @@ a.inspiration-slide {
   text-align: center;
   padding: 120px clamp(20px,6vw,60px) 80px;
   max-width: 800px;
+}
+
+/* Smooth gradient fade at bottom of page hero */
+.page-hero-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: clamp(120px, 15vw, 200px);
+  background: linear-gradient(to bottom, transparent 0%, var(--bg) 100%);
+  z-index: 4;
+  pointer-events: none;
 }
 .page-hero-content .hero-eyebrow {
   font-family: var(--font-body);
@@ -1548,6 +1624,34 @@ a.inspiration-slide {
   padding: clamp(80px, 10vw, 140px) clamp(32px, 4vw, 60px);
   position: relative;
   background: transparent;
+}
+/* Subtle top decorative line */
+.cta-elegant::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(80%, 500px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12) 30%, rgba(255,255,255,.12) 70%, transparent);
+}
+/* Subtle radial glow behind content */
+.cta-elegant::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(30,58,95,.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.cta-elegant > * {
+  position: relative;
+  z-index: 1;
 }
 .cta-elegant-eyebrow {
   font-family: var(--font-body);
