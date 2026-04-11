@@ -1715,6 +1715,10 @@ a.inspiration-slide {
   letter-spacing: .15em;
 }
 
+/* Compact CTA variant for pages with minimal content */
+.section--compact { padding-top: clamp(30px,4vw,50px); padding-bottom: clamp(30px,4vw,50px); }
+.cta-elegant--compact { padding: clamp(40px,5vw,60px) clamp(32px,4vw,60px); }
+
 /* ═══ CTA FULLSCREEN (realizacje) ═══ */
 .cta-fullscreen {
   position: relative;
