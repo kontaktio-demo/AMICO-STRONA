@@ -1719,6 +1719,36 @@ a.inspiration-slide {
 .section--compact { padding-top: clamp(30px,4vw,50px); padding-bottom: clamp(30px,4vw,50px); }
 .cta-elegant--compact { padding: clamp(40px,5vw,60px) clamp(32px,4vw,60px); }
 
+/* ═══ CTA SHOWCASE (subpages – bg image with waves) ═══ */
+.cta-showcase {
+  position: relative;
+  padding: clamp(100px, 12vw, 180px) clamp(20px, 5vw, 90px);
+  overflow: hidden;
+}
+.cta-showcase::before {
+  content: '';
+  position: absolute;
+  inset: -30px 0;
+  background-image: var(--cta-bg);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+.cta-showcase::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .6);
+  z-index: 0;
+}
+.cta-showcase > .container {
+  position: relative;
+  z-index: 2;
+}
+.cta-showcase .cta-elegant {
+  padding: 0;
+}
+
 /* ═══ CTA FULLSCREEN (realizacje) ═══ */
 .cta-fullscreen {
   position: relative;
