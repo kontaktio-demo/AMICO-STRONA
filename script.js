@@ -278,7 +278,13 @@ function renderFilePreview(file, index) {
     var ext = file.name.split('.').pop().toLowerCase();
     var iconWrap = document.createElement('div');
     iconWrap.className = 'file-preview-icon';
-    iconWrap.innerHTML = getFileIcon(ext);
+    var svgMarkup = getFileIcon(ext);
+    var parser = new DOMParser();
+    var svgDoc = parser.parseFromString(svgMarkup, 'image/svg+xml');
+    var svgEl = svgDoc.documentElement;
+    if (svgEl && svgEl.nodeName === 'svg') {
+      iconWrap.appendChild(document.importNode(svgEl, true));
+    }
     item.appendChild(iconWrap);
   }
 
