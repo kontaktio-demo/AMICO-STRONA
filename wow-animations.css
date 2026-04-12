@@ -369,6 +369,81 @@
   to   { transform: scaleX(1); opacity: 1; }
 }
 
+/* ── Enhanced marble-themed section transitions ── */
+
+/* Smooth section reveal with marble-aware stagger */
+[data-marble-theme] .section.reveal {
+  transition: opacity 1s cubic-bezier(.4,0,.2,1), transform 1s cubic-bezier(.4,0,.2,1);
+}
+
+/* Marble section header — elegant entrance with line sweep */
+[data-marble-theme] .section-header.reveal.visible h2 {
+  animation: marbleTextReveal 1s cubic-bezier(.22,1,.36,1) .2s both;
+}
+@keyframes marbleTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Offer feature cards — marble-aware hover glow */
+[data-marble-theme] .offer-feature {
+  transition: transform .4s cubic-bezier(.22,1,.36,1),
+              box-shadow .4s ease,
+              border-color .4s ease;
+}
+[data-marble-theme] .offer-feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.05);
+}
+
+/* Material detail image — polished hover with marble glow */
+[data-marble-theme] .material-detail-img {
+  transition: transform .6s cubic-bezier(.22,1,.36,1),
+              box-shadow .6s ease;
+}
+[data-marble-theme] .material-detail-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 16px 48px rgba(0,0,0,.5), 0 0 24px var(--marble-glow, rgba(200,185,150,.15));
+}
+
+/* CTA section — premium marble glow effect */
+[data-marble-theme] .cta-elegant-inner {
+  transition: box-shadow .5s ease, transform .5s cubic-bezier(.22,1,.36,1);
+}
+[data-marble-theme] .cta-elegant:hover .cta-elegant-inner {
+  box-shadow: 0 0 40px var(--marble-glow, rgba(200,185,150,.1));
+}
+
+/* Footer brand logo — subtle marble-themed hover */
+[data-marble-theme] .footer-logo {
+  transition: text-shadow .4s ease;
+}
+[data-marble-theme] .footer-logo:hover {
+  text-shadow: 0 0 20px var(--marble-glow, rgba(200,185,150,.3));
+}
+
+/* Social icons — marble-aware hover glow */
+[data-marble-theme] .footer-social a {
+  transition: transform .3s var(--ease), box-shadow .3s ease, background .3s ease;
+}
+[data-marble-theme] .footer-social a:hover {
+  box-shadow: 0 0 16px var(--marble-glow, rgba(200,185,150,.15));
+}
+
+/* Wave divider SVG — subtle float */
+[data-marble-theme] .wave-divider svg,
+[data-marble-theme] .hero-wave svg {
+  transition: transform 1s ease;
+}
+
 /* Parallax divider content entrance */
 .parallax-divider-content h3,
 .parallax-divider-content p {
@@ -395,6 +470,29 @@
   transition: opacity .6s var(--ease);
 }
 
+/* ── Page hero marble entrance ── */
+[data-marble-theme] .page-hero-content .hero-eyebrow {
+  animation: marbleHeroFade .9s cubic-bezier(.22,1,.36,1) .15s both;
+}
+[data-marble-theme] .page-hero-content h1 {
+  animation: marbleHeroFade .9s cubic-bezier(.22,1,.36,1) .35s both;
+}
+[data-marble-theme] .page-hero-desc {
+  animation: marbleHeroFade .9s cubic-bezier(.22,1,.36,1) .55s both;
+}
+@keyframes marbleHeroFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.98);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 /* Mobile adjustments for new animations */
 @media (max-width: 768px) {
   .material-detail.reveal.visible .material-detail-text p {
@@ -418,6 +516,13 @@
     padding: .6rem .75rem;
     margin: -.6rem -.75rem;
   }
+  [data-marble-theme] .material-detail-img:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  [data-marble-theme] .offer-feature:hover {
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -432,5 +537,14 @@
   }
   .contact-detail:hover .contact-detail-icon {
     animation: none;
+  }
+  [data-marble-theme] .section-header.reveal.visible h2,
+  [data-marble-theme] .page-hero-content .hero-eyebrow,
+  [data-marble-theme] .page-hero-content h1,
+  [data-marble-theme] .page-hero-desc {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
