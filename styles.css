@@ -1100,17 +1100,20 @@ a.inspiration-slide {
   .corobimy-materials-list { align-items: center; }
 }
 
-/* ═══ COOKIE CONSENT ═══ */
+/* ═══ COOKIE CONSENT (GDPR / RODO) ═══ */
 .cookie-consent {
   position:fixed; bottom:24px; left:24px;
-  width:380px; max-width:calc(100vw - 48px);
+  width:420px; max-width:calc(100vw - 48px);
   background: var(--bg-card);
   border: 1px solid var(--border-soft);
+  border-radius: 12px;
   padding:24px;
   z-index:9000;
-  transform: translateY(150%);
+  transform: translateY(calc(100% + 48px));
   transition: transform .5s var(--ease);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
 }
+.cookie-consent[aria-hidden="false"],
 .cookie-consent.show { transform:translateY(0); }
 
 .cookie-text strong {
@@ -1123,8 +1126,10 @@ a.inspiration-slide {
   font-size:.82rem;
   color:var(--text-muted);
   line-height:1.6;
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
+.cookie-link { color:#4cc9f0; text-decoration:underline; }
+.cookie-link:hover { color:#fff; }
 .cookie-actions { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
 .cookie-customize-btn {
   font-size:.78rem;
@@ -1136,16 +1141,19 @@ a.inspiration-slide {
   padding:4px 8px;
 }
 .cookie-customize-btn:hover { color:#fff; }
+
+.cookie-custom-panel { margin-top:14px; border-top:1px solid var(--border-soft); padding-top:10px; }
 .cookie-toggle {
   margin:10px 0 4px;
   font-size:.82rem;
   color:var(--text-muted);
 }
-.cookie-toggle label { cursor:pointer; display:flex; align-items:center; gap:8px; }
-.cookie-toggle input[type="checkbox"] { accent-color: #fff; }
+.cookie-toggle label { cursor:pointer; display:flex; align-items:center; gap:8px; font-weight:500; color:var(--text); }
+.cookie-toggle input[type="checkbox"] { accent-color: #fff; width:16px; height:16px; }
+.cookie-desc { display:block; font-size:.75rem; color:var(--text-muted); margin:2px 0 6px 24px; line-height:1.5; }
 
 @media(max-width:480px){
-  .cookie-consent { left:8px; bottom:8px; width:calc(100vw - 16px); padding:16px; }
+  .cookie-consent { left:8px; bottom:8px; width:calc(100vw - 16px); padding:16px; border-radius:10px; }
 }
 
 /* ═══ PARALLAX DIVIDERS ═══ */
