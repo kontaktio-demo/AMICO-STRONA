@@ -742,13 +742,18 @@ a.inspiration-slide {
   position: relative;
   width: 100%;
   line-height: 0;
+  font-size: 0;
   overflow: hidden;
   background: var(--bg);
+  margin-top: -3px;
+  margin-bottom: -1px;
 }
 .footer-wave-transition svg {
   display: block;
-  width: 100%;
+  width: calc(100% + 2px);
+  margin-left: -1px;
   height: clamp(70px, 10vw, 140px);
+  vertical-align: bottom;
 }
 
 .footer {
@@ -1155,12 +1160,15 @@ a.inspiration-slide {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* Eliminate sub-pixel gaps between adjacent sections */
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 .parallax-divider::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.45);
+  background: rgba(0,0,0,.50);
   pointer-events: none;
 }
 /* Smooth gradient fade at top/bottom edges for seamless blending */
@@ -1169,8 +1177,8 @@ a.inspiration-slide {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.6) 0%, transparent 18%),
-    linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 18%);
+    linear-gradient(to bottom, rgba(0,0,0,.7) 0%, transparent 22%),
+    linear-gradient(to top, rgba(0,0,0,.7) 0%, transparent 22%);
   pointer-events: none;
   z-index: 1;
 }
@@ -1179,23 +1187,27 @@ a.inspiration-slide {
 .parallax-shape-top,
 .parallax-shape-bottom {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: -1px;
+  right: -1px;
   z-index: 3;
   pointer-events: none;
   line-height: 0;
+  font-size: 0;
 }
 .parallax-shape-top {
-  top: -1px;
+  top: -2px;
 }
 .parallax-shape-bottom {
-  bottom: -1px;
+  bottom: -2px;
 }
 .parallax-shape-top svg,
 .parallax-shape-bottom svg {
   display: block;
-  width: 100%;
+  width: calc(100% + 2px);
+  margin-left: -1px;
   height: auto;
+  /* Prevent anti-alias seams */
+  shape-rendering: auto;
 }
 
 /* Standalone section transition divider (e.g. before footer) */
@@ -1203,9 +1215,10 @@ a.inspiration-slide {
   position: relative;
   z-index: 2;
   line-height: 0;
+  font-size: 0;
   overflow: hidden;
-  margin-top: -2px;
-  margin-bottom: -2px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 .section-transition svg {
   display: block;
@@ -1226,15 +1239,20 @@ a.inspiration-slide {
   position: relative;
   z-index: 2;
   line-height: 0;
+  font-size: 0;
   overflow: hidden;
-  margin-top: -2px;
-  margin-bottom: -2px;
+  margin-top: -3px;
+  margin-bottom: -3px;
+  padding: 0;
   background: var(--bg);
 }
 .wave-divider svg {
   display: block;
-  width: 100%;
+  width: calc(100% + 2px);
+  margin-left: -1px;
   height: auto;
+  /* Prevent any hairline gaps */
+  vertical-align: bottom;
 }
 .wave-divider--alt {
   background: var(--bg-alt);
@@ -1242,9 +1260,12 @@ a.inspiration-slide {
 .wave-divider--navy {
   background: #040810;
 }
+.wave-divider--to-navy {
+  background: var(--bg);
+}
 .wave-divider--to-navy svg path { fill: #040810; }
 .wave-divider--from-navy { background: #040810; }
-.wave-divider--from-navy svg path { fill: var(--bg-alt); }
+.wave-divider--from-navy svg path { fill: var(--bg); }
 .parallax-divider-content {
   position: relative;
   z-index: 2;
@@ -1258,6 +1279,7 @@ a.inspiration-slide {
   color: #fff;
   margin-bottom: 1rem;
   letter-spacing: -.01em;
+  text-shadow: 0 2px 20px rgba(0,0,0,.5);
 }
 .parallax-divider-content h3::after {
   content: '';
@@ -1273,6 +1295,7 @@ a.inspiration-slide {
   line-height: 1.8;
   max-width: 600px;
   margin: 0 auto;
+  text-shadow: 0 1px 10px rgba(0,0,0,.4);
 }
 
 @media (max-width: 768px) {
@@ -1514,16 +1537,17 @@ a.inspiration-slide {
 /* Asymmetric wave at bottom of page hero */
 .page-hero-wave {
   position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
+  bottom: -2px;
+  left: -1px;
+  right: -1px;
   z-index: 4;
   line-height: 0;
+  font-size: 0;
   pointer-events: none;
 }
 .page-hero-wave svg {
   display: block;
-  width: 100%;
+  width: calc(100% + 2px);
   height: clamp(50px, 6vw, 100px);
 }
 .page-hero-content .hero-eyebrow {
@@ -1786,11 +1810,13 @@ a.inspiration-slide {
   position: relative;
   padding: clamp(100px, 12vw, 180px) clamp(20px, 5vw, 90px);
   overflow: hidden;
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 .cta-showcase::before {
   content: '';
   position: absolute;
-  inset: -30px 0;
+  inset: -40px -2px;
   background-image: var(--cta-bg);
   background-size: cover;
   background-position: center;
@@ -1809,6 +1835,17 @@ a.inspiration-slide {
 }
 .cta-showcase .cta-elegant {
   padding: 0;
+}
+/* CTA showcase wave shapes */
+.cta-showcase > .parallax-shape-top,
+.cta-showcase > .parallax-shape-bottom {
+  z-index: 3;
+}
+.cta-showcase > .parallax-shape-top {
+  top: -2px;
+}
+.cta-showcase > .parallax-shape-bottom {
+  bottom: -2px;
 }
 
 /* ═══ CTA FULLSCREEN (realizacje) ═══ */

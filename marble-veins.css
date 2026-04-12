@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   MARBLE VEINS v2 — Full-page continuous marble slab overlay
+   MARBLE VEINS v3 — Full-page continuous marble slab overlay
    Renders realistic marble vein patterns through dark sections & footer
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -11,7 +11,7 @@
   z-index: 0;
   overflow: hidden;
   opacity: 0;
-  animation: marbleFadeIn 2.4s cubic-bezier(.4,0,.2,1) forwards;
+  animation: marbleFadeIn 2.8s cubic-bezier(.4,0,.2,1) forwards;
   mix-blend-mode: screen;
 }
 
@@ -26,7 +26,7 @@
 
 @keyframes marbleFadeIn {
   0%   { opacity: 0; }
-  60%  { opacity: 0.7; }
+  50%  { opacity: 0.6; }
   100% { opacity: 1; }
 }
 
