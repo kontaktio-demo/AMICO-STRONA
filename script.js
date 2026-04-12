@@ -265,30 +265,51 @@ function renderFilePreview(file, index) {
   item.setAttribute('data-index', index);
 
   var isImage = /\.(jpe?g|png|webp|gif|bmp|tiff)$/i.test(file.name);
-  var thumbHTML = '';
+  var objectUrl = null;
 
   if (isImage) {
-    var url = URL.createObjectURL(file);
-    thumbHTML = '<img class="file-preview-thumb" src="' + url + '" alt="Podgląd">';
+    objectUrl = URL.createObjectURL(file);
+    var img = document.createElement('img');
+    img.className = 'file-preview-thumb';
+    img.src = objectUrl;
+    img.alt = 'Podgląd';
+    item.appendChild(img);
   } else {
     var ext = file.name.split('.').pop().toLowerCase();
-    var icon = getFileIcon(ext);
-    thumbHTML = '<div class="file-preview-icon">' + icon + '</div>';
+    var iconWrap = document.createElement('div');
+    iconWrap.className = 'file-preview-icon';
+    iconWrap.innerHTML = getFileIcon(ext);
+    item.appendChild(iconWrap);
   }
 
-  var size = formatFileSize(file.size);
-  var safeName = escapeHtml(file.name);
+  var infoDiv = document.createElement('div');
+  infoDiv.className = 'file-preview-info';
 
-  item.innerHTML = thumbHTML +
-    '<div class="file-preview-info">' +
-      '<span class="file-preview-name" title="' + safeName + '">' + safeName + '</span>' +
-      '<span class="file-preview-size">' + size + '</span>' +
-    '</div>' +
-    '<button type="button" class="file-preview-remove" title="Usuń plik" aria-label="Usuń ' + safeName + '">&times;</button>';
+  var nameSpan = document.createElement('span');
+  nameSpan.className = 'file-preview-name';
+  nameSpan.textContent = file.name;
+  nameSpan.title = file.name;
+  infoDiv.appendChild(nameSpan);
 
-  item.querySelector('.file-preview-remove').addEventListener('click', function () {
-    var idx = parseInt(item.getAttribute('data-index'), 10);
-    uploadedFiles[idx] = null;
+  var sizeSpan = document.createElement('span');
+  sizeSpan.className = 'file-preview-size';
+  sizeSpan.textContent = formatFileSize(file.size);
+  infoDiv.appendChild(sizeSpan);
+
+  item.appendChild(infoDiv);
+
+  var removeBtn = document.createElement('button');
+  removeBtn.type = 'button';
+  removeBtn.className = 'file-preview-remove';
+  removeBtn.title = 'Usuń plik';
+  removeBtn.setAttribute('aria-label', 'Usuń ' + file.name);
+  removeBtn.textContent = '\u00d7';
+  item.appendChild(removeBtn);
+
+  removeBtn.addEventListener('click', function () {
+    var idx = uploadedFiles.indexOf(file);
+    if (idx !== -1) uploadedFiles.splice(idx, 1);
+    if (objectUrl) URL.revokeObjectURL(objectUrl);
     item.style.animation = 'none';
     item.style.opacity = '0';
     item.style.transform = 'scale(.9)';
@@ -302,7 +323,15 @@ function renderFilePreview(file, index) {
 function clearFileUpload() {
   uploadedFiles = [];
   var list = document.getElementById('filePreviewList');
-  if (list) list.innerHTML = '';
+  if (list) {
+    var imgs = list.querySelectorAll('.file-preview-thumb');
+    for (var i = 0; i < imgs.length; i++) {
+      if (imgs[i].src && imgs[i].src.indexOf('blob:') === 0) {
+        URL.revokeObjectURL(imgs[i].src);
+      }
+    }
+    list.innerHTML = '';
+  }
   var errorEl = document.getElementById('fileUploadError');
   if (errorEl) { errorEl.classList.remove('show'); errorEl.textContent = ''; }
 }
@@ -321,12 +350,6 @@ function formatFileSize(bytes) {
   if (bytes < 1024) return bytes + ' B';
   if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
   return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-}
-
-function escapeHtml(str) {
-  var div = document.createElement('div');
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
 }
 
 function showError(input, message) {
