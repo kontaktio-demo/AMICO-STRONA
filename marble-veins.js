@@ -678,15 +678,37 @@
       }
 
       if (zone.type === 'wave') { fTop = 0; fBot = 0; }
-      if (zone.type === 'footer') { fTop = fadeAmt * 0.5; fBot = 0; }
+      /* Footer: seamless connection to wave — minimal top fade */
+      if (zone.type === 'footer') {
+        var prevIsWave = zi > 0 && zones[zi - 1].type === 'wave';
+        fTop = prevIsWave ? fadeAmt * 0.05 : fadeAmt * 0.3;
+        fBot = 0;
+      }
 
       drawFades(ctx, w, h, fTop, fBot);
 
-      /* ── Insert canvas ── */
+      /* ── Insert canvas + shimmer + ambient glow ── */
       var wrap = document.createElement('div');
-      wrap.className = 'marble-vein-layer' + (zone.type === 'footer' ? ' marble-vein-footer' : '');
+      wrap.className = 'marble-vein-layer marble-breathing' + (zone.type === 'footer' ? ' marble-vein-footer' : '');
       wrap.setAttribute('aria-hidden', 'true');
       wrap.appendChild(canvas);
+
+      /* Shimmer light sweep overlay */
+      var shimmer = document.createElement('div');
+      shimmer.className = 'marble-shimmer';
+      shimmer.setAttribute('aria-hidden', 'true');
+      /* Stagger shimmer timing per zone for organic feel */
+      shimmer.style.animationDelay = (zi * 2.5) + 's';
+      shimmer.style.animationDuration = (10 + zi * 1.5) + 's';
+      wrap.appendChild(shimmer);
+
+      /* Ambient floating glow */
+      if (zone.type !== 'wave' && h > 100) {
+        var ambGlow = document.createElement('div');
+        ambGlow.className = 'marble-ambient-glow';
+        ambGlow.setAttribute('aria-hidden', 'true');
+        wrap.appendChild(ambGlow);
+      }
 
       var pos = getComputedStyle(el).position;
       if (pos === 'static') el.style.position = 'relative';
