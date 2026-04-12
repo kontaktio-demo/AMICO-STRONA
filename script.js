@@ -431,8 +431,8 @@ var CookieConsent = (function () {
 
   /* --- apply consent: fire event, handle scripts --- */
   function applyConsent(prefs) {
-    /* activate scripts with matching data-cookie-category */
-    var scripts = document.querySelectorAll('script[data-cookie-category]');
+    /* activate scripts with matching data-cookie-category (convert to array to avoid live NodeList issues) */
+    var scripts = [].slice.call(document.querySelectorAll('script[data-cookie-category]:not([data-cookie-loaded])'));
     for (var i = 0; i < scripts.length; i++) {
       var cat = scripts[i].getAttribute('data-cookie-category');
       if (prefs[cat]) {
@@ -557,28 +557,48 @@ var CookieConsent = (function () {
 
   /* --- bind events --- */
   function bindEvents() {
-    document.getElementById('cookieAcceptAll').addEventListener('click', function () {
+    var banner = document.getElementById('cookieConsent');
+    if (!banner) return;
+
+    function on(id, handler) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('click', handler);
+    }
+
+    on('cookieAcceptAll', function () {
       savePrefs({ necessary: true, analytics: true, marketing: true });
       hideBanner();
     });
 
-    document.getElementById('cookieRejectOptional').addEventListener('click', function () {
+    on('cookieRejectOptional', function () {
       savePrefs({ necessary: true, analytics: false, marketing: false });
       hideBanner();
     });
 
-    document.getElementById('cookieCustomize').addEventListener('click', function () {
+    on('cookieCustomize', function () {
       var panel = document.getElementById('cookieCustomPanel');
+      if (!panel) return;
       var isHidden = panel.hidden;
       panel.hidden = !isHidden;
       this.textContent = isHidden ? 'Dostosuj ▴' : 'Dostosuj ▾';
     });
 
-    document.getElementById('cookieSavePrefs').addEventListener('click', function () {
-      var analytics = document.getElementById('cookieAnalytics').checked;
-      var marketing = document.getElementById('cookieMarketing').checked;
-      savePrefs({ necessary: true, analytics: analytics, marketing: marketing });
+    on('cookieSavePrefs', function () {
+      var an = document.getElementById('cookieAnalytics');
+      var mk = document.getElementById('cookieMarketing');
+      savePrefs({ necessary: true, analytics: an ? an.checked : false, marketing: mk ? mk.checked : false });
       hideBanner();
+    });
+
+    /* close on Escape key */
+    banner.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        var prefs = getPrefs();
+        if (!prefs) {
+          savePrefs({ necessary: true, analytics: false, marketing: false });
+        }
+        hideBanner();
+      }
     });
   }
 
