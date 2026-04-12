@@ -378,34 +378,235 @@ function clearError(input) {
   if (msg) msg.remove();
 }
 
+/* ═══ COOKIE CONSENT (GDPR / RODO) ═══ */
+var CookieConsent = (function () {
+  var COOKIE_NAME = 'amico_consent';
+  var COOKIE_DAYS = 365;
+  var _prefs = null;
+
+  /* --- cookie helpers --- */
+  function setCookie(name, value, days) {
+    var d = new Date();
+    d.setTime(d.getTime() + days * 86400000);
+    document.cookie = name + '=' + encodeURIComponent(value) +
+      ';expires=' + d.toUTCString() +
+      ';path=/;SameSite=Lax';
+  }
+
+  function getCookie(name) {
+    var v = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return v ? decodeURIComponent(v.pop()) : null;
+  }
+
+  function deleteCookie(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;SameSite=Lax';
+  }
+
+  /* --- read / write preferences --- */
+  function savePrefs(prefs) {
+    _prefs = prefs;
+    setCookie(COOKIE_NAME, JSON.stringify(prefs), COOKIE_DAYS);
+    applyConsent(prefs);
+    try { localStorage.removeItem('amico_cookie_consent'); } catch (e) { /* migrate */ }
+  }
+
+  function getPrefs() {
+    if (_prefs) return _prefs;
+    var raw = getCookie(COOKIE_NAME);
+    if (raw) {
+      try { _prefs = JSON.parse(raw); return _prefs; } catch (e) { /* corrupted */ }
+    }
+    /* migrate from old localStorage */
+    try {
+      var old = localStorage.getItem('amico_cookie_consent');
+      if (old) {
+        _prefs = JSON.parse(old);
+        setCookie(COOKIE_NAME, old, COOKIE_DAYS);
+        localStorage.removeItem('amico_cookie_consent');
+        return _prefs;
+      }
+    } catch (e) { /* empty */ }
+    return null;
+  }
+
+  /* --- apply consent: fire event, handle scripts --- */
+  function applyConsent(prefs) {
+    /* activate scripts with matching data-cookie-category */
+    var scripts = document.querySelectorAll('script[data-cookie-category]');
+    for (var i = 0; i < scripts.length; i++) {
+      var cat = scripts[i].getAttribute('data-cookie-category');
+      if (prefs[cat]) {
+        var s = document.createElement('script');
+        if (scripts[i].src) s.src = scripts[i].src;
+        else s.textContent = scripts[i].textContent;
+        s.setAttribute('data-cookie-loaded', '1');
+        scripts[i].parentNode.replaceChild(s, scripts[i]);
+      }
+    }
+
+    /* delete analytics / marketing cookies when rejected */
+    if (!prefs.analytics) {
+      ['_ga', '_gid', '_gat', '_ga_'].forEach(function (prefix) {
+        document.cookie.split(';').forEach(function (c) {
+          var name = c.split('=')[0].trim();
+          if (name.indexOf(prefix) === 0) deleteCookie(name);
+        });
+      });
+    }
+    if (!prefs.marketing) {
+      ['_fbp', '_fbc'].forEach(function (prefix) {
+        document.cookie.split(';').forEach(function (c) {
+          var name = c.split('=')[0].trim();
+          if (name.indexOf(prefix) === 0) deleteCookie(name);
+        });
+      });
+    }
+
+    /* custom event so other scripts can react */
+    try {
+      window.dispatchEvent(new CustomEvent('cookieConsent', { detail: prefs }));
+    } catch (e) { /* IE fallback – not critical */ }
+  }
+
+  /* --- resolve relative path to privacy policy --- */
+  function privacyHref() {
+    var path = window.location.pathname;
+    return (path.indexOf('/oferta/') !== -1) ? '../polityka-prywatnosci.html' : 'polityka-prywatnosci.html';
+  }
+
+  /* --- build & inject banner HTML --- */
+  function injectBanner() {
+    if (document.getElementById('cookieConsent')) return;
+
+    var html =
+      '<div class="cookie-consent" id="cookieConsent" role="dialog" aria-modal="true" aria-label="Ustawienia plików cookie">' +
+        '<div class="cookie-text">' +
+          '<strong>🍪 Ta strona używa plików cookie</strong>' +
+          '<p>Używamy plików cookie, aby zapewnić prawidłowe działanie strony (niezbędne), analizować ruch (analityczne) oraz dostosowywać treści reklamowe (marketingowe). ' +
+          'Więcej informacji znajdziesz w naszej <a href="' + privacyHref() + '" class="cookie-link">Polityce Prywatności</a>.</p>' +
+        '</div>' +
+        '<div class="cookie-actions">' +
+          '<button class="btn btn-sm btn-primary" id="cookieAcceptAll">Akceptuję wszystkie</button>' +
+          '<button class="btn btn-sm btn-outline" id="cookieRejectOptional">Tylko niezbędne</button>' +
+          '<button class="cookie-customize-btn" id="cookieCustomize">Dostosuj ▾</button>' +
+        '</div>' +
+        '<div id="cookieCustomPanel" class="cookie-custom-panel" hidden>' +
+          '<div class="cookie-toggle">' +
+            '<label><input type="checkbox" checked disabled> <span>Niezbędne</span></label>' +
+            '<span class="cookie-desc">Wymagane do prawidłowego działania strony. Nie można ich wyłączyć.</span>' +
+          '</div>' +
+          '<div class="cookie-toggle">' +
+            '<label><input type="checkbox" id="cookieAnalytics" checked> <span>Analityczne</span></label>' +
+            '<span class="cookie-desc">Pomagają nam zrozumieć, jak korzystasz ze strony (np. Google Analytics).</span>' +
+          '</div>' +
+          '<div class="cookie-toggle">' +
+            '<label><input type="checkbox" id="cookieMarketing"> <span>Marketingowe</span></label>' +
+            '<span class="cookie-desc">Umożliwiają wyświetlanie spersonalizowanych reklam.</span>' +
+          '</div>' +
+          '<button class="btn btn-sm btn-primary" id="cookieSavePrefs">Zapisz ustawienia</button>' +
+        '</div>' +
+      '</div>';
+
+    var div = document.createElement('div');
+    div.innerHTML = html;
+    document.body.appendChild(div.firstChild);
+  }
+
+  /* --- inject "Ustawienia cookies" link into footer --- */
+  function injectFooterLink() {
+    var links = document.querySelector('.footer-links');
+    if (!links || document.getElementById('footerCookieSettings')) return;
+    var a = document.createElement('a');
+    a.id = 'footerCookieSettings';
+    a.href = '#';
+    a.textContent = 'Ustawienia cookies';
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      showBanner(true);
+    });
+    links.appendChild(a);
+  }
+
+  /* --- show / hide banner --- */
+  function showBanner(forceReopen) {
+    var banner = document.getElementById('cookieConsent');
+    if (!banner) return;
+
+    if (forceReopen) {
+      var prefs = getPrefs();
+      if (prefs) {
+        var an = document.getElementById('cookieAnalytics');
+        var mk = document.getElementById('cookieMarketing');
+        if (an) an.checked = !!prefs.analytics;
+        if (mk) mk.checked = !!prefs.marketing;
+        var panel = document.getElementById('cookieCustomPanel');
+        if (panel) panel.hidden = false;
+      }
+    }
+
+    banner.classList.add('show');
+    banner.setAttribute('aria-hidden', 'false');
+  }
+
+  function hideBanner() {
+    var banner = document.getElementById('cookieConsent');
+    if (!banner) return;
+    banner.classList.remove('show');
+    banner.setAttribute('aria-hidden', 'true');
+  }
+
+  /* --- bind events --- */
+  function bindEvents() {
+    document.getElementById('cookieAcceptAll').addEventListener('click', function () {
+      savePrefs({ necessary: true, analytics: true, marketing: true });
+      hideBanner();
+    });
+
+    document.getElementById('cookieRejectOptional').addEventListener('click', function () {
+      savePrefs({ necessary: true, analytics: false, marketing: false });
+      hideBanner();
+    });
+
+    document.getElementById('cookieCustomize').addEventListener('click', function () {
+      var panel = document.getElementById('cookieCustomPanel');
+      var isHidden = panel.hidden;
+      panel.hidden = !isHidden;
+      this.textContent = isHidden ? 'Dostosuj ▴' : 'Dostosuj ▾';
+    });
+
+    document.getElementById('cookieSavePrefs').addEventListener('click', function () {
+      var analytics = document.getElementById('cookieAnalytics').checked;
+      var marketing = document.getElementById('cookieMarketing').checked;
+      savePrefs({ necessary: true, analytics: analytics, marketing: marketing });
+      hideBanner();
+    });
+  }
+
+  /* --- init --- */
+  function init() {
+    injectBanner();
+    injectFooterLink();
+    bindEvents();
+
+    var existing = getPrefs();
+    if (existing) {
+      applyConsent(existing);
+      /* banner stays hidden */
+    } else {
+      setTimeout(function () { showBanner(false); }, 800);
+    }
+  }
+
+  return {
+    init: init,
+    get: getPrefs,
+    show: function () { showBanner(true); }
+  };
+})();
+
 function initCookieConsent() {
-  var consent = document.getElementById('cookieConsent');
-  if (!consent) return;
-  try { if (localStorage.getItem('amico_cookie_consent')) return; } catch (e) { /* empty */ }
-
-  setTimeout(function () { consent.classList.add('show'); }, 1000);
-
-  document.getElementById('cookieAccept').addEventListener('click', function () {
-    localStorage.setItem('amico_cookie_consent', JSON.stringify({necessary:true, analytics:true, marketing:true}));
-    consent.classList.remove('show');
-  });
-
-  document.getElementById('cookieReject').addEventListener('click', function () {
-    localStorage.setItem('amico_cookie_consent', JSON.stringify({necessary:true, analytics:false, marketing:false}));
-    consent.classList.remove('show');
-  });
-
-  document.getElementById('cookieCustomize').addEventListener('click', function () {
-    var panel = document.getElementById('cookieCustomPanel');
-    panel.hidden = !panel.hidden;
-  });
-
-  document.getElementById('cookieSave').addEventListener('click', function () {
-    var analytics = document.getElementById('cookieAnalytics').checked;
-    var marketing = document.getElementById('cookieMarketing').checked;
-    localStorage.setItem('amico_cookie_consent', JSON.stringify({necessary:true, analytics: analytics, marketing: marketing}));
-    consent.classList.remove('show');
-  });
+  CookieConsent.init();
+  window.CookieConsent = CookieConsent;
 }
 
 function initHeroSlider() {
