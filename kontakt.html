@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="wow-animations.css">
+  <script src="https://www.google.com/recaptcha/api.js?hl=pl" async defer></script>
   <style>
     .contact-section {
       padding: clamp(60px, 8vw, 120px) 0;
@@ -195,9 +196,184 @@
       line-height: 1.4;
     }
 
+    /* ── File upload zone ── */
+    .file-upload-zone {
+      position: relative;
+      border: 2px dashed rgba(255,255,255,.15);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .3s ease, background .3s ease, box-shadow .3s ease;
+      background: rgba(255,255,255,.02);
+    }
+    .file-upload-zone:hover,
+    .file-upload-zone.dragover {
+      border-color: #4cc9f0;
+      background: rgba(76,201,240,.04);
+      box-shadow: 0 0 0 4px rgba(76,201,240,.06);
+    }
+    .file-upload-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .file-upload-icon {
+      margin-bottom: 10px;
+    }
+    .file-upload-icon svg {
+      width: 40px;
+      height: 40px;
+      fill: rgba(255,255,255,.25);
+      transition: fill .3s ease;
+    }
+    .file-upload-zone:hover .file-upload-icon svg,
+    .file-upload-zone.dragover .file-upload-icon svg {
+      fill: #4cc9f0;
+    }
+    .file-upload-label {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .file-upload-label strong {
+      color: #4cc9f0;
+      cursor: pointer;
+    }
+    .file-upload-hint {
+      font-size: .72rem;
+      color: var(--text-muted);
+      opacity: .6;
+      margin-top: 6px;
+    }
+
+    /* ── File previews ── */
+    .file-preview-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .file-preview-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      max-width: 100%;
+      animation: fileSlideIn .3s ease;
+    }
+    @keyframes fileSlideIn {
+      from { opacity: 0; transform: translateY(8px) scale(.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .file-preview-thumb {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      object-fit: cover;
+      background: rgba(255,255,255,.08);
+      flex-shrink: 0;
+    }
+    .file-preview-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      background: rgba(76,201,240,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .file-preview-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #4cc9f0;
+    }
+    .file-preview-info {
+      min-width: 0;
+    }
+    .file-preview-name {
+      font-size: .8rem;
+      color: var(--text-light);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px;
+      display: block;
+    }
+    .file-preview-size {
+      font-size: .7rem;
+      color: var(--text-muted);
+      opacity: .7;
+    }
+    .file-preview-remove {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ef4444;
+      border: 2px solid #000;
+      color: #fff;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .file-preview-remove:hover {
+      transform: scale(1.15);
+      background: #dc2626;
+    }
+    .file-upload-error {
+      font-size: .75rem;
+      color: #ef4444;
+      margin-top: 6px;
+      display: none;
+    }
+    .file-upload-error.show {
+      display: block;
+      animation: fileSlideIn .3s ease;
+    }
+
+    /* ── reCAPTCHA ── */
+    .recaptcha-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 4px 0;
+    }
+    .recaptcha-wrap .g-recaptcha {
+      transform-origin: center;
+    }
+    .recaptcha-error {
+      font-size: .75rem;
+      color: #ef4444;
+      text-align: center;
+      margin-top: 4px;
+      display: none;
+    }
+    .recaptcha-error.show {
+      display: block;
+    }
+
     @media (max-width: 768px) {
       .contact-grid { grid-template-columns: 1fr; }
       .contact-form-row { grid-template-columns: 1fr; }
+      .recaptcha-wrap .g-recaptcha {
+        transform: scale(.84);
+        transform-origin: center;
+      }
     }
   </style>
 </head>
@@ -334,10 +510,36 @@
             <input type="tel" id="fphone" name="phone" placeholder="Telefon">
           </div>
           <textarea id="fmessage" name="message" rows="5" placeholder="Wiadomość"></textarea>
+
+          <!-- File upload zone -->
+          <div class="file-upload-zone" id="fileUploadZone">
+            <input type="file" id="fileInput" name="attachments" multiple
+              accept=".jpg,.jpeg,.png,.webp,.gif,.bmp,.tiff,.pdf,.doc,.docx,.obj,.stl,.fbx,.step,.stp,.iges,.igs,.3ds,.dxf,.dwg,.skp,.blend">
+            <div class="file-upload-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+            </div>
+            <div class="file-upload-label">
+              <strong>Kliknij lub przeciągnij pliki</strong><br>
+              Zdjęcia, projekty 3D, dokumenty PDF
+            </div>
+            <div class="file-upload-hint">JPG, PNG, WebP, PDF, OBJ, STL, FBX, STEP, DXF i inne • maks. 25 MB / plik</div>
+          </div>
+          <div class="file-preview-list" id="filePreviewList"></div>
+          <div class="file-upload-error" id="fileUploadError"></div>
+
           <label class="contact-consent">
             <input type="checkbox" name="consent">
             <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celach marketingowych</span>
           </label>
+          <!-- reCAPTCHA — klucz testowy Google, zamień na własny: https://www.google.com/recaptcha/admin -->
+          <div class="recaptcha-wrap">
+            <div class="g-recaptcha"
+              data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+              data-theme="dark">
+            </div>
+          </div>
+          <div class="recaptcha-error" id="recaptchaError" role="alert">Potwierdź, że nie jesteś robotem.</div>
+
           <button type="submit" class="btn btn-primary btn-full" style="border-radius:8px">Wyślij</button>
         </form>
       </div>
