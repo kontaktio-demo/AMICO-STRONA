@@ -1564,7 +1564,22 @@ a.inspiration-slide {
   letter-spacing: .25em;
   text-transform: uppercase;
   color: rgba(255,255,255,.6);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+.page-hero-content .hero-eyebrow::before,
+.page-hero-content .hero-eyebrow::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.4));
+  flex-shrink: 0;
+}
+.page-hero-content .hero-eyebrow::after {
+  background: linear-gradient(270deg, transparent, rgba(255,255,255,.4));
 }
 .page-hero-content h1 {
   font-family: var(--font-display);
@@ -2464,4 +2479,289 @@ a.inspiration-slide {
 /* CTA showcase enhanced overlay */
 .cta-showcase::after {
   background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.7) 50%, rgba(0,0,0,.55) 100%);
+}
+
+/* ═══════════════════════════════════════════════
+   OFERTA SUBPAGES – VISUAL POLISH
+   ═══════════════════════════════════════════════ */
+
+/* ── Hero scroll indicator ── */
+.page-hero-scroll {
+  position: absolute;
+  bottom: clamp(50px, 7vw, 80px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  opacity: 0;
+  animation: scrollReveal 1s ease .8s forwards;
+}
+.page-hero-scroll-mouse {
+  width: 22px;
+  height: 34px;
+  border: 1.5px solid rgba(255,255,255,.35);
+  border-radius: 11px;
+  position: relative;
+}
+.page-hero-scroll-mouse::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 7px;
+  background: rgba(255,255,255,.5);
+  border-radius: 2px;
+  animation: scrollWheel 2s ease-in-out infinite;
+}
+.page-hero-scroll-text {
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  font-weight: 500;
+}
+@keyframes scrollReveal {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes scrollWheel {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: .5; }
+  50%      { transform: translateX(-50%) translateY(7px); opacity: 0; }
+}
+
+/* ── Hero gradient shimmer overlay ── */
+.page-hero-content::before {
+  content: '';
+  position: absolute;
+  inset: -100%;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(30,58,95,.06), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── Hero h1 subtle gradient text ── */
+.page-hero-content h1 {
+  background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.85) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Material detail text – enhanced readability ── */
+.material-detail-text p:first-of-type::first-letter {
+  font-size: 2em;
+  font-weight: 700;
+  color: #fff;
+  float: left;
+  line-height: 1;
+  margin-right: .08em;
+  margin-top: .12em;
+  -webkit-text-fill-color: #fff;
+}
+
+/* Better h3 sub-headers within material detail */
+.material-detail-text h3 {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(255,255,255,.12);
+  transition: border-color .4s ease;
+}
+.material-detail:hover .material-detail-text h3 {
+  border-color: rgba(255,255,255,.25);
+}
+
+/* ── Offer feature cards – numbering & gradient accent ── */
+.offer-feature {
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.03)) 1;
+  overflow: hidden;
+}
+.offer-feature::before {
+  content: counter(feature, decimal-leading-zero);
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.1);
+  font-family: var(--font-display);
+  pointer-events: none;
+  transition: color .35s ease;
+}
+.offer-feature:hover::before {
+  color: rgba(255,255,255,.2);
+}
+.offer-feature:hover {
+  border-image: linear-gradient(90deg, rgba(255,255,255,.2), rgba(255,255,255,.06)) 1;
+}
+
+/* More stagger delays for 8th and 9th items */
+.offer-feature:nth-child(8) { transition-delay: .42s; }
+.offer-feature:nth-child(9) { transition-delay: .48s; }
+
+/* ── Parallax divider content – decorative quote style ── */
+.parallax-divider-content::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  margin: 0 auto 1.5rem;
+}
+
+/* ── CTA button arrow ── */
+.cta-elegant .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+}
+.cta-elegant .btn-primary::after {
+  content: '→';
+  font-size: 1.1em;
+  transition: transform .35s var(--ease);
+  display: inline-block;
+}
+.cta-elegant .btn-primary:hover::after {
+  transform: translateX(4px);
+}
+
+/* ── Section header – animated accent line ── */
+.section-header::after {
+  background: linear-gradient(90deg, rgba(255,255,255,.5), rgba(255,255,255,.15), transparent);
+}
+
+/* ── Offer features section header – centered ── */
+.offer-features-section .section-header {
+  text-align: center;
+}
+.offer-features-section .section-header::after {
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+}
+
+/* ── Image subtle vignette overlay ── */
+.material-detail-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,.15) 100%);
+  pointer-events: none;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Enhanced section divider line between bg-alt sections ── */
+.section.bg-alt + .wave-divider + .section.has-bg,
+.section.has-bg + .wave-divider + .section.bg-alt {
+  border-top: none;
+}
+
+/* ── Hero description max-width boost ── */
+.page-hero-desc {
+  max-width: 660px;
+}
+
+/* ── Parallax divider content h3 – letter spacing ── */
+.parallax-divider-content h3 {
+  letter-spacing: .01em;
+}
+
+/* ── CTA elegant inner – subtle glass effect ── */
+.cta-elegant-inner {
+  position: relative;
+}
+
+/* ── Material detail – image aspect ratio polish ── */
+.material-detail-img picture {
+  display: block;
+  overflow: hidden;
+}
+
+/* ── Offer feature icon – subtle glow on hover ── */
+.offer-feature:hover .offer-feature-icon {
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.15));
+}
+
+/* ── Better spacing for mobile material detail ── */
+@media(max-width:768px) {
+  .material-detail-text h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  .material-detail-text h3 {
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
+  }
+  .page-hero-scroll {
+    bottom: clamp(40px, 6vw, 60px);
+  }
+  .page-hero-scroll-mouse {
+    width: 18px;
+    height: 28px;
+  }
+  .material-detail-text p:first-of-type::first-letter {
+    font-size: 1.7em;
+  }
+}
+
+/* ── CTA eyebrow decorative lines (matching hero) ── */
+.cta-elegant-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.cta-elegant-eyebrow::before,
+.cta-elegant-eyebrow::after {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.3));
+  flex-shrink: 0;
+}
+.cta-elegant-eyebrow::after {
+  background: linear-gradient(270deg, transparent, rgba(255,255,255,.3));
+}
+
+/* ── Enhanced section-header eyebrow for oferta pages ── */
+.section.bg-alt .eyebrow {
+  color: rgba(255,255,255,.5);
+}
+
+/* ── Fade-in for page-hero-wave ── */
+.page-hero-wave {
+  animation: waveSlideUp .8s ease .3s both;
+}
+@keyframes waveSlideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* ── AGD brands section – improved card glow ── */
+.agd-brand::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(180deg, rgba(76,201,240,.08), transparent 60%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.agd-brand {
+  position: relative;
+  overflow: hidden;
+}
+.agd-brand:hover::before {
+  opacity: 1;
+}
+.agd-brand-name,
+.agd-brand-url {
+  position: relative;
+  z-index: 1;
 }
