@@ -50,7 +50,7 @@
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(30,58,95,' + p.opacity + ')';
+        ctx.fillStyle = 'rgba(14,21,51,' + p.opacity + ')';
         ctx.fill();
 
         for (var j = i + 1; j < particles.length; j++) {
@@ -62,7 +62,7 @@
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = 'rgba(30,58,95,' + (0.06 * (1 - dist / CONNECT_DIST)) + ')';
+            ctx.strokeStyle = 'rgba(14,21,51,' + (0.06 * (1 - dist / CONNECT_DIST)) + ')';
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -97,7 +97,7 @@
         'position:absolute;' +
         'width:' + (Math.random() * 3 + 1) + 'px;' +
         'height:' + (Math.random() * 3 + 1) + 'px;' +
-        'background:rgba(30,58,95,' + (Math.random() * 0.3 + 0.05) + ');' +
+        'background:rgba(14,21,51,' + (Math.random() * 0.3 + 0.05) + ');' +
         'border-radius:50%;' +
         'left:' + (Math.random() * 100) + '%;' +
         'top:' + (Math.random() * 100) + '%;' +
@@ -149,7 +149,7 @@
           'position:absolute;' +
           'width:' + size + 'px;' +
           'height:' + size + 'px;' +
-          'border:1px solid rgba(30,58,95,' + (Math.random() * 0.1 + 0.04) + ');' +
+          'border:1px solid rgba(14,21,51,' + (Math.random() * 0.1 + 0.04) + ');' +
           'border-radius:' + borderRadius + ';' +
           'left:' + (Math.random() * 90 + 5) + '%;' +
           'top:' + (Math.random() * 80 + 10) + '%;' +

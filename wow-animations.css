@@ -67,7 +67,7 @@
   left: 50%;
   width: 0;
   height: 0;
-  background: radial-gradient(circle, rgba(30,58,95,.25), transparent 70%);
+  background: radial-gradient(circle, rgba(14,21,51,.25), transparent 70%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width .4s var(--ease), height .4s var(--ease), opacity .3s;
@@ -174,7 +174,7 @@
 
 /* Enhanced card border glow on hover */
 .feature-card:hover {
-  border-color: rgba(30,58,95,.4);
+  border-color: rgba(14,21,51,.4);
   box-shadow: var(--navy-glow), inset 0 1px 0 rgba(255,255,255,.05);
 }
 
