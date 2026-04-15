@@ -1,27 +1,27 @@
 
 :root {
   --bg:          #000000;
-  --bg-soft:     #060a12;
+  --bg-soft:     #050818;
   --bg-alt:      #000000;
-  --bg-card:     #0c1828;
-  --primary:     #1e3a5f;
-  --primary-d:   #152d4a;
-  --primary-l:   #2a5a8a;
-  --accent:      #1a3050;
-  --accent-d:    #0f2038;
-  --accent-glow: rgba(30,58,95,.12);
+  --bg-card:     #0a1228;
+  --primary:     #0e1533;
+  --primary-d:   #0a0f26;
+  --primary-l:   #1a2855;
+  --accent:      #0c1230;
+  --accent-d:    #080d22;
+  --accent-glow: rgba(14,21,51,.12);
   --text:        #e8eaef;
   --text-muted:  #7a8494;
   --text-light:  #b8c0d0;
-  --border:      rgba(30,58,95,.25);
+  --border:      rgba(14,21,51,.25);
   --border-soft: rgba(255,255,255,.06);
 
   --shadow-xs:   0 2px 8px  rgba(0,0,0,.4);
   --shadow-sm:   0 4px 20px rgba(0,0,0,.5);
   --shadow-md:   0 12px 40px rgba(0,0,0,.6);
   --shadow-lg:   0 24px 80px rgba(0,0,0,.7);
-  --accent-shadow: 0 8px 32px rgba(30,58,95,.25);
-  --navy-glow:   0 0 60px rgba(30,58,95,.15);
+  --accent-shadow: 0 8px 32px rgba(14,21,51,.25);
+  --navy-glow:   0 0 60px rgba(14,21,51,.15);
 
   --section-pad: clamp(80px, 10vw, 150px);
   --container:   1280px;
@@ -82,7 +82,7 @@ p  { margin-bottom:0; }
 
 .section { padding:var(--section-pad) clamp(20px,5vw,90px); background:var(--bg); position:relative; overflow:hidden; }
 .section.bg-alt { background:var(--bg-alt); }
-.section.bg-navy { background: #040810; }
+.section.bg-navy { background: #030610; }
 
 /* Subtle section background images */
 .section.has-bg::before {
@@ -208,7 +208,7 @@ p  { margin-bottom:0; }
   opacity: 0;
 }
 .preloader-stone svg {
-  filter: drop-shadow(0 0 20px rgba(30,58,95,.3));
+  filter: drop-shadow(0 0 20px rgba(14,21,51,.3));
 }
 .preloader-stone-outer {
   stroke-dasharray: 300;
@@ -249,14 +249,14 @@ p  { margin-bottom:0; }
 }
 
 .preloader-logo {
-  font-family: var(--font-display);
-  font-size:2.8rem;
-  font-weight:800;
-  letter-spacing:.25em;
-  color: #fff;
   margin-bottom:.4rem;
   opacity: 0;
   animation: preloaderFadeUp .6s ease-out .2s forwards;
+}
+.preloader-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
 .preloader-text {
@@ -305,12 +305,13 @@ p  { margin-bottom:0; }
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-size:1.6rem;
-  font-weight:800;
-  letter-spacing:.2em;
-  color: #fff;
-  text-transform:uppercase;
+  display: flex;
+  align-items: center;
+}
+.logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -789,12 +790,12 @@ a.inspiration-slide {
   margin-bottom: .1rem;
 }
 .footer-logo {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight:800;
-  letter-spacing:.2em;
-  color: #fff;
   display:block;
+}
+.footer-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 .footer-brand p {
   font-size:.95rem;
@@ -1265,13 +1266,13 @@ a.inspiration-slide {
   background: var(--bg-alt);
 }
 .wave-divider--navy {
-  background: #040810;
+  background: #030610;
 }
 .wave-divider--to-navy {
   background: var(--bg);
 }
-.wave-divider--to-navy svg path { fill: #040810; }
-.wave-divider--from-navy { background: #040810; }
+.wave-divider--to-navy svg path { fill: #030610; }
+.wave-divider--from-navy { background: #030610; }
 .wave-divider--from-navy svg path { fill: var(--bg); }
 .parallax-divider-content {
   position: relative;
@@ -1353,7 +1354,7 @@ a.inspiration-slide {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(30,58,95,.15) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(14,21,51,.15) 0%, transparent 60%);
   opacity: 0;
   transition: opacity .5s var(--ease);
   pointer-events: none;
@@ -1371,25 +1372,25 @@ a.inspiration-slide {
 /* ═══ SECTION DECORATIONS ═══ */
 #oferta {
   background:
-    radial-gradient(ellipse 600px 600px at 95% 15%, rgba(30,58,95,.07) 0%, transparent 70%),
-    radial-gradient(circle 400px at 5% 85%, rgba(30,58,95,.05) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 600px at 95% 15%, rgba(14,21,51,.07) 0%, transparent 70%),
+    radial-gradient(circle 400px at 5% 85%, rgba(14,21,51,.05) 0%, transparent 70%),
     var(--bg);
 }
 #realizacje {
   background:
-    radial-gradient(ellipse 550px 550px at 85% 30%, rgba(30,58,95,.06) 0%, transparent 70%),
+    radial-gradient(ellipse 550px 550px at 85% 30%, rgba(14,21,51,.06) 0%, transparent 70%),
     #000000;
 }
 #dlaczego-my {
   background:
-    radial-gradient(circle 500px at 50% 10%, rgba(30,58,95,.07) 0%, transparent 70%),
-    radial-gradient(circle 400px at 10% 90%, rgba(30,58,95,.04) 0%, transparent 70%),
+    radial-gradient(circle 500px at 50% 10%, rgba(14,21,51,.07) 0%, transparent 70%),
+    radial-gradient(circle 400px at 10% 90%, rgba(14,21,51,.04) 0%, transparent 70%),
     var(--bg);
 }
 #inspiracje {
   background:
-    radial-gradient(ellipse 600px 400px at 90% 50%, rgba(30,58,95,.06) 0%, transparent 70%),
-    radial-gradient(circle 350px at 5% 20%, rgba(30,58,95,.04) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 90% 50%, rgba(14,21,51,.06) 0%, transparent 70%),
+    radial-gradient(circle 350px at 5% 20%, rgba(14,21,51,.04) 0%, transparent 70%),
     #000000;
 }
 
@@ -1417,7 +1418,7 @@ a.inspiration-slide {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(30,58,95,.3) 30%, rgba(30,58,95,.3) 70%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(14,21,51,.3) 30%, rgba(14,21,51,.3) 70%, transparent);
 }
 
 /* Subtle gradient separator between sections */
@@ -1448,7 +1449,7 @@ a.inspiration-slide {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 800px 400px at 50% 80%, rgba(30,58,95,.08) 0%, transparent 70%),
+    radial-gradient(ellipse 800px 400px at 50% 80%, rgba(14,21,51,.08) 0%, transparent 70%),
     linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
   z-index: 0;
 }
@@ -1778,7 +1779,7 @@ a.inspiration-slide {
   transform: translate(-50%, -50%);
   width: 600px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(30,58,95,.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(14,21,51,.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -2078,7 +2079,7 @@ a.inspiration-slide {
 
 /* AGD Brands – creative symmetrical layout on navy background */
 .agd-brands-section {
-  background: linear-gradient(180deg, #040810 0%, #030710 100%);
+  background: linear-gradient(180deg, #030610 0%, #030710 100%);
   position: relative;
 }
 .agd-brands-section .eyebrow {
@@ -2112,7 +2113,7 @@ a.inspiration-slide {
   transform: translateY(-6px);
   border-color: rgba(76,201,240,.3);
   background: rgba(255,255,255,.07);
-  box-shadow: 0 12px 40px rgba(30,58,95,.3);
+  box-shadow: 0 12px 40px rgba(14,21,51,.3);
 }
 .agd-brand-name {
   font-size: 1.4rem;
@@ -2231,18 +2232,18 @@ a.inspiration-slide {
 .kontaktio-launcher {
   background: var(--bg-card, #0c1828) !important;
   border: 1px solid rgba(255,255,255,.1) !important;
-  box-shadow: 0 8px 32px rgba(0,0,0,.5), 0 0 40px rgba(30,58,95,.15) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5), 0 0 40px rgba(14,21,51,.15) !important;
   transition: transform .25s var(--ease), box-shadow .25s var(--ease) !important;
 }
 .kontaktio-launcher:hover {
   transform: translateZ(0) scale(1.08) !important;
-  box-shadow: 0 12px 40px rgba(0,0,0,.6), 0 0 50px rgba(30,58,95,.25) !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,.6), 0 0 50px rgba(14,21,51,.25) !important;
 }
 
 .kontaktio-widget {
   background: var(--bg-card, #0c1828) !important;
   border: 1px solid rgba(255,255,255,.08) !important;
-  box-shadow: 0 16px 60px rgba(0,0,0,.7), 0 0 40px rgba(30,58,95,.1) !important;
+  box-shadow: 0 16px 60px rgba(0,0,0,.7), 0 0 40px rgba(14,21,51,.1) !important;
   border-radius: 12px !important;
 }
 
@@ -2268,7 +2269,7 @@ a.inspiration-slide {
 }
 
 .kontaktio-row.bot .kontaktio-bubble {
-  background: rgba(30,58,95,.25) !important;
+  background: rgba(14,21,51,.25) !important;
   color: var(--text, #e8eaef) !important;
   border: 1px solid rgba(255,255,255,.06) !important;
 }
@@ -2335,7 +2336,7 @@ a.inspiration-slide {
 
 /* Smooth text selection */
 ::selection {
-  background: rgba(30,58,95,.5);
+  background: rgba(14,21,51,.5);
   color: #fff;
 }
 
@@ -2539,7 +2540,7 @@ a.inspiration-slide {
   content: '';
   position: absolute;
   inset: -100%;
-  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(30,58,95,.06), transparent 70%);
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(14,21,51,.06), transparent 70%);
   pointer-events: none;
   z-index: -1;
 }
