@@ -2552,18 +2552,6 @@ a.inspiration-slide {
   background-clip: text;
 }
 
-/* ── Material detail text – enhanced readability ── */
-.material-detail-text p:first-of-type::first-letter {
-  font-size: 2em;
-  font-weight: 700;
-  color: #fff;
-  float: left;
-  line-height: 1;
-  margin-right: .08em;
-  margin-top: .12em;
-  -webkit-text-fill-color: #fff;
-}
-
 /* Better h3 sub-headers within material detail */
 .material-detail-text h3 {
   padding-left: 1rem;
@@ -2702,9 +2690,6 @@ a.inspiration-slide {
   .page-hero-scroll-mouse {
     width: 18px;
     height: 28px;
-  }
-  .material-detail-text p:first-of-type::first-letter {
-    font-size: 1.7em;
   }
 }
 
