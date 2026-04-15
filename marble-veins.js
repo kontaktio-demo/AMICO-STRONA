@@ -588,13 +588,7 @@
       zones.push({ el: el, type: 'section' });
     });
 
-    /* footer-wave-transition */
-    var fw = document.querySelector('.footer-wave-transition');
-    if (fw) zones.push({ el: fw, type: 'wave' });
-
-    /* Footer */
-    var footer = document.querySelector('.footer');
-    if (footer) zones.push({ el: footer, type: 'footer' });
+    /* Footer kept plain black — no marble veins */
 
     /* Sort by vertical position */
     zones.sort(function (a, b) {
@@ -677,19 +671,11 @@
         if (nextTop - (elTop + h) < 300) fBot = fadeAmt * 0.08;
       }
 
-      if (zone.type === 'wave') { fTop = 0; fBot = 0; }
-      /* Footer: seamless connection to wave — minimal top fade */
-      if (zone.type === 'footer') {
-        var prevIsWave = zi > 0 && zones[zi - 1].type === 'wave';
-        fTop = prevIsWave ? fadeAmt * 0.05 : fadeAmt * 0.3;
-        fBot = 0;
-      }
-
       drawFades(ctx, w, h, fTop, fBot);
 
       /* ── Insert canvas + shimmer + ambient glow ── */
       var wrap = document.createElement('div');
-      wrap.className = 'marble-vein-layer marble-breathing' + (zone.type === 'footer' ? ' marble-vein-footer' : '');
+      wrap.className = 'marble-vein-layer marble-breathing';
       wrap.setAttribute('aria-hidden', 'true');
       wrap.appendChild(canvas);
 
