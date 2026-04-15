@@ -2079,7 +2079,7 @@ a.inspiration-slide {
 
 /* AGD Brands – full-width navy section with wave transitions */
 .agd-brands-section {
-  background: #0e1533;
+  background: #000000;
   position: relative;
   padding-top: clamp(50px, 6vw, 80px);
   padding-bottom: clamp(50px, 6vw, 80px);
