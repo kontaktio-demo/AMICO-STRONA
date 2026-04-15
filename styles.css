@@ -2081,6 +2081,11 @@ a.inspiration-slide {
 .agd-brands-section {
   background: linear-gradient(180deg, #030610 0%, #030710 100%);
   position: relative;
+  padding-top: clamp(50px, 6vw, 80px);
+  padding-bottom: clamp(50px, 6vw, 80px);
+  border-radius: var(--radius-lg, 18px);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .agd-brands-section .eyebrow {
   color: rgba(255,255,255,.65);
@@ -2092,22 +2097,22 @@ a.inspiration-slide {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.8rem;
-  margin-top: 3rem;
+  gap: 1.2rem;
+  margin-top: 2rem;
 }
 .agd-brand {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2.5rem 2rem;
-  width: 240px;
+  padding: 1.8rem 1.5rem;
+  width: 200px;
   background: rgba(255,255,255,.04);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: var(--radius-md);
   transition: transform .3s ease, border-color .3s ease, background .3s ease, box-shadow .3s ease;
   text-align: center;
-  gap: .6rem;
+  gap: .5rem;
 }
 .agd-brand:hover {
   transform: translateY(-6px);
@@ -2116,7 +2121,7 @@ a.inspiration-slide {
   box-shadow: 0 12px 40px rgba(14,21,51,.3);
 }
 .agd-brand-name {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: .05em;
   color: #fff;
@@ -2128,17 +2133,17 @@ a.inspiration-slide {
 }
 @media(max-width:900px) {
   .agd-brand {
-    width: 200px;
-    padding: 2rem 1.5rem;
+    width: 180px;
+    padding: 1.5rem 1.2rem;
   }
 }
 @media(max-width:600px) {
   .agd-brands {
-    gap: 1rem;
+    gap: .8rem;
   }
   .agd-brand {
-    width: calc(50% - .5rem);
-    padding: 1.5rem 1rem;
+    width: calc(50% - .4rem);
+    padding: 1.2rem .8rem;
   }
 }
 
