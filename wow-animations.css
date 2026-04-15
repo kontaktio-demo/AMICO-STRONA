@@ -322,11 +322,11 @@
 @keyframes imageReveal {
   from {
     transform: scale(1.08);
-    filter: brightness(.75) saturate(.6);
+    filter: brightness(.85) saturate(.7);
   }
   to {
     transform: scale(1);
-    filter: brightness(.88) saturate(.95);
+    filter: brightness(.95) saturate(.95);
   }
 }
 .material-detail.reveal.visible .material-detail-img img {
@@ -501,7 +501,7 @@
   }
   .material-detail.reveal.visible .material-detail-img img {
     animation: none;
-    filter: brightness(.9) saturate(.95);
+    filter: brightness(.95) saturate(.95);
   }
   .offer-features.reveal.visible .offer-feature {
     animation: none;
