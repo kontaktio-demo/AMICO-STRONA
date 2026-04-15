@@ -102,14 +102,14 @@ p  { margin-bottom:0; }
 
 /* Showcase variant – visible background with soft dark vignette, no blue tint */
 .section.has-bg--showcase::before {
-  filter: brightness(.25) grayscale(.2) contrast(1.1);
-  opacity: .55;
+  filter: brightness(.32) grayscale(.15) contrast(1.08);
+  opacity: .62;
 }
 .section.has-bg--showcase::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.5);
+  background: rgba(0,0,0,.38);
   z-index: 0;
   pointer-events: none;
 }
@@ -1527,7 +1527,7 @@ a.inspiration-slide {
   position: relative;
   z-index: 3;
   text-align: center;
-  padding: 120px clamp(20px,6vw,60px) 80px;
+  padding: clamp(100px, 14vw, 140px) clamp(20px,6vw,60px) 80px;
   max-width: 800px;
 }
 
@@ -1602,7 +1602,7 @@ a.inspiration-slide {
 .material-detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(24px, 4vw, 60px);
+  gap: clamp(28px, 4.5vw, 64px);
   align-items: center;
 }
 .material-detail-reverse {
@@ -1670,15 +1670,15 @@ a.inspiration-slide {
   margin-top: .5rem;
 }
 .material-detail-text p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-light);
-  line-height: 1.9;
-  margin-bottom: 1.2rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
 }
 .material-detail-text p:first-of-type {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text);
-  line-height: 1.85;
+  line-height: 1.8;
 }
 .material-detail-text strong {
   color: #fff;
@@ -1688,9 +1688,13 @@ a.inspiration-slide {
 @media(max-width:768px) {
   .material-detail {
     grid-template-columns: 1fr;
+    gap: clamp(20px, 4vw, 32px);
   }
   .material-detail-reverse {
     direction: ltr;
+  }
+  .material-detail-text p {
+    font-size: .95rem;
   }
 }
 
@@ -2371,7 +2375,7 @@ a.inspiration-slide {
 
 /* Material detail grid gap polish */
 .material-detail {
-  gap: clamp(32px, 5vw, 72px);
+  gap: clamp(28px, 4.5vw, 64px);
 }
 
 /* Contact detail subtle hover */
@@ -2479,7 +2483,7 @@ a.inspiration-slide {
 
 /* CTA showcase enhanced overlay */
 .cta-showcase::after {
-  background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.7) 50%, rgba(0,0,0,.55) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,.50) 0%, rgba(0,0,0,.65) 50%, rgba(0,0,0,.50) 100%);
 }
 
 /* ═══════════════════════════════════════════════
