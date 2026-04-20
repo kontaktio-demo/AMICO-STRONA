@@ -52,6 +52,57 @@ function initHamburger() {
   var hamburger = document.getElementById("hamburger");
   var navLinks = document.getElementById("navLinks");
   if (!hamburger || !navLinks) return;
+
+  // Inject mobile-only contact CTA + sub-page shortcuts so the drawer feels
+  // complete on phones (matches the "all subpages, scrollable" UX we want).
+  // Desktop hides these via CSS (@media min-width:901px).
+  if (!navLinks.querySelector(".nav-mobile-cta")) {
+    // Compute path prefix to root so the injected links work from sub-folders.
+    var prefix = "";
+    var firstLink = navLinks.querySelector("a");
+    if (firstLink) {
+      var href = firstLink.getAttribute("href") || "";
+      var m = href.match(/^((?:\.\.\/)+)/);
+      if (m) prefix = m[1];
+    }
+    var section = document.createElement("div");
+    section.className = "nav-mobile-section";
+    section.textContent = "Oferta";
+    navLinks.appendChild(section);
+
+    var subpages = [
+      ["Blaty kuchenne", "oferta/blaty-kuchenne/"],
+      ["Blaty łazienkowe", "oferta/blaty-lazienkowe/"],
+      ["Parapety", "oferta/parapety/"],
+      ["Schody", "oferta/schody/"],
+      ["Obudowy kominków", "oferta/kominki/"],
+      ["Posadzki", "oferta/posadzki/"],
+      ["Okładziny ścienne", "oferta/sciany/"],
+      ["Zlewy kamienne", "oferta/zlewy/"],
+      ["Sprzęt AGD", "oferta/sprzet-agd/"],
+      ["Kamień naturalny", "kamien-naturalny/"],
+      ["Kamień sztuczny", "kamien-sztuczny/"]
+    ];
+    subpages.forEach(function(item) {
+      var a = document.createElement("a");
+      a.className = "nav-link nav-link-sub";
+      a.href = prefix + item[1];
+      a.textContent = item[0];
+      navLinks.appendChild(a);
+    });
+
+    var cta = document.createElement("div");
+    cta.className = "nav-mobile-cta";
+    cta.innerHTML =
+      '<a class="is-primary" href="tel:+48785040609">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.09-1.08a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
+      '<span>Zadzwoń: 785 04 06 09</span></a>' +
+      '<a href="mailto:biuro@amicco.pl">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>' +
+      '<span>biuro@amicco.pl</span></a>';
+    navLinks.appendChild(cta);
+  }
+
   var open = function() {
     hamburger.classList.add("open");
     navLinks.classList.add("open");
@@ -68,7 +119,7 @@ function initHamburger() {
     e.stopPropagation();
     hamburger.classList.contains("open") ? close() : open();
   });
-  navLinks.querySelectorAll(".nav-link").forEach(function(link) {
+  navLinks.querySelectorAll("a").forEach(function(link) {
     link.addEventListener("click", close);
   });
   document.addEventListener("keydown", function(e) {
