@@ -468,10 +468,18 @@ var CookieConsent = (function () {
     } catch (e) { /* IE fallback – not critical */ }
   }
 
-  /* --- resolve relative path to privacy policy --- */
+  /* --- resolve relative path to privacy policy (clean URLs) --- */
   function privacyHref() {
     var path = window.location.pathname;
-    return (path.indexOf('/oferta/') !== -1) ? '../polityka-prywatnosci.html' : 'polityka-prywatnosci.html';
+    /* Count directory depth so the link works from /, /kontakt/, /oferta/blaty-kuchenne/, etc. */
+    var segments = path.split('/').filter(function (s) { return s.length > 0; });
+    /* If path ends without trailing slash, the last segment is a file (e.g. index.html) — drop it */
+    if (path.charAt(path.length - 1) !== '/' && segments.length > 0) {
+      segments.pop();
+    }
+    var prefix = '';
+    for (var i = 0; i < segments.length; i++) prefix += '../';
+    return prefix + 'polityka-prywatnosci/';
   }
 
   /* --- build & inject banner HTML --- */
