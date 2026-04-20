@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /panel/
-Disallow: /tok x amico/
+Disallow: /tok%20x%20amico/
 
 # Allow major search engines explicitly
 User-agent: Googlebot
