@@ -2829,6 +2829,11 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   border-bottom: 1px solid rgba(255,255,255,.15); padding-bottom: 4px;
 }
 .section-title-row .section-link:hover { color: var(--text); border-bottom-color: var(--text); }
+.materials-links {
+  display: flex; flex-wrap: wrap; gap: clamp(14px, 2vw, 28px);
+  align-items: flex-end;
+}
+.materials-links .section-link { white-space: nowrap; }
 
 /* ═══ NAV — minimalist (no dropdown) ═══ */
 .nav {
