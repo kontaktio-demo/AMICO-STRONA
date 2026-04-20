@@ -1,6 +1,5 @@
-/* ═══ WOW ANIMATIONS FOR AMICO DARK THEME ═══ */
 
-/* Enhanced reveal directions */
+
 .reveal.reveal-left {
   transform: translateX(-40px) translateY(0);
 }
@@ -18,7 +17,6 @@
   filter: blur(0);
 }
 
-/* Hero content animations */
 @keyframes heroFadeSlideUp {
   from {
     opacity: 0;
@@ -32,7 +30,6 @@
   }
 }
 
-/* Smooth text fade-in for subpage hero */
 .page-hero-content .hero-eyebrow {
   animation: heroFadeSlideUp .8s var(--ease) .2s both;
 }
@@ -43,7 +40,6 @@
   animation: heroFadeSlideUp .8s var(--ease) .6s both;
 }
 
-/* 3D tilt cards */
 .tilt-3d {
   transform-style: preserve-3d;
   transition: transform .3s var(--ease), box-shadow .3s var(--ease);
@@ -53,7 +49,6 @@
   z-index: 2;
 }
 
-/* Button hover effects */
 .btn-primary,
 .btn-outline {
   position: relative;
@@ -81,7 +76,6 @@
   opacity: 1;
 }
 
-/* Section header decorative line animation */
 .section-header::after {
   transform-origin: left center;
   transform: scaleX(0);
@@ -95,7 +89,6 @@
   transform-origin: center center;
 }
 
-/* Scroll progress bar */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -110,7 +103,6 @@
   pointer-events: none;
 }
 
-/* Footer link underline */
 .footer-col ul li a {
   position: relative;
   display: inline;
@@ -129,7 +121,6 @@
   width: 100%;
 }
 
-/* Scroll progress bar */
 .cookie-consent.show {
   animation: slideUp .35s var(--ease) forwards;
 }
@@ -138,7 +129,6 @@
   to   { transform: translateY(0); }
 }
 
-/* Nav link transition */
 .nav-link {
   transition: color .2s var(--ease), transform .2s var(--ease);
 }
@@ -146,14 +136,10 @@
   transform: translateY(-1px);
 }
 
-/* Hero slider */
 .hero-slider {
   will-change: contents;
 }
 
-/* Cursor glow removed */
-
-/* Gallery item animations */
 .gallery-item {
   transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
 }
@@ -162,7 +148,6 @@
   box-shadow: 0 8px 30px rgba(0,0,0,.4);
 }
 
-/* Section content parallax depth (only on revealed cards) */
 .feature-card.reveal.visible,
 .why-card.reveal.visible {
   transform: translateY(var(--parallax-y, 0));
@@ -172,30 +157,23 @@
   transform: translateY(calc(var(--parallax-y, 0) - 8px));
 }
 
-/* Enhanced card border glow on hover */
 .feature-card:hover {
   border-color: rgba(14,21,51,.4);
   box-shadow: var(--navy-glow), inset 0 1px 0 rgba(255,255,255,.05);
 }
 
-/* Experience band hover pause */
 .experience-band:hover .experience-track {
   animation-play-state: paused;
 }
 
-/* Parallax divider enhanced overlay */
-
-/* Smooth image reveal on material sections */
 .material-detail-img img {
   will-change: transform;
 }
 
-/* CTA block entrance animation */
 .cta-block.reveal.visible {
   box-shadow: 0 0 40px rgba(0,0,0,.3);
 }
 
-/* Parallax divider text glow */
 .parallax-divider-content h3 {
   text-shadow: 0 2px 20px rgba(0,0,0,.5);
 }
@@ -203,7 +181,6 @@
   text-shadow: 0 1px 10px rgba(0,0,0,.4);
 }
 
-/* Mobile adjustments */
 @media (max-width: 768px) {
   .nav-links.open {
     width: 100%;
@@ -247,7 +224,7 @@
     animation: none;
     transform: translateY(0);
   }
-  /* Cursor glow removed - no body::before to hide */
+
   .experience-track {
     animation: none;
   }
@@ -276,9 +253,6 @@
   50%     { opacity: 0; }
 }
 
-/* ═══ ENHANCED TEXT REVEAL ANIMATIONS ═══ */
-
-/* Staggered paragraph reveal in material sections */
 @keyframes textFadeUp {
   from {
     opacity: 0;
@@ -309,7 +283,6 @@
   animation-delay: .5s;
 }
 
-/* Heading accent line animation */
 .material-detail.reveal.visible .material-detail-text h2::before {
   animation: lineGrow .8s var(--ease) .2s both;
 }
@@ -318,7 +291,6 @@
   to   { width: 40px; opacity: 1; }
 }
 
-/* Image zoom-in reveal */
 @keyframes imageReveal {
   from {
     transform: scale(1.08);
@@ -333,7 +305,6 @@
   animation: imageReveal 1s var(--ease) .1s both;
 }
 
-/* Enhanced CTA entrance */
 @keyframes ctaSlideUp {
   from {
     opacity: 0;
@@ -351,7 +322,6 @@
   animation: ctaSlideUp .6s var(--ease) .45s both;
 }
 
-/* Offer feature stagger reveal */
 .offer-features.reveal.visible .offer-feature {
   animation: textFadeUp .5s var(--ease) both;
 }
@@ -363,20 +333,15 @@
 .offer-features.reveal.visible .offer-feature:nth-child(6) { animation-delay: .40s; }
 .offer-features.reveal.visible .offer-feature:nth-child(7) { animation-delay: .48s; }
 
-/* Section header decoration line enter */
 @keyframes decorLineEnter {
   from { transform: scaleX(0); opacity: 0; }
   to   { transform: scaleX(1); opacity: 1; }
 }
 
-/* ── Enhanced marble-themed section transitions ── */
-
-/* Smooth section reveal with marble-aware stagger */
 [data-marble-theme] .section.reveal {
   transition: opacity 1s cubic-bezier(.4,0,.2,1), transform 1s cubic-bezier(.4,0,.2,1);
 }
 
-/* Marble section header — elegant entrance with line sweep */
 [data-marble-theme] .section-header.reveal.visible h2 {
   animation: marbleTextReveal 1s cubic-bezier(.22,1,.36,1) .2s both;
 }
@@ -393,7 +358,6 @@
   }
 }
 
-/* Offer feature cards — marble-aware hover glow */
 [data-marble-theme] .offer-feature {
   transition: transform .4s cubic-bezier(.22,1,.36,1),
               box-shadow .4s ease,
@@ -404,7 +368,6 @@
   box-shadow: 0 8px 32px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.05);
 }
 
-/* Material detail image — polished hover with marble glow */
 [data-marble-theme] .material-detail-img {
   transition: transform .6s cubic-bezier(.22,1,.36,1),
               box-shadow .6s ease;
@@ -414,7 +377,6 @@
   box-shadow: 0 16px 48px rgba(0,0,0,.5), 0 0 24px var(--marble-glow, rgba(200,185,150,.15));
 }
 
-/* CTA section — premium marble glow effect */
 [data-marble-theme] .cta-elegant-inner {
   transition: box-shadow .5s ease, transform .5s cubic-bezier(.22,1,.36,1);
 }
@@ -422,7 +384,6 @@
   box-shadow: 0 0 40px var(--marble-glow, rgba(200,185,150,.1));
 }
 
-/* Footer brand logo — subtle marble-themed hover */
 [data-marble-theme] .footer-logo {
   transition: text-shadow .4s ease;
 }
@@ -430,7 +391,6 @@
   text-shadow: 0 0 20px var(--marble-glow, rgba(200,185,150,.3));
 }
 
-/* Social icons — marble-aware hover glow */
 [data-marble-theme] .footer-social a {
   transition: transform .3s var(--ease), box-shadow .3s ease, background .3s ease;
 }
@@ -438,19 +398,16 @@
   box-shadow: 0 0 16px var(--marble-glow, rgba(200,185,150,.15));
 }
 
-/* Wave divider SVG — subtle float */
 [data-marble-theme] .wave-divider svg,
 [data-marble-theme] .hero-wave svg {
   transition: transform 1s ease;
 }
 
-/* Parallax divider content entrance */
 .parallax-divider-content h3,
 .parallax-divider-content p {
   transition: transform .6s var(--ease), opacity .6s ease;
 }
 
-/* Contact detail icon pulse */
 @keyframes iconPulse {
   0%, 100% { transform: scale(1); }
   50%      { transform: scale(1.08); }
@@ -459,18 +416,15 @@
   animation: iconPulse .6s var(--ease);
 }
 
-/* Smooth hero scroll indicator */
 @keyframes scrollHint {
   0%, 100% { opacity: .4; transform: translateY(0); }
   50%      { opacity: .8; transform: translateY(6px); }
 }
 
-/* Image hover glow pulse */
 .material-detail-img::after {
   transition: opacity .6s var(--ease);
 }
 
-/* ── Page hero marble entrance ── */
 [data-marble-theme] .page-hero-content .hero-eyebrow {
   animation: marbleHeroFade .9s cubic-bezier(.22,1,.36,1) .15s both;
 }
@@ -493,7 +447,6 @@
   }
 }
 
-/* Mobile adjustments for new animations */
 @media (max-width: 768px) {
   .material-detail.reveal.visible .material-detail-text p {
     animation: none;
