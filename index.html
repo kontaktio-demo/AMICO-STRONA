@@ -19,9 +19,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="wow-animations.css">
+  <link rel="stylesheet" href="premium.css">
 </head>
 <body class="preloading">
 
@@ -50,15 +51,16 @@
 </header>
 
 <!-- ═══════════════ HERO ═══════════════ -->
-<section class="hero-single" id="hero" style="--hero-bg:url('zdjecia/DSC_3399-Edit-Edit-hero.webp')">
-  <div class="hero-single-bg" aria-hidden="true"></div>
+<section class="hero-single hero-premium" id="hero" style="--hero-bg:url('zdjecia/DSC_3399-Edit-Edit-hero.webp')">
+  <div class="hero-single-bg" aria-hidden="true" data-hero-parallax></div>
   <div class="hero-single-overlay" aria-hidden="true"></div>
+  <div class="hero-single-vignette" aria-hidden="true"></div>
   <div class="hero-single-content">
-    <span class="hero-single-eyebrow">Pracownia kamieniarska · Łódź</span>
-    <h1 class="hero-single-title">Blaty, schody i realizacje z kamienia naturalnego</h1>
-    <p class="hero-single-sub">Projektujemy, wykonujemy i montujemy elementy z kamienia naturalnego i sztucznego — od pomysłu po gotowe wnętrze.</p>
-    <div class="hero-single-actions">
-      <a href="realizacje.html" class="btn btn-primary btn-lg">Zobacz realizacje</a>
+    <span class="hero-single-eyebrow hero-stagger" style="--d:.05s">Pracownia kamieniarska · Łódź</span>
+    <h1 class="hero-single-title hero-stagger" style="--d:.18s">Blaty, schody i realizacje<br>z kamienia naturalnego</h1>
+    <p class="hero-single-sub hero-stagger" style="--d:.34s">Projektujemy, wykonujemy i montujemy elementy z kamienia naturalnego i sztucznego — od pomysłu po gotowe wnętrze.</p>
+    <div class="hero-single-actions hero-stagger" style="--d:.5s">
+      <a href="realizacje.html" class="btn btn-primary btn-lg btn-premium">Zobacz realizacje</a>
       <a href="kontakt.html"    class="btn btn-outline btn-lg">Skontaktuj się</a>
     </div>
   </div>
@@ -74,6 +76,26 @@
         <h2 id="onas-heading">Kamień to nasz język</h2>
         <p>Jesteśmy lokalną pracownią kamieniarską z okolic Łodzi. Łączymy pasję i kreatywność z doświadczeniem oraz pełnym zrozumieniem klienta.</p>
         <p>Z kamienia zrobimy wszystko — od pomysłu, przez projekt, po realizację i montaż. Współpracujemy z architektami i klientami indywidualnymi, dobierając materiał i obróbkę pod konkretny projekt.</p>
+        <ul class="about-marks" aria-label="Wartości pracowni">
+          <li>
+            <span class="about-mark-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 20 12 4l9 16H3Z"/></svg>
+            </span>
+            <span>Projekt &amp; pomiar</span>
+          </li>
+          <li>
+            <span class="about-mark-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16"/><path d="M4 12h16M12 4v16"/></svg>
+            </span>
+            <span>Wykonanie w pracowni</span>
+          </li>
+          <li>
+            <span class="about-mark-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+            </span>
+            <span>Montaż na miejscu</span>
+          </li>
+        </ul>
       </div>
       <div class="about-split-img">
         <picture>
@@ -157,42 +179,66 @@
       <a href="realizacje.html" class="section-link">Zobacz wszystkie</a>
     </div>
 
-    <div class="gallery-preview reveal">
+    <div class="gallery-preview gallery-premium reveal">
       <a href="realizacje.html" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_2594-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_2594-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="799" height="1200">
         </picture>
+        <div class="gp-overlay" aria-hidden="true">
+          <span class="gp-name">Posadzka kamienna</span>
+          <span class="gp-meta">Łódź · Marmur</span>
+        </div>
       </a>
       <a href="realizacje.html" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_2662-Edit-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_2662-Edit-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="1200" height="799">
         </picture>
+        <div class="gp-overlay" aria-hidden="true">
+          <span class="gp-name">Schody wewnętrzne</span>
+          <span class="gp-meta">Łódź · Granit</span>
+        </div>
       </a>
       <a href="realizacje.html" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_2596-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_2596-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="799" height="1200">
         </picture>
+        <div class="gp-overlay" aria-hidden="true">
+          <span class="gp-name">Detal kamienny</span>
+          <span class="gp-meta">Wnętrze prywatne · Marmur</span>
+        </div>
       </a>
       <a href="realizacje.html" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_3073-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_3073-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="1200" height="799">
         </picture>
+        <div class="gp-overlay" aria-hidden="true">
+          <span class="gp-name">Blat kuchenny</span>
+          <span class="gp-meta">Bedoń · Kamień naturalny</span>
+        </div>
       </a>
       <a href="realizacje.html" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_2680-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_2680-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="799" height="1200">
         </picture>
+        <div class="gp-overlay" aria-hidden="true">
+          <span class="gp-name">Obudowa kominka</span>
+          <span class="gp-meta">Łódź · Marmur</span>
+        </div>
       </a>
       <a href="realizacje.html" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_3128-Edit-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_3128-Edit-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="1200" height="799">
         </picture>
+        <div class="gp-overlay" aria-hidden="true">
+          <span class="gp-name">Łazienka kamienna</span>
+          <span class="gp-meta">Wnętrze prywatne · Marmur</span>
+        </div>
       </a>
     </div>
   </div>
@@ -227,6 +273,62 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════ KONTAKT FORMULARZ + MAPA ═══════════════ -->
+<section class="section bg-alt section-form" id="kontakt-form" aria-labelledby="kontakt-form-heading">
+  <div class="container">
+    <div class="form-split reveal">
+      <div class="form-split-text">
+        <p class="eyebrow">Formularz</p>
+        <h2 id="kontakt-form-heading">Napisz do nas kilka słów<br>o swoim projekcie</h2>
+        <p class="form-split-lead">Odpowiadamy w ciągu 24 godzin w dni robocze. Wycena i pomiar — bezpłatnie.</p>
+        <div class="form-split-meta">
+          <a href="tel:+48785040609" class="form-split-meta-item">
+            <span>Telefon</span>
+            <strong>785&nbsp;04&nbsp;06&nbsp;09</strong>
+          </a>
+          <a href="mailto:biuro@amicco.pl" class="form-split-meta-item">
+            <span>E-mail</span>
+            <strong>biuro@amicco.pl</strong>
+          </a>
+        </div>
+      </div>
+      <form class="premium-form" id="homeContactForm" novalidate>
+        <div class="pf-row">
+          <label class="pf-field">
+            <span>Imię i nazwisko</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label class="pf-field">
+            <span>Telefon</span>
+            <input type="tel" name="phone" autocomplete="tel">
+          </label>
+        </div>
+        <label class="pf-field">
+          <span>E-mail</span>
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label class="pf-field">
+          <span>O projekcie</span>
+          <textarea name="message" rows="5" placeholder="Krótko opisz, co chcesz zrealizować — rodzaj kamienia, wymiary, termin."></textarea>
+        </label>
+        <div class="pf-actions">
+          <button type="submit" class="btn btn-primary btn-lg btn-premium">Wyślij zapytanie</button>
+          <span class="pf-note">Klikając „Wyślij” akceptujesz <a href="polityka-prywatnosci.html">politykę prywatności</a>.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="premium-map" aria-label="Mapa pracowni AMICO — Bedoń k/Łodzi">
+    <iframe
+      src="https://www.google.com/maps?q=ul.+Brzezi%C5%84ska+84,+95-020+Bedo%C5%84&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Mapa — pracownia AMICO, ul. Brzezińska 84, Bedoń"
+      allowfullscreen></iframe>
+    <div class="premium-map-veil" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -271,6 +373,7 @@
 <script src="script.js"></script>
 <script src="background-effects.js"></script>
 <script src="wow-animations.js"></script>
+<script src="premium.js" defer></script>
 <script src="kontaktio.js" defer
   data-kontaktio
   data-client="amico"
