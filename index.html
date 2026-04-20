@@ -7,20 +7,19 @@
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0B0B10">
   <title>Pracownia Kamieniarska AMICO – Kamień Naturalny i Sztuczny</title>
-  <meta name="description" content="AMICO – firma kamieniarska specjalizująca się w realizacjach z kamienia naturalnego i sztucznego. Blaty kuchenne, schody, posadzki, kominki. Inspirowane naturą.">
-  <meta name="keywords" content="kamień naturalny, blaty kuchenne, granit, marmur, kwarc, schody kamienne, posadzki, kominki, AMICO">
+  <meta name="description" content="AMICO – pracownia kamieniarska z Łodzi. Blaty, schody i realizacje z kamienia naturalnego i sztucznego. Projekt, wykonanie i montaż.">
   <meta name="author" content="AMICO">
   <meta property="og:title" content="Pracownia Kamieniarska AMICO – Kamień Naturalny i Sztuczny">
-  <meta property="og:description" content="Z kamienia potrafimy zrobić wszystko! Realizacje inspirowane naturą – blaty, schody, posadzki, kominki i więcej.">
+  <meta property="og:description" content="Blaty, schody i realizacje z kamienia naturalnego. Projekt, wykonanie i montaż.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="wow-animations.css">
 </head>
@@ -28,18 +27,6 @@
 
 <div id="preloader" role="status" aria-label="Ładowanie strony AMICO">
   <div class="preloader-inner">
-    <div class="preloader-stone" aria-hidden="true">
-      <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path class="preloader-stone-outer" d="M50 5L90 35L75 90H25L10 35Z" stroke="rgba(255,255,255,.2)" stroke-width="1" fill="none"/>
-        <path class="preloader-stone-inner" d="M50 15L78 38L66 82H34L22 38Z" stroke="rgba(255,255,255,.4)" stroke-width="1" fill="none"/>
-        <path class="preloader-stone-core" d="M50 25L66 41L58 74H42L34 41Z" fill="rgba(255,255,255,.03)"/>
-        <line class="preloader-stone-line" x1="50" y1="5" x2="50" y2="15" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-        <line class="preloader-stone-line" x1="90" y1="35" x2="78" y2="38" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-        <line class="preloader-stone-line" x1="10" y1="35" x2="22" y2="38" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-        <line class="preloader-stone-line" x1="75" y1="90" x2="66" y2="82" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-        <line class="preloader-stone-line" x1="25" y1="90" x2="34" y2="82" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-      </svg>
-    </div>
     <div class="preloader-logo"><img src="amico-logo-mark.svg" alt="AMICO" class="preloader-logo-img"></div>
     <span class="preloader-text">Pracownia Kamieniarska</span>
     <div class="preloader-bar"><div class="preloader-fill"></div></div>
@@ -47,30 +34,14 @@
 </div>
 
 <header class="nav" id="nav">
-  <a href="#hero" class="logo" aria-label="AMICO - strona główna"><img src="amico-logo-mark.svg" alt="AMICO" class="logo-img"></a>
-
+  <a href="#hero" class="logo" aria-label="AMICO – strona główna"><img src="amico-logo-mark.svg" alt="AMICO" class="logo-img"></a>
   <nav class="nav-links" id="navLinks" role="navigation" aria-label="Nawigacja główna">
-    <a href="#hero"        class="nav-link">Strona główna</a>
-    <div class="nav-dropdown">
-      <a href="#oferta" class="nav-link nav-dropdown-toggle">Oferta</a>
-      <div class="nav-dropdown-menu">
-        <a href="oferta/blaty-kuchenne.html">Blaty kuchenne</a>
-        <a href="oferta/blaty-lazienkowe.html">Blaty łazienkowe</a>
-        <a href="oferta/schody.html">Schody</a>
-        <a href="oferta/parapety.html">Parapety</a>
-        <a href="oferta/kominki.html">Obudowy kominków</a>
-        <a href="oferta/posadzki.html">Posadzki</a>
-        <a href="oferta/sciany.html">Okładziny ścienne</a>
-        <a href="oferta/zlewy.html">Zlewy kamienne</a>
-        <a href="oferta/sprzet-agd.html">Sprzęt AGD</a>
-      </div>
-    </div>
-    <a href="kamien-naturalny.html" class="nav-link">Kamień naturalny</a>
-    <a href="kamien-sztuczny.html"  class="nav-link">Kamień sztuczny</a>
-    <a href="realizacje.html" class="nav-link">Realizacje</a>
+    <a href="#hero"            class="nav-link active">Home</a>
+    <a href="realizacje.html"  class="nav-link">Realizacje</a>
+    <a href="#uslugi"          class="nav-link">Usługi</a>
+    <a href="#o-nas"           class="nav-link">O nas</a>
     <a href="kontakt.html"     class="nav-link">Kontakt</a>
   </nav>
-
   <div class="nav-right">
     <button class="hamburger" id="hamburger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -78,422 +49,186 @@
   </div>
 </header>
 
-<!-- ═══════════════ HERO SLIDER ═══════════════ -->
-<section id="hero" class="hero-slider" aria-label="AMICO - Pracownia Kamieniarska">
-  <div class="hero-slides">
-    <div class="hero-slide active" style="--slide-bg:url('zdjecia/DSC_3389-hero.webp')">
-      <div class="hero-slide-overlay"></div>
-      <div class="hero-slide-content">
-        <p class="hero-eyebrow">Niepowtarzalny design – naturalny i ponadczasowy</p>
-        <h2>z kamienia zrobimy wszystko</h2>
-        <a href="#oferta" class="btn btn-primary btn-lg">więcej</a>
-      </div>
-    </div>
-    <div class="hero-slide" style="--slide-bg:url('zdjecia/DSC_3073-hero.webp')">
-      <div class="hero-slide-overlay"></div>
-      <div class="hero-slide-content">
-        <p class="hero-eyebrow">Projekty i realizacje inspirowane naturą</p>
-        <h2>jesteśmy dla klienta</h2>
-        <a href="realizacje.html" class="btn btn-primary btn-lg">więcej</a>
-      </div>
-    </div>
-    <div class="hero-slide" style="--slide-bg:url('zdjecia/DSC_3128-Edit-hero.webp')">
-      <div class="hero-slide-overlay"></div>
-      <div class="hero-slide-content">
-        <p class="hero-eyebrow">Naturalnie piękne – design i elegancja</p>
-        <h2>wszystkie kolory świata</h2>
-        <a href="kamien-naturalny.html" class="btn btn-primary btn-lg">więcej</a>
-      </div>
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero-single" id="hero" style="--hero-bg:url('zdjecia/DSC_3399-Edit-Edit-hero.webp')">
+  <div class="hero-single-bg" aria-hidden="true"></div>
+  <div class="hero-single-overlay" aria-hidden="true"></div>
+  <div class="hero-single-content">
+    <span class="hero-single-eyebrow">Pracownia kamieniarska · Łódź</span>
+    <h1 class="hero-single-title">Blaty, schody i realizacje z kamienia naturalnego</h1>
+    <p class="hero-single-sub">Projektujemy, wykonujemy i montujemy elementy z kamienia naturalnego i sztucznego — od pomysłu po gotowe wnętrze.</p>
+    <div class="hero-single-actions">
+      <a href="realizacje.html" class="btn btn-primary btn-lg">Zobacz realizacje</a>
+      <a href="kontakt.html"    class="btn btn-outline btn-lg">Skontaktuj się</a>
     </div>
   </div>
-  <div class="hero-slider-dots">
-    <button class="hero-dot active" data-slide="0" aria-label="Slajd 1"></button>
-    <button class="hero-dot" data-slide="1" aria-label="Slajd 2"></button>
-    <button class="hero-dot" data-slide="2" aria-label="Slajd 3"></button>
-  </div>
+  <span class="hero-scroll-cue" aria-hidden="true">Scroll</span>
 </section>
 
-<!-- ═══════════════ HERO WAVE ═══════════════ -->
-<div class="hero-wave" aria-hidden="true">
-  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,25 Q360,92 720,38 Q1080,0 1440,28 L1440,100 L0,100 Z" fill="#000000" opacity=".25"/>
-    <path d="M0,35 Q360,86 720,48 Q1080,8 1440,38 L1440,100 L0,100 Z" fill="#000000" opacity=".5"/>
-    <path d="M0,48 Q360,78 720,56 Q1080,18 1440,48 L1440,100 L0,100 Z" fill="#000000"/>
-  </svg>
-</div>
-
-<!-- ═══════════════ FEATURE CARDS ═══════════════ -->
-<section id="oferta" class="section" aria-labelledby="oferta-heading">
+<!-- ═══════════════ O NAS ═══════════════ -->
+<section class="section bg-soft" id="o-nas" aria-labelledby="onas-heading">
   <div class="container">
-    <div class="features-grid">
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg width="56" height="56" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="18" height="18" rx="2"/><rect x="26" y="4" width="18" height="18" rx="2"/><rect x="4" y="26" width="18" height="18" rx="2"/><rect x="26" y="26" width="18" height="18" rx="2"/></svg>
-        </div>
-        <h3>Co potrafimy?</h3>
-        <p>Z kamienia potrafimy zrobić wszystko! Realizujemy wizje naszych klientów, gwarantując profesjonalne wykonanie.</p>
-        <a href="#realizacje" class="btn btn-outline btn-sm">Więcej</a>
+    <div class="about-split reveal">
+      <div class="about-split-text">
+        <p class="eyebrow">O nas</p>
+        <h2 id="onas-heading">Kamień to nasz język</h2>
+        <p>Jesteśmy lokalną pracownią kamieniarską z okolic Łodzi. Łączymy pasję i kreatywność z doświadczeniem oraz pełnym zrozumieniem klienta.</p>
+        <p>Z kamienia zrobimy wszystko — od pomysłu, przez projekt, po realizację i montaż. Współpracujemy z architektami i klientami indywidualnymi, dobierając materiał i obróbkę pod konkretny projekt.</p>
       </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg width="56" height="56" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M24 6C24 6 18 18 18 24C18 30 24 42 24 42"/><path d="M24 6C24 6 30 18 30 24C30 30 24 42 24 42"/><line x1="6" y1="24" x2="42" y2="24"/></svg>
-        </div>
-        <h3>Nasze materiały</h3>
-        <p>Luksus i elegancja w Twoim domu i wokół niego. Rozwiązania z kamienia naturalnego inspirowane naturą.</p>
-        <a href="kamien-naturalny.html" class="btn btn-outline btn-sm">Więcej</a>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg width="56" height="56" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.27h3a2 2 0 0 1 2 1.72"/><rect x="14" y="24" width="20" height="18" rx="2"/><line x1="18" y1="30" x2="30" y2="30"/><line x1="18" y1="36" x2="26" y2="36"/></svg>
-        </div>
-        <h3>Bezpłatna wycena</h3>
-        <p>Doradzamy konkretne rozwiązania, zbieżne z wizją klienta. Bezpłatnie wyceniamy materiały i realizację.</p>
-        <a href="kontakt.html" class="btn btn-outline btn-sm">Więcej</a>
+      <div class="about-split-img">
+        <picture>
+          <source srcset="zdjecia/DSC_3177-Edit-gallery.avif" type="image/avif">
+          <img src="zdjecia/DSC_3177-Edit-gallery.webp" alt="Detal kamienia naturalnego — pracownia AMICO" loading="lazy" width="1200" height="799">
+        </picture>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ PARALLAX 1 ═══════════════ -->
-<div class="parallax-divider reveal" style="background-image:url('zdjecia/DSC_2662-Edit-hero.webp')">
-  <div class="parallax-shape-top" aria-hidden="true">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,0 H1440 V24 C1100,98 340,8 0,72 Z" fill="#000000" opacity=".3"/>
-      <path d="M0,0 H1440 V20 C1100,90 340,12 0,66 Z" fill="#000000" opacity=".6"/>
-      <path d="M0,0 H1440 V16 C1100,82 340,16 0,60 Z" fill="#000000"/>
-    </svg>
-  </div>
-  <div class="parallax-divider-content">
-    <h3>Precyzja w każdym detalu</h3>
-    <p>Kompleksowa usługa — od profesjonalnego pomiaru, przez precyzyjną obróbkę, aż po fachowy montaż u klienta.</p>
-  </div>
-  <div class="parallax-shape-bottom" aria-hidden="true">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,60 C340,4 1100,98 1440,22 V100 H0 Z" fill="#000000" opacity=".3"/>
-      <path d="M0,65 C340,10 1100,92 1440,28 V100 H0 Z" fill="#000000" opacity=".6"/>
-      <path d="M0,72 C340,16 1100,84 1440,35 V100 H0 Z" fill="#000000"/>
-    </svg>
-  </div>
-</div>
-
-<!-- ═══════════════ NASZE REALIZACJE ═══════════════ -->
-<section id="realizacje" class="section" aria-labelledby="realizacje-heading">
+<!-- ═══════════════ USŁUGI ═══════════════ -->
+<section class="section" id="uslugi" aria-labelledby="uslugi-heading">
   <div class="container">
-    <div class="section-header section-header-center reveal">
-      <p class="eyebrow">Portfolio</p>
-      <h2 id="realizacje-heading">Nasze realizacje</h2>
-      <p class="section-desc">Z kamienia zrobimy wszystko – od pomysłu, przez projekt, po realizację i montaż kamienia</p>
+    <div class="section-title-row reveal">
+      <div>
+        <p class="eyebrow">Usługi</p>
+        <h2 id="uslugi-heading">Co dla Ciebie zrobimy</h2>
+      </div>
+      <a href="kamien-naturalny.html" class="section-link">Materiały</a>
     </div>
 
-    <div class="realizacje-carousel">
-      <button class="carousel-btn carousel-prev" aria-label="Poprzedni">&#10094;</button>
-      <div class="carousel-viewport">
-        <div class="carousel-track" id="realizacjeTrack">
-          <a href="oferta/posadzki.html" class="carousel-card">
-            <div class="carousel-card-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2594-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2594-card.webp" alt="Posadzki" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <span class="carousel-card-label">Posadzki</span>
-          </a>
-          <a href="oferta/blaty-kuchenne.html" class="carousel-card">
-            <div class="carousel-card-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2610-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2610-card.webp" alt="Blaty kuchenne" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <span class="carousel-card-label">Blaty kuchenne</span>
-          </a>
-          <a href="oferta/schody.html" class="carousel-card">
-            <div class="carousel-card-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2668-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2668-card.webp" alt="Schody" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <span class="carousel-card-label">Schody</span>
-          </a>
-          <a href="oferta/blaty-lazienkowe.html" class="carousel-card">
-            <div class="carousel-card-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2674-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2674-card.webp" alt="Blaty łazienkowe" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <span class="carousel-card-label">Blaty łazienkowe</span>
-          </a>
-          <a href="oferta/sciany.html" class="carousel-card">
-            <div class="carousel-card-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2680-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2680-card.webp" alt="Ściany" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <span class="carousel-card-label">Ściany</span>
-          </a>
-          <a href="oferta/parapety.html" class="carousel-card">
-            <div class="carousel-card-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2840-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2840-card.webp" alt="Parapety" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <span class="carousel-card-label">Parapety</span>
-          </a>
-          <a href="oferta/kominki.html" class="carousel-card">
-            <div class="carousel-card-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2857-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2857-card.webp" alt="Obudowy kominków" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <span class="carousel-card-label">Obudowy kominków</span>
-          </a>
+    <div class="services-grid services-grid--four">
+      <a href="oferta/blaty-kuchenne.html" class="service-tile reveal" style="--tile-bg:url('zdjecia/DSC_2610-hero.webp')">
+        <div class="service-tile-bg" aria-hidden="true"></div>
+        <div class="service-tile-overlay" aria-hidden="true"></div>
+        <div class="service-tile-content">
+          <span class="service-tile-num">01</span>
+          <h3 class="service-tile-title">Blaty kuchenne</h3>
+          <span class="service-tile-arrow">Zobacz</span>
         </div>
-      </div>
-      <button class="carousel-btn carousel-next" aria-label="Następny">&#10095;</button>
+      </a>
+      <a href="oferta/schody.html" class="service-tile reveal" style="--tile-bg:url('zdjecia/DSC_2668-hero.webp')">
+        <div class="service-tile-bg" aria-hidden="true"></div>
+        <div class="service-tile-overlay" aria-hidden="true"></div>
+        <div class="service-tile-content">
+          <span class="service-tile-num">02</span>
+          <h3 class="service-tile-title">Schody</h3>
+          <span class="service-tile-arrow">Zobacz</span>
+        </div>
+      </a>
+      <a href="oferta/kominki.html" class="service-tile reveal" style="--tile-bg:url('zdjecia/DSC_2857-hero.webp')">
+        <div class="service-tile-bg" aria-hidden="true"></div>
+        <div class="service-tile-overlay" aria-hidden="true"></div>
+        <div class="service-tile-content">
+          <span class="service-tile-num">03</span>
+          <h3 class="service-tile-title">Obudowy kominków</h3>
+          <span class="service-tile-arrow">Zobacz</span>
+        </div>
+      </a>
+      <a href="oferta/posadzki.html" class="service-tile reveal" style="--tile-bg:url('zdjecia/DSC_2594-hero.webp')">
+        <div class="service-tile-bg" aria-hidden="true"></div>
+        <div class="service-tile-overlay" aria-hidden="true"></div>
+        <div class="service-tile-content">
+          <span class="service-tile-num">04</span>
+          <h3 class="service-tile-title">Posadzki</h3>
+          <span class="service-tile-arrow">Zobacz</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="services-more reveal" aria-label="Pozostałe usługi">
+      <span class="services-more-label">Pozostała oferta</span>
+      <a href="oferta/blaty-lazienkowe.html">Blaty łazienkowe</a>
+      <a href="oferta/parapety.html">Parapety</a>
+      <a href="oferta/sciany.html">Okładziny ścienne</a>
+      <a href="oferta/zlewy.html">Zlewy kamienne</a>
+      <a href="oferta/sprzet-agd.html">Sprzęt AGD</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ PARALLAX 2 ═══════════════ -->
-<div class="parallax-divider reveal" style="background-image:url('zdjecia/DSC_2856-hero.webp')">
-  <div class="parallax-shape-top" aria-hidden="true">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,0 H1440 V74 C1100,6 340,98 0,12 Z" fill="#000000" opacity=".3"/>
-      <path d="M0,0 H1440 V70 C1100,12 340,92 0,16 Z" fill="#000000" opacity=".6"/>
-      <path d="M0,0 H1440 V64 C1100,18 340,84 0,22 Z" fill="#000000"/>
-    </svg>
-  </div>
-  <div class="parallax-divider-content">
-    <h3>Kamień z całego świata</h3>
-    <p>Importujemy najszlachetniejsze materiały z najlepszych kamieniołomów — od włoskiego marmuru po skandynawski granit.</p>
-  </div>
-  <div class="parallax-shape-bottom" aria-hidden="true">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,22 C340,98 1100,4 1440,74 V100 H0 Z" fill="#000000" opacity=".3"/>
-      <path d="M0,28 C340,92 1100,10 1440,68 V100 H0 Z" fill="#000000" opacity=".6"/>
-      <path d="M0,35 C340,84 1100,18 1440,62 V100 H0 Z" fill="#000000"/>
-    </svg>
-  </div>
-</div>
-
-<!-- ═══════════════ DLACZEGO MY ═══════════════ -->
-<section id="dlaczego-my" class="section why-section has-bg has-bg--showcase" aria-labelledby="dlaczegomy-heading" style="--section-bg:url('zdjecia/DSC_3079-hero.webp')">
+<!-- ═══════════════ REALIZACJE PREVIEW ═══════════════ -->
+<section class="section bg-alt" id="realizacje" aria-labelledby="realizacje-heading">
   <div class="container">
-    <div class="section-header section-header-center reveal">
-      <p class="eyebrow">Dlaczego my</p>
-      <h2 id="dlaczegomy-heading">Dlaczego warto<br>pracować z nami</h2>
-      <p class="section-desc">Rozumiemy potrzeby naszych klientów i dostarczamy usługi najwyższej jakości</p>
+    <div class="section-title-row reveal">
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h2 id="realizacje-heading">Wybrane realizacje</h2>
+      </div>
+      <a href="realizacje.html" class="section-link">Zobacz wszystkie</a>
     </div>
 
-    <div class="why-grid">
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="20"/><path d="M24 14v20"/><path d="M14 24h20"/></svg>
-        </div>
-        <h3>Elastyczność</h3>
-        <p>Nasze biuro jest tam, gdzie nasz klient – 100% mobilności</p>
-      </div>
-
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 34l-8-8 3-3 5 5 13-13 3 3z"/><circle cx="24" cy="24" r="20"/></svg>
-        </div>
-        <h3>Gwarancja należytego wykonania</h3>
-        <p>Nasz zespół to wyłącznie profesjonaliści – 100% jakości</p>
-      </div>
-
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="36" height="36" rx="4"/><line x1="6" y1="18" x2="42" y2="18"/><line x1="6" y1="30" x2="42" y2="30"/><line x1="18" y1="6" x2="18" y2="42"/><line x1="30" y1="6" x2="30" y2="42"/></svg>
-        </div>
-        <h3>Maksymalnie szeroka oferta</h3>
-        <p>Na bieżąco poszerzamy ofertę – 100% nowości</p>
-      </div>
+    <div class="gallery-preview reveal">
+      <a href="realizacje.html" class="gallery-preview-item">
+        <picture>
+          <source srcset="zdjecia/DSC_2594-gallery.avif" type="image/avif">
+          <img src="zdjecia/DSC_2594-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="799" height="1200">
+        </picture>
+      </a>
+      <a href="realizacje.html" class="gallery-preview-item">
+        <picture>
+          <source srcset="zdjecia/DSC_2662-Edit-gallery.avif" type="image/avif">
+          <img src="zdjecia/DSC_2662-Edit-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="1200" height="799">
+        </picture>
+      </a>
+      <a href="realizacje.html" class="gallery-preview-item">
+        <picture>
+          <source srcset="zdjecia/DSC_2596-gallery.avif" type="image/avif">
+          <img src="zdjecia/DSC_2596-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="799" height="1200">
+        </picture>
+      </a>
+      <a href="realizacje.html" class="gallery-preview-item">
+        <picture>
+          <source srcset="zdjecia/DSC_3073-gallery.avif" type="image/avif">
+          <img src="zdjecia/DSC_3073-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="1200" height="799">
+        </picture>
+      </a>
+      <a href="realizacje.html" class="gallery-preview-item">
+        <picture>
+          <source srcset="zdjecia/DSC_2680-gallery.avif" type="image/avif">
+          <img src="zdjecia/DSC_2680-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="799" height="1200">
+        </picture>
+      </a>
+      <a href="realizacje.html" class="gallery-preview-item">
+        <picture>
+          <source srcset="zdjecia/DSC_3128-Edit-gallery.avif" type="image/avif">
+          <img src="zdjecia/DSC_3128-Edit-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="1200" height="799">
+        </picture>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ PARALLAX 3 ═══════════════ -->
-<div class="parallax-divider reveal" style="background-image:url('zdjecia/DSC_3103-hero.webp')">
-  <div class="parallax-shape-top" aria-hidden="true">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,0 H1440 V26 C1100,96 340,4 0,78 Z" fill="#000000" opacity=".3"/>
-      <path d="M0,0 H1440 V22 C1100,88 340,9 0,72 Z" fill="#000000" opacity=".6"/>
-      <path d="M0,0 H1440 V17 C1100,80 340,15 0,65 Z" fill="#000000"/>
-    </svg>
-  </div>
-  <div class="parallax-divider-content">
-    <h3>Tysiące zrealizowanych projektów</h3>
-    <p>Każda realizacja to historia współpracy, zaufania i kamieniarskiego kunsztu.</p>
-  </div>
-  <div class="parallax-shape-bottom" aria-hidden="true">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,58 C340,2 1100,96 1440,20 V100 H0 Z" fill="#000000" opacity=".3"/>
-      <path d="M0,64 C340,8 1100,90 1440,26 V100 H0 Z" fill="#000000" opacity=".6"/>
-      <path d="M0,70 C340,15 1100,82 1440,34 V100 H0 Z" fill="#000000"/>
-    </svg>
-  </div>
-</div>
-
-<!-- ═══════════════ KAMIENNE INSPIRACJE ═══════════════ -->
-<section id="inspiracje" class="section bg-alt has-bg has-bg--showcase" aria-labelledby="inspiracje-heading" style="--section-bg:url('zdjecia/DSC_3172-hero.webp')">
+<!-- ═══════════════ KONTAKT MINI ═══════════════ -->
+<section class="section bg-soft" id="kontakt-mini" aria-labelledby="kontakt-mini-heading">
   <div class="container">
-    <div class="section-header section-header-center reveal">
-      <p class="eyebrow">Inspiracje</p>
-      <h2 id="inspiracje-heading">Kamienne inspiracje</h2>
-      <p class="section-desc">Ciekawe pomysły na nowoczesne wnętrza i architekturę</p>
-    </div>
-
-    <div class="inspiracje-carousel">
-      <button class="carousel-btn carousel-prev" aria-label="Poprzedni">&#10094;</button>
-      <div class="carousel-viewport">
-        <div class="carousel-track" id="inspiracjeTrack">
-          <a href="oferta/zlewy.html" class="inspiration-slide">
-            <div class="inspiration-slide-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2596-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2596-card.webp" alt="Kolorowe zlewy" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <h3>Kolorowe zlewy</h3>
-            <p>Designerskie zlewy w kolorze blatu kwarcowego, w dowolnym odcieniu.</p>
-          </a>
-          <a href="oferta/kominki.html" class="inspiration-slide">
-            <div class="inspiration-slide-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2601-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2601-card.webp" alt="Obudowy kominków" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <h3>Obudowy kominków</h3>
-            <p>Obudowy kominków z kilku rodzajów kamienia – niepowtarzalny efekt.</p>
-          </a>
-          <a href="oferta/blaty-kuchenne.html" class="inspiration-slide">
-            <div class="inspiration-slide-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2720-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2720-card.webp" alt="Blaty kuchenne" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <h3>Blaty kuchenne</h3>
-            <p>Kamienne blaty to elegancja, nowoczesność i funkcjonalność.</p>
-          </a>
-          <a href="oferta/schody.html" class="inspiration-slide">
-            <div class="inspiration-slide-img">
-              <picture>
-                <source srcset="zdjecia/DSC_2850-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_2850-card.webp" alt="Schody" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <h3>Schody</h3>
-            <p>Schody wewnętrzne i zewnętrzne, efektowne i wytrzymałe.</p>
-          </a>
-          <a href="oferta/posadzki.html" class="inspiration-slide">
-            <div class="inspiration-slide-img">
-              <picture>
-                <source srcset="zdjecia/DSC_3406-card.avif" type="image/avif">
-                <img src="zdjecia/DSC_3406-card.webp" alt="Posadzki" loading="lazy" width="600" height="400">
-              </picture>
-            </div>
-            <h3>Posadzki</h3>
-            <p>Kamienne posadzki w efektowny sposób podkreślą prestiż każdego wnętrza.</p>
-          </a>
-        </div>
+    <div class="contact-mini reveal">
+      <div>
+        <p class="eyebrow">Kontakt</p>
+        <h2 id="kontakt-mini-heading">Porozmawiajmy o Twoim projekcie</h2>
+        <p class="contact-mini-text">Przyjeżdżamy do klientów, na miejscu doradzamy, robimy pomiar i bezpłatnie wyceniamy. Realizujemy wizje klientów oraz projekty we współpracy z architektami.</p>
+        <a href="kontakt.html" class="btn btn-primary">Skontaktuj się</a>
       </div>
-      <button class="carousel-btn carousel-next" aria-label="Następny">&#10095;</button>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ PARALLAX DIVIDER ═══════════════ -->
-<div class="parallax-divider reveal" style="background-image:url('zdjecia/DSC_2864-hero.webp')">
-  <div class="parallax-shape-top" aria-hidden="true">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,0 H1440 V25 C1100,95 340,5 0,75 Z" fill="#000000" opacity=".3"/>
-      <path d="M0,0 H1440 V20 C1100,88 340,10 0,68 Z" fill="#000000" opacity=".6"/>
-      <path d="M0,0 H1440 V15 C1100,80 340,16 0,62 Z" fill="#000000"/>
-    </svg>
-  </div>
-  <div class="parallax-divider-content">
-    <h3>Inspiracja w każdym detalu</h3>
-    <p>Odkryj nasze pomysły na wyjątkowe aranżacje z kamienia naturalnego i sztucznego.</p>
-  </div>
-  <div class="parallax-shape-bottom" aria-hidden="true">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,56 C340,3 1100,97 1440,18 V100 H0 Z" fill="#000000" opacity=".3"/>
-      <path d="M0,62 C340,9 1100,90 1440,25 V100 H0 Z" fill="#000000" opacity=".6"/>
-      <path d="M0,68 C340,16 1100,82 1440,32 V100 H0 Z" fill="#000000"/>
-    </svg>
-  </div>
-</div>
-
-<!-- ═══════════════ CO ROBIMY ═══════════════ -->
-<section id="co-robimy" class="section bg-alt has-bg has-bg--showcase" aria-labelledby="corobimy-heading" style="--section-bg:url('zdjecia/DSC_3454-hero.webp')">
-  <div class="container">
-    <div class="section-header section-header-center reveal">
-      <p class="eyebrow">Nasza oferta</p>
-      <h2 id="corobimy-heading">Co robimy</h2>
-      <p class="section-desc">Z kamienia potrafimy zrobić wszystko — od projektu po realizację i montaż</p>
-    </div>
-
-    <div class="corobimy-grid">
-      <div class="corobimy-col reveal">
-        <h4>Wewnątrz</h4>
-        <div class="corobimy-tags">
-          <a href="oferta/blaty-kuchenne.html" class="corobimy-tag">blaty kuchenne</a>
-          <a href="oferta/zlewy.html" class="corobimy-tag">zlewy</a>
-          <a href="oferta/schody.html" class="corobimy-tag">schody</a>
-          <a href="oferta/kominki.html" class="corobimy-tag">obudowy kominków</a>
-          <a href="oferta/blaty-lazienkowe.html" class="corobimy-tag">blaty łazienkowe</a>
-          <a href="oferta/parapety.html" class="corobimy-tag">parapety</a>
-          <a href="oferta/sciany.html" class="corobimy-tag">ściany</a>
-          <a href="oferta/posadzki.html" class="corobimy-tag">posadzki</a>
-          <a href="oferta/sprzet-agd.html" class="corobimy-tag">sprzęt AGD</a>
+      <div class="contact-mini-list">
+        <div class="contact-mini-list-item">
+          <span>Adres</span>
+          <span>ul. Brzezińska 84, 95-020 Bedoń k/&nbsp;Łodzi</span>
         </div>
-        <h5 class="corobimy-sub-heading" style="margin-top:1.5rem">Na zewnątrz</h5>
-        <div class="corobimy-tags">
-          <span class="corobimy-tag">tarasy</span>
-          <span class="corobimy-tag">schody</span>
-          <span class="corobimy-tag">elewacje</span>
+        <div class="contact-mini-list-item">
+          <span>Telefon</span>
+          <a href="tel:+48785040609">785-04-06-09</a>
         </div>
-      </div>
-
-      <div class="corobimy-col reveal">
-        <h4>Nasze materiały</h4>
-        <ul class="corobimy-materials-list">
-          <li><a href="kamien-naturalny.html">marmury</a></li>
-          <li><a href="kamien-naturalny.html">granity</a></li>
-          <li><a href="kamien-naturalny.html">trawertyny</a></li>
-          <li><a href="kamien-naturalny.html">onyxy</a></li>
-          <li><a href="kamien-sztuczny.html">aglomarmury</a></li>
-          <li><a href="kamien-sztuczny.html">kwarcogranity</a></li>
-          <li><a href="kamien-sztuczny.html">spieki kwarcowe</a></li>
-          <li><a href="kamien-sztuczny.html">dekton</a></li>
-        </ul>
-      </div>
-
-      <div class="corobimy-col reveal">
-        <h4>Skontaktuj się</h4>
-        <p class="corobimy-contact-text">Chcesz stworzyć wyjątkowe wnętrze?<br>Nasza oferta to nieograniczone możliwości.<br>Sprawdź!</p>
-        <a href="kontakt.html" class="btn btn-primary btn-sm corobimy-cta">Skontaktuj się z nami</a>
+        <div class="contact-mini-list-item">
+          <span>E-mail</span>
+          <a href="mailto:biuro@amicco.pl">biuro@amicco.pl</a>
+        </div>
+        <div class="contact-mini-list-item">
+          <span>Godziny</span>
+          <span>Pon–Pt 9:00–17:00 · Sob 8:00–14:00</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════ TRANSITION TO FOOTER ═══════════════ -->
-<div class="footer-wave-transition" aria-hidden="true">
-  <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,105 C200,60 450,140 700,85 C950,30 1150,120 1440,72 L1440,160 L0,160 Z" fill="#000000" opacity=".25"/>
-    <path d="M0,118 C180,75 420,148 680,95 C940,42 1130,128 1440,82 L1440,160 L0,160 Z" fill="#000000" opacity=".5"/>
-    <path d="M0,130 C160,90 390,155 630,108 C870,58 1110,135 1290,88 C1390,68 1430,102 1440,96 L1440,160 L0,160 Z" fill="#000000"/>
-  </svg>
-</div>
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <footer class="footer" role="contentinfo">
@@ -503,7 +238,7 @@
         <div class="footer-brand">
           <div class="footer-logo-block">
             <span class="footer-logo-sub">Pracownia Kamieniarska</span>
-            <a href="#hero" class="footer-logo"><img src="amico-logo-mark.svg" alt="AMICO" class="footer-logo-img"></a>
+            <a href="index.html" class="footer-logo"><img src="amico-logo-mark.svg" alt="AMICO" class="footer-logo-img"></a>
           </div>
           <p>Łączymy pasję i kreatywność z doświadczeniem i pełnym zrozumieniem klienta.</p>
         </div>
@@ -528,22 +263,18 @@
         <a href="polityka-prywatnosci.html">Polityka prywatności</a>
         <a href="regulamin.html">Regulamin</a>
       </div>
-      <span>Stworzone przez <a href="https://kontaktio.pl" target="_blank" rel="noopener noreferrer" style="color:#4cc9f0">kontaktio.pl</a></span>
+      <span>Stworzone przez <a href="https://kontaktio.pl" target="_blank" rel="noopener noreferrer">kontaktio.pl</a></span>
     </div>
   </div>
 </footer>
 
-<!-- Cookie consent banner is injected dynamically by script.js (CookieConsent module) -->
-
 <script src="script.js"></script>
 <script src="background-effects.js"></script>
 <script src="wow-animations.js"></script>
-
 <script src="kontaktio.js" defer
   data-kontaktio
   data-client="amico"
   data-backend="https://chatbot-backend-x2cy.onrender.com"
 ></script>
-
 </body>
 </html>
