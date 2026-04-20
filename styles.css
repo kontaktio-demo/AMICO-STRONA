@@ -3456,3 +3456,253 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 .service-tile .service-tile-bg,
 .service-tile .service-tile-overlay,
 .service-tile .service-tile-arrow { transition: transform .25s ease, opacity .25s ease, background-color .25s ease, color .25s ease; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   POLISH PASS — animations, responsive refinement & mobile nav backdrop
+   (single unified layer, applies to every page that loads styles.css)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── Smoother global motion baseline ─── */
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; scroll-padding-top: 0; } }
+
+/* Premium easing tokens shared across all pages */
+:root {
+  --ease-soft:    cubic-bezier(.22, 1, .36, 1);
+  --ease-elegant: cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ─── Navigation: always-visible glass backdrop (fixes "nav nie widać") ───
+   The bar is fixed and overlays photo-rich heroes on every page.
+   We give it a subtle gradient veil at rest so the links are always legible,
+   then intensify the blur + opacity once the user scrolls. */
+.nav {
+  background: linear-gradient(180deg, rgba(7,8,12,.55) 0%, rgba(7,8,12,.25) 60%, rgba(7,8,12,0) 100%) !important;
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  transition: background .4s var(--ease-elegant), backdrop-filter .4s var(--ease-elegant), padding .35s var(--ease-elegant), border-color .4s var(--ease-elegant);
+  border-bottom: 1px solid rgba(255,255,255,0);
+  will-change: background, backdrop-filter;
+}
+.nav.scrolled {
+  background: rgba(7,8,12,.82) !important;
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border-bottom-color: rgba(255,255,255,.08);
+  box-shadow: 0 8px 32px -16px rgba(0,0,0,.55);
+}
+
+/* Hamburger touch target (≥44px recommended by WCAG) */
+.hamburger {
+  width: 44px; height: 44px;
+  align-items: center; justify-content: center;
+  border-radius: 4px;
+  transition: background .25s var(--ease-elegant);
+}
+.hamburger:hover, .hamburger:focus-visible { background: rgba(255,255,255,.06); outline: none; }
+.hamburger span { width: 22px; }
+
+/* ─── Mobile menu polish (matches reference image style) ─── */
+@media (max-width: 900px) {
+  .nav {
+    background: linear-gradient(180deg, rgba(7,8,12,.78) 0%, rgba(7,8,12,.55) 100%) !important;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .nav.scrolled { background: rgba(7,8,12,.92) !important; }
+
+  .nav-links {
+    background: rgba(8,9,14,.97) !important;
+    backdrop-filter: blur(28px) saturate(140%);
+    -webkit-backdrop-filter: blur(28px) saturate(140%);
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .55s var(--ease-soft), opacity .35s ease, visibility 0s linear .55s;
+  }
+  .nav-links.open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    transition: transform .55s var(--ease-soft), opacity .25s ease, visibility 0s linear 0s;
+  }
+  .nav-links .nav-link {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .5s var(--ease-soft), transform .5s var(--ease-soft), color .25s ease;
+    width: min(420px, 86%);
+    text-align: center;
+    padding: 14px 4px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .nav-links .nav-link:last-child { border-bottom: 0; }
+  .nav-links.open .nav-link { opacity: 1; transform: translateY(0); }
+  .nav-links.open .nav-link:nth-child(1) { transition-delay: .12s; }
+  .nav-links.open .nav-link:nth-child(2) { transition-delay: .18s; }
+  .nav-links.open .nav-link:nth-child(3) { transition-delay: .24s; }
+  .nav-links.open .nav-link:nth-child(4) { transition-delay: .30s; }
+  .nav-links.open .nav-link:nth-child(5) { transition-delay: .36s; }
+  .nav-links .nav-link.active { color: #fff; }
+  .nav-links .nav-link.active::after { width: 28px; left: 50%; transform: translateX(-50%); }
+}
+
+/* Lock body scroll when mobile menu is open */
+body.menu-open { overflow: hidden !important; }
+
+/* ─── Refined hover/touch micro-interactions (smoother eases) ─── */
+.btn { transition: background .3s var(--ease-elegant), color .3s var(--ease-elegant), border-color .3s var(--ease-elegant), transform .3s var(--ease-soft), box-shadow .35s var(--ease-elegant); }
+.btn:active { transform: translateY(1px) scale(.985); transition-duration: .12s; }
+
+a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-card, .carousel-card { -webkit-tap-highlight-color: transparent; }
+
+/* Touch feedback for tiles and gallery items on mobile devices */
+@media (hover: none) {
+  .service-tile:active { transform: scale(.99); transition: transform .15s var(--ease-elegant); }
+  .gallery-preview-item:active img { transform: scale(1.03); transition: transform .25s var(--ease-elegant); }
+  .btn:active { opacity: .85; }
+}
+
+/* ─── Smoother service-tile + gallery animations ─── */
+.service-tile { transition: transform .55s var(--ease-soft), box-shadow .55s var(--ease-elegant); }
+.service-tile-bg { transition: transform 1.4s var(--ease-soft), filter .8s var(--ease-elegant) !important; }
+.service-tile-overlay { transition: opacity .55s var(--ease-elegant), background .55s var(--ease-elegant); }
+.service-tile-arrow { transition: color .35s var(--ease-elegant), gap .35s var(--ease-soft), letter-spacing .35s var(--ease-elegant); }
+.service-tile:hover .service-tile-arrow { letter-spacing: .3em; }
+
+.gallery-preview-item img { transition: transform 1.4s var(--ease-soft), filter .6s var(--ease-elegant) !important; }
+
+/* Reveal animation polish */
+.reveal { transition: opacity .65s var(--ease-soft), transform .85s var(--ease-soft), filter .85s var(--ease-soft); }
+
+/* Map: cursor + smoother veil transition */
+.premium-map { cursor: pointer; }
+.premium-map iframe { transition: filter .8s var(--ease-elegant); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — every breakpoint, mobile-first centering
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* XL desktops & 4K monitors */
+@media (min-width: 1600px) {
+  :root { --container: 1480px; }
+  h1 { font-size: clamp(3.4rem, 5.6vw, 6.4rem); }
+  .section { padding: clamp(120px, 10vw, 200px) clamp(40px, 5vw, 80px); }
+}
+
+@media (min-width: 1920px) {
+  :root { --container: 1640px; }
+}
+
+/* Medium laptops + small desktops */
+@media (max-width: 1280px) {
+  .services-grid--four { grid-template-columns: repeat(2, 1fr); }
+  .gallery-preview { column-count: 3; }
+}
+
+/* Small laptops + landscape tablets */
+@media (max-width: 1100px) {
+  .container { padding: 0 24px; }
+  h1 { font-size: clamp(2.4rem, 6.4vw, 4.6rem); }
+  h2 { font-size: clamp(1.85rem, 4.2vw, 2.8rem); }
+}
+
+/* Tablets (portrait) */
+@media (max-width: 900px) {
+  .section { padding: clamp(72px, 11vw, 120px) clamp(20px, 5vw, 60px); }
+  .hero-single-content,
+  .page-hero-content { text-align: center; align-items: center; margin-left: auto; margin-right: auto; }
+  .hero-single-actions { justify-content: center; }
+  .about-split,
+  .form-split,
+  .contact-mini { text-align: center; }
+  .about-split-text,
+  .form-split-text { max-width: 60ch; margin-left: auto; margin-right: auto; }
+  .about-marks { justify-content: center; justify-items: center; }
+  .about-marks li { align-items: center; text-align: center; }
+  .form-split-meta { align-items: center; }
+  .contact-mini-list { align-items: flex-start; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .section-title-row { text-align: center; align-items: center; }
+  .section-title-row > div:first-child { width: 100%; }
+  .materials-links { justify-content: center; }
+  .services-more { justify-content: center; text-align: center; }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+  h1 { font-size: clamp(2rem, 8vw, 3.2rem); line-height: 1.08; }
+  h2 { font-size: clamp(1.6rem, 6vw, 2.3rem); }
+  .btn { padding: 16px 26px; font-size: .76rem; letter-spacing: .14em; }
+  .btn-lg { padding: 18px 30px; font-size: .78rem; }
+  .hero-single-actions { flex-wrap: wrap; gap: 12px; }
+  .hero-single-actions .btn { flex: 1 1 200px; min-width: 140px; }
+  .footer-grid-new { text-align: center; }
+  .footer-brand { align-items: center; }
+  .footer-social { justify-content: center; }
+  .footer-bottom-inner { flex-direction: column; gap: 10px; text-align: center; }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .container { padding: 0 18px; }
+  .section { padding: clamp(56px, 14vw, 88px) 18px; }
+  .gallery-preview { column-count: 1; column-gap: 14px; }
+  .services-grid,
+  .services-grid--three,
+  .services-grid--four { grid-template-columns: 1fr; gap: 14px; }
+  .service-tile { aspect-ratio: 16 / 11; }
+  .pf-row { grid-template-columns: 1fr; }
+  .pf-actions { flex-direction: column; align-items: stretch; }
+  .pf-actions .btn { width: 100%; }
+  .pf-note { text-align: center; max-width: none; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .container { padding: 0 14px; }
+  .section { padding: 56px 14px; }
+  h1 { font-size: clamp(1.85rem, 9vw, 2.4rem); }
+  h2 { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .hero-single-content { padding-left: 14px; padding-right: 14px; }
+  .hero-single-eyebrow { justify-content: center; }
+  .hero-single-actions { width: 100%; }
+  .hero-single-actions .btn { flex: 1 1 100%; }
+  .footer-links { justify-content: center; gap: 18px; row-gap: 8px; }
+  .nav-links .nav-link { font-size: 1rem; letter-spacing: .2em; }
+}
+
+/* Tiny phones (e.g. iPhone SE 1st gen, 320px) */
+@media (max-width: 380px) {
+  .container { padding: 0 12px; }
+  h1 { font-size: 1.7rem; }
+  h2 { font-size: 1.4rem; }
+  .btn { padding: 14px 18px; font-size: .72rem; }
+  .nav { padding: 10px 14px !important; }
+  .logo-img { height: 30px !important; }
+}
+
+/* Landscape phones — keep hero usable */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero-single,
+  .hero-premium { min-height: 100svh; }
+  .hero-single-content { padding-top: 88px; padding-bottom: 32px; }
+  .hero-scroll-cue { display: none; }
+}
+
+/* ─── Anti-source-view UX (visual deterrents only) ─── */
+.no-select,
+.service-tile-bg,
+.gallery-preview-item img,
+.about-split-img img,
+.hero-single-bg {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+img { -webkit-user-drag: none; user-select: none; }
+
+/* ─── Print: hide noisy interactive bits ─── */
+@media print {
+  .nav, .hamburger, .preloader, #preloader, .kontaktio-launcher, .scroll-progress, .premium-map { display: none !important; }
+}
