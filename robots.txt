@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+Disallow: /panel/
+Disallow: /tok x amico/
+
+# Allow major search engines explicitly
+User-agent: Googlebot
+Allow: /
+Disallow: /panel/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /panel/
+
+# AI / generative crawlers — opt-in for SEO 2026 visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://amico.kontaktio.pl/sitemap.xml
+Host: https://amico.kontaktio.pl
