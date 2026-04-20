@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
   initHamburger();
   initDropdowns();
   initScrollReveal();
+  initLazySections();
+  initLazyIframes();
   initForm();
   initCookieConsent();
   initHeroSlider();
@@ -118,6 +120,53 @@ function initScrollReveal() {
   );
 
   elements.forEach(function (el) { observer.observe(el); });
+}
+
+/* Lazy-section: fade-in heavy sections (portfolio, usługi, o nas, kontakt)
+   only when they enter the viewport. Triggers native lazy-loaded <img>s
+   inside those sections to start fetching slightly earlier. */
+function initLazySections() {
+  var sections = document.querySelectorAll('.lazy-section');
+  if (!sections.length || !('IntersectionObserver' in window)) {
+    sections.forEach(function (s) { s.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible', 'fade-in');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
+  sections.forEach(function (s) { io.observe(s); });
+}
+
+/* Lazy-load iframes (e.g. Google Maps) only when scrolled near viewport.
+   Loads ~200px before the iframe enters the viewport so the embed has a head
+   start and the user does not see a blank rectangle. */
+function initLazyIframes() {
+  var iframes = document.querySelectorAll('iframe[data-src]');
+  if (!iframes.length) return;
+  var assign = function (f) {
+    var src = f.getAttribute('data-src') || '';
+    // Only allow http(s) URLs — guards against javascript:/data: URIs being
+    // injected via the data-src attribute (CodeQL js/xss-through-dom).
+    if (!/^https?:\/\//i.test(src)) return;
+    f.src = src;
+    f.removeAttribute('data-src');
+  };
+  if (!('IntersectionObserver' in window)) {
+    iframes.forEach(assign);
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      assign(entry.target);
+      io.unobserve(entry.target);
+    });
+  }, { rootMargin: '200px 0px' });
+  iframes.forEach(function (f) { io.observe(f); });
 }
 
 function initForm() {

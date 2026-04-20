@@ -3491,3 +3491,32 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 
 /* Override section radial gradient backgrounds from legacy palette */
 #oferta, #realizacje, #dlaczego-my, #inspiracje { background: var(--bg); }
+
+/* ═══ PERFORMANCE: lazy-section / fade-in (IntersectionObserver) ═══ */
+.lazy-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.lazy-section.is-visible,
+.fade-in {
+  opacity: 1;
+  transform: none;
+}
+.fade-in {
+  animation: amicoFadeIn .7s ease both;
+}
+@keyframes amicoFadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lazy-section,
+  .fade-in { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
+}
+
+/* Service tiles: smooth hover transitions */
+.service-tile,
+.service-tile .service-tile-bg,
+.service-tile .service-tile-overlay,
+.service-tile .service-tile-arrow { transition: transform .25s ease, opacity .25s ease, background-color .25s ease, color .25s ease; }

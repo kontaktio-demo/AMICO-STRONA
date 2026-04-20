@@ -421,7 +421,7 @@ function renderTable() {
 
     return `
       <tr>
-        <td><img class="tbl-thumb" src="${l.img}" alt="" loading="lazy" onerror="this.style.display='none'"></td>
+        <td><img decoding="async" class="tbl-thumb" src="${l.img}" alt="" loading="lazy" onerror="this.style.display='none'"></td>
         <td><strong>${l.title}</strong><br><span style="color:var(--text-muted);font-size:.72rem">${l.category}</span></td>
         <td><span class="badge ${typeClass}">${typeLabel}</span></td>
         <td>${fmtPrice} ${l.currency}</td>
