@@ -50,9 +50,9 @@
 }
   </script>
 >
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="../zdjecia/DSC_2840-hero.webp" fetchpriority="high">
@@ -218,6 +218,24 @@
       opacity: 1;
       transform: scale(1);
     }
+    .lightbox-spinner {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 42px; height: 42px;
+      margin: -21px 0 0 -21px;
+      border: 2px solid rgba(255,255,255,.18);
+      border-top-color: rgba(255,255,255,.85);
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+      z-index: 2;
+    }
+    .lightbox-overlay.is-loading .lightbox-spinner {
+      opacity: 1;
+      animation: lb-spin .8s linear infinite;
+    }
+    @keyframes lb-spin { to { transform: rotate(360deg); } }
     .lightbox-close {
       position: absolute;
       top: 20px;
@@ -575,6 +593,7 @@
   <button class="lightbox-nav lightbox-prev" aria-label="Poprzednie zdjęcie">&#8249;</button>
   <button class="lightbox-nav lightbox-next" aria-label="Następne zdjęcie">&#8250;</button>
   <img decoding="async" src="" alt="Podgląd realizacji AMICO">
+  <div class="lightbox-spinner" aria-hidden="true"></div>
   <span class="lightbox-counter"></span>
 </div>
 
@@ -647,32 +666,32 @@
 <script>
 (function() {
   var fullSrcMap = [
-    'zdjecia/DSC_2594-gallery.webp',
-    'zdjecia/DSC_2662-Edit-gallery.webp',
-    'zdjecia/DSC_2596-gallery.webp',
-    'zdjecia/DSC_3073-gallery.webp',
-    'zdjecia/DSC_2601-gallery.webp',
-    'zdjecia/DSC_2856-gallery.webp',
-    'zdjecia/DSC_2610-gallery.webp',
-    'zdjecia/DSC_3103-gallery.webp',
-    'zdjecia/DSC_2668-gallery.webp',
-    'zdjecia/DSC_3128-Edit-gallery.webp',
-    'zdjecia/DSC_2674-gallery.webp',
-    'zdjecia/DSC_3177-Edit-gallery.webp',
-    'zdjecia/DSC_2680-gallery.webp',
-    'zdjecia/DSC_3389-gallery.webp',
-    'zdjecia/DSC_2720-gallery.webp',
-    'zdjecia/DSC_3399-Edit-Edit-gallery.webp',
-    'zdjecia/DSC_2840-gallery.webp',
-    'zdjecia/DSC_2857-gallery.webp',
-    'zdjecia/DSC_2850-gallery.webp',
-    'zdjecia/DSC_2864-gallery.webp',
-    'zdjecia/DSC_3079-gallery.webp',
-    'zdjecia/DSC_3085-gallery.webp',
-    'zdjecia/DSC_3172-gallery.webp',
-    'zdjecia/DSC_3406-gallery.webp',
-    'zdjecia/DSC_3454-gallery.webp',
-    'zdjecia/DSC_3463-gallery.webp'
+    '../zdjecia/DSC_2594-gallery.webp',
+    '../zdjecia/DSC_2662-Edit-gallery.webp',
+    '../zdjecia/DSC_2596-gallery.webp',
+    '../zdjecia/DSC_3073-gallery.webp',
+    '../zdjecia/DSC_2601-gallery.webp',
+    '../zdjecia/DSC_2856-gallery.webp',
+    '../zdjecia/DSC_2610-gallery.webp',
+    '../zdjecia/DSC_3103-gallery.webp',
+    '../zdjecia/DSC_2668-gallery.webp',
+    '../zdjecia/DSC_3128-Edit-gallery.webp',
+    '../zdjecia/DSC_2674-gallery.webp',
+    '../zdjecia/DSC_3177-Edit-gallery.webp',
+    '../zdjecia/DSC_2680-gallery.webp',
+    '../zdjecia/DSC_3389-gallery.webp',
+    '../zdjecia/DSC_2720-gallery.webp',
+    '../zdjecia/DSC_3399-Edit-Edit-gallery.webp',
+    '../zdjecia/DSC_2840-gallery.webp',
+    '../zdjecia/DSC_2857-gallery.webp',
+    '../zdjecia/DSC_2850-gallery.webp',
+    '../zdjecia/DSC_2864-gallery.webp',
+    '../zdjecia/DSC_3079-gallery.webp',
+    '../zdjecia/DSC_3085-gallery.webp',
+    '../zdjecia/DSC_3172-gallery.webp',
+    '../zdjecia/DSC_3406-gallery.webp',
+    '../zdjecia/DSC_3454-gallery.webp',
+    '../zdjecia/DSC_3463-gallery.webp'
   ];
   var total = fullSrcMap.length;
   var current = 0;
@@ -680,48 +699,125 @@
   var lbImg = overlay.querySelector('img');
   var counter = overlay.querySelector('.lightbox-counter');
   var preloadCache = {};
+  var loadToken = 0;
+
+  /* Detect AVIF support once and prefer AVIF for the lightbox (smaller, faster). */
+  var supportsAvif = false;
+  (function() {
+    var testImg = new Image();
+    testImg.onload = function() { supportsAvif = testImg.width > 0 && testImg.height > 0; };
+    testImg.onerror = function() { supportsAvif = false; };
+    testImg.src = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=';
+  })();
+
+  function srcFor(i) {
+    var s = fullSrcMap[i];
+    if (supportsAvif) return s.replace(/\.webp$/i, '.avif');
+    return s;
+  }
 
   function preloadAdjacent(index) {
     var indices = [
       (index - 1 + total) % total,
       (index + 1) % total,
-      (index + 2) % total
+      (index + 2) % total,
+      (index - 2 + total) % total
     ];
     indices.forEach(function(i) {
-      if (!preloadCache[i]) {
+      var key = i + (supportsAvif ? ':avif' : ':webp');
+      if (!preloadCache[key]) {
         var img = new Image();
-        img.src = fullSrcMap[i];
-        preloadCache[i] = img;
+        img.src = srcFor(i);
+        preloadCache[key] = img;
       }
     });
   }
 
+  /* Decode the new image off-screen, then swap it in — eliminates the flash
+     of the alt text / blank state while the next photo is loading. */
+  function showImage(index, isInitial) {
+    var token = ++loadToken;
+    var src = srcFor(index);
+    counter.textContent = (index + 1) + ' / ' + total;
+
+    var pre = new Image();
+    pre.decoding = 'async';
+
+    var commit = function() {
+      if (token !== loadToken) return;
+      lbImg.classList.add('lb-switching');
+      lbImg.src = src;
+      overlay.classList.remove('is-loading');
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() { lbImg.classList.remove('lb-switching'); });
+      });
+    };
+
+    pre.onload = function() {
+      if (pre.decode) {
+        pre.decode().then(commit).catch(commit);
+      } else {
+        commit();
+      }
+    };
+    pre.onerror = function() {
+      /* AVIF may be advertised but fail for a specific file → fall back to webp */
+      if (token !== loadToken) return;
+      if (/\.avif$/i.test(src)) {
+        var fallback = fullSrcMap[index];
+        var pre2 = new Image();
+        pre2.onload = function() {
+          if (token !== loadToken) return;
+          lbImg.classList.add('lb-switching');
+          lbImg.src = fallback;
+          overlay.classList.remove('is-loading');
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() { lbImg.classList.remove('lb-switching'); });
+          });
+        };
+        pre2.onerror = function() { overlay.classList.remove('is-loading'); };
+        pre2.src = fallback;
+      } else {
+        overlay.classList.remove('is-loading');
+      }
+    };
+    pre.src = src;
+
+    /* If the image is already cached, the swap will be instant — avoid showing the spinner.
+       Otherwise show the spinner after a tiny delay so quick loads don't flicker it. */
+    if (pre.complete && pre.naturalWidth > 0) {
+      commit();
+    } else if (!isInitial) {
+      setTimeout(function() {
+        if (token === loadToken && !(pre.complete && pre.naturalWidth > 0)) {
+          overlay.classList.add('is-loading');
+        }
+      }, 120);
+    } else {
+      overlay.classList.add('is-loading');
+    }
+  }
+
   function openLightbox(index) {
     current = index;
-    lbImg.src = fullSrcMap[current];
-    counter.textContent = (current + 1) + ' / ' + total;
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    showImage(current, true);
     preloadAdjacent(current);
   }
 
   function closeLightbox() {
     overlay.classList.remove('active');
+    overlay.classList.remove('is-loading');
     document.body.style.overflow = '';
+    loadToken++;
     setTimeout(function() { lbImg.src = ''; }, 350);
   }
 
   function navigate(dir) {
     current = (current + dir + total) % total;
-    lbImg.classList.add('lb-switching');
-    lbImg.src = fullSrcMap[current];
-    counter.textContent = (current + 1) + ' / ' + total;
+    showImage(current, false);
     preloadAdjacent(current);
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        lbImg.classList.remove('lb-switching');
-      });
-    });
   }
 
   document.querySelectorAll('.gallery-item').forEach(function(item) {
