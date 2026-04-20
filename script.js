@@ -57,7 +57,6 @@ function initHamburger() {
   // complete on phones (matches the "all subpages, scrollable" UX we want).
   // Desktop hides these via CSS (@media min-width:901px).
   if (!navLinks.querySelector(".nav-mobile-cta")) {
-    var base = navLinks.querySelector('a[href*="kontakt"]');
     // Compute path prefix to root so the injected links work from sub-folders.
     var prefix = "";
     var firstLink = navLinks.querySelector("a");
