@@ -81,111 +81,111 @@
       seed: 42,
       colors: [[220,185,120],[200,165,100],[235,210,155],[245,225,170],[190,160,110]],
       ambient: [230,200,140],
-      angle: 32, primaryN: 5, secondaryN: 12, microN: 0.7,
+      angle: 32, primaryN: 5, secondaryN: 12, microN: 0.385,
       pThick: [2.8,7.0], sThick: [0.8,2.8],
-      pAlpha: [0.22,0.42], sAlpha: [0.07,0.20],
-      glow: 0.60, warp: 3.8, branchP: 0.78, branchN: [4,10],
-      microA: [0.025,0.09], patches: 10
+      pAlpha: [0.308,0.588], sAlpha: [0.102,0.29],
+      glow: 0.75, warp: 3.8, branchP: 0.78, branchN: [4,10],
+      microA: [0.03,0.108], patches: 14
     },
     carrara: {
       seed: 73,
       colors: [[180,195,220],[150,170,200],[200,215,240],[215,228,248],[160,175,195]],
       ambient: [190,205,230],
-      angle: -18, primaryN: 6, secondaryN: 14, microN: 0.85,
+      angle: -18, primaryN: 6, secondaryN: 14, microN: 0.468,
       pThick: [2.0,5.5], sThick: [0.5,2.0],
-      pAlpha: [0.18,0.34], sAlpha: [0.06,0.16],
-      glow: 0.48, warp: 3.2, branchP: 0.72, branchN: [4,9],
-      microA: [0.02,0.07], patches: 11
+      pAlpha: [0.252,0.476], sAlpha: [0.087,0.232],
+      glow: 0.6, warp: 3.2, branchP: 0.72, branchN: [4,9],
+      microA: [0.024,0.084], patches: 15
     },
     'nero-marquina': {
       seed: 137,
       colors: [[255,255,255],[220,220,240],[240,240,255],[250,248,255],[200,200,220]],
       ambient: [230,230,245],
-      angle: 50, primaryN: 4, secondaryN: 9, microN: 0.55,
+      angle: 50, primaryN: 4, secondaryN: 9, microN: 0.303,
       pThick: [3.2,8.0], sThick: [1.0,3.2],
-      pAlpha: [0.26,0.48], sAlpha: [0.10,0.24],
-      glow: 0.65, warp: 4.2, branchP: 0.65, branchN: [3,7],
-      microA: [0.035,0.12], patches: 7
+      pAlpha: [0.364,0.672], sAlpha: [0.145,0.348],
+      glow: 0.812, warp: 4.2, branchP: 0.65, branchN: [3,7],
+      microA: [0.042,0.144], patches: 10
     },
     emperador: {
       seed: 211,
       colors: [[200,150,85],[175,125,70],[220,175,110],[235,195,130],[180,140,90]],
       ambient: [210,165,100],
-      angle: -38, primaryN: 6, secondaryN: 13, microN: 0.75,
+      angle: -38, primaryN: 6, secondaryN: 13, microN: 0.413,
       pThick: [2.4,5.8], sThick: [0.7,2.2],
-      pAlpha: [0.22,0.38], sAlpha: [0.08,0.19],
-      glow: 0.52, warp: 3.4, branchP: 0.75, branchN: [4,9],
-      microA: [0.025,0.08], patches: 9
+      pAlpha: [0.308,0.532], sAlpha: [0.116,0.275],
+      glow: 0.65, warp: 3.4, branchP: 0.75, branchN: [4,9],
+      microA: [0.03,0.096], patches: 13
     },
     levanto: {
       seed: 307,
       colors: [[210,105,80],[160,75,60],[230,135,105],[245,155,125],[180,95,75]],
       ambient: [200,120,95],
-      angle: 22, primaryN: 5, secondaryN: 10, microN: 0.60,
+      angle: 22, primaryN: 5, secondaryN: 10, microN: 0.33,
       pThick: [2.6,6.2], sThick: [0.8,2.4],
-      pAlpha: [0.23,0.40], sAlpha: [0.08,0.21],
-      glow: 0.55, warp: 3.6, branchP: 0.70, branchN: [3,8],
-      microA: [0.03,0.09], patches: 8
+      pAlpha: [0.322,0.56], sAlpha: [0.116,0.304],
+      glow: 0.688, warp: 3.6, branchP: 0.70, branchN: [3,8],
+      microA: [0.036,0.108], patches: 11
     },
     portoro: {
       seed: 401,
       colors: [[240,210,95],[210,180,65],[255,230,130],[250,235,150],[200,175,80]],
       ambient: [230,205,100],
-      angle: -52, primaryN: 4, secondaryN: 9, microN: 0.50,
+      angle: -52, primaryN: 4, secondaryN: 9, microN: 0.275,
       pThick: [3.0,7.0], sThick: [1.0,2.8],
-      pAlpha: [0.25,0.44], sAlpha: [0.10,0.23],
-      glow: 0.60, warp: 4.0, branchP: 0.65, branchN: [3,7],
-      microA: [0.035,0.11], patches: 7
+      pAlpha: [0.35,0.616], sAlpha: [0.145,0.334],
+      glow: 0.75, warp: 4.0, branchP: 0.65, branchN: [3,7],
+      microA: [0.042,0.132], patches: 10
     },
     guatemala: {
       seed: 509,
       colors: [[90,175,120],[60,140,95],[120,200,150],[140,215,165],[75,155,105]],
       ambient: [100,185,130],
-      angle: 28, primaryN: 5, secondaryN: 11, microN: 0.70,
+      angle: 28, primaryN: 5, secondaryN: 11, microN: 0.385,
       pThick: [2.2,5.4], sThick: [0.7,2.0],
-      pAlpha: [0.20,0.36], sAlpha: [0.07,0.18],
-      glow: 0.50, warp: 3.4, branchP: 0.72, branchN: [4,9],
-      microA: [0.025,0.08], patches: 8
+      pAlpha: [0.28,0.504], sAlpha: [0.102,0.261],
+      glow: 0.625, warp: 3.4, branchP: 0.72, branchN: [4,9],
+      microA: [0.03,0.096], patches: 11
     },
     sodalite: {
       seed: 613,
       colors: [[95,125,210],[65,100,175],[125,155,235],[145,170,248],[80,110,190]],
       ambient: [105,140,220],
-      angle: -28, primaryN: 5, secondaryN: 10, microN: 0.65,
+      angle: -28, primaryN: 5, secondaryN: 10, microN: 0.358,
       pThick: [2.5,5.8], sThick: [0.8,2.4],
-      pAlpha: [0.22,0.38], sAlpha: [0.08,0.19],
-      glow: 0.52, warp: 3.6, branchP: 0.70, branchN: [3,8],
-      microA: [0.03,0.09], patches: 8
+      pAlpha: [0.308,0.532], sAlpha: [0.116,0.275],
+      glow: 0.65, warp: 3.6, branchP: 0.70, branchN: [3,8],
+      microA: [0.036,0.108], patches: 11
     },
     'silver-wave': {
       seed: 719,
       colors: [[210,215,230],[180,185,200],[230,235,248],[240,242,252],[195,200,215]],
       ambient: [220,225,240],
-      angle: 42, primaryN: 6, secondaryN: 14, microN: 0.90,
+      angle: 42, primaryN: 6, secondaryN: 14, microN: 0.495,
       pThick: [1.8,4.5], sThick: [0.5,1.6],
-      pAlpha: [0.16,0.32], sAlpha: [0.06,0.15],
-      glow: 0.42, warp: 3.0, branchP: 0.75, branchN: [5,11],
-      microA: [0.018,0.07], patches: 11
+      pAlpha: [0.224,0.448], sAlpha: [0.087,0.217],
+      glow: 0.525, warp: 3.0, branchP: 0.75, branchN: [5,11],
+      microA: [0.022,0.084], patches: 15
     },
     statuario: {
       seed: 827,
       colors: [[200,200,220],[165,165,185],[225,225,245],[240,240,255],[185,185,205]],
       ambient: [210,210,230],
-      angle: -48, primaryN: 5, secondaryN: 10, microN: 0.60,
+      angle: -48, primaryN: 5, secondaryN: 10, microN: 0.33,
       pThick: [2.8,6.5], sThick: [0.9,2.6],
-      pAlpha: [0.24,0.42], sAlpha: [0.09,0.21],
-      glow: 0.57, warp: 3.8, branchP: 0.68, branchN: [3,8],
-      microA: [0.035,0.10], patches: 8
+      pAlpha: [0.336,0.588], sAlpha: [0.131,0.304],
+      glow: 0.712, warp: 3.8, branchP: 0.68, branchN: [3,8],
+      microA: [0.042,0.12], patches: 11
     },
     arabescato: {
       seed: 937,
       colors: [[195,185,210],[165,155,180],[220,210,235],[235,225,248],[180,170,195]],
       ambient: [205,195,220],
-      angle: 18, primaryN: 7, secondaryN: 16, microN: 0.95,
+      angle: 18, primaryN: 7, secondaryN: 16, microN: 0.522,
       pThick: [1.6,4.2], sThick: [0.4,1.5],
-      pAlpha: [0.14,0.30], sAlpha: [0.05,0.14],
-      glow: 0.40, warp: 2.8, branchP: 0.80, branchN: [5,12],
-      microA: [0.015,0.06], patches: 12
+      pAlpha: [0.196,0.42], sAlpha: [0.072,0.203],
+      glow: 0.5, warp: 2.8, branchP: 0.80, branchN: [5,12],
+      microA: [0.018,0.072], patches: 17
     }
   };
 
@@ -487,12 +487,12 @@
       var rad = Math.min(w, h) * (0.20 + _rand() * 0.55);
       var c = _rand() > 0.4 ? cfg.ambient : pickC();
       var nv = (fbm(an, (px + elTop) * 0.0008, (py + elTop) * 0.0008, 4) + 1) * 0.5;
-      var op = 0.020 + nv * 0.035;
+      var op = 0.030 + nv * 0.055;
 
       var gr = ctx.createRadialGradient(px, py, 0, px, py, rad);
-      gr.addColorStop(0, rgba(c, op * 1.3));
+      gr.addColorStop(0, rgba(c, op * 1.4));
       gr.addColorStop(0.20, rgba(c, op));
-      gr.addColorStop(0.50, rgba(c, op * 0.5));
+      gr.addColorStop(0.50, rgba(c, op * 0.55));
       gr.addColorStop(1, rgba(c, 0));
       ctx.fillStyle = gr;
       ctx.fillRect(0, 0, w, h);
@@ -505,8 +505,8 @@
       var tr = Math.max(w, h) * (0.4 + _rand() * 0.6);
       var tc = pickC();
       var tg = ctx.createRadialGradient(tx, ty, 0, tx, ty, tr);
-      tg.addColorStop(0, rgba(tc, 0.012));
-      tg.addColorStop(0.5, rgba(tc, 0.005));
+      tg.addColorStop(0, rgba(tc, 0.022));
+      tg.addColorStop(0.5, rgba(tc, 0.010));
       tg.addColorStop(1, rgba(tc, 0));
       ctx.fillStyle = tg;
       ctx.fillRect(0, 0, w, h);
@@ -520,10 +520,10 @@
     var ly2 = h * 0.5 + Math.sin(lgAngle) * h * 0.5;
     var lg = ctx.createLinearGradient(lx1, ly1, lx2, ly2);
     var lc = cfg.ambient;
-    lg.addColorStop(0, rgba(lc, 0.006));
-    lg.addColorStop(0.3, rgba(lc, 0.012));
-    lg.addColorStop(0.7, rgba(lc, 0.004));
-    lg.addColorStop(1, rgba(lc, 0.008));
+    lg.addColorStop(0, rgba(lc, 0.012));
+    lg.addColorStop(0.3, rgba(lc, 0.022));
+    lg.addColorStop(0.7, rgba(lc, 0.008));
+    lg.addColorStop(1, rgba(lc, 0.014));
     ctx.fillStyle = lg;
     ctx.fillRect(0, 0, w, h);
   }

@@ -32,9 +32,9 @@
   <meta name="geo.placename" content="Bedoń, Łódź">
   <meta name="geo.position" content="51.7592;19.6731">
   <meta name="ICBM" content="51.7592, 19.6731">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -179,34 +179,34 @@
     <div class="about-split reveal">
       <div class="about-split-text">
         <p class="eyebrow">O nas</p>
-        <h2 id="onas-heading">Kamień to nasz język</h2>
-        <p>Jesteśmy lokalną pracownią kamieniarską z okolic Łodzi. Łączymy pasję i kreatywność z doświadczeniem oraz pełnym zrozumieniem klienta.</p>
-        <p>Z kamienia zrobimy wszystko — od pomysłu, przez projekt, po realizację i montaż. Współpracujemy z architektami i klientami indywidualnymi, dobierając materiał i obróbkę pod konkretny projekt.</p>
-        <ul class="about-marks" aria-label="Wartości pracowni">
+        <h2 id="onas-heading">Pracownia z pasją do kamienia</h2>
+        <p>Jesteśmy małą pracownią kamieniarską spod Łodzi. Robimy blaty, schody, parapety, obudowy kominków i wszystko inne, co da się wyciąć z marmuru, granitu, kwarcytu czy spieku.</p>
+        <p>Każde zlecenie traktujemy indywidualnie — przyjeżdżamy, pomagamy dobrać kamień, robimy pomiar, a potem wszystko od początku do końca: cięcie, obróbka i montaż u Ciebie. Bez podwykonawców i pośredników.</p>
+        <ul class="about-marks" aria-label="Jak pracujemy">
           <li>
             <span class="about-mark-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 20 12 4l9 16H3Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             </span>
-            <span>Projekt &amp; pomiar</span>
+            <span>Doradztwo i pomiar u Ciebie</span>
           </li>
           <li>
             <span class="about-mark-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16"/><path d="M4 12h16M12 4v16"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3 17 4l3 3-2.3 2.3"/><path d="m17 7-9 9-4 1 1-4 9-9"/></svg>
             </span>
-            <span>Wykonanie w pracowni</span>
+            <span>Ręczna obróbka w pracowni</span>
           </li>
           <li>
             <span class="about-mark-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg>
             </span>
-            <span>Montaż na miejscu</span>
+            <span>Dostawa i montaż na miejscu</span>
           </li>
         </ul>
       </div>
       <div class="about-split-img">
         <picture>
-          <source srcset="zdjecia/DSC_3177-Edit-gallery.avif" type="image/avif">
-          <img src="zdjecia/DSC_3177-Edit-gallery.webp" alt="Detal kamienia naturalnego — pracownia AMICO" loading="lazy" width="1200" height="799">
+          <source srcset="zdjecia/DSC_2864-detail.avif" type="image/avif">
+          <img src="zdjecia/DSC_2864-detail.webp" alt="Próbka kamienia naturalnego — pracownia AMICO" loading="lazy" width="800" height="500">
         </picture>
       </div>
     </div>
@@ -221,7 +221,10 @@
         <p class="eyebrow">Usługi</p>
         <h2 id="uslugi-heading">Co dla Ciebie zrobimy</h2>
       </div>
-      <a href="kamien-naturalny/" class="section-link">Materiały</a>
+      <div class="materials-links" aria-label="Nasze materiały">
+        <a href="kamien-naturalny/" class="section-link">Kamień naturalny</a>
+        <a href="kamien-sztuczny/" class="section-link">Kamień sztuczny</a>
+      </div>
     </div>
 
     <div class="services-grid services-grid--four">
@@ -291,60 +294,36 @@
           <source srcset="zdjecia/DSC_2594-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_2594-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="799" height="1200">
         </picture>
-        <div class="gp-overlay" aria-hidden="true">
-          <span class="gp-name">Posadzka kamienna</span>
-          <span class="gp-meta">Łódź · Marmur</span>
-        </div>
       </a>
       <a href="realizacje/" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_2662-Edit-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_2662-Edit-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="1200" height="799">
         </picture>
-        <div class="gp-overlay" aria-hidden="true">
-          <span class="gp-name">Schody wewnętrzne</span>
-          <span class="gp-meta">Łódź · Granit</span>
-        </div>
       </a>
       <a href="realizacje/" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_2596-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_2596-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="799" height="1200">
         </picture>
-        <div class="gp-overlay" aria-hidden="true">
-          <span class="gp-name">Detal kamienny</span>
-          <span class="gp-meta">Wnętrze prywatne · Marmur</span>
-        </div>
       </a>
       <a href="realizacje/" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_3073-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_3073-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="1200" height="799">
         </picture>
-        <div class="gp-overlay" aria-hidden="true">
-          <span class="gp-name">Blat kuchenny</span>
-          <span class="gp-meta">Bedoń · Kamień naturalny</span>
-        </div>
       </a>
       <a href="realizacje/" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_2680-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_2680-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="799" height="1200">
         </picture>
-        <div class="gp-overlay" aria-hidden="true">
-          <span class="gp-name">Obudowa kominka</span>
-          <span class="gp-meta">Łódź · Marmur</span>
-        </div>
       </a>
       <a href="realizacje/" class="gallery-preview-item">
         <picture>
           <source srcset="zdjecia/DSC_3128-Edit-gallery.avif" type="image/avif">
           <img src="zdjecia/DSC_3128-Edit-gallery.webp" alt="Realizacja AMICO" loading="lazy" width="1200" height="799">
         </picture>
-        <div class="gp-overlay" aria-hidden="true">
-          <span class="gp-name">Łazienka kamienna</span>
-          <span class="gp-meta">Wnętrze prywatne · Marmur</span>
-        </div>
       </a>
     </div>
   </div>
