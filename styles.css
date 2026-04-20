@@ -1,19 +1,19 @@
 @import url("https://api.fontshare.com/v2/css?f[]=satoshi@500,600,700,800,900,400&f[]=general-sans@400,500,600,700&display=swap");
 
 :root {
-  /* === PREMIUM DARK PALETTE — black + navy === */
-  --bg:          #0B0B10;   /* deep near-black with hint of navy */
-  --bg-soft:     #10121A;   /* slightly lifted, navy-tinged */
-  --bg-alt:      #07080C;   /* darkest, for contrast bands */
-  --bg-card:     #14161F;   /* card / surface, navy-charcoal */
-  --bg-elev:     #181B26;   /* elevated surface (modal, hover) */
+
+  --bg:          #0B0B10;
+  --bg-soft:     #10121A;
+  --bg-alt:      #07080C;
+  --bg-card:     #14161F;
+  --bg-elev:     #181B26;
   --primary:     #F5F5F5;
   --primary-d:   #D9D9D9;
   --primary-l:   #FFFFFF;
-  --accent:      #D9D9D9;   /* light accent on dark */
+  --accent:      #D9D9D9;
   --accent-d:    #BFBFBF;
   --accent-glow: rgba(255,255,255,.05);
-  --navy:        #0E1224;   /* deep navy band */
+  --navy:        #0E1224;
   --navy-deep:   #080B16;
   --text:        #F5F5F5;
   --text-muted:  #7A7E8C;
@@ -47,7 +47,6 @@
   --font-body:    "General Sans", "Inter", system-ui, -apple-system, sans-serif;
 }
 
-/* Hard-disable italic site-wide (premium spec: zero italic) */
 i, em, address, cite, var, dfn { font-style: normal; }
 
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
@@ -92,7 +91,6 @@ p  { margin-bottom:0; }
 .section.bg-alt { background:var(--bg-alt); }
 .section.bg-navy { background: #030610; }
 
-/* Subtle section background images */
 .section.has-bg::before {
   content: '';
   position: absolute;
@@ -108,7 +106,6 @@ p  { margin-bottom:0; }
   will-change: transform;
 }
 
-/* Showcase variant – visible background with soft dark vignette, no blue tint */
 .section.has-bg--showcase::before {
   filter: brightness(.32) grayscale(.2) contrast(1.1);
   opacity: .55;
@@ -130,7 +127,6 @@ p  { margin-bottom:0; }
   pointer-events: none;
 }
 
-/* Brighter showcase variant – lighter overlay for more visible background */
 .section.has-bg--showcase-bright::before {
   filter: brightness(.45) grayscale(.15) contrast(1.05);
   opacity: .7;
@@ -174,7 +170,6 @@ p  { margin-bottom:0; }
   margin-right: auto;
 }
 
-/* ═══ BUTTONS ═══ */
 .btn {
   display:inline-flex; align-items:center; justify-content:center;
   padding:14px 34px; border-radius:0;
@@ -209,7 +204,6 @@ p  { margin-bottom:0; }
   color: #fff;
 }
 
-/* ═══ PRELOADER ═══ */
 #preloader {
   position: fixed; inset:0; z-index:9999;
   background: var(--bg);
@@ -312,7 +306,6 @@ p  { margin-bottom:0; }
 }
 @keyframes preloaderFill { to { width:100%; } }
 
-/* ═══ NAV ═══ */
 .nav {
   position: fixed; top:0; left:0; right:0; z-index:1000;
   display: flex; align-items:center; justify-content:space-between;
@@ -386,7 +379,7 @@ p  { margin-bottom:0; }
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: 14px clamp(16px,5vw,60px);
-    /* keep header (logo + hamburger) above the open overlay so the X stays tappable */
+
     z-index: 1100;
   }
   .nav-links {
@@ -419,7 +412,6 @@ p  { margin-bottom:0; }
   .nav-link { font-size: .98rem; }
 }
 
-/* ═══ HERO SLIDER ═══ */
 .hero-slider {
   position: relative;
   min-height: 100vh;
@@ -441,7 +433,7 @@ p  { margin-bottom:0; }
   opacity: 1;
   z-index: 1;
 }
-/* Blurred ambient background – fills the black bars with a soft version of the photo */
+
 .hero-slide::before {
   content: '';
   position: absolute;
@@ -453,7 +445,7 @@ p  { margin-bottom:0; }
   filter: blur(var(--blur-radius)) brightness(var(--blur-brightness));
   z-index: 0;
 }
-/* Sharp photo – covers entire slide area */
+
 .hero-slide::after {
   content: '';
   position: absolute;
@@ -525,7 +517,6 @@ p  { margin-bottom:0; }
   transform: scale(1.2);
 }
 
-/* ═══ FEATURE CARDS ═══ */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -584,7 +575,6 @@ p  { margin-bottom:0; }
 
 @media(max-width:768px) { .features-grid { grid-template-columns: 1fr; } }
 
-/* ═══ CAROUSEL (shared) ═══ */
 .realizacje-carousel,
 .inspiracje-carousel {
   position: relative;
@@ -623,7 +613,6 @@ p  { margin-bottom:0; }
   color: #fff;
 }
 
-/* Realizacje Carousel Cards */
 a.carousel-card,
 a.inspiration-slide {
   display: block;
@@ -668,7 +657,6 @@ a.inspiration-slide {
   text-align: center;
 }
 
-/* Inspiration Carousel Cards */
 .inspiration-slide {
   flex: 0 0 calc(33.333% - 16px);
   min-width: 280px;
@@ -721,7 +709,6 @@ a.inspiration-slide {
   .carousel-btn { width: 36px; height: 36px; font-size: 1rem; }
 }
 
-/* ═══ WHY US ═══ */
 .why-section {
   position: relative;
   overflow: hidden;
@@ -778,11 +765,9 @@ a.inspiration-slide {
 
 @media(max-width:768px){ .why-grid { grid-template-columns:1fr; } }
 
-@media(max-width:900px){ /* placeholder for responsive */ }
-@media(max-width:600px){ /* placeholder for responsive */ }
+@media(max-width:900px){  }
+@media(max-width:600px){  }
 
-/* ═══ FOOTER ═══ */
-/* Smooth wave transition before footer */
 .footer-wave-transition {
   position: relative;
   width: 100%;
@@ -941,7 +926,6 @@ a.inspiration-slide {
 }
 .footer-materials-list li a:hover { color: #fff; }
 
-/* Footer Contact Column */
 .footer-contact-col {
   max-width: 100%;
 }
@@ -1051,7 +1035,6 @@ a.inspiration-slide {
   .footer-bottom-inner { flex-direction:column; gap:8px; text-align:center; }
 }
 
-/* ═══ CO ROBIMY SECTION ═══ */
 .corobimy-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -1145,7 +1128,6 @@ a.inspiration-slide {
   .corobimy-materials-list { align-items: center; }
 }
 
-/* ═══ COOKIE CONSENT (GDPR / RODO) ═══ */
 .cookie-consent {
   position:fixed; bottom:24px; left:24px;
   width:420px; max-width:calc(100vw - 48px);
@@ -1201,7 +1183,6 @@ a.inspiration-slide {
   .cookie-consent { left:8px; bottom:8px; width:calc(100vw - 16px); padding:16px; border-radius:10px; }
 }
 
-/* ═══ PARALLAX DIVIDERS ═══ */
 .parallax-divider {
   position: relative;
   height: clamp(380px, 45vw, 600px);
@@ -1212,7 +1193,7 @@ a.inspiration-slide {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* Eliminate sub-pixel gaps between adjacent sections */
+
   margin-top: -1px;
   margin-bottom: -1px;
 }
@@ -1223,7 +1204,7 @@ a.inspiration-slide {
   background: rgba(0,0,0,.38);
   pointer-events: none;
 }
-/* Smooth gradient fade at top/bottom edges for seamless blending */
+
 .parallax-divider::after {
   content: '';
   position: absolute;
@@ -1235,7 +1216,6 @@ a.inspiration-slide {
   z-index: 1;
 }
 
-/* ═══ ASYMMETRIC SECTION TRANSITIONS ═══ */
 .parallax-shape-top,
 .parallax-shape-bottom {
   position: absolute;
@@ -1258,11 +1238,10 @@ a.inspiration-slide {
   width: calc(100% + 2px);
   margin-left: -1px;
   height: auto;
-  /* Prevent anti-alias seams */
+
   shape-rendering: auto;
 }
 
-/* Standalone section transition divider (e.g. before footer) */
 .section-transition {
   position: relative;
   z-index: 2;
@@ -1278,7 +1257,6 @@ a.inspiration-slide {
   height: auto;
 }
 
-/* Hero bottom wave – removed, clean straight edge */
 .hero-wave {
   display: none;
 }
@@ -1286,7 +1264,6 @@ a.inspiration-slide {
   display: none;
 }
 
-/* Asymmetric wave divider between sections */
 .wave-divider {
   position: relative;
   z-index: 2;
@@ -1303,7 +1280,7 @@ a.inspiration-slide {
   width: calc(100% + 2px);
   margin-left: -1px;
   height: auto;
-  /* Prevent any hairline gaps */
+
   vertical-align: bottom;
 }
 .wave-divider--alt {
@@ -1356,7 +1333,6 @@ a.inspiration-slide {
   }
 }
 
-/* ═══ REVEAL ANIMATIONS ═══ */
 .reveal {
   opacity:0;
   transform: translateY(30px);
@@ -1367,7 +1343,6 @@ a.inspiration-slide {
   transform: translateY(0);
 }
 
-/* Material detail staggered reveal */
 .material-detail.reveal .material-detail-img {
   opacity: 0;
   transform: translateX(-30px);
@@ -1390,7 +1365,6 @@ a.inspiration-slide {
   transform: translateX(0);
 }
 
-/* Material detail image hover glow */
 .material-detail-img {
   position: relative;
 }
@@ -1407,13 +1381,11 @@ a.inspiration-slide {
   opacity: 1;
 }
 
-/* stagger children */
 .feature-card.reveal:nth-child(2),
 .why-card.reveal:nth-child(2) { transition-delay:.12s; }
 .feature-card.reveal:nth-child(3),
 .why-card.reveal:nth-child(3) { transition-delay:.24s; }
 
-/* ═══ SECTION DECORATIONS ═══ */
 #oferta {
   background:
     radial-gradient(ellipse 600px 600px at 95% 15%, rgba(14,21,51,.07) 0%, transparent 70%),
@@ -1438,7 +1410,6 @@ a.inspiration-slide {
     #000000;
 }
 
-/* Floating geometric shapes */
 .floating-shape {
   position: absolute;
   pointer-events: none;
@@ -1455,7 +1426,6 @@ a.inspiration-slide {
   50% { transform: translateY(-40px) rotate(180deg) scale(1.1); }
 }
 
-/* Section diagonal accent */
 .section-accent-top {
   position: absolute;
   top: 0;
@@ -1465,7 +1435,6 @@ a.inspiration-slide {
   background: linear-gradient(90deg, transparent, rgba(14,21,51,.3) 30%, rgba(14,21,51,.3) 70%, transparent);
 }
 
-/* Subtle gradient separator between sections */
 .section-gradient-sep {
   width: 100%;
   height: clamp(60px, 8vw, 100px);
@@ -1483,7 +1452,6 @@ a.inspiration-slide {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
 }
 
-/* Legal pages – enhanced header with gradient */
 .page-header {
   position: relative;
   overflow: hidden;
@@ -1508,7 +1476,6 @@ a.inspiration-slide {
   z-index: 1;
 }
 
-/* ═══ RESPONSIVE GLOBAL ═══ */
 @media(max-width:768px){
   .section { padding-top:clamp(48px,6vw,64px); padding-bottom:clamp(48px,6vw,64px); }
   .section-header { margin-bottom:clamp(32px,5vw,48px); }
@@ -1528,7 +1495,6 @@ a.inspiration-slide {
   * { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
 }
 
-/* ═══ SUBPAGE HERO ═══ */
 .page-hero {
   position: relative;
   min-height: 60vh;
@@ -1537,7 +1503,7 @@ a.inspiration-slide {
   justify-content: center;
   overflow: hidden;
 }
-/* Blurred ambient background for subpage heroes */
+
 .page-hero::before {
   content: '';
   position: absolute;
@@ -1549,7 +1515,7 @@ a.inspiration-slide {
   filter: blur(var(--blur-radius)) brightness(var(--blur-brightness));
   z-index: 0;
 }
-/* Sharp photo – covers entire hero area */
+
 .page-hero::after {
   content: '';
   position: absolute;
@@ -1575,7 +1541,6 @@ a.inspiration-slide {
   max-width: 800px;
 }
 
-/* Smooth gradient fade at bottom of page hero */
 .page-hero-fade {
   position: absolute;
   bottom: 0;
@@ -1586,7 +1551,7 @@ a.inspiration-slide {
   z-index: 4;
   pointer-events: none;
 }
-/* Asymmetric wave at bottom of page hero */
+
 .page-hero-wave {
   position: absolute;
   bottom: -2px;
@@ -1642,7 +1607,6 @@ a.inspiration-slide {
   letter-spacing: .01em;
 }
 
-/* ═══ MATERIAL DETAIL (subpages) ═══ */
 .material-detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1736,7 +1700,6 @@ a.inspiration-slide {
   }
 }
 
-/* ═══ CTA BLOCK ═══ */
 .cta-block {
   text-align: center;
   padding: clamp(60px, 8vw, 100px) clamp(32px, 4vw, 60px);
@@ -1794,14 +1757,13 @@ a.inspiration-slide {
   letter-spacing: .15em;
 }
 
-/* ═══ ELEGANT CTA (subpages) ═══ */
 .cta-elegant {
   text-align: center;
   padding: clamp(80px, 10vw, 140px) clamp(32px, 4vw, 60px);
   position: relative;
   background: transparent;
 }
-/* Subtle top decorative line */
+
 .cta-elegant::before {
   content: '';
   position: absolute;
@@ -1812,7 +1774,7 @@ a.inspiration-slide {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,.12) 30%, rgba(255,255,255,.12) 70%, transparent);
 }
-/* Subtle radial glow behind content */
+
 .cta-elegant::after {
   content: '';
   position: absolute;
@@ -1866,11 +1828,9 @@ a.inspiration-slide {
   box-shadow: 0 10px 30px rgba(0,0,0,.4);
 }
 
-/* Compact CTA variant for pages with minimal content */
 .section--compact { padding-top: clamp(30px,4vw,50px); padding-bottom: clamp(30px,4vw,50px); }
 .cta-elegant--compact { padding: clamp(40px,5vw,60px) clamp(32px,4vw,60px); }
 
-/* ═══ CTA SHOWCASE (subpages – bg image with waves) ═══ */
 .cta-showcase {
   position: relative;
   padding: clamp(100px, 12vw, 180px) clamp(20px, 5vw, 90px);
@@ -1901,7 +1861,7 @@ a.inspiration-slide {
 .cta-showcase .cta-elegant {
   padding: 0;
 }
-/* CTA showcase wave shapes */
+
 .cta-showcase > .parallax-shape-top,
 .cta-showcase > .parallax-shape-bottom {
   z-index: 3;
@@ -1913,7 +1873,6 @@ a.inspiration-slide {
   bottom: -2px;
 }
 
-/* ═══ CTA FULLSCREEN (realizacje) ═══ */
 .cta-fullscreen {
   position: relative;
   width: 100%;
@@ -1936,7 +1895,6 @@ a.inspiration-slide {
   z-index: 1;
 }
 
-/* ── Wave transitions ── */
 .cta-fullscreen-wave-top,
 .cta-fullscreen-wave-bottom {
   position: absolute;
@@ -1959,7 +1917,6 @@ a.inspiration-slide {
   height: clamp(50px, 6vw, 100px);
 }
 
-/* ── Content ── */
 .cta-fullscreen-content {
   position: relative;
   z-index: 2;
@@ -2034,7 +1991,6 @@ a.inspiration-slide {
   }
 }
 
-/* ═══ OFFER SUBPAGE ═══ */
 .breadcrumb {
   display: flex;
   align-items: center;
@@ -2107,6 +2063,11 @@ a.inspiration-slide {
   color: rgba(255,255,255,.85);
   transform: scale(1.1);
 }
+.offer-feature:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 1.75rem);
+  justify-self: center;
+}
 
 @media(max-width:768px) {
   .offer-features {
@@ -2117,9 +2078,11 @@ a.inspiration-slide {
     font-size: 1rem;
     padding: 1.2rem;
   }
+  .offer-feature:last-child:nth-child(odd) {
+    max-width: 100%;
+  }
 }
 
-/* AGD Brands – full-width navy section with wave transitions */
 .agd-brands-section {
   background: #0e1533;
   position: relative;
@@ -2186,7 +2149,6 @@ a.inspiration-slide {
   }
 }
 
-/* Nav dropdown */
 .nav-dropdown {
   position: relative;
 }
@@ -2272,7 +2234,6 @@ a.inspiration-slide {
   }
 }
 
-/* ═══ KONTAKTIO ASSISTANT DARK THEME ═══ */
 .kontaktio-launcher {
   background: var(--bg-card, #0c1828) !important;
   border: 1px solid rgba(255,255,255,.1) !important;
@@ -2376,15 +2337,11 @@ a.inspiration-slide {
   color: var(--text-muted, #7a8494) !important;
 }
 
-/* ═══ VISUAL POLISH – DETAILS & MICRO-INTERACTIONS ═══ */
-
-/* Smooth text selection */
 ::selection {
   background: rgba(14,21,51,.5);
   color: #fff;
 }
 
-/* Enhanced lead text */
 .lead {
   font-size: 1.12rem;
   color: var(--text-light);
@@ -2393,7 +2350,6 @@ a.inspiration-slide {
   margin-bottom: .75rem;
 }
 
-/* Better buttons – subtle ripple border on hover */
 .btn-primary::before {
   content: '';
   position: absolute;
@@ -2408,17 +2364,14 @@ a.inspiration-slide {
   inset: -6px;
 }
 
-/* Enhanced section accent line animation */
 .section-header::after {
   transition: transform .8s var(--ease) .15s, width .6s var(--ease) .3s;
 }
 
-/* Material detail grid gap polish */
 .material-detail {
   gap: clamp(32px, 5vw, 72px);
 }
 
-/* Contact detail subtle hover */
 .contact-detail {
   transition: transform .3s var(--ease), background .3s ease;
   padding: .6rem .75rem;
@@ -2430,7 +2383,6 @@ a.inspiration-slide {
   background: rgba(255,255,255,.03);
 }
 
-/* Contact form field glow focus */
 .contact-form input:focus,
 .contact-form textarea:focus {
   box-shadow: 0 0 0 3px rgba(76,201,240,.08);
@@ -2445,7 +2397,6 @@ a.inspiration-slide {
   box-shadow: 0 8px 40px rgba(0,0,0,.3);
 }
 
-/* Footer social links polish */
 .footer-social a {
   transition: all .3s var(--ease), transform .3s var(--ease);
 }
@@ -2453,7 +2404,6 @@ a.inspiration-slide {
   transform: translateY(-2px);
 }
 
-/* Contact social links polish */
 .contact-social a {
   transition: all .3s var(--ease), transform .3s var(--ease);
 }
@@ -2462,7 +2412,6 @@ a.inspiration-slide {
   box-shadow: 0 6px 20px rgba(0,0,0,.3);
 }
 
-/* Offer features stagger animation */
 .offer-feature:nth-child(1) { transition-delay: 0s; }
 .offer-feature:nth-child(2) { transition-delay: .06s; }
 .offer-feature:nth-child(3) { transition-delay: .12s; }
@@ -2471,13 +2420,11 @@ a.inspiration-slide {
 .offer-feature:nth-child(6) { transition-delay: .30s; }
 .offer-feature:nth-child(7) { transition-delay: .36s; }
 
-/* Eyebrow text polish */
 .eyebrow {
   position: relative;
   display: inline-block;
 }
 
-/* Page hero content text shadow for readability */
 .page-hero-content h1 {
   text-shadow: 0 2px 30px rgba(0,0,0,.4);
 }
@@ -2485,12 +2432,10 @@ a.inspiration-slide {
   text-shadow: 0 1px 10px rgba(0,0,0,.3);
 }
 
-/* Image caption effect for material sections */
 .material-detail-img {
   position: relative;
 }
 
-/* Why card icon hover */
 .why-icon svg,
 .feature-icon svg {
   transition: transform .4s var(--ease);
@@ -2500,7 +2445,6 @@ a.inspiration-slide {
   transform: scale(1.1);
 }
 
-/* Carousel card image border radius */
 .carousel-card {
   border-radius: var(--radius-sm);
 }
@@ -2508,7 +2452,6 @@ a.inspiration-slide {
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
-/* Inspiration slide border radius */
 .inspiration-slide {
   border-radius: var(--radius-sm);
 }
@@ -2516,21 +2459,14 @@ a.inspiration-slide {
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
-/* Smooth page transitions */
 .section {
   transition: background .6s ease;
 }
 
-/* CTA showcase enhanced overlay */
 .cta-showcase::after {
   background: linear-gradient(180deg, rgba(0,0,0,.4) 0%, rgba(0,0,0,.55) 50%, rgba(0,0,0,.4) 100%);
 }
 
-/* ═══════════════════════════════════════════════
-   OFERTA SUBPAGES – VISUAL POLISH
-   ═══════════════════════════════════════════════ */
-
-/* ── Hero scroll indicator ── */
 .page-hero-scroll {
   position: absolute;
   bottom: clamp(50px, 7vw, 80px);
@@ -2579,7 +2515,6 @@ a.inspiration-slide {
   50%      { transform: translateX(-50%) translateY(7px); opacity: 0; }
 }
 
-/* ── Hero gradient shimmer overlay ── */
 .page-hero-content::before {
   content: '';
   position: absolute;
@@ -2589,7 +2524,6 @@ a.inspiration-slide {
   z-index: -1;
 }
 
-/* ── Hero h1 subtle gradient text ── */
 .page-hero-content h1 {
   background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.85) 100%);
   -webkit-background-clip: text;
@@ -2597,7 +2531,6 @@ a.inspiration-slide {
   background-clip: text;
 }
 
-/* Better h3 sub-headers within material detail */
 .material-detail-text h3 {
   padding-left: 1rem;
   border-left: 2px solid rgba(255,255,255,.12);
@@ -2607,7 +2540,6 @@ a.inspiration-slide {
   border-color: rgba(255,255,255,.25);
 }
 
-/* ── Offer feature cards – numbering & gradient accent ── */
 .offer-feature {
   border-top: 2px solid transparent;
   border-image: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.03)) 1;
@@ -2633,11 +2565,9 @@ a.inspiration-slide {
   border-image: linear-gradient(90deg, rgba(255,255,255,.2), rgba(255,255,255,.06)) 1;
 }
 
-/* More stagger delays for 8th and 9th items */
 .offer-feature:nth-child(8) { transition-delay: .42s; }
 .offer-feature:nth-child(9) { transition-delay: .48s; }
 
-/* ── Parallax divider content – decorative quote style ── */
 .parallax-divider-content::before {
   content: '';
   display: block;
@@ -2647,7 +2577,6 @@ a.inspiration-slide {
   margin: 0 auto 1.5rem;
 }
 
-/* ── CTA button arrow ── */
 .cta-elegant .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -2663,12 +2592,10 @@ a.inspiration-slide {
   transform: translateX(4px);
 }
 
-/* ── Section header – animated accent line ── */
 .section-header::after {
   background: linear-gradient(90deg, rgba(255,255,255,.5), rgba(255,255,255,.15), transparent);
 }
 
-/* ── Offer features section header – centered ── */
 .offer-features-section .section-header {
   text-align: center;
 }
@@ -2678,7 +2605,6 @@ a.inspiration-slide {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
 }
 
-/* ── Image subtle vignette overlay ── */
 .material-detail-img::before {
   content: '';
   position: absolute;
@@ -2689,39 +2615,32 @@ a.inspiration-slide {
   border-radius: var(--radius-sm);
 }
 
-/* ── Enhanced section divider line between bg-alt sections ── */
 .section.bg-alt + .wave-divider + .section.has-bg,
 .section.has-bg + .wave-divider + .section.bg-alt {
   border-top: none;
 }
 
-/* ── Hero description max-width boost ── */
 .page-hero-desc {
   max-width: 660px;
 }
 
-/* ── Parallax divider content h3 – letter spacing ── */
 .parallax-divider-content h3 {
   letter-spacing: .01em;
 }
 
-/* ── CTA elegant inner – subtle glass effect ── */
 .cta-elegant-inner {
   position: relative;
 }
 
-/* ── Material detail – image aspect ratio polish ── */
 .material-detail-img picture {
   display: block;
   overflow: hidden;
 }
 
-/* ── Offer feature icon – subtle glow on hover ── */
 .offer-feature:hover .offer-feature-icon {
   filter: drop-shadow(0 0 8px rgba(255,255,255,.15));
 }
 
-/* ── Better spacing for mobile material detail ── */
 @media(max-width:768px) {
   .material-detail-text h2 {
     font-size: clamp(1.5rem, 5vw, 2rem);
@@ -2738,7 +2657,6 @@ a.inspiration-slide {
   }
 }
 
-/* ── CTA eyebrow decorative lines (matching hero) ── */
 .cta-elegant-eyebrow {
   display: flex;
   align-items: center;
@@ -2757,12 +2675,10 @@ a.inspiration-slide {
   background: linear-gradient(270deg, transparent, rgba(255,255,255,.3));
 }
 
-/* ── Enhanced section-header eyebrow for oferta pages ── */
 .section.bg-alt .eyebrow {
   color: rgba(255,255,255,.5);
 }
 
-/* ── Fade-in for page-hero-wave ── */
 .page-hero-wave {
   animation: waveSlideUp .8s ease .3s both;
 }
@@ -2771,7 +2687,6 @@ a.inspiration-slide {
   to   { transform: translateY(0); opacity: 1; }
 }
 
-/* ── AGD brands section – improved card glow ── */
 .agd-brand::before {
   content: '';
   position: absolute;
@@ -2796,11 +2711,6 @@ a.inspiration-slide {
   z-index: 1;
 }
 
-/* ============================================================ */
-/* ═══════════ PREMIUM REDESIGN OVERRIDES (2026) ═══════════════ */
-/* ============================================================ */
-
-/* Body / typography refinements */
 body {
   background: var(--bg);
   color: var(--text);
@@ -2817,14 +2727,12 @@ h1, h2, h3, h4, .display {
 h1 { font-weight: 600; letter-spacing: -.035em; }
 h2 { font-weight: 600; letter-spacing: -.028em; }
 
-/* Section spacing — more air everywhere */
 .section { padding: var(--section-pad) clamp(20px, 5vw, 90px); background: var(--bg); }
 .section.bg-alt   { background: var(--bg-alt); }
 .section.bg-soft  { background: var(--bg-soft); }
 .section.bg-card  { background: var(--bg-card); }
 .section.bg-navy  { background: var(--navy); }
 
-/* Eyebrow refined */
 .eyebrow {
   font-family: var(--font-body);
   font-size: .72rem;
@@ -2835,7 +2743,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   margin-bottom: 1.4rem;
 }
 
-/* Section header — remove decorative gradient line for cleaner premium look */
 .section-header::after { display: none; }
 .section-header { margin-bottom: clamp(56px, 7vw, 100px); }
 .section-title-row {
@@ -2855,7 +2762,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 }
 .materials-links .section-link { white-space: nowrap; }
 
-/* ═══ NAV — minimalist (no dropdown) ═══ */
 .nav {
   background: transparent;
   padding: 28px clamp(20px,5vw,60px);
@@ -2890,7 +2796,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   .logo-img { height: 40px; }
 }
 
-/* ═══ BUTTONS — refined premium ═══ */
 .btn {
   border-radius: 0;
   font-family: var(--font-display);
@@ -2929,7 +2834,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 }
 .btn-ghost:hover { border-bottom-color: var(--text); }
 
-/* ═══ SINGLE HERO (homepage) ═══ */
 .hero-single {
   position: relative;
   min-height: 100vh;
@@ -2998,7 +2902,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 }
 .hero-single-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
 
-/* Subtle scroll cue */
 .hero-scroll-cue {
   position: absolute;
   bottom: 28px; left: 50%;
@@ -3021,7 +2924,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   50% { opacity: 1; transform: scaleY(1); }
 }
 
-/* ═══ ABOUT BLOCK (split) ═══ */
 .about-split {
   display: grid;
   grid-template-columns: 1fr 1.05fr;
@@ -3061,7 +2963,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   .about-split-img { aspect-ratio: 4 / 3; }
 }
 
-/* ═══ SERVICE TILES ═══ */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -3154,7 +3055,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   .service-tile { aspect-ratio: 16 / 11; }
 }
 
-/* Secondary services row (text links) */
 .services-more {
   margin-top: clamp(32px, 4vw, 56px);
   display: flex;
@@ -3185,7 +3085,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 }
 .services-more a:hover { color: #fff; border-bottom-color: var(--text); }
 
-/* ═══ GALLERY PREVIEW (homepage) ═══ */
 .gallery-preview {
   column-count: 3;
   column-gap: clamp(12px, 1.4vw, 18px);
@@ -3213,7 +3112,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   .gallery-preview { column-count: 1; }
 }
 
-/* ═══ MINI CONTACT BLOCK (homepage) ═══ */
 .contact-mini {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3250,7 +3148,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 
 @media(max-width: 900px) { .contact-mini { grid-template-columns: 1fr; } }
 
-/* ═══ MATERIAL SHOWCASE — refined ═══ */
 .material-detail { gap: clamp(40px, 5vw, 90px); }
 .material-detail-img {
   border: none;
@@ -3275,7 +3172,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   letter-spacing: -.015em;
 }
 
-/* ═══ PAGE HERO — premium subpage hero ═══ */
 .page-hero { min-height: 70vh; }
 .page-hero::after { filter: brightness(.65); }
 .page-hero-overlay {
@@ -3320,14 +3216,12 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   margin: 0;
   line-height: 1.65;
 }
-/* Hide all decorative waves on subpage heroes for clean line */
+
 .page-hero-wave,
 .page-hero-fade { display: none; }
 
-/* Hide noisy scroll-mouse element on offer subpages */
 .page-hero-scroll { display: none; }
 
-/* ═══ Hide marketing parallax dividers (premium spec: zero filler) ═══ */
 .parallax-divider,
 .wave-divider,
 .footer-wave-transition,
@@ -3338,7 +3232,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   display: none !important;
 }
 
-/* ═══ Premium CTA section (replaces cta-showcase / cta-elegant) ═══ */
 .cta-premium {
   padding: clamp(100px, 12vw, 180px) clamp(20px, 5vw, 90px);
   background: var(--bg-alt);
@@ -3370,7 +3263,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   max-width: 52ch;
 }
 
-/* Existing cta-elegant + cta-showcase — re-skin to premium look */
 .cta-elegant { padding: clamp(100px, 12vw, 180px) clamp(20px, 5vw, 90px); }
 .cta-elegant::before, .cta-elegant::after { display: none; }
 .cta-elegant h2 {
@@ -3395,7 +3287,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 }
 .cta-showcase::after { background: rgba(7,8,12,.5); }
 
-/* ═══ FOOTER — premium minimal ═══ */
 .footer { background: var(--bg-alt); border-top: 1px solid var(--border-soft); }
 .footer-top { padding: clamp(40px, 5vw, 64px) 0 clamp(28px, 3vw, 40px); }
 .footer-grid-new { align-items: center; }
@@ -3418,18 +3309,15 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 .footer-links a { color: var(--text-muted); font-size: .82rem; }
 .footer-links a:hover { color: var(--text); }
 
-/* Footer "made by" link — keep subtle */
 .footer-bottom-inner a[href*="kontaktio"] { color: var(--text-light) !important; }
 .footer-bottom-inner a[href*="kontaktio"]:hover { color: var(--text) !important; }
 
-/* ═══ REVEAL — gentler 200ms fade-in ═══ */
 .reveal {
   transform: translateY(16px);
   transition: opacity .25s var(--ease), transform .35s var(--ease);
 }
 .reveal.visible { transform: translateY(0); }
 
-/* Material detail reveal — gentler */
 .material-detail.reveal .material-detail-img {
   transform: translateX(-16px);
   transition: opacity .35s var(--ease) .05s, transform .45s var(--ease) .05s;
@@ -3441,7 +3329,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 .material-detail-reverse.reveal .material-detail-img { transform: translateX(16px); }
 .material-detail-reverse.reveal .material-detail-text { transform: translateX(-16px); }
 
-/* ═══ Override any remaining blue (#4cc9f0) accents to neutral ═══ */
 .cookie-link,
 .cookie-link:hover,
 .footer-materials-list li a,
@@ -3453,7 +3340,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 .footer-materials-list li a:hover,
 .corobimy-materials-list li a:hover { color: var(--text); }
 
-/* Form focus accent */
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: var(--text-light) !important;
@@ -3478,14 +3364,12 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 .recaptcha-error { color: #ff7a7a; }
 .contact-consent input { accent-color: var(--text); }
 
-/* Kontaktio launcher tweak */
 .kontaktio-launcher {
   background: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
 }
 .kontaktio-input:focus { border-color: var(--text-light) !important; }
 
-/* ═══ RESPONSIVE polish ═══ */
 @media (max-width: 768px) {
   .hero-single-content { padding-bottom: 80px; }
   .page-hero-content { padding-top: 130px; padding-bottom: 70px; }
@@ -3493,13 +3377,11 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   .section-title-row { flex-direction: column; align-items: flex-start; }
 }
 
-/* Extra polish for small phones */
 @media (max-width: 480px) {
-  /* Tighter container padding */
+
   .container { padding: 0 16px; }
   .section { padding: 64px 16px; }
 
-  /* Homepage hero */
   .hero-single { min-height: 100vh; min-height: 100svh; align-items: flex-end; }
   .hero-single-content { padding: 0 16px 56px; gap: 18px; }
   .hero-single-eyebrow { font-size: .68rem; letter-spacing: .26em; gap: 10px; }
@@ -3509,7 +3391,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   .hero-single-actions { width: 100%; gap: 10px; }
   .hero-single-actions .btn { flex: 1 1 100%; min-width: 0; padding: 16px 20px; font-size: .72rem; text-align: center; }
 
-  /* Subpage hero */
   .page-hero { min-height: 60vh; }
   .page-hero-content { padding: 116px 16px 64px; }
   .page-hero-content .hero-eyebrow { font-size: .66rem; letter-spacing: .26em; gap: 10px; margin-bottom: 1.1rem; }
@@ -3517,34 +3398,27 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   .page-hero-content h1 { font-size: clamp(1.9rem, 8.8vw, 2.6rem); max-width: 20ch; }
   .page-hero-desc { font-size: .95rem; }
 
-  /* Section titles */
   .section-title-row h2,
   .form-split-text h2,
   .contact-mini h2,
   .about-split-text h2 { font-size: clamp(1.7rem, 7vw, 2.2rem); }
 
-  /* Buttons */
   .btn { padding: 16px 24px; font-size: .74rem; }
   .btn-lg { padding: 16px 24px; font-size: .74rem; }
 
-  /* Footer */
   .footer-grid-new { gap: 36px; }
   .footer-bottom-inner { padding: 16px 0; font-size: .8rem; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
 
-  /* Why grid already 1 col below 768px — tighten card padding */
   .why-card { padding: 28px 22px; }
 
-  /* Co robimy: tighter spacing */
   .corobimy-grid { gap: 28px; }
 }
 
-/* Disable preloader stone graphic — premium look uses plain logo */
 .preloader-stone { display: none; }
 .preloader-logo-img { height: 36px; }
 #preloader { background: var(--bg); }
 
-/* Hide decorative section background images (we use clean dark sections) */
 .section.has-bg::before,
 .section.has-bg--showcase::before,
 .section.has-bg--showcase::after,
@@ -3552,13 +3426,10 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 .section.has-bg--showcase-bright::after { display: none; }
 .section.has-bg, .section.has-bg--showcase { background: var(--bg); }
 
-/* Hide legacy hero slider dots */
 .hero-slider-dots { display: none; }
 
-/* Override section radial gradient backgrounds from legacy palette */
 #oferta, #realizacje, #dlaczego-my, #inspiracje { background: var(--bg); }
 
-/* ═══ PERFORMANCE: lazy-section / fade-in (IntersectionObserver) ═══ */
 .lazy-section {
   opacity: 0;
   transform: translateY(24px);
@@ -3581,7 +3452,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   .fade-in { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
 }
 
-/* Service tiles: smooth hover transitions */
 .service-tile,
 .service-tile .service-tile-bg,
 .service-tile .service-tile-overlay,

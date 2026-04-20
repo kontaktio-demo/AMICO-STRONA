@@ -1,9 +1,5 @@
-/* ═══════════════════════════════════════════════════════════════════════════
-   MARBLE VEINS v3 — Full-page continuous marble slab overlay
-   Renders realistic marble vein patterns through dark sections & footer
-   ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── Canvas marble overlay inside sections ── */
+
 .marble-vein-layer {
   position: absolute;
   inset: 0;
@@ -30,7 +26,6 @@
   100% { opacity: 1; }
 }
 
-/* ── Shimmer layer — animated light sweep across marble ── */
 .marble-shimmer {
   position: absolute;
   inset: 0;
@@ -57,7 +52,6 @@
   100% { background-position: -50% 0; }
 }
 
-/* ── Ambient glow — subtle floating radial pulses ── */
 .marble-ambient-glow {
   position: absolute;
   inset: 0;
@@ -103,7 +97,6 @@
   66%      { transform: translate(-2%, -3%) scale(.92); opacity: .7; }
 }
 
-/* ── Marble vein breathing — subtle opacity pulse ── */
 .marble-vein-layer.marble-breathing {
   animation: marbleFadeIn 2.8s cubic-bezier(.4,0,.2,1) forwards,
              marbleBreathing 8s ease-in-out 3s infinite;
@@ -114,12 +107,10 @@
   50%      { opacity: .82; }
 }
 
-/* Footer vein layer — sits behind footer content */
 .marble-vein-footer {
   z-index: 0;
 }
 
-/* Ensure all section content stays above veins */
 [data-marble-theme] .section:not(.has-bg) > .container,
 [data-marble-theme] .section:not(.has-bg) > .section-header,
 [data-marble-theme] .section:not(.has-bg) > .material-detail,
@@ -128,14 +119,12 @@
   z-index: 1;
 }
 
-/* Footer content above veins */
 [data-marble-theme] .footer > .footer-top,
 [data-marble-theme] .footer > .footer-bottom {
   position: relative;
   z-index: 1;
 }
 
-/* footer-wave-transition support */
 [data-marble-theme] .footer-wave-transition {
   position: relative;
   overflow: hidden;
@@ -145,7 +134,6 @@
   z-index: 1;
 }
 
-/* ── Section-specific marble glow colors ── */
 [data-marble-theme="calacatta"]    { --marble-glow: rgba(220,185,120,.085); }
 [data-marble-theme="carrara"]      { --marble-glow: rgba(180,195,220,.075); }
 [data-marble-theme="nero-marquina"]{ --marble-glow: rgba(230,230,245,.090); }
@@ -158,9 +146,6 @@
 [data-marble-theme="statuario"]    { --marble-glow: rgba(200,200,220,.078); }
 [data-marble-theme="arabescato"]   { --marble-glow: rgba(195,185,210,.070); }
 
-/* ═══════════════════════════════════════════════════
-   Reduced motion — skip all animations
-   ═══════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   .marble-vein-layer {
     animation: none;

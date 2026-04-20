@@ -1,8 +1,4 @@
-/* ============================================================
-   AMICO — PREMIUM OVERRIDES (homepage)
-   Palette: granat (#0E1224), czerń (#0B0B10), biel/szarość (#FFFFFF / #E5E7EB)
-   Typography: Inter Tight 600–900, no italic
-   ============================================================ */
+
 
 :root {
   --font-display: "Inter Tight", "Space Grotesk", "Inter", system-ui, -apple-system, sans-serif;
@@ -17,10 +13,8 @@
   --ease-out-soft: cubic-bezier(.16,1,.3,1);
 }
 
-/* Hard-disable italic everywhere on the homepage */
 i, em, address, cite, var, dfn, blockquote, q { font-style: normal !important; }
 
-/* Tighten and beef-up base type */
 html, body { font-family: var(--font-body); }
 body {
   font-weight: 500;
@@ -52,7 +46,6 @@ p { font-weight: 400; line-height: 1.7; }
   text-transform: uppercase;
 }
 
-/* ===== BUTTONS — premium ===== */
 .btn {
   font-family: var(--font-body);
   font-weight: 700;
@@ -89,7 +82,6 @@ p { font-weight: 400; line-height: 1.7; }
   transform: translateY(-2px);
 }
 
-/* ===== HERO — premium ===== */
 .hero-premium {
   min-height: 100vh;
   background: #06070C;
@@ -158,7 +150,6 @@ p { font-weight: 400; line-height: 1.7; }
   background: linear-gradient(to bottom, var(--gold), transparent);
 }
 
-/* Staged hero reveal */
 .hero-stagger {
   opacity: 0;
   transform: translateY(28px);
@@ -171,7 +162,6 @@ body:not(.preloading) .hero-premium .hero-stagger,
   transform: translateY(0);
 }
 
-/* ===== O NAS — premium ===== */
 #o-nas { padding: clamp(120px, 14vw, 200px) clamp(20px, 5vw, 90px); }
 .about-split {
   grid-template-columns: 1fr 1.15fr;
@@ -231,7 +221,6 @@ body:not(.preloading) .hero-premium .hero-stagger,
   .about-marks { grid-template-columns: 1fr; gap: 14px; }
 }
 
-/* ===== USŁUGI — premium tiles ===== */
 #uslugi { padding: clamp(110px, 13vw, 180px) clamp(20px, 5vw, 90px); }
 .section-title-row h2 {
   font-size: clamp(2rem, 3.6vw, 3.2rem);
@@ -297,7 +286,6 @@ body:not(.preloading) .hero-premium .hero-stagger,
 }
 .services-more a:hover { color: var(--gold-soft); border-bottom-color: var(--gold); }
 
-/* ===== REALIZACJE — premium gallery ===== */
 #realizacje { padding: clamp(110px, 13vw, 180px) clamp(20px, 5vw, 90px); }
 .gallery-premium { column-gap: clamp(16px, 1.6vw, 22px); }
 .gallery-premium .gallery-preview-item {
@@ -355,7 +343,6 @@ body:not(.preloading) .hero-premium .hero-stagger,
   .gp-overlay { opacity: 1; transform: none; background: linear-gradient(180deg, transparent 50%, rgba(6,7,12,.85) 100%); }
 }
 
-/* ===== KONTAKT MINI — refined ===== */
 #kontakt-mini { padding: clamp(110px, 13vw, 180px) clamp(20px, 5vw, 90px); }
 .contact-mini h2 {
   font-size: clamp(2rem, 3.6vw, 3.2rem);
@@ -385,7 +372,6 @@ body:not(.preloading) .hero-premium .hero-stagger,
   box-shadow: 0 18px 44px -14px rgba(255,255,255,.28);
 }
 
-/* ===== CONTACT FORM SECTION (homepage) ===== */
 .section-form { padding: clamp(110px, 13vw, 180px) 0 0; }
 .section-form .container { padding: 0 clamp(20px, 5vw, 60px); }
 .form-split {
@@ -503,7 +489,6 @@ body:not(.preloading) .hero-premium .hero-stagger,
   .pf-row { grid-template-columns: 1fr; }
 }
 
-/* ===== Premium grayscale map ===== */
 .premium-map {
   position: relative;
   height: clamp(320px, 38vw, 520px);
@@ -525,7 +510,6 @@ body:not(.preloading) .hero-premium .hero-stagger,
     radial-gradient(ellipse at center, transparent 40%, rgba(6,7,12,.55) 100%);
 }
 
-/* ===== REVEAL — premium curve ===== */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -534,7 +518,6 @@ body:not(.preloading) .hero-premium .hero-stagger,
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ===== NAV — refined typography ===== */
 .nav-link {
   font-family: var(--font-body);
   font-weight: 600;
@@ -546,11 +529,9 @@ body:not(.preloading) .hero-premium .hero-stagger,
 .nav-link:hover, .nav-link.active { color: var(--gold-soft); }
 .nav-link.active::after { background: var(--gold) !important; }
 
-/* ===== FOOTER — small refinements ===== */
 .footer-logo-sub { color: var(--gold) !important; font-weight: 700 !important; letter-spacing: .3em !important; }
 .footer-social a:hover svg { fill: var(--gold-soft); }
 
-/* ===== MOBILE polish ===== */
 @media(max-width: 768px) {
   .hero-premium .hero-single-title { font-size: clamp(2.4rem, 11vw, 3.4rem); max-width: 14ch; }
   .hero-premium .hero-single-sub { font-size: 1rem; }
