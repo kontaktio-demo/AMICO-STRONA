@@ -44,6 +44,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="wow-animations.css">
   <link rel="stylesheet" href="premium.css">
+  <script src="https://www.google.com/recaptcha/api.js?hl=pl" async defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -397,6 +398,13 @@
           <span>O projekcie</span>
           <textarea name="message" rows="5" placeholder="Krótko opisz, co chcesz zrealizować - rodzaj kamienia, wymiary, termin."></textarea>
         </label>
+        <div class="pf-recaptcha">
+          <div class="g-recaptcha"
+            data-sitekey="6LeQxcIsAAAAAL3VPZKS1InFam1XSLCj4HD7ElAg"
+            data-theme="dark">
+          </div>
+        </div>
+        <div class="pf-recaptcha-error" id="homeRecaptchaError" role="alert">Potwierdź, że nie jesteś robotem.</div>
         <div class="pf-actions">
           <button type="submit" class="btn btn-primary btn-lg btn-premium">Wyślij zapytanie</button>
           <span class="pf-note">Klikając „Wyślij" akceptujesz <a href="polityka-prywatnosci/">politykę prywatności</a>.</span>

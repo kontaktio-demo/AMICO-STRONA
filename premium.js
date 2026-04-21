@@ -82,12 +82,23 @@
         });
         ok = false;
       }
+      var recaptchaError = document.getElementById("homeRecaptchaError");
+      if (recaptchaError) recaptchaError.classList.remove("show");
+      var recaptchaToken = "";
+      if (typeof grecaptcha !== "undefined" && form.querySelector(".g-recaptcha")) {
+        try { recaptchaToken = grecaptcha.getResponse(); } catch (err) { recaptchaToken = ""; }
+        if (!recaptchaToken) {
+          if (recaptchaError) recaptchaError.classList.add("show");
+          ok = false;
+        }
+      }
       if (!ok) return;
       if (btn) {
         btn.disabled = true;
         btn.textContent = "Wysyłanie…";
       }
       var data = new FormData(form);
+      if (recaptchaToken) data.append("g-recaptcha-response", recaptchaToken);
       fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: data
@@ -97,6 +108,9 @@
         if (res && res.success) {
           if (btn) btn.textContent = "Dziękujemy — odezwiemy się";
           form.reset();
+          if (typeof grecaptcha !== "undefined") {
+            try { grecaptcha.reset(); } catch (err) {}
+          }
         } else {
           if (btn) btn.textContent = "Błąd wysyłki — spróbuj ponownie";
         }
