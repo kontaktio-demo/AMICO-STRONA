@@ -87,18 +87,34 @@
         btn.disabled = true;
         btn.textContent = "Wysyłanie…";
       }
-      setTimeout(function() {
-        if (btn) {
-          btn.textContent = "Dziękujemy — odezwiemy się";
+      var data = new FormData(form);
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data
+      }).then(function(r) {
+        return r.json().catch(function() { return { success: r.ok }; });
+      }).then(function(res) {
+        if (res && res.success) {
+          if (btn) btn.textContent = "Dziękujemy — odezwiemy się";
+          form.reset();
+        } else {
+          if (btn) btn.textContent = "Błąd wysyłki — spróbuj ponownie";
         }
-        form.reset();
         setTimeout(function() {
           if (btn) {
             btn.disabled = false;
             btn.textContent = orig;
           }
         }, 3200);
-      }, 700);
+      }).catch(function() {
+        if (btn) btn.textContent = "Błąd wysyłki — spróbuj ponownie";
+        setTimeout(function() {
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = orig;
+          }
+        }, 3200);
+      });
     });
   }
   function init() {
