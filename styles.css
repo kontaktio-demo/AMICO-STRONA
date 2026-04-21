@@ -3023,6 +3023,9 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 @media(max-width: 1100px) {
   .services-grid--four { grid-template-columns: repeat(2, 1fr); }
 }
+@media(min-width: 1281px) {
+  .services-grid--four .service-tile { aspect-ratio: 1 / 1; }
+}
 @media(max-width: 700px) {
   .services-grid,
   .services-grid--four,
@@ -3684,12 +3687,18 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
   .form-split-text { max-width: 60ch; margin-left: auto; margin-right: auto; }
   .about-marks { justify-content: center; justify-items: center; }
   .about-marks li { align-items: center; text-align: center; }
-  .form-split-meta { align-items: center; }
+  .form-split-meta { align-items: flex-start; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .form-split-meta-item { width: 100%; }
   .contact-mini-list { align-items: flex-start; max-width: 420px; margin-left: auto; margin-right: auto; }
   .section-title-row { text-align: center; align-items: center; }
   .section-title-row > div:first-child { width: 100%; }
   .materials-links { justify-content: center; }
   .services-more { justify-content: center; text-align: center; }
+  .services-more-label {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 4px;
+  }
 }
 
 /* Small tablets / large phones */
