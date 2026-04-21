@@ -266,10 +266,65 @@ function initForm() {
     if (hasError) return;
     btn.textContent = "Wysyłanie...";
     btn.disabled = true;
-    setTimeout(function() {
-      btn.textContent = "Wysłano ✓";
-      btn.style.background = "#22c55e";
-      btn.style.borderColor = "#22c55e";
+    var data = new FormData();
+    var els = form.elements;
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (!el.name) continue;
+      if (el.type === "file") continue;
+      if (el.type === "checkbox" || el.type === "radio") {
+        if (el.checked) data.append(el.name, el.value || "on");
+        continue;
+      }
+      data.append(el.name, el.value);
+    }
+    if (typeof grecaptcha !== "undefined") {
+      var token = grecaptcha.getResponse();
+      if (token) data.append("g-recaptcha-response", token);
+    }
+    if (uploadedFiles && uploadedFiles.length) {
+      for (var f = 0; f < uploadedFiles.length; f++) {
+        data.append("attachment_" + (f + 1), uploadedFiles[f], uploadedFiles[f].name);
+      }
+    }
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: data
+    }).then(function(r) {
+      return r.json().catch(function() { return { success: r.ok }; });
+    }).then(function(res) {
+      if (res && res.success) {
+        btn.textContent = "Wysłano ✓";
+        btn.style.background = "#22c55e";
+        btn.style.borderColor = "#22c55e";
+        btn.style.color = "#fff";
+        setTimeout(function() {
+          btn.textContent = orig;
+          btn.disabled = false;
+          btn.style.background = "";
+          btn.style.borderColor = "";
+          btn.style.color = "";
+          form.reset();
+          clearFileUpload();
+          if (typeof grecaptcha !== "undefined") grecaptcha.reset();
+        }, 4e3);
+      } else {
+        btn.textContent = "Błąd wysyłki — spróbuj ponownie";
+        btn.style.background = "#ef4444";
+        btn.style.borderColor = "#ef4444";
+        btn.style.color = "#fff";
+        setTimeout(function() {
+          btn.textContent = orig;
+          btn.disabled = false;
+          btn.style.background = "";
+          btn.style.borderColor = "";
+          btn.style.color = "";
+        }, 4e3);
+      }
+    }).catch(function() {
+      btn.textContent = "Błąd wysyłki — spróbuj ponownie";
+      btn.style.background = "#ef4444";
+      btn.style.borderColor = "#ef4444";
       btn.style.color = "#fff";
       setTimeout(function() {
         btn.textContent = orig;
@@ -277,11 +332,8 @@ function initForm() {
         btn.style.background = "";
         btn.style.borderColor = "";
         btn.style.color = "";
-        form.reset();
-        clearFileUpload();
-        if (typeof grecaptcha !== "undefined") grecaptcha.reset();
       }, 4e3);
-    }, 900);
+    });
   });
 }
 
