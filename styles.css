@@ -3680,6 +3680,9 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
   .about-split,
   .form-split,
   .contact-mini { text-align: center; }
+  .contact-mini > div:first-child { display: flex; flex-direction: column; align-items: center; }
+  .contact-mini h2 { max-width: 16ch; margin-left: auto; margin-right: auto; }
+  .contact-mini-text { max-width: 52ch; margin-left: auto; margin-right: auto; }
   .about-split-text,
   .form-split-text { max-width: 60ch; margin-left: auto; margin-right: auto; }
   .about-marks { justify-content: center; justify-items: center; }
