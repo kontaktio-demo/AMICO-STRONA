@@ -2950,7 +2950,7 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   position: relative;
   display: block;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 16 / 10;
   background: var(--bg-card);
   text-decoration: none;
   isolation: isolate;
@@ -3024,7 +3024,7 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   .services-grid--four { grid-template-columns: repeat(2, 1fr); }
 }
 @media(min-width: 1281px) {
-  .services-grid--four .service-tile { aspect-ratio: 1 / 1; }
+  .services-grid--four .service-tile { aspect-ratio: 4 / 3; }
 }
 @media(max-width: 700px) {
   .services-grid,
