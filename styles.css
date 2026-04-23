@@ -2816,6 +2816,9 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   align-items: flex-end;
   overflow: hidden;
   background: var(--bg);
+  /* Reserve safe space for the fixed navigation so the hero content
+     can never slide underneath it on shorter / landscape viewports. */
+  padding-top: clamp(96px, 12vh, 140px);
 }
 .hero-single-bg {
   position: absolute; inset: 0;
@@ -2859,12 +2862,14 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 }
 .hero-single-title {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 6.4vw, 5.6rem);
+  /* Use min(vw, vh) so the title stays in proportion on short/landscape
+     viewports and never overflows past the navigation bar. */
+  font-size: clamp(2.4rem, min(6vw, 9vh), 5rem);
   font-weight: 600;
-  line-height: 1.02;
+  line-height: 1.04;
   letter-spacing: -.035em;
   color: #fff;
-  max-width: 16ch;
+  max-width: 18ch;
   margin: 0;
 }
 .hero-single-sub {
