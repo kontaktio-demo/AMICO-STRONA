@@ -2813,7 +2813,12 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: flex-end;
+  /* Use the `safe` keyword so that when the hero content is taller than
+     the available space (e.g. when the H1 wraps onto extra lines on
+     narrower / shorter viewports) the browser falls back to start
+     alignment instead of pushing the eyebrow above the section and
+     clipping it via `overflow: hidden`. */
+  align-items: safe flex-end;
   overflow: hidden;
   background: var(--bg);
   /* Reserve safe space for the fixed navigation so the hero content
@@ -3365,7 +3370,7 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   .container { padding: 0 16px; }
   .section { padding: 64px 16px; }
 
-  .hero-single { min-height: 100vh; min-height: 100svh; align-items: flex-end; }
+  .hero-single { min-height: 100vh; min-height: 100svh; align-items: safe flex-end; }
   .hero-single-content { padding: 0 16px 56px; gap: 18px; }
   .hero-single-eyebrow { font-size: .68rem; letter-spacing: .26em; gap: 10px; }
   .hero-single-eyebrow::before { width: 22px; }
