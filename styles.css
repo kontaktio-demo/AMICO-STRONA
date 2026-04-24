@@ -1690,6 +1690,50 @@ a.inspiration-slide {
   transform: scale(1.02);
 }
 
+/* Image stack variant: when the left column contains multiple images stacked
+   vertically, drop the wrapping card styling so each picture/figure becomes
+   its own framed item, and align the row to the top so the text column reads
+   naturally next to the stack. */
+.material-detail:has(.material-detail-img-stack) {
+  align-items: start;
+}
+.material-detail-img.material-detail-img-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 24px);
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  background: transparent;
+}
+.material-detail-img-stack > picture,
+.material-detail-img-stack > figure {
+  margin: 0;
+  display: block;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .5s var(--ease), border-color .5s var(--ease);
+}
+.material-detail:hover .material-detail-img-stack > picture,
+.material-detail:hover .material-detail-img-stack > figure {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border);
+}
+.material-detail-img-stack picture img,
+.material-detail-img-stack figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  transition: transform .6s var(--ease);
+}
+.material-detail:hover .material-detail-img-stack picture img,
+.material-detail:hover .material-detail-img-stack figure img {
+  transform: scale(1.02);
+}
+
 @media(max-width:768px) {
   .material-detail {
     grid-template-columns: 1fr;
