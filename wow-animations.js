@@ -1,7 +1,8 @@
 "use strict";
 
 (function() {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReduce) return;
   var isDesktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var TILT_MAX_DEG = 4;
   var MAGNETIC_STRENGTH = .12;
@@ -135,34 +136,70 @@
     });
   }
   function initParallaxImages() {
-    if (prefersReduce) return;
     var els = document.querySelectorAll("[data-parallax]");
     if (!els.length) return;
+    var winH = window.innerHeight;
     var items = [];
     els.forEach(function(el) {
       var speed = parseFloat(el.getAttribute("data-parallax")) || .15;
-      items.push({ el: el, speed: speed });
+      // Clamp speed so mobile never feels juddery.
+      if (!isDesktop) speed = Math.min(speed, .12);
+      items.push({ el: el, speed: speed, current: 0, target: 0, visible: false });
     });
-    var ticking = false;
-    function update() {
-      var winH = window.innerHeight;
+    var running = false;
+    var SMOOTH = isDesktop ? .14 : .22; // higher = snappier; lower = silkier
+    function compute() {
+      winH = window.innerHeight;
       items.forEach(function(it) {
         var rect = it.el.getBoundingClientRect();
-        if (rect.bottom < -100 || rect.top > winH + 100) return;
+        if (rect.bottom < -120 || rect.top > winH + 120) {
+          it.visible = false;
+          return;
+        }
+        it.visible = true;
         var center = rect.top + rect.height / 2;
-        var offset = (center - winH / 2) * it.speed * -1;
-        it.el.style.transform = "translate3d(0," + offset.toFixed(2) + "px,0)";
+        it.target = (center - winH / 2) * it.speed * -1;
       });
-      ticking = false;
     }
-    window.addEventListener("scroll", function() {
-      if (!ticking) {
-        window.requestAnimationFrame(update);
-        ticking = true;
+    function tick() {
+      var anyMoving = false;
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i];
+        var diff = it.target - it.current;
+        if (Math.abs(diff) > .1) {
+          it.current += diff * SMOOTH;
+          it.el.style.transform = "translate3d(0," + it.current.toFixed(2) + "px,0)";
+          anyMoving = true;
+        } else if (it.current !== it.target) {
+          it.current = it.target;
+          it.el.style.transform = "translate3d(0," + it.current.toFixed(2) + "px,0)";
+        }
       }
-    }, { passive: true });
-    window.addEventListener("resize", update, { passive: true });
-    update();
+      if (anyMoving) {
+        window.requestAnimationFrame(tick);
+      } else {
+        running = false;
+      }
+    }
+    function start() {
+      if (running) return;
+      running = true;
+      window.requestAnimationFrame(tick);
+    }
+    function onScroll() {
+      compute();
+      start();
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    compute();
+    // Snap to initial target so first frame isn't a big jump.
+    items.forEach(function(it) {
+      it.current = it.target;
+      if (it.visible) {
+        it.el.style.transform = "translate3d(0," + it.current.toFixed(2) + "px,0)";
+      }
+    });
   }
   function initTileInView() {
     var tiles = document.querySelectorAll(".service-tile");
@@ -176,6 +213,61 @@
     }, { threshold: .25 });
     tiles.forEach(function(t) { observer.observe(t); });
   }
+  function initImageFadeIn() {
+    // Smooth blur-up + fade-in for every <img>: avoids the harsh pop-in once
+    // the network/disk delivers the file, on every device.
+    var imgs = document.querySelectorAll("img");
+    if (!imgs.length) return;
+    imgs.forEach(function(img) {
+      // Skip tiny inline icons / SVG logos that should appear instantly.
+      if (img.hasAttribute("data-no-fade")) return;
+      var src = img.getAttribute("src") || "";
+      if (/\.svg(\?|$)/i.test(src)) return;
+      img.classList.add("img-fade");
+      var markLoaded = function() {
+        img.classList.add("img-loaded");
+      };
+      if (img.complete && img.naturalWidth > 0) {
+        // Already cached — reveal next frame so the transition still plays
+        // gracefully even on hard refresh.
+        requestAnimationFrame(markLoaded);
+      } else {
+        img.addEventListener("load", markLoaded, { once: true });
+        img.addEventListener("error", markLoaded, { once: true });
+      }
+    });
+  }
+  function initGroupStagger() {
+    // Auto-assign --i index to siblings inside common grid containers so the
+    // stagger from wow-animations.css ".reveal[style*='--i']" applies.
+    var groupSelectors = [
+      ".feature-cards", ".why-cards", ".offer-features",
+      ".gallery-grid", ".corobimy-grid", ".materials-grid",
+      ".carousel-track", ".inspiracje-grid", ".services-grid",
+      ".values-grid", ".uslugi-grid"
+    ];
+    groupSelectors.forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(group) {
+        var i = 0;
+        Array.prototype.forEach.call(group.children, function(child) {
+          if (child.classList && child.classList.contains("reveal")) {
+            // Don't override if author already set --i (match --i: but not
+            // other custom props like --icon-size).
+            if (!/(?:^|;)\s*--i\s*:/.test(child.getAttribute("style") || "")) {
+              child.style.setProperty("--i", i);
+            }
+            i++;
+          }
+        });
+      });
+    });
+  }
+  function initHeroKenBurns() {
+    // Subtle slow zoom on the active hero slide for a cinematic feel.
+    var slides = document.querySelectorAll(".hero-slide");
+    if (!slides.length) return;
+    slides.forEach(function(s) { s.classList.add("ken-burns"); });
+  }
   function boot() {
     initEnhancedReveal();
     initTiltCards();
@@ -184,8 +276,11 @@
     initParallaxDividers();
     initScrollProgress();
     initSmoothScroll();
+    initGroupStagger();
     initParallaxImages();
     initTileInView();
+    initImageFadeIn();
+    initHeroKenBurns();
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);
