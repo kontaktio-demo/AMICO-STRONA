@@ -231,7 +231,6 @@ function initLazyIframes() {
 function initForm() {
   var form = document.getElementById("contactForm");
   if (!form) return;
-  initFileUpload();
   form.addEventListener("submit", function(e) {
     e.preventDefault();
     var btn = form.querySelector('button[type="submit"]');
@@ -262,17 +261,11 @@ function initForm() {
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (!el.name) continue;
-      if (el.type === "file") continue;
       if (el.type === "checkbox" || el.type === "radio") {
         if (el.checked) data.append(el.name, el.value || "on");
         continue;
       }
       data.append(el.name, el.value);
-    }
-    if (uploadedFiles && uploadedFiles.length) {
-      for (var f = 0; f < uploadedFiles.length; f++) {
-        data.append("attachment_" + (f + 1), uploadedFiles[f], uploadedFiles[f].name);
-      }
     }
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -292,7 +285,6 @@ function initForm() {
           btn.style.borderColor = "";
           btn.style.color = "";
           form.reset();
-          clearFileUpload();
         }, 4e3);
       } else {
         btn.textContent = "Błąd wysyłki — spróbuj ponownie";
@@ -321,167 +313,6 @@ function initForm() {
       }, 4e3);
     });
   });
-}
-
-var uploadedFiles = [];
-
-var MAX_FILE_SIZE = 25 * 1024 * 1024;
-
-var ALLOWED_EXTENSIONS = [ "jpg", "jpeg", "png", "webp", "gif", "bmp", "tiff", "pdf", "doc", "docx", "obj", "stl", "fbx", "step", "stp", "iges", "igs", "3ds", "dxf", "dwg", "skp", "blend" ];
-
-function initFileUpload() {
-  var zone = document.getElementById("fileUploadZone");
-  var input = document.getElementById("fileInput");
-  if (!zone || !input) return;
-  [ "dragenter", "dragover" ].forEach(function(ev) {
-    zone.addEventListener(ev, function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      zone.classList.add("dragover");
-    });
-  });
-  [ "dragleave", "drop" ].forEach(function(ev) {
-    zone.addEventListener(ev, function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      zone.classList.remove("dragover");
-    });
-  });
-  zone.addEventListener("drop", function(e) {
-    var files = e.dataTransfer.files;
-    handleFiles(files);
-  });
-  input.addEventListener("change", function() {
-    handleFiles(this.files);
-    this.value = "";
-  });
-}
-
-function handleFiles(fileList) {
-  var errorEl = document.getElementById("fileUploadError");
-  if (errorEl) {
-    errorEl.classList.remove("show");
-    errorEl.textContent = "";
-  }
-  for (var i = 0; i < fileList.length; i++) {
-    var file = fileList[i];
-    var ext = file.name.split(".").pop().toLowerCase();
-    if (ALLOWED_EXTENSIONS.indexOf(ext) === -1) {
-      showFileError("Nieobsługiwany format pliku: ." + ext);
-      continue;
-    }
-    if (file.size > MAX_FILE_SIZE) {
-      showFileError('Plik "' + file.name + '" przekracza 25 MB.');
-      continue;
-    }
-    if (uploadedFiles.length >= 10) {
-      showFileError("Maksymalnie 10 plików.");
-      break;
-    }
-    uploadedFiles.push(file);
-    renderFilePreview(file, uploadedFiles.length - 1);
-  }
-}
-
-function showFileError(msg) {
-  var errorEl = document.getElementById("fileUploadError");
-  if (!errorEl) return;
-  errorEl.textContent = msg;
-  errorEl.classList.add("show");
-}
-
-function renderFilePreview(file, index) {
-  var list = document.getElementById("filePreviewList");
-  if (!list) return;
-  var item = document.createElement("div");
-  item.className = "file-preview-item";
-  item.setAttribute("data-index", index);
-  var isImage = /\.(jpe?g|png|webp|gif|bmp|tiff)$/i.test(file.name);
-  var objectUrl = null;
-  if (isImage) {
-    objectUrl = URL.createObjectURL(file);
-    var img = document.createElement("img");
-    img.className = "file-preview-thumb";
-    img.src = objectUrl;
-    img.alt = "Podgląd";
-    item.appendChild(img);
-  } else {
-    var ext = file.name.split(".").pop().toLowerCase();
-    var iconWrap = document.createElement("div");
-    iconWrap.className = "file-preview-icon";
-    var svgMarkup = getFileIcon(ext);
-    var parser = new DOMParser;
-    var svgDoc = parser.parseFromString(svgMarkup, "image/svg+xml");
-    var svgEl = svgDoc.documentElement;
-    if (svgEl && svgEl.nodeName === "svg") {
-      iconWrap.appendChild(document.importNode(svgEl, true));
-    }
-    item.appendChild(iconWrap);
-  }
-  var infoDiv = document.createElement("div");
-  infoDiv.className = "file-preview-info";
-  var nameSpan = document.createElement("span");
-  nameSpan.className = "file-preview-name";
-  nameSpan.textContent = file.name;
-  nameSpan.title = file.name;
-  infoDiv.appendChild(nameSpan);
-  var sizeSpan = document.createElement("span");
-  sizeSpan.className = "file-preview-size";
-  sizeSpan.textContent = formatFileSize(file.size);
-  infoDiv.appendChild(sizeSpan);
-  item.appendChild(infoDiv);
-  var removeBtn = document.createElement("button");
-  removeBtn.type = "button";
-  removeBtn.className = "file-preview-remove";
-  removeBtn.title = "Usuń plik";
-  removeBtn.setAttribute("aria-label", "Usuń " + file.name);
-  removeBtn.textContent = "×";
-  item.appendChild(removeBtn);
-  removeBtn.addEventListener("click", function() {
-    var idx = uploadedFiles.indexOf(file);
-    if (idx !== -1) uploadedFiles.splice(idx, 1);
-    if (objectUrl) URL.revokeObjectURL(objectUrl);
-    item.style.animation = "none";
-    item.style.opacity = "0";
-    item.style.transform = "scale(.9)";
-    item.style.transition = "opacity .2s ease, transform .2s ease";
-    setTimeout(function() {
-      item.remove();
-    }, 200);
-  });
-  list.appendChild(item);
-}
-
-function clearFileUpload() {
-  uploadedFiles = [];
-  var list = document.getElementById("filePreviewList");
-  if (list) {
-    var imgs = list.querySelectorAll(".file-preview-thumb");
-    for (var i = 0; i < imgs.length; i++) {
-      if (imgs[i].src && imgs[i].src.indexOf("blob:") === 0) {
-        URL.revokeObjectURL(imgs[i].src);
-      }
-    }
-    list.innerHTML = "";
-  }
-  var errorEl = document.getElementById("fileUploadError");
-  if (errorEl) {
-    errorEl.classList.remove("show");
-    errorEl.textContent = "";
-  }
-}
-
-function getFileIcon(ext) {
-  if ([ "pdf" ].indexOf(ext) !== -1) return '<svg viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>';
-  if ([ "obj", "stl", "fbx", "step", "stp", "iges", "igs", "3ds", "blend", "skp" ].indexOf(ext) !== -1) return '<svg viewBox="0 0 24 24"><path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44zm-9.79 6.84a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z"/></svg>';
-  if ([ "dxf", "dwg" ].indexOf(ext) !== -1) return '<svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>';
-  return '<svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>';
-}
-
-function formatFileSize(bytes) {
-  if (bytes < 1024) return bytes + " B";
-  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
-  return (bytes / (1024 * 1024)).toFixed(1) + " MB";
 }
 
 function showError(input, message) {

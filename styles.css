@@ -3430,17 +3430,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   border-color: var(--text-light) !important;
   box-shadow: 0 0 0 3px rgba(255,255,255,.06) !important;
 }
-.file-upload-zone:hover,
-.file-upload-zone.dragover {
-  border-color: var(--text-light) !important;
-  background: rgba(255,255,255,.03) !important;
-  box-shadow: 0 0 0 4px rgba(255,255,255,.04) !important;
-}
-.file-upload-zone:hover .file-upload-icon svg,
-.file-upload-zone.dragover .file-upload-icon svg { fill: var(--text-light) !important; }
-.file-upload-label strong { color: var(--text) !important; }
-.file-preview-icon { background: rgba(255,255,255,.06) !important; }
-.file-preview-icon svg { fill: var(--text-light) !important; }
 .contact-detail-icon svg { fill: var(--text-light) !important; }
 .contact-detail-text a { color: var(--text); }
 .contact-detail-text a:hover { color: #fff; border-bottom: 1px solid var(--text); }
