@@ -575,3 +575,91 @@
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+
+/* ──────────────────────────────────────────────────────────────────────
+   Smooth image loading (blur-up + fade-in once decoded)
+   Applied via wow-animations.js → adds .img-fade then .img-loaded.
+   Prevents harsh pop-in on slow connections / first paint.
+   ────────────────────────────────────────────────────────────────────── */
+img.img-fade {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateZ(0) scale(1.015);
+  transition:
+    opacity .7s cubic-bezier(.2,.7,.2,1),
+    filter  .9s cubic-bezier(.2,.7,.2,1),
+    transform 1s cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, filter, transform;
+  /* Hint the browser to start work as soon as it can. */
+  backface-visibility: hidden;
+}
+img.img-fade.img-loaded {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateZ(0) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  img.img-fade,
+  img.img-fade.img-loaded {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Hero slider — subtle Ken Burns on the active slide for cinematic feel.
+   Pseudo-element ::after holds the bg image; we animate its transform.
+   ────────────────────────────────────────────────────────────────────── */
+.hero-slide.ken-burns::after,
+.hero-slide.ken-burns::before {
+  transform: scale(1);
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+  will-change: transform;
+}
+.hero-slide.ken-burns.active::after {
+  animation: kenBurnsZoom 12s linear forwards;
+}
+.hero-slide.ken-burns.active::before {
+  animation: kenBurnsZoomBlur 12s linear forwards;
+}
+@keyframes kenBurnsZoom {
+  from { transform: scale(1.02) translate3d(0,0,0); }
+  to   { transform: scale(1.10) translate3d(-1%, -1%, 0); }
+}
+@keyframes kenBurnsZoomBlur {
+  from { transform: scale(1.04); }
+  to   { transform: scale(1.12); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide.ken-burns.active::after,
+  .hero-slide.ken-burns.active::before {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Smoother default transitions — refine the existing reveal curve so
+   sections feel organic and "premium" on all devices.
+   ────────────────────────────────────────────────────────────────────── */
+.lazy-section {
+  transition:
+    opacity .9s cubic-bezier(.2,.7,.2,1),
+    transform .9s cubic-bezier(.2,.7,.2,1),
+    filter .9s cubic-bezier(.2,.7,.2,1);
+  filter: blur(6px);
+}
+.lazy-section.is-visible {
+  filter: blur(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lazy-section { filter: none !important; }
+}
+
+/* Soften and slightly lengthen the carousel slide transition for a
+   silkier feel when paging through realizacje/inspiracje. */
+.carousel-track {
+  transition: transform .55s cubic-bezier(.2,.7,.2,1) !important;
+}
