@@ -194,7 +194,12 @@
     window.addEventListener("resize", onScroll, { passive: true });
     compute();
     // Snap to initial target so first frame isn't a big jump.
-    items.forEach(function(it) { it.current = it.target; if (it.visible) it.el.style.transform = "translate3d(0," + it.current.toFixed(2) + "px,0)"; });
+    items.forEach(function(it) {
+      it.current = it.target;
+      if (it.visible) {
+        it.el.style.transform = "translate3d(0," + it.current.toFixed(2) + "px,0)";
+      }
+    });
   }
   function initTileInView() {
     var tiles = document.querySelectorAll(".service-tile");
@@ -246,8 +251,9 @@
         var i = 0;
         Array.prototype.forEach.call(group.children, function(child) {
           if (child.classList && child.classList.contains("reveal")) {
-            // Don't override if author already set --i.
-            if (!/--i:/.test(child.getAttribute("style") || "")) {
+            // Don't override if author already set --i (match --i: but not
+            // other custom props like --icon-size).
+            if (!/(?:^|;)\s*--i\s*:/.test(child.getAttribute("style") || "")) {
               child.style.setProperty("--i", i);
             }
             i++;
