@@ -3812,3 +3812,101 @@ img { -webkit-user-drag: none; user-select: none; }
 @media print {
   .nav, .hamburger, .preloader, #preloader, .kontaktio-launcher, .scroll-progress, .premium-map { display: none !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PER-PAGE LAYOUT VARIANTS for /oferta/* subpages
+   Each service subpage gets a [data-page-layout] modifier so the seven
+   pages don't feel like one shared template. Variants tweak hero
+   alignment, material-detail proportions/order, dividers and feature grid.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* --- alpha (blaty-kuchenne): default LEFT hero, asymmetric materials (5/7) --- */
+[data-page-layout="alpha"] .page-hero-content { text-align: left; }
+@media (min-width: 769px) {
+  [data-page-layout="alpha"] .material-detail { grid-template-columns: 5fr 7fr; }
+  [data-page-layout="alpha"] .material-detail-reverse { grid-template-columns: 5fr 7fr; }
+  [data-page-layout="alpha"] .offer-features { grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1.4rem; }
+  [data-page-layout="alpha"] .offer-feature { padding: 1.2rem 1rem; font-size: .95rem; flex-direction: column; gap: .9rem; }
+  [data-page-layout="alpha"] .offer-feature:last-child:nth-child(odd) { max-width: none; grid-column: auto; }
+}
+
+/* --- beta (blaty-lazienkowe): hero RIGHT-aligned, 3-col features --- */
+[data-page-layout="beta"] .page-hero-content { text-align: right; }
+[data-page-layout="beta"] .page-hero-content .hero-eyebrow { justify-content: flex-end; }
+[data-page-layout="beta"] .page-hero-content .hero-eyebrow::before { display: none !important; }
+[data-page-layout="beta"] .page-hero-content .hero-eyebrow::after { display: inline-block !important; width: 36px; height: 1px; background: rgba(255,255,255,.5); content: ''; }
+[data-page-layout="beta"] .page-hero-content h1,
+[data-page-layout="beta"] .page-hero-desc { margin-left: auto; margin-right: 0; }
+[data-page-layout="beta"] .page-hero-overlay { background: linear-gradient(180deg, rgba(7,8,12,.45) 0%, rgba(7,8,12,.65) 100%); }
+@media (min-width: 769px) {
+  [data-page-layout="beta"] .offer-features { grid-template-columns: 1fr 1fr 1fr; gap: 1.6rem; }
+  [data-page-layout="beta"] .offer-feature:last-child:nth-child(odd) { max-width: none; grid-column: auto; }
+}
+
+/* --- gamma (kominki): CENTERED hero, wide image (7/5), taller hero --- */
+[data-page-layout="gamma"] .page-hero { min-height: 80vh; }
+[data-page-layout="gamma"] .page-hero-content { text-align: center; }
+[data-page-layout="gamma"] .page-hero-content .hero-eyebrow { justify-content: center; }
+[data-page-layout="gamma"] .page-hero-content .hero-eyebrow::after { display: inline-block !important; width: 36px; height: 1px; background: rgba(255,255,255,.5); content: ''; }
+[data-page-layout="gamma"] .page-hero-content h1,
+[data-page-layout="gamma"] .page-hero-desc { margin-left: auto; margin-right: auto; }
+@media (min-width: 769px) {
+  [data-page-layout="gamma"] .material-detail { grid-template-columns: 7fr 5fr; gap: clamp(40px,5vw,80px); }
+  [data-page-layout="gamma"] .material-detail-reverse { grid-template-columns: 7fr 5fr; }
+  [data-page-layout="gamma"] .offer-features { grid-template-columns: 1fr 1fr 1fr; }
+  [data-page-layout="gamma"] .offer-feature:last-child:nth-child(odd) { max-width: none; grid-column: auto; }
+  [data-page-layout="gamma"] .material-detail-img { box-shadow: 0 24px 60px -24px rgba(0,0,0,.7); }
+}
+
+/* --- delta (parapety): compact LEFT hero, 4-col features, tighter sections --- */
+[data-page-layout="delta"] .page-hero { min-height: 56vh; }
+[data-page-layout="delta"] .page-hero-content { text-align: left; padding-bottom: 60px; padding-top: 130px; }
+[data-page-layout="delta"] .page-hero-content h1 { font-size: clamp(2.2rem,4.4vw,3.6rem); }
+@media (min-width: 769px) {
+  [data-page-layout="delta"] .offer-features { grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1.2rem; }
+  [data-page-layout="delta"] .offer-feature { padding: 1.1rem 1rem; font-size: .92rem; flex-direction: column; gap: .8rem; }
+  [data-page-layout="delta"] .offer-feature:last-child:nth-child(odd) { max-width: none; grid-column: auto; }
+  [data-page-layout="delta"] .material-detail { gap: clamp(20px,3vw,40px); }
+}
+
+/* --- epsilon (posadzki): CENTERED hero, force image-on-right pattern, 3-col features --- */
+[data-page-layout="epsilon"] .page-hero-content { text-align: center; }
+[data-page-layout="epsilon"] .page-hero-content .hero-eyebrow { justify-content: center; }
+[data-page-layout="epsilon"] .page-hero-content .hero-eyebrow::after { display: inline-block !important; width: 36px; height: 1px; background: rgba(255,255,255,.5); content: ''; }
+[data-page-layout="epsilon"] .page-hero-content h1,
+[data-page-layout="epsilon"] .page-hero-desc { margin-left: auto; margin-right: auto; }
+@media (min-width: 769px) {
+  [data-page-layout="epsilon"] .material-detail:not(.material-detail-reverse) { direction: rtl; }
+  [data-page-layout="epsilon"] .material-detail:not(.material-detail-reverse) > * { direction: ltr; }
+  [data-page-layout="epsilon"] .offer-features { grid-template-columns: 1fr 1fr 1fr; gap: 1.6rem; }
+  [data-page-layout="epsilon"] .offer-feature:last-child:nth-child(odd) { max-width: none; grid-column: auto; }
+}
+
+/* --- zeta (sciany): RIGHT hero, 6/6 materials with extra inline image breathing --- */
+[data-page-layout="zeta"] .page-hero-content { text-align: right; }
+[data-page-layout="zeta"] .page-hero-content .hero-eyebrow { justify-content: flex-end; }
+[data-page-layout="zeta"] .page-hero-content .hero-eyebrow::before { display: none !important; }
+[data-page-layout="zeta"] .page-hero-content .hero-eyebrow::after { display: inline-block !important; width: 36px; height: 1px; background: rgba(255,255,255,.5); content: ''; }
+[data-page-layout="zeta"] .page-hero-content h1,
+[data-page-layout="zeta"] .page-hero-desc { margin-left: auto; margin-right: 0; }
+@media (min-width: 769px) {
+  [data-page-layout="zeta"] .material-detail { gap: clamp(50px,6vw,100px); }
+  [data-page-layout="zeta"] .offer-features { grid-template-columns: 1fr 1fr 1fr; }
+  [data-page-layout="zeta"] .offer-feature:last-child:nth-child(odd) { max-width: none; grid-column: auto; }
+  [data-page-layout="zeta"] .material-detail-text-img { margin: 3.4rem 0 .8rem; }
+}
+
+/* --- eta (zlewy): LEFT hero, 4-col features, extra-roomy sections --- */
+[data-page-layout="eta"] .page-hero-content { text-align: left; }
+@media (min-width: 769px) {
+  [data-page-layout="eta"] .material-detail { gap: clamp(50px,6vw,90px); grid-template-columns: 5fr 7fr; }
+  [data-page-layout="eta"] .material-detail-reverse { grid-template-columns: 5fr 7fr; }
+  [data-page-layout="eta"] .offer-features { grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1.4rem; }
+  [data-page-layout="eta"] .offer-feature { padding: 1.2rem 1rem; font-size: .95rem; flex-direction: column; gap: .9rem; }
+  [data-page-layout="eta"] .offer-feature:last-child:nth-child(odd) { max-width: none; grid-column: auto; }
+  [data-page-layout="eta"] .section { padding-top: clamp(120px, 14vw, 200px); padding-bottom: clamp(120px, 14vw, 200px); }
+}
+
+/* --- common: tighten the inline figure border on right-aligned variants --- */
+[data-page-layout="beta"] .material-detail-text-img,
+[data-page-layout="zeta"] .material-detail-text-img { border-color: rgba(255,255,255,.08); }
