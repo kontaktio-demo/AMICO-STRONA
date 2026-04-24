@@ -10,10 +10,12 @@
   transform: scale(.85) translateY(0);
 }
 .reveal.reveal-blur {
-  /* Text-only blur removed for readability — keep just the gentle rise. */
+  /* Blur only during the entry animation — final state is fully crisp. */
+  filter: blur(8px);
   transform: translateY(15px);
 }
 .reveal.reveal-blur.visible {
+  filter: blur(0);
   transform: translateY(0);
 }
 
@@ -21,10 +23,12 @@
   from {
     opacity: 0;
     transform: translateY(30px);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
 
@@ -347,10 +351,12 @@
   from {
     opacity: 0;
     transform: translateY(20px);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
 
@@ -434,10 +440,12 @@
   from {
     opacity: 0;
     transform: translateY(25px) scale(.98);
+    filter: blur(3px);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
 
@@ -533,4 +541,37 @@
   .reveal.reveal-soft { transition: none !important; opacity: 1; transform: none; }
   [data-parallax] { transform: none !important; transition: none !important; }
   .service-tile .service-tile-bg { transition: none !important; transform: none !important; }
+}
+
+/* ─── Post-animation crispness guarantee ─────────────────────────────────
+   Reveals can use a small filter:blur during entry, but once the element is
+   .visible / settled, force filter:none and crisp text rendering so the
+   final state is razor-sharp ("giga wyrazny"). */
+.reveal.visible,
+.reveal.reveal-blur.visible {
+  /* Ensure no residual blur lingers after the entry animation completes. */
+  filter: none;
+}
+.reveal.visible h1,
+.reveal.visible h2,
+.reveal.visible h3,
+.reveal.visible h4,
+.reveal.visible h5,
+.reveal.visible h6,
+.reveal.visible p,
+.reveal.visible span,
+.reveal.visible a,
+.reveal.visible li,
+.reveal.visible strong,
+.reveal.visible em,
+[data-marble-theme] .section-header.reveal.visible h2,
+[data-marble-theme] .page-hero-content .hero-eyebrow,
+[data-marble-theme] .page-hero-content h1,
+[data-marble-theme] .page-hero-desc,
+.page-hero-content .hero-eyebrow,
+.page-hero-content h1,
+.page-hero-desc {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
