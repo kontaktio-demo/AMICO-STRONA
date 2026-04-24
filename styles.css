@@ -3349,7 +3349,6 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 .contact-detail-text a:hover { color: #fff; border-bottom: 1px solid var(--text); }
 .contact-form-wrap { background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius-md); }
 .contact-form-wrap:hover { border-color: var(--border); }
-.recaptcha-error { color: #ff7a7a; }
 .contact-consent input { accent-color: var(--text); }
 
 .kontaktio-launcher {

@@ -10,7 +10,7 @@
     return Math.max(min, Math.min(max, val));
   }
   function initEnhancedReveal() {
-    var selectors = [ ".reveal-left", ".reveal-right", ".reveal-scale", ".reveal-blur", ".section-header" ];
+    var selectors = [ ".reveal-left", ".reveal-right", ".reveal-scale", ".reveal-blur", ".reveal-soft", ".section-header" ];
     var enhancedElements = document.querySelectorAll(selectors.join(","));
     if (!enhancedElements.length) return;
     var observer = new IntersectionObserver(function(entries) {
@@ -134,6 +134,48 @@
       });
     });
   }
+  function initParallaxImages() {
+    if (prefersReduce) return;
+    var els = document.querySelectorAll("[data-parallax]");
+    if (!els.length) return;
+    var items = [];
+    els.forEach(function(el) {
+      var speed = parseFloat(el.getAttribute("data-parallax")) || .15;
+      items.push({ el: el, speed: speed });
+    });
+    var ticking = false;
+    function update() {
+      var winH = window.innerHeight;
+      items.forEach(function(it) {
+        var rect = it.el.getBoundingClientRect();
+        if (rect.bottom < -100 || rect.top > winH + 100) return;
+        var center = rect.top + rect.height / 2;
+        var offset = (center - winH / 2) * it.speed * -1;
+        it.el.style.transform = "translate3d(0," + offset.toFixed(2) + "px,0)";
+      });
+      ticking = false;
+    }
+    window.addEventListener("scroll", function() {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    update();
+  }
+  function initTileInView() {
+    var tiles = document.querySelectorAll(".service-tile");
+    if (!tiles.length) return;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        }
+      });
+    }, { threshold: .25 });
+    tiles.forEach(function(t) { observer.observe(t); });
+  }
   function boot() {
     initEnhancedReveal();
     initTiltCards();
@@ -142,6 +184,8 @@
     initParallaxDividers();
     initScrollProgress();
     initSmoothScroll();
+    initParallaxImages();
+    initTileInView();
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);

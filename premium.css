@@ -503,26 +503,6 @@ body:not(.preloading) .hero-premium .hero-stagger,
 }
 .pf-note a { color: var(--gold-soft); border-bottom: 1px solid rgba(229,231,235,.3); }
 .pf-note a:hover { color: var(--gold); border-bottom-color: var(--gold); }
-.pf-recaptcha {
-  margin-top: 6px;
-  display: flex;
-  justify-content: flex-start;
-}
-.pf-recaptcha .g-recaptcha {
-  transform-origin: 0 0;
-}
-.pf-recaptcha-error {
-  display: none;
-  color: #ff7a7a;
-  font-size: .82rem;
-  margin-top: -2px;
-}
-.pf-recaptcha-error.show { display: block; }
-@media(max-width: 360px) {
-  .pf-recaptcha .g-recaptcha {
-    transform: scale(.86);
-  }
-}
 
 @media(max-width: 900px) {
   .form-split { grid-template-columns: 1fr; gap: 40px; }

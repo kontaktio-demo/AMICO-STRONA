@@ -254,15 +254,6 @@ function initForm() {
       showError(emailEl, "Wpisz poprawny adres e-mail.");
       hasError = true;
     }
-    var recaptchaError = document.getElementById("recaptchaError");
-    if (recaptchaError) recaptchaError.classList.remove("show");
-    if (typeof grecaptcha !== "undefined") {
-      var response = grecaptcha.getResponse();
-      if (!response) {
-        if (recaptchaError) recaptchaError.classList.add("show");
-        hasError = true;
-      }
-    }
     if (hasError) return;
     btn.textContent = "Wysyłanie...";
     btn.disabled = true;
@@ -277,10 +268,6 @@ function initForm() {
         continue;
       }
       data.append(el.name, el.value);
-    }
-    if (typeof grecaptcha !== "undefined") {
-      var token = grecaptcha.getResponse();
-      if (token) data.append("g-recaptcha-response", token);
     }
     if (uploadedFiles && uploadedFiles.length) {
       for (var f = 0; f < uploadedFiles.length; f++) {
@@ -306,7 +293,6 @@ function initForm() {
           btn.style.color = "";
           form.reset();
           clearFileUpload();
-          if (typeof grecaptcha !== "undefined") grecaptcha.reset();
         }, 4e3);
       } else {
         btn.textContent = "Błąd wysyłki — spróbuj ponownie";

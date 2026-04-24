@@ -58,7 +58,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../wow-animations.css">
-  <script src="https://www.google.com/recaptcha/api.js?hl=pl" async defer></script>
   <style>
     .contact-section {
       padding: clamp(60px, 8vw, 120px) 0;
@@ -389,33 +388,9 @@
       animation: fileSlideIn .3s ease;
     }
 
-    /* ── reCAPTCHA ── */
-    .recaptcha-wrap {
-      display: flex;
-      justify-content: center;
-      margin: 4px 0;
-    }
-    .recaptcha-wrap .g-recaptcha {
-      transform-origin: center;
-    }
-    .recaptcha-error {
-      font-size: .75rem;
-      color: #ef4444;
-      text-align: center;
-      margin-top: 4px;
-      display: none;
-    }
-    .recaptcha-error.show {
-      display: block;
-    }
-
     @media (max-width: 768px) {
       .contact-grid { grid-template-columns: 1fr; }
       .contact-form-row { grid-template-columns: 1fr; }
-      .recaptcha-wrap .g-recaptcha {
-        transform: scale(.84);
-        transform-origin: center;
-      }
     }
   </style>
 </head>
@@ -559,14 +534,6 @@
             <input type="checkbox" name="consent">
             <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celach marketingowych</span>
           </label>
-          
-          <div class="recaptcha-wrap">
-            <div class="g-recaptcha"
-              data-sitekey="6LeQxcIsAAAAAL3VPZKS1InFam1XSLCj4HD7ElAg"
-              data-theme="dark">
-            </div>
-          </div>
-          <div class="recaptcha-error" id="recaptchaError" role="alert">Potwierdź, że nie jesteś robotem.</div>
 
           <button type="submit" class="btn btn-primary btn-full" style="border-radius:8px">Wyślij</button>
         </form>
