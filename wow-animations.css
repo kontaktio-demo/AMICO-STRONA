@@ -501,3 +501,42 @@
     filter: none;
   }
 }
+
+/* ── Subtle stagger for grid reveals (uses --i index) ── */
+.reveal[style*="--i"] {
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+
+/* ── Soft fade+rise reveal variant (gentler than reveal-blur) ── */
+.reveal.reveal-soft {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .9s cubic-bezier(.2,.7,.2,1),
+              transform .9s cubic-bezier(.2,.7,.2,1);
+  will-change: transform, opacity;
+}
+.reveal.reveal-soft.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Scroll-linked image parallax for elements with data-parallax ── */
+[data-parallax] {
+  will-change: transform;
+  transition: transform .05s linear;
+}
+
+/* Service tile inner bg: gentle zoom-in once tile enters viewport */
+.service-tile .service-tile-bg {
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter .6s ease;
+}
+.service-tile.in-view .service-tile-bg {
+  transform: scale(var(--tile-scale, 1.06));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal[style*="--i"] { transition-delay: 0s !important; }
+  .reveal.reveal-soft { transition: none !important; opacity: 1; transform: none; }
+  [data-parallax] { transform: none !important; transition: none !important; }
+  .service-tile .service-tile-bg { transition: none !important; transform: none !important; }
+}
