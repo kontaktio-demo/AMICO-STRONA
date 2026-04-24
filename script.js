@@ -36,7 +36,7 @@ function initNav() {
   if (!nav) return;
   var ticking = false;
   var update = function() {
-    nav.classList.toggle("scrolled", window.scrollY > 20);
+    nav.classList.toggle("scrolled", window.scrollY > 80);
     ticking = false;
   };
   window.addEventListener("scroll", function() {

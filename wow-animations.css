@@ -10,23 +10,21 @@
   transform: scale(.85) translateY(0);
 }
 .reveal.reveal-blur {
-  filter: blur(8px);
+  /* Text-only blur removed for readability — keep just the gentle rise. */
   transform: translateY(15px);
 }
 .reveal.reveal-blur.visible {
-  filter: blur(0);
+  transform: translateY(0);
 }
 
 @keyframes heroFadeSlideUp {
   from {
     opacity: 0;
     transform: translateY(30px);
-    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
@@ -349,12 +347,10 @@
   from {
     opacity: 0;
     transform: translateY(20px);
-    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
@@ -438,12 +434,10 @@
   from {
     opacity: 0;
     transform: translateY(25px) scale(.98);
-    filter: blur(3px);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-    filter: blur(0);
   }
 }
 
