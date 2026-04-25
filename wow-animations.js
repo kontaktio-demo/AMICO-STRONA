@@ -142,12 +142,12 @@
     var items = [];
     els.forEach(function(el) {
       var speed = parseFloat(el.getAttribute("data-parallax")) || .15;
-      // Clamp speed so mobile never feels juddery.
+
       if (!isDesktop) speed = Math.min(speed, .12);
       items.push({ el: el, speed: speed, current: 0, target: 0, visible: false });
     });
     var running = false;
-    var SMOOTH = isDesktop ? .14 : .22; // higher = snappier; lower = silkier
+    var SMOOTH = isDesktop ? .14 : .22;
     function compute() {
       winH = window.innerHeight;
       items.forEach(function(it) {
@@ -193,7 +193,7 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
     compute();
-    // Snap to initial target so first frame isn't a big jump.
+
     items.forEach(function(it) {
       it.current = it.target;
       if (it.visible) {
@@ -214,12 +214,11 @@
     tiles.forEach(function(t) { observer.observe(t); });
   }
   function initImageFadeIn() {
-    // Smooth blur-up + fade-in for every <img>: avoids the harsh pop-in once
-    // the network/disk delivers the file, on every device.
+
     var imgs = document.querySelectorAll("img");
     if (!imgs.length) return;
     imgs.forEach(function(img) {
-      // Skip tiny inline icons / SVG logos that should appear instantly.
+
       if (img.hasAttribute("data-no-fade")) return;
       var src = img.getAttribute("src") || "";
       if (/\.svg(\?|$)/i.test(src)) return;
@@ -228,8 +227,7 @@
         img.classList.add("img-loaded");
       };
       if (img.complete && img.naturalWidth > 0) {
-        // Already cached — reveal next frame so the transition still plays
-        // gracefully even on hard refresh.
+
         requestAnimationFrame(markLoaded);
       } else {
         img.addEventListener("load", markLoaded, { once: true });
@@ -238,8 +236,7 @@
     });
   }
   function initGroupStagger() {
-    // Auto-assign --i index to siblings inside common grid containers so the
-    // stagger from wow-animations.css ".reveal[style*='--i']" applies.
+
     var groupSelectors = [
       ".feature-cards", ".why-cards", ".offer-features",
       ".gallery-grid", ".corobimy-grid", ".materials-grid",
@@ -251,8 +248,7 @@
         var i = 0;
         Array.prototype.forEach.call(group.children, function(child) {
           if (child.classList && child.classList.contains("reveal")) {
-            // Don't override if author already set --i (match --i: but not
-            // other custom props like --icon-size).
+
             if (!/(?:^|;)\s*--i\s*:/.test(child.getAttribute("style") || "")) {
               child.style.setProperty("--i", i);
             }
@@ -263,7 +259,7 @@
     });
   }
   function initHeroKenBurns() {
-    // Subtle slow zoom on the active hero slide for a cinematic feel.
+
     var slides = document.querySelectorAll(".hero-slide");
     if (!slides.length) return;
     slides.forEach(function(s) { s.classList.add("ken-burns"); });

@@ -1,5 +1,3 @@
-
-
 .reveal.reveal-left {
   transform: translateX(-40px) translateY(0);
 }
@@ -10,7 +8,7 @@
   transform: scale(.85) translateY(0);
 }
 .reveal.reveal-blur {
-  /* Blur only during the entry animation — final state is fully crisp. */
+
   filter: blur(8px);
   transform: translateY(15px);
 }
@@ -504,12 +502,10 @@
   }
 }
 
-/* ── Subtle stagger for grid reveals (uses --i index) ── */
 .reveal[style*="--i"] {
   transition-delay: calc(var(--i, 0) * 90ms);
 }
 
-/* ── Soft fade+rise reveal variant (gentler than reveal-blur) ── */
 .reveal.reveal-soft {
   opacity: 0;
   transform: translateY(28px);
@@ -522,13 +518,11 @@
   transform: none;
 }
 
-/* ── Scroll-linked image parallax for elements with data-parallax ── */
 [data-parallax] {
   will-change: transform;
   transition: transform .05s linear;
 }
 
-/* Service tile inner bg: gentle zoom-in once tile enters viewport */
 .service-tile .service-tile-bg {
   transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter .6s ease;
 }
@@ -543,13 +537,9 @@
   .service-tile .service-tile-bg { transition: none !important; transform: none !important; }
 }
 
-/* ─── Post-animation crispness guarantee ─────────────────────────────────
-   Reveals can use a small filter:blur during entry, but once the element is
-   .visible / settled, force filter:none and crisp text rendering so the
-   final state is razor-sharp ("giga wyrazny"). */
 .reveal.visible,
 .reveal.reveal-blur.visible {
-  /* Ensure no residual blur lingers after the entry animation completes. */
+
   filter: none;
 }
 .reveal.visible h1,
@@ -576,11 +566,6 @@
   text-rendering: optimizeLegibility;
 }
 
-/* ──────────────────────────────────────────────────────────────────────
-   Smooth image loading (blur-up + fade-in once decoded)
-   Applied via wow-animations.js → adds .img-fade then .img-loaded.
-   Prevents harsh pop-in on slow connections / first paint.
-   ────────────────────────────────────────────────────────────────────── */
 img.img-fade {
   opacity: 0;
   filter: blur(12px);
@@ -590,7 +575,7 @@ img.img-fade {
     filter  .9s cubic-bezier(.2,.7,.2,1),
     transform 1s cubic-bezier(.2,.7,.2,1);
   will-change: opacity, filter, transform;
-  /* Hint the browser to start work as soon as it can. */
+
   backface-visibility: hidden;
 }
 img.img-fade.img-loaded {
@@ -608,10 +593,6 @@ img.img-fade.img-loaded {
   }
 }
 
-/* ──────────────────────────────────────────────────────────────────────
-   Hero slider — subtle Ken Burns on the active slide for cinematic feel.
-   Pseudo-element ::after holds the bg image; we animate its transform.
-   ────────────────────────────────────────────────────────────────────── */
 .hero-slide.ken-burns::after,
 .hero-slide.ken-burns::before {
   transform: scale(1);
@@ -640,10 +621,6 @@ img.img-fade.img-loaded {
   }
 }
 
-/* ──────────────────────────────────────────────────────────────────────
-   Smoother default transitions — refine the existing reveal curve so
-   sections feel organic and "premium" on all devices.
-   ────────────────────────────────────────────────────────────────────── */
 .lazy-section {
   transition:
     opacity .9s cubic-bezier(.2,.7,.2,1),
@@ -658,8 +635,6 @@ img.img-fade.img-loaded {
   .lazy-section { filter: none !important; }
 }
 
-/* Soften and slightly lengthen the carousel slide transition for a
-   silkier feel when paging through realizacje/inspiracje. */
 .carousel-track {
   transition: transform .55s cubic-bezier(.2,.7,.2,1) !important;
 }

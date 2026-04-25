@@ -378,7 +378,7 @@ p  { margin-bottom:0; }
     padding: 14px clamp(16px,5vw,60px);
     z-index: 1100;
   }
-  /* Detailed mobile drawer styling lives in the polish layer further below */
+
 }
 
 @media(max-width:480px){
@@ -1690,11 +1690,6 @@ a.inspiration-slide {
   transform: scale(1.02);
 }
 
-/* Image stack variant: when the left column contains multiple images stacked
-   vertically, drop the wrapping card styling so each picture/figure becomes
-   its own framed item. The stack stretches to match the height of the text
-   column so the three images distribute evenly along the section instead of
-   leaving a large empty area below a single top-aligned image. */
 .material-detail:has(.material-detail-img-stack) {
   align-items: stretch;
 }
@@ -2090,11 +2085,7 @@ a.inspiration-slide {
 }
 
 .offer-features {
-  /* Flex + wrap + center keeps the last row symmetrically centered no matter
-     how many items are present (e.g. 5 items in a 4-col layout no longer leave
-     the orphan tile pinned to the left). Per-layout overrides tweak --cols
-     and --col-gap; flex-basis is derived from those so every tile keeps the
-     intended column width. */
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -2119,7 +2110,7 @@ a.inspiration-slide {
   transition: background .35s ease, border-color .35s ease, transform .35s var(--ease), box-shadow .35s ease;
   counter-increment: feature;
   position: relative;
-  flex: 0 1 calc((100% - (var(--cols) - 1) * var(--col-gap)) / var(--cols)); /* (container - total horizontal gap) / number of columns */
+  flex: 0 1 calc((100% - (var(--cols) - 1) * var(--col-gap)) / var(--cols));
   min-width: 0;
   box-sizing: border-box;
 }
@@ -2910,16 +2901,11 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
   position: relative;
   min-height: 100vh;
   display: flex;
-  /* Use the `safe` keyword so that when the hero content is taller than
-     the available space (e.g. when the H1 wraps onto extra lines on
-     narrower / shorter viewports) the browser falls back to start
-     alignment instead of pushing the eyebrow above the section and
-     clipping it via `overflow: hidden`. */
+
   align-items: safe flex-end;
   overflow: hidden;
   background: var(--bg);
-  /* Reserve safe space for the fixed navigation so the hero content
-     can never slide underneath it on shorter / landscape viewports. */
+
   padding-top: clamp(96px, 12vh, 140px);
 }
 .hero-single-bg {
@@ -2964,8 +2950,7 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 }
 .hero-single-title {
   font-family: var(--font-display);
-  /* Use min(vw, vh) so the title stays in proportion on short/landscape
-     viewports and never overflows past the navigation bar. */
+
   font-size: clamp(2.4rem, min(6vw, 9vh), 5rem);
   font-weight: 600;
   line-height: 1.04;
@@ -3530,25 +3515,14 @@ h2 { font-weight: 600; letter-spacing: -.028em; }
 .service-tile .service-tile-overlay,
 .service-tile .service-tile-arrow { transition: transform .25s ease, opacity .25s ease, background-color .25s ease, color .25s ease; }
 
-/* ═══════════════════════════════════════════════════════════════════════
-   POLISH PASS — animations, responsive refinement & mobile nav backdrop
-   (single unified layer, applies to every page that loads styles.css)
-   ═══════════════════════════════════════════════════════════════════════ */
-
-/* ─── Smoother global motion baseline ─── */
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; scroll-padding-top: 0; } }
 
-/* Premium easing tokens shared across all pages */
 :root {
   --ease-soft:    cubic-bezier(.22, 1, .36, 1);
   --ease-elegant: cubic-bezier(.4, 0, .2, 1);
 }
 
-/* ─── Navigation: always-visible glass backdrop (fixes "nav nie widać") ───
-   The bar is fixed and overlays photo-rich heroes on every page.
-   We give it a subtle gradient veil at rest so the links are always legible,
-   then intensify the blur + opacity once the user scrolls. */
 .nav {
   background: linear-gradient(180deg, rgba(7,8,12,.55) 0%, rgba(7,8,12,.25) 60%, rgba(7,8,12,0) 100%) !important;
   backdrop-filter: blur(6px) saturate(120%);
@@ -3565,7 +3539,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   box-shadow: 0 8px 32px -16px rgba(0,0,0,.55);
 }
 
-/* Hamburger touch target (≥44px recommended by WCAG) */
 .hamburger {
   width: 44px; height: 44px;
   align-items: center; justify-content: center;
@@ -3575,10 +3548,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 .hamburger:hover, .hamburger:focus-visible { background: rgba(255,255,255,.06); outline: none; }
 .hamburger span { width: 22px; }
 
-/* ─── Mobile menu polish — full-screen drawer with all subpages, scrollable
-   (inspired by mww mobile pattern: drops below the header bar, dark sheet,
-    full-width left-aligned items with hairline dividers, scrollable list,
-    contact CTA pinned at the bottom) ─── */
 @media (max-width: 900px) {
   .nav {
     background: linear-gradient(180deg, rgba(7,8,12,.78) 0%, rgba(7,8,12,.55) 100%) !important;
@@ -3587,16 +3556,16 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
     border-bottom: 1px solid rgba(255,255,255,.06);
   }
   .nav.scrolled { background: rgba(7,8,12,.94) !important; }
-  /* Solidify the nav bar while the menu is open so it sits cleanly on top */
+
   body.menu-open .nav {
     background: rgba(7,8,12,.98) !important;
     border-bottom-color: rgba(255,255,255,.08);
   }
 
   .nav-links {
-    /* Drop the drawer right below the nav bar and cover the rest of the screen */
+
     position: fixed;
-    top: 64px; /* matches scrolled nav height; the gap is fully covered by the nav bg */
+    top: 64px;
     left: 0; right: 0; bottom: 0;
     width: 100vw;
     height: calc(100vh - 64px);
@@ -3604,14 +3573,14 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
     background: #07080c !important;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    /* Stack contents in a single readable column */
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     gap: 0;
     padding: 14px 26px calc(28px + env(safe-area-inset-bottom, 0px));
-    /* Smooth slide-in from the right + scrollable content area */
+
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
@@ -3628,7 +3597,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
     transition: transform .5s var(--ease-soft), opacity .25s ease, visibility 0s linear 0s;
   }
 
-  /* Each link becomes a full-width row with a hairline divider, left-aligned */
   .nav-links .nav-link {
     width: 100%;
     max-width: none;
@@ -3654,7 +3622,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   .nav-links.open .nav-link:nth-child(7) { transition-delay: .44s; }
   .nav-links .nav-link.active { color: #fff; }
 
-  /* Optional sub-section heading that JS injects (e.g. "Oferta") */
   .nav-mobile-section {
     margin-top: 14px;
     padding: 8px 4px 6px;
@@ -3670,7 +3637,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   }
   .nav-links.open .nav-mobile-section { opacity: 1; transform: translateY(0); }
 
-  /* Contact CTA injected at the very bottom of the drawer */
   .nav-mobile-cta {
     margin-top: auto;
     padding-top: 22px;
@@ -3701,7 +3667,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   }
   .nav-mobile-cta a.is-primary svg { opacity: 1; }
 
-  /* Hide nav-mobile-* on desktop view (set on dynamically added nodes by JS) */
 }
 @media (min-width: 901px) {
   .nav-mobile-section,
@@ -3709,23 +3674,19 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   .nav-link-sub { display: none !important; }
 }
 
-/* Lock body scroll when mobile menu is open */
 body.menu-open { overflow: hidden !important; }
 
-/* ─── Refined hover/touch micro-interactions (smoother eases) ─── */
 .btn { transition: background .3s var(--ease-elegant), color .3s var(--ease-elegant), border-color .3s var(--ease-elegant), transform .3s var(--ease-soft), box-shadow .35s var(--ease-elegant); }
 .btn:active { transform: translateY(1px) scale(.985); transition-duration: .12s; }
 
 a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-card, .carousel-card { -webkit-tap-highlight-color: transparent; }
 
-/* Touch feedback for tiles and gallery items on mobile devices */
 @media (hover: none) {
   .service-tile:active { transform: scale(.99); transition: transform .15s var(--ease-elegant); }
   .gallery-preview-item:active img { transform: scale(1.03); transition: transform .25s var(--ease-elegant); }
   .btn:active { opacity: .85; }
 }
 
-/* ─── Smoother service-tile + gallery animations ─── */
 .service-tile { transition: transform .55s var(--ease-soft), box-shadow .55s var(--ease-elegant); }
 .service-tile-bg { transition: transform 1.4s var(--ease-soft), filter .8s var(--ease-elegant) !important; }
 .service-tile-overlay { transition: opacity .55s var(--ease-elegant), background .55s var(--ease-elegant); }
@@ -3734,18 +3695,11 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
 
 .gallery-preview-item img { transition: transform 1.4s var(--ease-soft), filter .6s var(--ease-elegant) !important; }
 
-/* Reveal animation polish */
 .reveal { transition: opacity .65s var(--ease-soft), transform .85s var(--ease-soft), filter .85s var(--ease-soft); }
 
-/* Map: cursor + smoother veil transition */
 .premium-map { cursor: pointer; }
 .premium-map iframe { transition: filter .8s var(--ease-elegant); }
 
-/* ═══════════════════════════════════════════════════════════════════════
-   RESPONSIVE — every breakpoint, mobile-first centering
-   ═══════════════════════════════════════════════════════════════════════ */
-
-/* XL desktops & 4K monitors */
 @media (min-width: 1600px) {
   :root { --container: 1480px; }
   h1 { font-size: clamp(3.4rem, 5.6vw, 6.4rem); }
@@ -3756,20 +3710,17 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
   :root { --container: 1640px; }
 }
 
-/* Medium laptops + small desktops */
 @media (max-width: 1280px) {
   .services-grid--four { grid-template-columns: repeat(2, 1fr); }
   .gallery-preview { column-count: 3; }
 }
 
-/* Small laptops + landscape tablets */
 @media (max-width: 1100px) {
   .container { padding: 0 24px; }
   h1 { font-size: clamp(2.4rem, 6.4vw, 4.6rem); }
   h2 { font-size: clamp(1.85rem, 4.2vw, 2.8rem); }
 }
 
-/* Tablets (portrait) */
 @media (max-width: 900px) {
   .section { padding: clamp(72px, 11vw, 120px) clamp(20px, 5vw, 60px); }
   .hero-single-content,
@@ -3796,7 +3747,6 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
   }
 }
 
-/* Small tablets / large phones */
 @media (max-width: 768px) {
   h1 { font-size: clamp(2rem, 8vw, 3.2rem); line-height: 1.08; }
   h2 { font-size: clamp(1.6rem, 6vw, 2.3rem); }
@@ -3810,7 +3760,6 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
   .footer-bottom-inner { flex-direction: column; gap: 10px; text-align: center; }
 }
 
-/* Phones */
 @media (max-width: 600px) {
   .container { padding: 0 18px; }
   .section { padding: clamp(56px, 14vw, 88px) 18px; }
@@ -3825,7 +3774,6 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
   .pf-note { text-align: center; max-width: none; }
 }
 
-/* Small phones */
 @media (max-width: 480px) {
   .container { padding: 0 14px; }
   .section { padding: 56px 14px; }
@@ -3839,7 +3787,6 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
   .nav-links .nav-link { font-size: 1rem; letter-spacing: .2em; }
 }
 
-/* Tiny phones (e.g. iPhone SE 1st gen, 320px) */
 @media (max-width: 380px) {
   .container { padding: 0 12px; }
   h1 { font-size: 1.7rem; }
@@ -3849,7 +3796,6 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
   .logo-img { height: 30px !important; }
 }
 
-/* Landscape phones — keep hero usable */
 @media (max-height: 480px) and (orientation: landscape) {
   .hero-single,
   .hero-premium { min-height: 100svh; }
@@ -3857,7 +3803,6 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
   .hero-scroll-cue { display: none; }
 }
 
-/* ─── Anti-source-view UX (visual deterrents only) ─── */
 .no-select,
 .service-tile-bg,
 .gallery-preview-item img,
@@ -3870,19 +3815,10 @@ a, button, .nav-link, .service-tile, .gallery-preview-item, .feature-card, .why-
 }
 img { -webkit-user-drag: none; user-select: none; }
 
-/* ─── Print: hide noisy interactive bits ─── */
 @media print {
   .nav, .hamburger, .preloader, #preloader, .kontaktio-launcher, .scroll-progress, .premium-map { display: none !important; }
 }
 
-/* ═══════════════════════════════════════════════════════════════════════
-   PER-PAGE LAYOUT VARIANTS for /oferta/* subpages
-   Each service subpage gets a [data-page-layout] modifier so the seven
-   pages don't feel like one shared template. Variants tweak hero
-   alignment, material-detail proportions/order, dividers and feature grid.
-   ═══════════════════════════════════════════════════════════════════════ */
-
-/* --- alpha (blaty-kuchenne): default LEFT hero, asymmetric materials (5/7) --- */
 [data-page-layout="alpha"] .page-hero-content { text-align: left; }
 @media (min-width: 769px) {
   [data-page-layout="alpha"] .material-detail { grid-template-columns: 5fr 7fr; }
@@ -3891,7 +3827,6 @@ img { -webkit-user-drag: none; user-select: none; }
   [data-page-layout="alpha"] .offer-feature { padding: 1.2rem 1rem; font-size: .95rem; flex-direction: column; gap: .9rem; }
 }
 
-/* --- beta (blaty-lazienkowe): hero RIGHT-aligned, 3-col features --- */
 [data-page-layout="beta"] .page-hero-content { text-align: right; }
 [data-page-layout="beta"] .page-hero-content .hero-eyebrow { justify-content: flex-end; }
 [data-page-layout="beta"] .page-hero-content .hero-eyebrow::before { display: none !important; }
@@ -3903,7 +3838,6 @@ img { -webkit-user-drag: none; user-select: none; }
   [data-page-layout="beta"] .offer-features { --cols: 3; --col-gap: 1.6rem; gap: 1.6rem; }
 }
 
-/* --- gamma (kominki): CENTERED hero, wide image (7/5), taller hero --- */
 [data-page-layout="gamma"] .page-hero { min-height: 80vh; }
 [data-page-layout="gamma"] .page-hero-content { text-align: center; }
 [data-page-layout="gamma"] .page-hero-content .hero-eyebrow { justify-content: center; }
@@ -3917,7 +3851,6 @@ img { -webkit-user-drag: none; user-select: none; }
   [data-page-layout="gamma"] .material-detail-img { box-shadow: 0 24px 60px -24px rgba(0,0,0,.7); }
 }
 
-/* --- delta (parapety): compact LEFT hero, 4-col features, tighter sections --- */
 [data-page-layout="delta"] .page-hero { min-height: 56vh; }
 [data-page-layout="delta"] .page-hero-content { text-align: left; padding-bottom: 60px; padding-top: 130px; }
 [data-page-layout="delta"] .page-hero-content h1 { font-size: clamp(2.2rem,4.4vw,3.6rem); }
@@ -3927,7 +3860,6 @@ img { -webkit-user-drag: none; user-select: none; }
   [data-page-layout="delta"] .material-detail { gap: clamp(20px,3vw,40px); }
 }
 
-/* --- epsilon (posadzki): CENTERED hero, force image-on-right pattern, 3-col features --- */
 [data-page-layout="epsilon"] .page-hero-content { text-align: center; }
 [data-page-layout="epsilon"] .page-hero-content .hero-eyebrow { justify-content: center; }
 [data-page-layout="epsilon"] .page-hero-content .hero-eyebrow::after { display: inline-block !important; width: 36px; height: 1px; background: rgba(255,255,255,.5); content: ''; }
@@ -3939,7 +3871,6 @@ img { -webkit-user-drag: none; user-select: none; }
   [data-page-layout="epsilon"] .offer-features { --cols: 3; --col-gap: 1.6rem; gap: 1.6rem; }
 }
 
-/* --- zeta (sciany): RIGHT hero, 6/6 materials with extra inline image breathing --- */
 [data-page-layout="zeta"] .page-hero-content { text-align: right; }
 [data-page-layout="zeta"] .page-hero-content .hero-eyebrow { justify-content: flex-end; }
 [data-page-layout="zeta"] .page-hero-content .hero-eyebrow::before { display: none !important; }
@@ -3952,7 +3883,6 @@ img { -webkit-user-drag: none; user-select: none; }
   [data-page-layout="zeta"] .material-detail-text-img { margin: 3.4rem 0 .8rem; }
 }
 
-/* --- eta (zlewy): LEFT hero, 4-col features, extra-roomy sections --- */
 [data-page-layout="eta"] .page-hero-content { text-align: left; }
 @media (min-width: 769px) {
   [data-page-layout="eta"] .material-detail { gap: clamp(50px,6vw,90px); grid-template-columns: 5fr 7fr; }
@@ -3962,6 +3892,5 @@ img { -webkit-user-drag: none; user-select: none; }
   [data-page-layout="eta"] .section { padding-top: clamp(120px, 14vw, 200px); padding-bottom: clamp(120px, 14vw, 200px); }
 }
 
-/* --- common: tighten the inline figure border on right-aligned variants --- */
 [data-page-layout="beta"] .material-detail-text-img,
 [data-page-layout="zeta"] .material-detail-text-img { border-color: rgba(255,255,255,.08); }

@@ -53,11 +53,8 @@ function initHamburger() {
   var navLinks = document.getElementById("navLinks");
   if (!hamburger || !navLinks) return;
 
-  // Inject mobile-only contact CTA + sub-page shortcuts so the drawer feels
-  // complete on phones (matches the "all subpages, scrollable" UX we want).
-  // Desktop hides these via CSS (@media min-width:901px).
   if (!navLinks.querySelector(".nav-mobile-cta")) {
-    // Compute path prefix to root so the injected links work from sub-folders.
+
     var prefix = "";
     var firstLink = navLinks.querySelector("a");
     if (firstLink) {
@@ -287,7 +284,7 @@ function initForm() {
           form.reset();
         }, 4e3);
       } else {
-        btn.textContent = "Błąd wysyłki — spróbuj ponownie";
+        btn.textContent = "Błąd wysyłki - spróbuj ponownie";
         btn.style.background = "#ef4444";
         btn.style.borderColor = "#ef4444";
         btn.style.color = "#fff";
@@ -300,7 +297,7 @@ function initForm() {
         }, 4e3);
       }
     }).catch(function() {
-      btn.textContent = "Błąd wysyłki — spróbuj ponownie";
+      btn.textContent = "Błąd wysyłki - spróbuj ponownie";
       btn.style.background = "#ef4444";
       btn.style.borderColor = "#ef4444";
       btn.style.color = "#fff";
