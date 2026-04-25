@@ -85,7 +85,7 @@
       if (!ok) return;
       if (btn) {
         btn.disabled = true;
-        btn.textContent = "Wysyłanie…";
+        btn.textContent = "Wysyłanie...";
       }
       var data = new FormData(form);
       fetch("https://api.web3forms.com/submit", {
@@ -95,10 +95,10 @@
         return r.json().catch(function() { return { success: r.ok }; });
       }).then(function(res) {
         if (res && res.success) {
-          if (btn) btn.textContent = "Dziękujemy — odezwiemy się";
+          if (btn) btn.textContent = "Dziękujemy - odezwiemy się";
           form.reset();
         } else {
-          if (btn) btn.textContent = "Błąd wysyłki — spróbuj ponownie";
+          if (btn) btn.textContent = "Błąd wysyłki - spróbuj ponownie";
         }
         setTimeout(function() {
           if (btn) {
@@ -107,7 +107,7 @@
           }
         }, 3200);
       }).catch(function() {
-        if (btn) btn.textContent = "Błąd wysyłki — spróbuj ponownie";
+        if (btn) btn.textContent = "Błąd wysyłki - spróbuj ponownie";
         setTimeout(function() {
           if (btn) {
             btn.disabled = false;
